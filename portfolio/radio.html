@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio | S J</title>
+  <link rel="icon" href="../assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .radio-page {
+      background-color: #2b2b2b;
+      padding: 180px 0 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .radio-title {
+      font-size: 85px;
+      font-weight: 800;
+      color: #555555;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .radio-heading {
+      font-size: 30px;
+      font-weight: 800;
+      color: #957b5f;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .radio-image {
+      width: 100%;
+      display: block;
+      margin-bottom: 0;
+    }
+
+    /* Container for text + image rows (960px max) */
+    .radio-content-row {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 30px;
+      margin-bottom: 30px;
+    }
+
+    /* Fullwidth audio rows (no max-width, edge to edge within gutters1) */
+    .audio-row-full {
+      display: grid;
+      gap: 0;
+      width: 100%;
+      margin-bottom: 80px;
+    }
+    .audio-row-full.cols-5 { grid-template-columns: repeat(5, 1fr); }
+    .audio-row-full.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .audio-row-full.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .audio-row-full.cols-1 { grid-template-columns: 1fr; }
+
+    /* Divi-style audio module: copper background, white text */
+    .divi-audio {
+      background-color: #957b5f;
+      padding: 30px 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100px;
+    }
+
+    .divi-audio h3 {
+      font-size: 25px;
+      font-weight: 800;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .divi-audio audio {
+      width: 100%;
+      height: 36px;
+    }
+
+    /* Custom audio player styling to match copper theme */
+    .divi-audio audio::-webkit-media-controls-panel {
+      background-color: rgba(0,0,0,0.15);
+      border-radius: 0;
+    }
+    .divi-audio audio::-webkit-media-controls-play-button {
+      filter: brightness(2);
+    }
+    .divi-audio audio::-webkit-media-controls-current-time-display,
+    .divi-audio audio::-webkit-media-controls-time-remaining-display {
+      color: #fff;
+    }
+
+    @media (max-width: 980px) {
+      .radio-title { font-size: 60px; }
+      .audio-row-full.cols-5 { grid-template-columns: repeat(3, 1fr); }
+      .divi-audio h3 { font-size: 20px; }
+      .divi-audio { padding: 20px; }
+    }
+    @media (max-width: 767px) {
+      .radio-page { padding: 140px 0 0; }
+      .radio-title { font-size: 25px; letter-spacing: 2px; }
+      .radio-heading { font-size: 22px; }
+      .audio-row-full.cols-5,
+      .audio-row-full.cols-3,
+      .audio-row-full.cols-2 { grid-template-columns: 1fr; }
+      .divi-audio h3 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header scrolled">
+    <div class="header-inner">
+      <div class="logo"><a href="../index.html"><img src="../assets/images/Logo-SJ-Homepage-fett.png" alt="SJ Logo"></a></div>
+      <nav class="main-nav">
+        <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        <ul><li><a href="../portfolio.html" class="active">Portfolio</a></li><li><a href="../about.html">About</a></li></ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="radio-page">
+
+    <!-- RADIO Title -->
+    <div class="radio-content-row">
+      <h1 class="radio-title">Radio</h1>
+    </div>
+
+    <!-- Weekly Series Radio -->
+    <div class="radio-content-row">
+      <h2 class="radio-heading">Weekly Series Radio</h2>
+      <img src="../assets/images/radio/podcast-7876792_640.jpg" alt="Podcast" class="radio-image">
+    </div>
+
+    <div class="audio-row-full cols-5">
+      <div class="divi-audio">
+        <h3>Teil 1</h3>
+        <audio controls preload="metadata"><source src="../assets/audio/Making-of-Radio-Teil-1-This-Fritschi-Shayna.mp3" type="audio/mpeg"></audio>
+      </div>
+      <div class="divi-audio">
+        <h3>Teil 2</h3>
+        <audio controls preload="metadata"><source src="../assets/audio/Making-of-Radio-Teil-2-Annina-Hartmann-Shayna.mp3" type="audio/mpeg"></audio>
+      </div>
+      <div class="divi-audio">
+        <h3>Teil 3</h3>
+        <audio controls preload="metadata"><source src="../assets/audio/Making-of-Radio-Teil-3-Armena-Kuechler-Shayna.mp3" type="audio/mpeg"></audio>
+      </div>
+      <div class="divi-audio">
+        <h3>Teil 4</h3>
+        <audio controls preload="metadata"><source src="../assets/audio/Making-of-Radio-Teil-4-Andrea-Sabadi-Shayna.mp3" type="audio/mpeg"></audio>
+      </div>
+      <div class="divi-audio">
+        <h3>Teil 5</h3>
+        <audio controls preload="metadata"><source src="../assets/audio/Making-of-Radio-Teil-5-Stefan-Naegeli-Shayna.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+
+    <!-- Music Story of the Day -->
+    <div class="radio-content-row">
+      <h2 class="radio-heading">Music Story of the Day</h2>
+      <img src="../assets/images/radio/tape-6824489_640.jpg" alt="Tape" class="radio-image">
+    </div>
+
+    <div class="audio-row-full cols-1">
+      <div class="divi-audio">
+        <h3>Eric Bazilian</h3>
+        <audio controls preload="metadata"><source src="../assets/audio/MGT-Eric-Bazilian-Shayna.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+
+    <!-- Radio Poll -->
+    <div class="radio-content-row">
+      <h2 class="radio-heading">Radio Poll</h2>
+      <img src="../assets/images/radio/radio-777219_640.jpg" alt="Radio" class="radio-image">
+    </div>
+
+    <div class="audio-row-full cols-3">
+      <div class="divi-audio">
+        <h3>Umfrage Hitze</h3>
+        <audio controls preload="metadata"><source src="../assets/audio/Umfrage-Hitze-Shayna.mp3" type="audio/mpeg"></audio>
+      </div>
+      <div class="divi-audio">
+        <h3>Umfrage Hitze Mann</h3>
+        <audio controls preload="metadata"><source src="../assets/audio/Umfrage-Hitze-Mann-einzel-Shayna.mp3" type="audio/mpeg"></audio>
+      </div>
+      <div class="divi-audio">
+        <h3>Umfrage Ausziehen</h3>
+        <audio controls preload="metadata"><source src="../assets/audio/Umfrage-Auszihen-Shayna.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+
+    <!-- News Posts -->
+    <div class="radio-content-row">
+      <h2 class="radio-heading">News Posts</h2>
+      <img src="../assets/images/radio/radio-1682531_640.jpg" alt="Radio" class="radio-image">
+    </div>
+
+    <div class="audio-row-full cols-2">
+      <div class="divi-audio">
+        <h3>Beitrag Brienz</h3>
+        <audio controls preload="metadata"><source src="../assets/audio/Beitrag-Brienz-Shayna.mp3" type="audio/mpeg"></audio>
+      </div>
+      <div class="divi-audio">
+        <h3>Beitrag Wildschutzgebiete</h3>
+        <audio controls preload="metadata"><source src="../assets/audio/Beitrag-Wildschutzgebiete-Shayna.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="site-footer"><div class="container"><p>-- Shayna Jucker | <a href="mailto:jucker.shayna@gmail.com">jucker.shayna@gmail.com</a> --</p></div></footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>
