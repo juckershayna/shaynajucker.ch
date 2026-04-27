@@ -63,49 +63,75 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // === Gallery Slider ===
-  const slider = document.getElementById('gallerySlider');
-  const prevBtn = document.getElementById('galleryPrev');
-  const nextBtn = document.getElementById('galleryNext');
+  // === YouTube Click-to-Play (privacy-enhanced, no branding) ===
+  document.querySelectorAll('.video-thumbnail[data-yt]').forEach(function (thumb) {
+    thumb.addEventListener('click', function () {
+      const id = thumb.getAttribute('data-yt');
+      if (!id) return;
+      const params = 'autoplay=1&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=1&playsinline=1&color=white';
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?' + params;
+      iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('frameborder', '0');
+      thumb.innerHTML = '';
+      thumb.appendChild(iframe);
+      thumb.classList.add('playing');
+    });
+  });
 
-  if (slider && prevBtn && nextBtn) {
-    let currentSlide = 0;
-    const slides = slider.querySelectorAll('.gallery-slide');
-    const totalSlides = slides.length;
+  // === Gallery Marquee (supports multiple) ===
+  document.querySelectorAll('.gallery-slider').forEach(initGalleryMarquee);
 
-    function goToSlide(index) {
-      if (index < 0) index = totalSlides - 1;
-      if (index >= totalSlides) index = 0;
-      currentSlide = index;
-      slider.scrollTo({
-        left: slides[currentSlide].offsetLeft,
-        behavior: 'smooth'
-      });
+  function initGalleryMarquee(slider) {
+    const viewport = slider.parentElement;
+    const originals = Array.from(slider.children);
+    originals.forEach(node => slider.appendChild(node.cloneNode(true)));
+
+    let paused = false;
+    let lastTs = performance.now();
+    const speed = 40;
+
+    const halfWidth = () => slider.scrollWidth / 2;
+
+    const seed = () => {
+      viewport.scrollLeft = halfWidth() / 2;
+    };
+
+    if (document.readyState === 'complete') {
+      seed();
+    } else {
+      window.addEventListener('load', seed);
     }
 
-    prevBtn.addEventListener('click', function () {
-      goToSlide(currentSlide - 1);
+    slider.addEventListener('mouseenter', () => { paused = true; });
+    slider.addEventListener('mouseleave', () => { paused = false; lastTs = performance.now(); });
+
+    slider.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        viewport.scrollLeft += e.deltaY;
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    viewport.addEventListener('scroll', () => {
+      const half = halfWidth();
+      if (viewport.scrollLeft > half) {
+        viewport.scrollLeft -= half;
+      } else if (viewport.scrollLeft <= 0) {
+        viewport.scrollLeft = half;
+      }
     });
 
-    nextBtn.addEventListener('click', function () {
-      goToSlide(currentSlide + 1);
-    });
-
-    // Auto-advance every 5 seconds
-    let autoSlide = setInterval(function () {
-      goToSlide(currentSlide + 1);
-    }, 5000);
-
-    // Pause auto-advance on hover
-    slider.addEventListener('mouseenter', function () {
-      clearInterval(autoSlide);
-    });
-
-    slider.addEventListener('mouseleave', function () {
-      autoSlide = setInterval(function () {
-        goToSlide(currentSlide + 1);
-      }, 5000);
-    });
+    function tick(ts) {
+      const dt = (ts - lastTs) / 1000;
+      lastTs = ts;
+      if (!paused) {
+        viewport.scrollLeft += speed * dt;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
   }
 
 });
