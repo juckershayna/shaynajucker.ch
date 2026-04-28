@@ -1362,6 +1362,153 @@ ul, ol {
   line-height: 1;
 }
 
+/* === MOTIVATION LETTER (Bewerbung page) === */
+.motivation-lead {
+  font-size: 20px;
+  font-weight: 500;
+  color: #f1f1f1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.4em;
+  margin-bottom: 40px;
+}
+
+.motivation-lead strong {
+  color: #957b5f;
+  font-weight: 500;
+}
+
+.motivation-body {
+  margin-left: 25%;
+}
+
+.motivation-body p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #f1f1f1;
+  line-height: 1.7em;
+  margin-bottom: 18px;
+}
+
+.motivation-body p:last-child {
+  margin-bottom: 0;
+}
+
+.motivation-body strong {
+  color: #957b5f;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  .motivation-body {
+    margin-left: 0;
+  }
+}
+
+/* === SKILLS BLOCKS (Bewerbung page) === */
+.skills-block {
+  max-width: 600px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.skills-block:last-child {
+  margin-bottom: 0;
+}
+
+.skills-category {
+  font-size: 20px;
+  font-weight: 800;
+  color: #f1f1f1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2em;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.skill-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 12px 20px;
+  margin-bottom: 14px;
+  border: 2px solid #957b5f;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: default;
+  overflow: hidden;
+  transition: background-color 300ms ease, border-color 300ms ease;
+}
+
+.skill-item:last-child {
+  margin-bottom: 0;
+}
+
+.skill-item span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #957b5f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.3em;
+  text-align: center;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.skill-item::after {
+  content: attr(data-level);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f1f1f1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 300ms ease, transform 300ms ease;
+  padding: 12px 20px;
+  text-align: center;
+}
+
+.skill-item:hover {
+  background-color: #957b5f;
+  border-color: #957b5f;
+}
+
+.skill-item:hover span {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.skill-item:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Certificates action wrapper */
+.certificates-actions {
+  margin-top: 10px;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .skills-block {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .skills-category {
+    font-size: 18px;
+  }
+}
+
 /* === RESPONSIVE PORTFOLIO SUBPAGES === */
 @media (max-width: 980px) {
   .portfolio-subpage .page-title {
