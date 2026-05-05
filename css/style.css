@@ -676,7 +676,7 @@ ul, ol {
   position: relative;
 }
 
-.timeline-details p:has(strong)::before {
+.timeline-details p.has-dot::before {
   content: '';
   position: absolute;
   left: -25px;
@@ -870,7 +870,7 @@ ul, ol {
   }
 
   .logo img {
-    height: 100px;
+    height: 80px;
   }
 
   .main-nav ul {
@@ -880,7 +880,7 @@ ul, ol {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: rgba(43, 43, 43, 0.95);
+    background-color: rgba(43, 43, 43, 0.97);
     padding: 20px 30px;
     gap: 15px;
   }
@@ -899,20 +899,30 @@ ul, ol {
   }
 
   .hero-name {
-    font-size: 25px;
+    font-size: 28px;
     letter-spacing: 2px;
   }
 
   .hero-subtitle {
-    font-size: 15px;
+    font-size: 13px;
+    letter-spacing: 1px;
   }
 
   .hero-section {
-    min-height: 500px;
+    min-height: 100svh;
+  }
+
+  .hero-content {
+    padding: 0 20px 40px;
   }
 
   .quote-section {
-    padding: 60px 0;
+    padding: 50px 0;
+  }
+
+  .quote-text {
+    font-size: 22px;
+    padding-left: 20px;
   }
 
   .service-item,
@@ -928,27 +938,56 @@ ul, ol {
     flex: 0 0 100%;
   }
 
-  .service-content h2,
-  .quote-text {
-    font-size: 26px;
+  .service-content h2 {
+    font-size: 22px;
   }
 
   .portfolio-item a {
-    font-size: 25px;
+    font-size: 22px;
     letter-spacing: 2px;
     padding: 0 10px;
   }
 
   .portfolio-item {
-    margin-bottom: 40px;
+    margin-bottom: 35px;
   }
 
   .about-intro {
-    padding: 150px 0 60px;
+    padding: 120px 0 50px;
+  }
+
+  .about-intro-inner {
+    gap: 30px;
+  }
+
+  .about-name {
+    font-size: 32px;
+  }
+
+  .about-role {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .section-heading {
+    font-size: 32px;
+  }
+
+  .section-subheading {
+    font-size: 15px;
+    margin-bottom: 25px;
   }
 
   .brand-section {
     padding: 50px 0;
+  }
+
+  .brand-name {
+    font-size: 32px;
+  }
+
+  .brand-subtitle {
+    font-size: 14px;
   }
 
   .social-icons {
@@ -957,6 +996,15 @@ ul, ol {
 
   .about-social {
     gap: 25px;
+  }
+
+  .interests-section {
+    padding: 50px 0 80px;
+  }
+
+  .container,
+  .container-wide {
+    padding: 0 20px;
   }
 }
 
