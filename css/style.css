@@ -647,16 +647,41 @@ ul, ol {
   margin-bottom: 30px;
 }
 
+/* Timeline: row-based layout so left & right always align perfectly */
 .timeline {
   display: flex;
-  gap: 0;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Continuous vertical centre line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 0.5px;
+  background-color: #f1f1f1;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* Each paired entry */
+.timeline-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.timeline-row:last-child {
+  margin-bottom: 0;
 }
 
 .timeline-dates {
   flex: 0 0 50%;
   text-align: right;
   padding-right: 20px;
-  border-right: 0.5px solid #f1f1f1;
 }
 
 .timeline-details {
@@ -669,13 +694,14 @@ ul, ol {
   font-size: 15px;
   color: #f1f1f1;
   line-height: 1.7em;
-  margin-bottom: 5px;
+  margin-bottom: 0;
 }
 
 .timeline-details p {
   position: relative;
 }
 
+/* Dot sits exactly on the centre line */
 .timeline-details p.has-dot::before {
   content: '';
   position: absolute;
@@ -686,11 +712,6 @@ ul, ol {
   height: 10px;
   border-radius: 50%;
   background-color: #957b5f;
-}
-
-.timeline-dates p:nth-child(3n+1):not(:first-child),
-.timeline-details p:nth-child(3n+1):not(:first-child) {
-  margin-top: 22px;
 }
 
 .timeline-details p strong {
@@ -1028,7 +1049,7 @@ ul, ol {
     margin-bottom: 22px;
   }
 
-  /* --- Timeline (always shown, same layout as desktop, scaled down) --- */
+  /* --- Timeline (row-based, scales down cleanly) --- */
   .timeline-image {
     display: none;
   }
@@ -1037,31 +1058,30 @@ ul, ol {
     display: flex;
   }
 
+  .timeline-row {
+    margin-bottom: 14px;
+  }
+
   .timeline-dates {
-    padding-right: 12px;
+    padding-right: 10px;
   }
 
   .timeline-details {
-    padding-left: 12px;
+    padding-left: 10px;
   }
 
   .timeline-dates p,
   .timeline-details p {
     font-size: 11px;
     line-height: 1.55em;
-    margin-bottom: 2px;
+    margin-bottom: 0;
   }
 
   .timeline-details p.has-dot::before {
-    left: -17px;
+    left: -15px;
     width: 8px;
     height: 8px;
     top: 0.8em;
-  }
-
-  .timeline-dates p:nth-child(3n+1):not(:first-child),
-  .timeline-details p:nth-child(3n+1):not(:first-child) {
-    margin-top: 14px;
   }
 
   /* --- Gallery --- */
@@ -1144,22 +1164,26 @@ ul, ol {
     font-size: 26px;
   }
 
-  .timeline-dates p,
-  .timeline-details p {
-    font-size: 10px;
-    line-height: 1.5em;
+  .timeline-row {
+    margin-bottom: 11px;
   }
 
   .timeline-dates {
-    padding-right: 10px;
+    padding-right: 8px;
   }
 
   .timeline-details {
-    padding-left: 10px;
+    padding-left: 8px;
+  }
+
+  .timeline-dates p,
+  .timeline-details p {
+    font-size: 10px;
+    line-height: 1.45em;
   }
 
   .timeline-details p.has-dot::before {
-    left: -15px;
+    left: -13px;
     width: 7px;
     height: 7px;
   }
