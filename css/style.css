@@ -846,12 +846,13 @@ ul, ol {
     flex: 0 0 100%;
   }
 
+  /* Always hide static image, always show real timeline */
   .timeline-image {
-    display: block;
+    display: none;
   }
 
   .timeline {
-    display: none;
+    display: flex;
   }
 
   .interests-spacer {
@@ -865,12 +866,14 @@ ul, ol {
 
 /* Phone */
 @media (max-width: 767px) {
+
+  /* --- Header --- */
   .site-header {
-    padding: 15px 0 0;
+    padding: 12px 0 0;
   }
 
   .logo img {
-    height: 80px;
+    height: 72px;
   }
 
   .main-nav ul {
@@ -881,8 +884,9 @@ ul, ol {
     left: 0;
     right: 0;
     background-color: rgba(43, 43, 43, 0.97);
-    padding: 20px 30px;
+    padding: 20px 20px;
     gap: 15px;
+    z-index: 999;
   }
 
   .main-nav ul.open {
@@ -891,40 +895,50 @@ ul, ol {
 
   .main-nav a {
     color: #f1f1f1;
-    font-size: 15px;
+    font-size: 14px;
+    letter-spacing: 2px;
   }
 
   .menu-toggle {
     display: block;
   }
 
-  .hero-name {
-    font-size: 28px;
-    letter-spacing: 2px;
+  .container,
+  .container-wide {
+    padding: 0 18px;
   }
 
-  .hero-subtitle {
-    font-size: 13px;
-    letter-spacing: 1px;
-  }
-
+  /* --- Hero (Homepage) --- */
   .hero-section {
     min-height: 100svh;
   }
 
   .hero-content {
-    padding: 0 20px 40px;
+    padding: 0 18px 36px;
   }
 
+  .hero-name {
+    font-size: 30px;
+    letter-spacing: 2px;
+  }
+
+  .hero-subtitle {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* --- Quote --- */
   .quote-section {
     padding: 50px 0;
   }
 
   .quote-text {
-    font-size: 22px;
-    padding-left: 20px;
+    font-size: 20px;
+    padding-left: 18px;
+    letter-spacing: 1px;
   }
 
+  /* --- Services (kept for safety, currently removed from HTML) --- */
   .service-item,
   .service-item.align-right {
     flex-direction: column;
@@ -942,69 +956,212 @@ ul, ol {
     font-size: 22px;
   }
 
+  /* --- Portfolio page --- */
+  .portfolio-section {
+    padding: 140px 0 60px;
+  }
+
   .portfolio-item a {
     font-size: 22px;
     letter-spacing: 2px;
-    padding: 0 10px;
+    padding: 0;
   }
 
   .portfolio-item {
-    margin-bottom: 35px;
+    margin-bottom: 30px;
   }
 
+  /* --- About intro --- */
   .about-intro {
-    padding: 120px 0 50px;
+    padding: 110px 0 50px;
   }
 
   .about-intro-inner {
-    gap: 30px;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .about-photo,
+  .about-info {
+    flex: 0 0 100%;
   }
 
   .about-name {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .about-role {
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 1px;
   }
 
+  .about-location {
+    font-size: 14px;
+  }
+
+  .about-description {
+    font-size: 14px;
+  }
+
+  .about-social {
+    gap: 24px;
+    margin-top: 22px;
+  }
+
+  .about-social a {
+    font-size: 26px;
+  }
+
+  /* --- Experience / Education headings --- */
+  .experience-section {
+    padding: 50px 0;
+  }
+
   .section-heading {
-    font-size: 32px;
+    font-size: 28px;
+    letter-spacing: 1px;
   }
 
   .section-subheading {
-    font-size: 15px;
-    margin-bottom: 25px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
   }
 
+  /* --- Timeline (always shown, same layout as desktop, scaled down) --- */
+  .timeline-image {
+    display: none;
+  }
+
+  .timeline {
+    display: flex;
+  }
+
+  .timeline-dates {
+    padding-right: 12px;
+  }
+
+  .timeline-details {
+    padding-left: 12px;
+  }
+
+  .timeline-dates p,
+  .timeline-details p {
+    font-size: 11px;
+    line-height: 1.55em;
+    margin-bottom: 2px;
+  }
+
+  .timeline-details p.has-dot::before {
+    left: -17px;
+    width: 8px;
+    height: 8px;
+    top: 0.8em;
+  }
+
+  .timeline-dates p:nth-child(3n+1):not(:first-child),
+  .timeline-details p:nth-child(3n+1):not(:first-child) {
+    margin-top: 14px;
+  }
+
+  /* --- Gallery --- */
+  .gallery-section {
+    padding: 50px 0;
+  }
+
+  .gallery-slide,
+  .gallery-slide img {
+    height: 260px;
+  }
+
+  /* --- Interests --- */
+  .interests-section {
+    padding: 50px 0 70px;
+  }
+
+  .interests-text p {
+    font-size: 14px;
+  }
+
+  /* --- Brand / pre-footer --- */
   .brand-section {
     padding: 50px 0;
   }
 
   .brand-name {
-    font-size: 32px;
+    font-size: 28px;
+    letter-spacing: 1px;
   }
 
   .brand-subtitle {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .brand-tagline {
     font-size: 14px;
   }
 
   .social-icons {
-    gap: 20px;
+    gap: 18px;
+    margin-top: 22px;
   }
 
-  .about-social {
-    gap: 25px;
+  .social-icons a {
+    font-size: 26px;
   }
 
-  .interests-section {
-    padding: 50px 0 80px;
+  /* --- Footer --- */
+  .site-footer {
+    padding: 30px 0;
   }
 
-  .container,
-  .container-wide {
-    padding: 0 20px;
+  .site-footer p {
+    font-size: 13px;
+  }
+
+  /* --- Back to top --- */
+  .back-to-top {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+    bottom: 20px;
+    right: 18px;
+  }
+}
+
+/* Extra small phones (≤ 390px) */
+@media (max-width: 390px) {
+  .hero-name {
+    font-size: 26px;
+  }
+
+  .section-heading {
+    font-size: 24px;
+  }
+
+  .about-name {
+    font-size: 26px;
+  }
+
+  .timeline-dates p,
+  .timeline-details p {
+    font-size: 10px;
+    line-height: 1.5em;
+  }
+
+  .timeline-dates {
+    padding-right: 10px;
+  }
+
+  .timeline-details {
+    padding-left: 10px;
+  }
+
+  .timeline-details p.has-dot::before {
+    left: -15px;
+    width: 7px;
+    height: 7px;
   }
 }
 
