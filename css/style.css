@@ -1059,29 +1059,29 @@ ul, ol {
   }
 
   .timeline-row {
-    margin-bottom: 14px;
+    margin-bottom: 20px;
   }
 
   .timeline-dates {
-    padding-right: 10px;
+    padding-right: 14px;
   }
 
   .timeline-details {
-    padding-left: 10px;
+    padding-left: 14px;
   }
 
   .timeline-dates p,
   .timeline-details p {
-    font-size: 11px;
-    line-height: 1.55em;
+    font-size: 13px;
+    line-height: 1.65em;
     margin-bottom: 0;
   }
 
   .timeline-details p.has-dot::before {
-    left: -15px;
-    width: 8px;
-    height: 8px;
-    top: 0.8em;
+    left: -19px;
+    width: 9px;
+    height: 9px;
+    top: 0.85em;
   }
 
   /* --- Gallery --- */
@@ -1165,27 +1165,27 @@ ul, ol {
   }
 
   .timeline-row {
-    margin-bottom: 11px;
+    margin-bottom: 16px;
   }
 
   .timeline-dates {
-    padding-right: 8px;
+    padding-right: 11px;
   }
 
   .timeline-details {
-    padding-left: 8px;
+    padding-left: 11px;
   }
 
   .timeline-dates p,
   .timeline-details p {
-    font-size: 10px;
-    line-height: 1.45em;
+    font-size: 12px;
+    line-height: 1.6em;
   }
 
   .timeline-details p.has-dot::before {
-    left: -13px;
-    width: 7px;
-    height: 7px;
+    left: -16px;
+    width: 8px;
+    height: 8px;
   }
 }
 
