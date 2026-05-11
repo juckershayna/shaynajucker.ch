@@ -1222,6 +1222,7 @@ ul, ol {
 
 .blurb-grid.single-col {
   grid-template-columns: 1fr;
+  gap: 24px;
 }
 
 .blurb-card {
