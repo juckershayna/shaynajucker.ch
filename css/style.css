@@ -1226,20 +1226,17 @@ ul, ol {
 
 .blurb-card {
   position: relative;
-  height: 600px;
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
   cursor: pointer;
   display: block;
   color: inherit;
 }
 
-.blurb-card.contain-img {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #2b2b2b;
-  height: 523px;
+/* Full image — never cropped, always responsive */
+.blurb-card > img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .blurb-card .blurb-overlay {
