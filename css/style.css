@@ -1222,7 +1222,6 @@ ul, ol {
 
 .blurb-grid.single-col {
   grid-template-columns: 1fr;
-  gap: 24px;
 }
 
 .blurb-card {
@@ -1267,11 +1266,6 @@ ul, ol {
   opacity: 0;
   transform: translateY(15px);
   transition: opacity 400ms ease, transform 400ms ease;
-  /* Long titles wrap and hyphenate correctly */
-  hyphens: auto;
-  overflow-wrap: break-word;
-  word-break: break-word;
-  max-width: 100%;
 }
 
 .blurb-overlay p {
@@ -1286,9 +1280,6 @@ ul, ol {
   transform: translateY(15px);
   transition: opacity 400ms ease 100ms, transform 400ms ease 100ms;
   margin-top: 2px;
-  hyphens: auto;
-  overflow-wrap: break-word;
-  max-width: 100%;
 }
 
 .blurb-card:hover .blurb-overlay h3,
@@ -1754,18 +1745,6 @@ ul, ol {
     grid-template-columns: 1fr;
   }
 
-  .blurb-grid.single-col {
-    gap: 20px;
-  }
-
-  .blurb-overlay h3 {
-    font-size: 34px;
-  }
-
-  .blurb-overlay p {
-    font-size: 16px;
-  }
-
   .photo-gallery {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1811,18 +1790,8 @@ ul, ol {
     grid-template-columns: 1fr;
   }
 
-  .blurb-overlay h3 {
-    font-size: 28px;
-    letter-spacing: 1px;
-  }
-
-  .blurb-overlay p {
-    font-size: 14px;
-    letter-spacing: 1px;
-  }
-
-  .blurb-grid.single-col {
-    gap: 16px;
+  .blurb-card {
+    height: 400px;
   }
 
   .content-block h2 {
