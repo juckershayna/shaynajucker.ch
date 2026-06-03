@@ -616,7 +616,12 @@ ul, ol {
   font-size: 15px;
   font-weight: 500;
   color: #f1f1f1;
-  line-height: 1.7em;
+  line-height: 1.8em;
+  margin-bottom: 14px;
+}
+
+.about-description:last-of-type {
+  margin-bottom: 0;
 }
 
 .about-social {
