@@ -2091,18 +2091,16 @@ ul, ol {
 .portfolio-sub a {
   font-size: 40px;
   font-weight: 800;
-  color: #957b5f;
+  color: #888;
   text-transform: uppercase;
   letter-spacing: 3px;
   line-height: 1.3em;
   transition: color 300ms ease, letter-spacing 300ms ease;
-  opacity: 0.75;
 }
 
 .portfolio-sub a:hover {
   color: #c6a47e;
   letter-spacing: 4px;
-  opacity: 1;
 }
 
 /* === CASE STUDY PAGE === */
