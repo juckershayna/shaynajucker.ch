@@ -2086,6 +2086,10 @@ ul, ol {
   transform: rotate(180deg);
 }
 
+.portfolio-sub[hidden] {
+  display: none;
+}
+
 .portfolio-sub {
   display: flex;
   flex-direction: column;
