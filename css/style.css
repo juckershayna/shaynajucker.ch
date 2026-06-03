@@ -995,7 +995,7 @@ ul, ol {
 
   /* --- Quote --- */
   .quote-section {
-    padding: 0 0 50px;
+    padding: 0 0 80px;
   }
 
   .quote-text {
@@ -1402,7 +1402,7 @@ ul, ol {
 
 @media (max-width: 767px) {
   .featured-projects-section {
-    padding: 50px 0 100px;
+    padding: 80px 0 100px;
   }
 
   .featured-projects-title {
