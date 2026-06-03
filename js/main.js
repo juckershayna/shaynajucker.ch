@@ -80,6 +80,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // === Portfolio Group Toggle ===
+  document.querySelectorAll('.portfolio-group-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const item = btn.closest('.portfolio-item--group');
+      const sub = item.querySelector('.portfolio-sub');
+      const isOpen = !sub.hidden;
+      sub.hidden = isOpen;
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      item.classList.toggle('open', !isOpen);
+    });
+  });
+
   // === Gallery Marquee (supports multiple) ===
   document.querySelectorAll('.gallery-slider').forEach(initGalleryMarquee);
 
