@@ -187,6 +187,11 @@ window.SJ_LANG = {
       }
     });
 
+    /* Update skill-item hover labels */
+    document.querySelectorAll('[data-level-de][data-level-en]').forEach(function (el) {
+      el.setAttribute('data-level', el.getAttribute('data-level-' + lang));
+    });
+
     /* Update toggle button label */
     var btn = document.getElementById('lang-toggle');
     if (btn) btn.textContent = lang === 'de' ? 'EN' : 'DE';
