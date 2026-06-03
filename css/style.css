@@ -278,7 +278,7 @@ ul, ol {
   background-color: #1e1e1e;
   position: relative;
   z-index: 1;
-  padding: 0 0 120px;
+  padding: 0 0 150px;
 }
 
 .quote-text {
@@ -995,7 +995,7 @@ ul, ol {
 
   /* --- Quote --- */
   .quote-section {
-    padding: 0 0 120px;
+    padding: 0 0 150px;
   }
 
   .quote-text {
@@ -1294,7 +1294,7 @@ ul, ol {
 
 /* === FEATURED PROJECTS (Homepage) === */
 .featured-projects-section {
-  padding: 120px 0 120px;
+  padding: 150px 0 150px;
   background: #1e1e1e;
 }
 
@@ -1402,7 +1402,7 @@ ul, ol {
 
 @media (max-width: 767px) {
   .featured-projects-section {
-    padding: 120px 0 120px;
+    padding: 150px 0 150px;
   }
 
   .featured-projects-title {
