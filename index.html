@@ -28,6 +28,7 @@
           <span></span>
         </button>
         <ul>
+          <li><button class="lang-btn" id="lang-toggle" onclick="SJ_toggleLang()">EN</button></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
@@ -47,7 +48,7 @@
         <span class="reveal-word"><span class="reveal-inner">Brand Experience &amp; Marketing</span></span>
       </p>
       <p class="hero-tagline reveal-mask">
-        <span class="reveal-word"><span class="reveal-inner">Event · Campaigns · Content · Projektmanagement</span></span>
+        <span class="reveal-word"><span class="reveal-inner" data-i18n="index.tagline">Event · Campaigns · Content · Projektmanagement</span></span>
       </p>
     </div>
   </section>
@@ -55,7 +56,12 @@
   <!-- Bio Section -->
   <section class="bio-section">
     <div class="container">
-<a href="portfolio/bachelor.html" class="thesis-link">
+      <p class="bio-text" data-i18n="index.bio">
+        Ich bin Shayna – ich plane und inszeniere Brand Experiences, die Menschen bewegen.
+        Nach 2+ Jahren bei Titbit mit Projekten für Migros suche ich eine strategischere Marketingrolle
+        in Zürich, wo ich Kampagnen, Events und Markenauftritte von A bis Z verantworte.
+      </p>
+      <a href="portfolio/bachelor.html" class="thesis-link" data-i18n="index.thesis">
         Meine Bachelorthesis: Brand Activism &amp; Gen Z – wie Sportmarken Haltung zeigen →
       </a>
     </div>
@@ -84,10 +90,10 @@
         <p class="brand-subtitle">Brand Experience &amp; Marketing</p>
         <p class="brand-name">Shayna Jucker</p>
         <p class="brand-tagline">Made to move minds.</p>
-        <p class="contact-cta">Du suchst jemanden für Brand Experience oder Marketing?</p>
+        <p class="contact-cta" data-i18n="index.contact-cta">Du suchst jemanden für Brand Experience oder Marketing?</p>
         <div class="contact-buttons">
           <a href="https://www.linkedin.com/in/shayna-jucker-214725201/" target="_blank" rel="noopener" class="btn-contact btn-linkedin">LinkedIn</a>
-          <a href="mailto:jucker.shayna@gmail.com" class="btn-contact btn-mail">Schreib mir</a>
+          <a href="mailto:jucker.shayna@gmail.com" class="btn-contact btn-mail" data-i18n="index.btn-mail">Schreib mir</a>
         </div>
         <div class="social-icons">
           <a href="https://www.instagram.com/_shay_____/" target="_blank" rel="noopener" aria-label="Instagram"><span class="fa-instagram"></span></a>
@@ -109,5 +115,6 @@
   <button class="back-to-top" aria-label="Back to top">&#9650;</button>
 
   <script src="js/main.js"></script>
+  <script src="js/lang.js"></script>
 </body>
 </html>

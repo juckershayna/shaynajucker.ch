@@ -89,6 +89,27 @@ ul, ol {
   padding: 0 30px;
 }
 
+/* === LANGUAGE TOGGLE === */
+.lang-btn {
+  background: none;
+  border: 1px solid #957b5f;
+  color: #957b5f;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background-color 300ms ease, color 300ms ease;
+  line-height: 1;
+}
+
+.lang-btn:hover {
+  background-color: #957b5f;
+  color: #f1f1f1;
+}
+
 /* === HEADER === */
 .site-header {
   position: fixed;
@@ -1511,7 +1532,8 @@ ul, ol {
   letter-spacing: 2px;
   line-height: 1.2em;
   text-align: center;
-  margin: 60px 0 30px;
+  margin: 60px 0 20px;
+  padding-top: 20px;
 }
 
 /* === AUDIO PLAYER === */

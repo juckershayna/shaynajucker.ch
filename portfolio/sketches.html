@@ -13,7 +13,7 @@
       <div class="logo"><a href="../index.html"><img src="../assets/images/Logo-SJ-Homepage-fett.png" alt="SJ Logo"></a></div>
       <nav class="main-nav">
         <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-        <ul><li><a href="../portfolio.html" class="active">Portfolio</a></li><li><a href="../about.html">About</a></li></ul>
+        <ul><li><button class="lang-btn" id="lang-toggle" onclick="SJ_toggleLang()">EN</button></li><li><a href="../portfolio.html" class="active">Portfolio</a></li><li><a href="../about.html">About</a></li></ul>
       </nav>
     </div>
   </header>
@@ -21,50 +21,44 @@
   <section class="portfolio-subpage">
     <div class="container-wide">
       <h1 class="page-title">Sketches</h1>
-
-      <div class="photo-gallery cols-3">
-        <img src="../assets/images/sketches/jucker_shayna_mmp21c1_Arbeitsblatt-Thumbnails.png" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/6_Bleistift.png" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Bildschirmfoto-2022-01-0.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Afrikaanderplein_Jucker_Sketch02.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_1762.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Arbeitsblatt-Posing.png" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_1810.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_1772.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Bildschirmfot.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_1791.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Afrikaanderplein_Jucker_Sketch04.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_1775.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_2869.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Afrikaanderplein_Jucker_Sketch03-Kopie.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Sketch-Mobile.png" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_1774.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Sketch-Desktop.png" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Arbeitsblatt-Characterdesign.png" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_1812.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_1779.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_5996.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_1808.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Afrikaanderplein_Jucker_Sketch03.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_1790.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Afrikaanderplein_Jucker_Sketch.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Afrikaanderplein_Jucker_Sketch02-Kopie.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/IMG_1776.jpg" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-        <img src="../assets/images/sketches/Sketches-3.png" alt="Sketch" loading="lazy" onclick="openLightbox(this)">
-      </div>
     </div>
+    <section class="gallery-section">
+      <div class="gallery-slider">
+        <div class="gallery-slide"><img src="../assets/images/sketches/jucker_shayna_mmp21c1_Arbeitsblatt-Thumbnails.png" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/6_Bleistift.png" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Bildschirmfoto-2022-01-0.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Afrikaanderplein_Jucker_Sketch02.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_1762.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Arbeitsblatt-Posing.png" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_1810.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_1772.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Bildschirmfot.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_1791.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Afrikaanderplein_Jucker_Sketch04.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_1775.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_2869.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Afrikaanderplein_Jucker_Sketch03-Kopie.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Sketch-Mobile.png" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_1774.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Sketch-Desktop.png" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Arbeitsblatt-Characterdesign.png" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_1812.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_1779.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_5996.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_1808.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Afrikaanderplein_Jucker_Sketch03.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_1790.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Afrikaanderplein_Jucker_Sketch.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Afrikaanderplein_Jucker_Sketch02-Kopie.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/IMG_1776.jpg" alt="Sketch"></div>
+        <div class="gallery-slide"><img src="../assets/images/sketches/Sketches-3.png" alt="Sketch"></div>
+      </div>
+    </section>
   </section>
 
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <span class="close-btn">&times;</span>
-    <img id="lightboxImg" src="" alt="">
-  </div>
-
   <footer class="site-footer"><div class="container"><p>-- Shayna Jucker | <a href="mailto:jucker.shayna@gmail.com">jucker.shayna@gmail.com</a> --</p></div></footer>
+  <button class="back-to-top" aria-label="Back to top">&#9650;</button>
   <script src="../js/main.js"></script>
-  <script>
-    function openLightbox(el) { document.getElementById('lightbox').classList.add('active'); document.getElementById('lightboxImg').src = el.src; }
-    function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); }
-  </script>
+  <script src="../js/lang.js"></script>
 </body>
 </html>

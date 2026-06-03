@@ -27,6 +27,7 @@
           <span></span>
         </button>
         <ul>
+          <li><button class="lang-btn" id="lang-toggle" onclick="SJ_toggleLang()">EN</button></li>
           <li><a href="portfolio.html" class="active">Portfolio</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
@@ -41,9 +42,10 @@
         <div class="portfolio-item"><a href="portfolio/marketing.html">Brand &amp; Marketing Cases</a></div>
         <div class="portfolio-item"><a href="portfolio/events.html">Events &amp; Shows</a></div>
         <div class="portfolio-item portfolio-item--group">
-          <button class="portfolio-group-toggle" aria-expanded="false">Design &amp; Studium <span class="toggle-arrow">↓</span></button>
+          <button class="portfolio-group-toggle" aria-expanded="false"><span data-i18n="portfolio.design-group">Design &amp; Studium</span> <span class="toggle-arrow">↓</span></button>
           <div class="portfolio-sub" hidden>
             <a href="portfolio/bachelor.html">Bachelor &amp; Thesis</a>
+            <a href="https://humanfaces.ch" target="_blank">Human Faces ↗</a>
             <a href="portfolio/animations.html">Animations &amp; Videos</a>
             <a href="portfolio/webdesign.html">Webdesign</a>
             <a href="portfolio/graphics.html">Graphics &amp; Writings</a>
@@ -52,7 +54,6 @@
             <a href="portfolio/sketches.html">Sketches</a>
             <a href="portfolio/architectures.html">Architectures</a>
             <a href="portfolio/blueprints.html">Blue Prints</a>
-            <a href="https://humanfaces.ch" target="_blank">Human Faces ↗</a>
           </div>
         </div>
       </div>
@@ -69,5 +70,6 @@
   <button class="back-to-top" aria-label="Back to top">&#9650;</button>
 
   <script src="js/main.js"></script>
+  <script src="js/lang.js"></script>
 </body>
 </html>

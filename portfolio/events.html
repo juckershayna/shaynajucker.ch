@@ -13,7 +13,7 @@
       <div class="logo"><a href="../index.html"><img src="../assets/images/Logo-SJ-Homepage-fett.png" alt="SJ Logo"></a></div>
       <nav class="main-nav">
         <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-        <ul><li><a href="../portfolio.html" class="active">Portfolio</a></li><li><a href="../about.html">About</a></li></ul>
+        <ul><li><button class="lang-btn" id="lang-toggle" onclick="SJ_toggleLang()">EN</button></li><li><a href="../portfolio.html" class="active">Portfolio</a></li><li><a href="../about.html">About</a></li></ul>
       </nav>
     </div>
   </header>
@@ -131,5 +131,6 @@
     function openLightbox(el) { document.getElementById('lightbox').classList.add('active'); document.getElementById('lightboxImg').src = el.src; }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); }
   </script>
+  <script src="../js/lang.js"></script>
 </body>
 </html>
