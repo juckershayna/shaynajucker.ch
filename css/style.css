@@ -1235,6 +1235,34 @@ ul, ol {
   gap: 24px;
 }
 
+/* === BIO SECTION (Homepage) === */
+.bio-section {
+  background: #1e1e1e;
+  padding: 80px 0 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.bio-text {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bio-text p {
+  font-size: 17px;
+  font-weight: 400;
+  color: #c8c0b6;
+  line-height: 1.85;
+  margin-bottom: 24px;
+}
+
+.bio-text p:last-child {
+  margin-bottom: 0;
+  font-style: italic;
+  color: #957b5f;
+}
+
 /* === FEATURED PROJECTS (Homepage) === */
 .featured-projects-section {
   padding: 80px 0 60px;

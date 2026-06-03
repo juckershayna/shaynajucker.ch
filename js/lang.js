@@ -8,6 +8,9 @@ window.SJ_LANG = {
     /* --- Index --- */
     'index.tagline':     'Event · Campaigns · Content · Projektmanagement',
     'index.bio':         'Ich bin Shayna – ich plane und inszeniere Brand Experiences, die Menschen bewegen. Nach 2+ Jahren bei Titbit mit Projekten für Migros suche ich eine strategischere Marketingrolle in Zürich, wo ich Kampagnen, Events und Markenauftritte von A bis Z verantworte.',
+    'index.bio-p1':      'Brand- und Event-Profi mit einer Leidenschaft dafür, Erlebnisse zu schaffen, die Menschen mit Marken verbinden. Mit Sitz in Zürich spezialisiere ich mich auf die Leitung grossangelegter Live-Aktivierungen und Markenkampagnen für bedeutende Schweizer Kunden – darunter der Auftritt von Migros an über 10 der ikonischsten Musikfestivals der Schweiz.',
+    'index.bio-p2':      'Mit einem Hintergrund in Multimedia-Produktion, Design und strategischer Kommunikation bringe ich sowohl kreative Vision als auch operative Präzision in jedes Projekt – vom ersten Briefing bis zur finalen Umsetzung. Ich leite funktionsübergreifende Teams, betreue Kundenbeziehungen von A bis Z und übernehme die volle Verantwortung für die Ergebnisse.',
+    'index.bio-p3':      'Getrieben von einer Leidenschaft für Marken, die inspirieren und Menschen bewegen.',
     'index.thesis':      'Meine Bachelorthesis: Brand Activism & Gen Z – wie Sportmarken Haltung zeigen →',
     'index.contact-cta': 'Du suchst jemanden für Brand Experience oder Marketing?',
     'index.btn-mail':    'Schreib mir',
@@ -70,6 +73,9 @@ window.SJ_LANG = {
     /* --- Index --- */
     'index.tagline':     'Events · Campaigns · Content · Project Management',
     'index.bio':         'I\'m Shayna – I plan and stage brand experiences that move people. After 2+ years at Titbit on projects for Migros, I\'m looking for a more strategic marketing role in Zurich, where I can own campaigns, events and brand activations from A to Z.',
+    'index.bio-p1':      'Brand and event professional with a passion for creating experiences that connect people with brands. Based in Zurich, I specialise in managing large-scale live activations and brand campaigns for major Swiss clients – including Migros\' presence at 10+ of Switzerland\'s most iconic music festivals.',
+    'index.bio-p2':      'With a background in multimedia production, design and strategic communication, I bring both creative vision and operational precision to every project – from first briefing to final execution. I lead cross-functional teams, manage client relationships end-to-end and take full ownership of results.',
+    'index.bio-p3':      'Driven by a passion for brands that inspire and move people.',
     'index.thesis':      'My Bachelor Thesis: Brand Activism & Gen Z – how sports brands take a stand →',
     'index.contact-cta': 'Looking for someone in Brand Experience or Marketing?',
     'index.btn-mail':    'Write me',
