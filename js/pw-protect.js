@@ -1,8 +1,5 @@
 (function () {
-  var KEY = 'sj_pw_ok';
   var PW  = '54321';
-
-  if (sessionStorage.getItem(KEY) === '1') return;
 
   var overlay = document.createElement('div');
   overlay.id = 'pw-overlay';
@@ -33,7 +30,6 @@
   function check() {
     var val = document.getElementById('pw-input').value;
     if (val === PW) {
-      sessionStorage.setItem(KEY, '1');
       overlay.remove();
       style.remove();
     } else {
