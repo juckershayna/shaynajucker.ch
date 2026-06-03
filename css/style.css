@@ -645,7 +645,7 @@ ul, ol {
   background-color: #1e1e1e;
   position: relative;
   z-index: 1;
-  padding: 150px 0;
+  padding: 0 0 150px;
 }
 
 .section-heading {
@@ -773,7 +773,7 @@ ul, ol {
   background-color: #1e1e1e;
   position: relative;
   z-index: 1;
-  padding: 150px 0;
+  padding: 0 0 150px;
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
@@ -826,7 +826,7 @@ ul, ol {
   background-color: #1e1e1e;
   position: relative;
   z-index: 1;
-  padding: 150px 0 150px;
+  padding: 0 0 150px;
 }
 
 .interests-content {
