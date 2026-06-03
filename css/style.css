@@ -879,6 +879,11 @@ ul, ol {
     padding: 0 20px;
   }
 
+  .portfolio-item--group .portfolio-group-toggle {
+    font-size: 60px;
+    padding: 0 20px;
+  }
+
   .about-intro-inner {
     flex-direction: column;
   }
@@ -2223,7 +2228,9 @@ ul, ol {
   }
 
   .portfolio-item--group .portfolio-group-toggle {
-    font-size: 40px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    padding: 0;
   }
 
   .portfolio-sub a {
