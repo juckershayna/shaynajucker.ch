@@ -414,7 +414,7 @@ ul, ol {
 
 /* === PRE-FOOTER / BRAND SECTION === */
 .brand-section {
-  background-color: #f1f1f1;
+  background-color: #1e1e1e;
   position: relative;
   z-index: 1;
   padding: 80px 0;
@@ -428,7 +428,7 @@ ul, ol {
 .brand-subtitle {
   font-size: 20px;
   font-weight: 500;
-  color: #2b2b2b;
+  color: #888;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 5px;
@@ -447,7 +447,7 @@ ul, ol {
 .brand-tagline {
   font-size: 15px;
   font-weight: 500;
-  color: #2b2b2b;
+  color: #aaa;
 }
 
 .social-icons {
@@ -490,8 +490,8 @@ ul, ol {
 
 /* === FOOTER === */
 .site-footer {
-  background-color: #f1f1f1;
-  color: #2b2b2b;
+  background-color: #1e1e1e;
+  color: #888;
   padding: 40px 0;
   text-align: center;
   position: relative;
@@ -508,7 +508,7 @@ ul, ol {
 }
 
 .site-footer a {
-  color: #2b2b2b;
+  color: #888;
   transition: color 300ms ease;
 }
 
@@ -1249,7 +1249,7 @@ ul, ol {
 /* === FEATURED PROJECTS (Homepage) === */
 .featured-projects-section {
   padding: 80px 0 60px;
-  background: #fff;
+  background: #1e1e1e;
 }
 
 .featured-projects-title {
@@ -1257,7 +1257,7 @@ ul, ol {
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #aaa;
+  color: #888;
   margin-bottom: 40px;
   text-align: center;
 }
@@ -1273,7 +1273,8 @@ ul, ol {
   flex-direction: column;
   text-decoration: none;
   color: inherit;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #3a3a3a;
+  background: #2b2b2b;
   transition: box-shadow 300ms ease, transform 300ms ease;
 }
 
@@ -1285,7 +1286,7 @@ ul, ol {
 .fp-img-wrap {
   overflow: hidden;
   aspect-ratio: 16/10;
-  background: #f0f0f0;
+  background: #3a3a3a;
 }
 
 .fp-img-wrap img {
@@ -1319,22 +1320,22 @@ ul, ol {
 .fp-title {
   font-size: 20px;
   font-weight: 800;
-  color: #2b2b2b;
+  color: #f1f1f1;
   margin-bottom: 12px;
   line-height: 1.3;
 }
 
 .fp-desc {
   font-size: 14px;
-  font-weight: 500;
-  color: #666;
+  font-weight: 400;
+  color: #aaa;
   line-height: 1.7;
   flex: 1;
   margin-bottom: 20px;
 }
 
 .fp-desc strong {
-  color: #2b2b2b;
+  color: #f1f1f1;
   font-weight: 600;
 }
 
@@ -2000,7 +2001,7 @@ ul, ol {
 .contact-cta {
   font-size: 15px;
   font-weight: 700;
-  color: #2b2b2b;
+  color: #f1f1f1;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-top: 30px;
