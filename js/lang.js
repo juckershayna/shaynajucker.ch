@@ -73,7 +73,7 @@ window.SJ_LANG = {
     /* --- Index --- */
     'index.tagline':     'Events · Campaigns · Content · Project Management',
     'index.bio':         'I\'m Shayna – I plan and stage brand experiences that move people. After 2+ years at Titbit on projects for Migros, I\'m looking for a more strategic marketing role in Zurich, where I can own campaigns, events and brand activations from A to Z.',
-    'index.bio-p1':      'Brand and event professional with a passion for creating experiences that connect people with brands. Based in Zurich, I specialise in managing large-scale live activations and brand campaigns for major Swiss clients – including Migros\' presence at 10+ of Switzerland\'s most iconic music festivals.',
+    'index.bio-p1':      'Brand and Event Manager with a passion for creating experiences that connect people with brands. Based in Zurich, I specialise in managing large-scale live activations and brand campaigns for major Swiss clients – including Migros\' presence at 10+ of Switzerland\'s most iconic music festivals.',
     'index.bio-p2':      'With a background in multimedia production, design and strategic communication, I bring both creative vision and operational precision to every project – from first briefing to final execution. I lead cross-functional teams, manage client relationships end-to-end and take full ownership of results.',
     'index.bio-p3':      'Driven by a passion for brands that inspire and move people.',
     'index.thesis':      'My Bachelor Thesis: Brand Activism & Gen Z – how sports brands take a stand →',
