@@ -538,7 +538,7 @@ ul, ol {
 }
 
 .portfolio-item a {
-  font-size: 85px;
+  font-size: clamp(22px, 7.5vw, 85px);
   font-weight: 800;
   color: #957b5f;
   text-transform: uppercase;
@@ -874,16 +874,6 @@ ul, ol {
     flex: 0 0 80%;
   }
 
-  .portfolio-item a {
-    font-size: 60px;
-    padding: 0 20px;
-  }
-
-  .portfolio-item--group .portfolio-group-toggle {
-    font-size: 60px;
-    padding: 0 20px;
-  }
-
   .about-intro-inner {
     flex-direction: column;
   }
@@ -1006,12 +996,6 @@ ul, ol {
   /* --- Portfolio page --- */
   .portfolio-section {
     padding: 140px 0 60px;
-  }
-
-  .portfolio-item a {
-    font-size: 22px;
-    letter-spacing: 2px;
-    padding: 0;
   }
 
   .portfolio-item {
@@ -2057,7 +2041,7 @@ ul, ol {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 85px;
+  font-size: clamp(22px, 7.5vw, 85px);
   font-weight: 800;
   color: #957b5f;
   text-transform: uppercase;
@@ -2231,11 +2215,6 @@ ul, ol {
     grid-template-columns: 1fr;
   }
 
-  .portfolio-item--group .portfolio-group-toggle {
-    font-size: 22px;
-    letter-spacing: 2px;
-    padding: 0;
-  }
 
   .portfolio-sub a {
     font-size: 26px;
