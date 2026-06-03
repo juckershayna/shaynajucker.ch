@@ -739,6 +739,30 @@ ul, ol {
   font-weight: 700;
 }
 
+.timeline-row--expanded {
+  margin-bottom: 40px;
+}
+
+.timeline-desc {
+  margin-top: 10px !important;
+  opacity: 0.8;
+  font-size: 14px !important;
+  line-height: 1.75em !important;
+}
+
+.timeline-bullets {
+  margin-top: 10px;
+  padding-left: 18px;
+  list-style: disc;
+}
+
+.timeline-bullets li {
+  font-size: 14px;
+  color: #f1f1f1;
+  line-height: 1.75em;
+  opacity: 0.8;
+}
+
 /* Gallery */
 .gallery-section {
   background-color: #1e1e1e;
