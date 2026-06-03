@@ -8,7 +8,7 @@ window.SJ_LANG = {
     /* --- Index --- */
     'index.tagline':     'Event · Campaigns · Content · Projektmanagement',
     'index.bio':         'Ich bin Shayna – ich plane und inszeniere Brand Experiences, die Menschen bewegen. Nach 2+ Jahren bei Titbit mit Projekten für Migros suche ich eine strategischere Marketingrolle in Zürich, wo ich Kampagnen, Events und Markenauftritte von A bis Z verantworte.',
-    'index.bio-p1':      'Brand- und Event-Profi mit einer Leidenschaft dafür, Erlebnisse zu schaffen, die Menschen mit Marken verbinden. Mit Sitz in Zürich spezialisiere ich mich auf die Leitung grossangelegter Live-Aktivierungen und Markenkampagnen für bedeutende Schweizer Kunden – darunter der Auftritt von Migros an über 10 der ikonischsten Musikfestivals der Schweiz.',
+    'index.bio-p1':      'Brand- und Event-Managerin mit einer Leidenschaft dafür, Erlebnisse zu schaffen, die Menschen mit Marken verbinden. Mit Sitz in Zürich spezialisiere ich mich auf die Leitung grossangelegter Live-Aktivierungen und Markenkampagnen für bedeutende Schweizer Kunden – darunter der Auftritt von Migros an über 10 der ikonischsten Musikfestivals der Schweiz.',
     'index.bio-p2':      'Mit einem Hintergrund in Multimedia-Produktion, Design und strategischer Kommunikation bringe ich sowohl kreative Vision als auch operative Präzision in jedes Projekt – vom ersten Briefing bis zur finalen Umsetzung. Ich leite funktionsübergreifende Teams, betreue Kundenbeziehungen von A bis Z und übernehme die volle Verantwortung für die Ergebnisse.',
     'index.bio-p3':      'Getrieben von einer Leidenschaft für Marken, die inspirieren und Menschen bewegen.',
     'index.thesis':      'Meine Bachelorthesis: Brand Activism & Gen Z – wie Sportmarken Haltung zeigen →',
