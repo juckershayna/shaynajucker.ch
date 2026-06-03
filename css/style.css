@@ -417,7 +417,7 @@ ul, ol {
   background-color: #1e1e1e;
   position: relative;
   z-index: 1;
-  padding: 80px 0;
+  padding: 150px 0;
   border-top: 3px solid #957b5f;
 }
 
@@ -519,7 +519,7 @@ ul, ol {
 /* === PORTFOLIO PAGE === */
 .portfolio-section {
   background-color: #1e1e1e;
-  padding: 200px 0 80px;
+  padding: 200px 0 150px;
   position: relative;
   z-index: 1;
   min-height: 100vh;
@@ -562,7 +562,7 @@ ul, ol {
   background-color: #1e1e1e;
   position: relative;
   z-index: 1;
-  padding: 200px 0 80px;
+  padding: 200px 0 150px;
 }
 
 .about-intro-inner {
@@ -645,7 +645,7 @@ ul, ol {
   background-color: #1e1e1e;
   position: relative;
   z-index: 1;
-  padding: 80px 0;
+  padding: 150px 0;
 }
 
 .section-heading {
@@ -773,7 +773,7 @@ ul, ol {
   background-color: #1e1e1e;
   position: relative;
   z-index: 1;
-  padding: 80px 0;
+  padding: 150px 0;
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
@@ -826,7 +826,7 @@ ul, ol {
   background-color: #1e1e1e;
   position: relative;
   z-index: 1;
-  padding: 80px 0 150px;
+  padding: 150px 0 150px;
 }
 
 .interests-content {
@@ -1235,7 +1235,7 @@ ul, ol {
 /* === PORTFOLIO SUBPAGE LAYOUT === */
 .portfolio-subpage {
   background-color: #1e1e1e;
-  padding: 180px 0 80px;
+  padding: 180px 0 150px;
   position: relative;
   z-index: 1;
   min-height: 100vh;
