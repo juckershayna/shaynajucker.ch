@@ -16,7 +16,7 @@ window.SJ_LANG = {
     'index.btn-mail':    'Schreib mir',
 
     /* --- About --- */
-    'about.role':            'Media Engineer',
+    'about.role':            'Brand Experience &amp; Marketing',
     'about.desc':            'Brand- und Event-Managerin mit einer Leidenschaft dafür, Erlebnisse zu schaffen, die Menschen mit Marken verbinden. Mit Sitz in Zürich spezialisiere ich mich auf die Leitung grossangelegter Live-Aktivierungen und Markenkampagnen für bedeutende Schweizer Kunden – darunter der Auftritt von Migros an über 10 der ikonischsten Musikfestivals der Schweiz.',
     'about.desc2':           'Mit einem Hintergrund in Multimedia-Produktion, Design und strategischer Kommunikation bringe ich sowohl kreative Vision als auch operative Präzision in jedes Projekt – vom ersten Briefing bis zur finalen Umsetzung. Ich leite funktionsübergreifende Teams, betreue Kundenbeziehungen von A bis Z und übernehme die volle Verantwortung für die Ergebnisse.',
     'about.desc3':           'Getrieben von einer Leidenschaft für Marken, die inspirieren und Menschen bewegen.',
@@ -83,7 +83,7 @@ window.SJ_LANG = {
     'index.btn-mail':    'Write me',
 
     /* --- About --- */
-    'about.role':            'Media Engineer',
+    'about.role':            'Brand Experience &amp; Marketing',
     'about.desc':            'Brand and event professional with a passion for creating experiences that connect people with brands. Based in Zurich, I specialise in managing large-scale live activations and brand campaigns for major Swiss clients – including Migros\' presence at 10+ of Switzerland\'s most iconic music festivals.',
     'about.desc2':           'With a background in multimedia production, design and strategic communication, I bring both creative vision and operational precision to every project – from first briefing to final execution. I lead cross-functional teams, manage client relationships end-to-end and take full ownership of results.',
     'about.desc3':           'Driven by a passion for brands that inspire and move people.',
