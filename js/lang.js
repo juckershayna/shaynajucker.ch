@@ -60,6 +60,21 @@ window.SJ_LANG = {
     'mkt.cta':            'Interesse an meiner Arbeit?',
     'mkt.btn-mail':       'Schreib mir',
 
+    /* --- ON --- */
+    'on.heading':      'Motivationsschreiben',
+    'on.salutation':   'Sehr geehrte Damen und Herren',
+    'on.p1':           'Die meisten Bewerbungen klingen &auml;hnlich. Deshalb kurz und konkret:',
+    'on.p2':           'Ich verbinde Event, Content und Marketing &ndash; nicht nur in der Planung, sondern vor allem in der Umsetzung. In meiner aktuellen Rolle bei Titbit habe ich schweizweit Eventformate und Festivals f&uuml;r grosse Marken wie Migros eigenst&auml;ndig geplant und umgesetzt &ndash; von Offerten und Kundenabstimmungen bis zur operativen Durchf&uuml;hrung.',
+    'on.p3':           'Zus&auml;tzlich habe ich Content- und Social-Media-Massnahmen rund um diese Projekte betreut und dadurch gelernt, Events nicht nur durchzuf&uuml;hren, sondern auch sichtbar und erlebbar zu machen.',
+    'on.p4':           'Was ich bewusst suche, ist keine rein operative Eventrolle, sondern eine Position im Brand-Experience- oder Marketing-Umfeld, in der Events Teil einer gr&ouml;sseren Strategie sind.',
+    'on.p5':           'Ich bringe Eigenverantwortung, Tempo und eine l&ouml;sungsorientierte Arbeitsweise mit und freue mich darauf, diese St&auml;rken in Ihrem Unternehmen einzubringen.',
+    'on.closing':      'Freundliche Gr&uuml;sse<br>Shayna Jucker',
+    'on.skills-heading': 'skills',
+    'on.skills-sub':     'Sprachen | F&auml;higkeiten | Programme | Architektur',
+    'on.cert-heading': 'Zertifikate',
+    'on.cert-sub':     'ZERTIFIKATE &amp; NOTEN',
+    'on.cert-btn':     'Arbeitszeugnisse &amp; Notenausweise',
+
     /* --- Bachelor --- */
     'bach.thesis-heading': 'Thesis',
     'bach.thesis-sub':     'All about Bachelorthesis',
@@ -126,6 +141,21 @@ window.SJ_LANG = {
     'mkt.result2':        'Successful live show in front of a live audience. Media coverage on multimedia-award.ch.',
     'mkt.cta':            'Interested in my work?',
     'mkt.btn-mail':       'Write me',
+
+    /* --- ON --- */
+    'on.heading':      'Letter of Motivation',
+    'on.salutation':   'Dear Sir or Madam',
+    'on.p1':           'Most applications sound alike. So here\'s something short and to the point:',
+    'on.p2':           'I connect events, content and marketing &ndash; not just in planning, but above all in execution. In my current role at Titbit, I have independently planned and delivered event formats and festivals across Switzerland for major brands such as Migros &ndash; from quotes and client alignment through to on-site operations.',
+    'on.p3':           'In addition, I have managed content and social media activities around these projects, learning how to make events not only happen, but also visible and memorable.',
+    'on.p4':           'What I am deliberately looking for is not a purely operational events role, but a position in the brand experience or marketing space where events are part of a larger strategy.',
+    'on.p5':           'I bring a sense of ownership, pace and a solutions-oriented approach, and look forward to putting these strengths to work in your organisation.',
+    'on.closing':      'Kind regards<br>Shayna Jucker',
+    'on.skills-heading': 'skills',
+    'on.skills-sub':     'Languages | Abilities | Programs | Architecture',
+    'on.cert-heading': 'certificates',
+    'on.cert-sub':     'CERTIFICATES &amp; GRADES',
+    'on.cert-btn':     'Employment References &amp; Transcripts',
 
     /* --- Bachelor --- */
     'bach.thesis-heading': 'Thesis',
