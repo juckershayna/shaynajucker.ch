@@ -1326,7 +1326,7 @@ ul, ol {
 
 .fp-desc {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: #666;
   line-height: 1.7;
   flex: 1;
@@ -1350,6 +1350,21 @@ ul, ol {
   .featured-projects-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .featured-projects-section {
+    padding: 50px 0 40px;
+  }
+
+  .featured-projects-title {
+    font-size: 11px;
+    margin-bottom: 28px;
+  }
+
+  .fp-title {
+    font-size: 17px;
   }
 }
 
@@ -2219,5 +2234,4 @@ ul, ol {
   .bio-text {
     font-size: 17px;
   }
-}
 }
