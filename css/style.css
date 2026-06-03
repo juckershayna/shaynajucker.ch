@@ -49,7 +49,7 @@ body {
   font-size: 15px;
   font-weight: 500;
   color: #f1f1f1;
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   line-height: 1.7em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -275,7 +275,7 @@ ul, ol {
 
 /* === QUOTE SECTION === */
 .quote-section {
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   position: relative;
   z-index: 1;
   padding: 120px 0;
@@ -295,7 +295,7 @@ ul, ol {
 
 /* === VIDEO SECTION === */
 .video-section {
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   position: relative;
   z-index: 1;
   padding: 0;
@@ -309,7 +309,7 @@ ul, ol {
 
 /* === SERVICES SECTION === */
 .services-section {
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   position: relative;
   z-index: 1;
   padding: 80px 0 120px;
@@ -518,7 +518,7 @@ ul, ol {
 
 /* === PORTFOLIO PAGE === */
 .portfolio-section {
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   padding: 200px 0 80px;
   position: relative;
   z-index: 1;
@@ -559,7 +559,7 @@ ul, ol {
 
 /* Intro / Profile Section */
 .about-intro {
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   position: relative;
   z-index: 1;
   padding: 200px 0 80px;
@@ -637,7 +637,7 @@ ul, ol {
 
 /* Experience & Education */
 .experience-section {
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   position: relative;
   z-index: 1;
   padding: 80px 0;
@@ -741,7 +741,7 @@ ul, ol {
 
 /* Gallery */
 .gallery-section {
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   position: relative;
   z-index: 1;
   padding: 80px 0;
@@ -794,7 +794,7 @@ ul, ol {
 
 /* Interests */
 .interests-section {
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   position: relative;
   z-index: 1;
   padding: 80px 0 150px;
@@ -1216,7 +1216,7 @@ ul, ol {
 
 /* === PORTFOLIO SUBPAGE LAYOUT === */
 .portfolio-subpage {
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   padding: 180px 0 80px;
   position: relative;
   z-index: 1;
@@ -1274,7 +1274,7 @@ ul, ol {
   text-decoration: none;
   color: inherit;
   border: 1px solid #3a3a3a;
-  background: #2b2b2b;
+  background: #1e1e1e;
   transition: box-shadow 300ms ease, transform 300ms ease;
 }
 
@@ -1532,7 +1532,7 @@ ul, ol {
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
 }
 
 .video-wrapper iframe {
@@ -1613,7 +1613,7 @@ ul, ol {
   right: 0;
   width: 90px;
   height: 50px;
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   pointer-events: none;
   z-index: 2;
 }
@@ -1675,7 +1675,7 @@ ul, ol {
 }
 
 .audio-item {
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   padding: 15px;
   border-radius: 4px;
 }
@@ -1951,7 +1951,7 @@ ul, ol {
 
 /* === BIO SECTION (Homepage) === */
 .bio-section {
-  background-color: #2b2b2b;
+  background-color: #1e1e1e;
   position: relative;
   z-index: 1;
   padding: 80px 0 60px;
