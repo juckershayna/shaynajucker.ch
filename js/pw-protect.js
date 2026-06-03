@@ -6,7 +6,7 @@
   overlay.innerHTML = [
     '<div id="pw-box">',
     '  <p id="pw-label">Passwort</p>',
-    '  <input id="pw-input" type="password" autocomplete="current-password" placeholder="••••••" />',
+    '  <input id="pw-input" type="password" autocomplete="current-password" placeholder="••••••" autofocus />',
     '  <button id="pw-btn">Weiter</button>',
     '  <p id="pw-error"></p>',
     '</div>'
