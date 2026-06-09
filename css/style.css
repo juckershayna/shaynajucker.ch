@@ -1930,11 +1930,10 @@ ul, ol {
   box-shadow: 0 4px 18px rgba(149,123,95,0.35);
 }
 
-/* Teamwork grows only when highlighted */
+/* Teamwork grows only when highlighted – scale keeps layout stable */
 .skills-cloud.cat-active .skill-tag[data-cat="soft"].hl {
-  font-size: 18px;
-  padding: 12px 28px;
-  letter-spacing: 2px;
+  transform: scale(1.5);
+  z-index: 1;
 }
 
 /* legacy skill-tag styles kept for other pages */
