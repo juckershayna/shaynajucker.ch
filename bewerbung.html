@@ -61,70 +61,63 @@
   <section class="experience-section">
     <div class="container">
       <h2 class="section-heading">skills</h2>
-      <p class="section-subheading">languages | Abilities | Programs | Architecture</p>
+      <p class="section-subheading">Management · Events · Marketing · Design · Tools · Architecture</p>
 
-      <div class="skills-layout">
-
-        <div class="skills-block">
-          <h3 class="skills-category">Languages</h3>
-          <div class="skill-tags">
-            <span class="skill-tag skill-tag--filled">German</span>
-            <span class="skill-tag skill-tag--filled">English</span>
-          </div>
-        </div>
-
-        <div class="skills-block">
-          <h3 class="skills-category">Abilities</h3>
-          <div class="skill-tags">
-            <span class="skill-tag skill-tag--filled">Teamwork</span>
-            <span class="skill-tag skill-tag--filled">Project Management</span>
-            <span class="skill-tag skill-tag--filled">Time Management</span>
-            <span class="skill-tag skill-tag--filled">Team Leadership</span>
-            <span class="skill-tag skill-tag--filled">Communication</span>
-            <span class="skill-tag skill-tag--filled">Events</span>
-            <span class="skill-tag skill-tag--filled">Design</span>
-            <span class="skill-tag skill-tag--filled">Brand Identity</span>
-            <span class="skill-tag skill-tag--filled">Customer Service</span>
-            <span class="skill-tag skill-tag--filled">Bookkeeping</span>
-          </div>
-        </div>
-
-        <div class="skills-block">
-          <h3 class="skills-category">Programs</h3>
-          <div class="skill-tags">
-            <span class="skill-tag skill-tag--filled">Photoshop</span>
-            <span class="skill-tag skill-tag--filled">Illustrator</span>
-            <span class="skill-tag skill-tag--filled">InDesign</span>
-            <span class="skill-tag skill-tag--outline">Lightroom</span>
-            <span class="skill-tag skill-tag--filled">Premiere Pro</span>
-            <span class="skill-tag skill-tag--outline">After Effects</span>
-            <span class="skill-tag skill-tag--filled">XD</span>
-            <span class="skill-tag skill-tag--outline">Figma</span>
-            <span class="skill-tag skill-tag--outline">WordPress</span>
-            <span class="skill-tag skill-tag--outline">WIX</span>
-            <span class="skill-tag skill-tag--filled">Word</span>
-            <span class="skill-tag skill-tag--filled">PowerPoint</span>
-            <span class="skill-tag skill-tag--outline">Excel</span>
-            <span class="skill-tag skill-tag--outline">Outlook</span>
-          </div>
-        </div>
-
-        <div class="skills-block">
-          <h3 class="skills-category">Architecture</h3>
-          <div class="skill-tags">
-            <span class="skill-tag skill-tag--filled">Interior Architecture</span>
-            <span class="skill-tag skill-tag--filled">ArchiCAD</span>
-            <span class="skill-tag skill-tag--filled">Vectorworks</span>
-            <span class="skill-tag skill-tag--filled">3D Visualisations</span>
-            <span class="skill-tag skill-tag--filled">Design Planning</span>
-            <span class="skill-tag skill-tag--filled">Project Planning</span>
-            <span class="skill-tag skill-tag--filled">Execution Phase</span>
-          </div>
-        </div>
-
+      <div class="skills-cloud" id="skills-cloud">
+        <span class="skill-tag" data-cat="mgmt">Project Management</span>
+        <span class="skill-tag" data-cat="adobe">Adobe Photoshop</span>
+        <span class="skill-tag" data-cat="events">Festival Management</span>
+        <span class="skill-tag" data-cat="marketing">Social Media Marketing</span>
+        <span class="skill-tag" data-cat="tools">Figma</span>
+        <span class="skill-tag" data-cat="mgmt">Budget Management</span>
+        <span class="skill-tag" data-cat="events">Brand Experience</span>
+        <span class="skill-tag" data-cat="adobe">Adobe InDesign</span>
+        <span class="skill-tag" data-cat="marketing">Content Creation</span>
+        <span class="skill-tag" data-cat="arch">ArchiCAD</span>
+        <span class="skill-tag" data-cat="lang">Deutsch</span>
+        <span class="skill-tag" data-cat="events">Live Event Production</span>
+        <span class="skill-tag" data-cat="mgmt">Cross-functional Team Leadership</span>
+        <span class="skill-tag" data-cat="adobe">Adobe Illustrator</span>
+        <span class="skill-tag" data-cat="marketing">Canva</span>
+        <span class="skill-tag" data-cat="arch">3D-Visualisierung</span>
+        <span class="skill-tag" data-cat="mgmt">Campaign Management</span>
+        <span class="skill-tag" data-cat="adobe">Adobe Lightroom</span>
+        <span class="skill-tag" data-cat="tools">WordPress</span>
+        <span class="skill-tag" data-cat="lang">Englisch</span>
+        <span class="skill-tag" data-cat="events">Event Management</span>
+        <span class="skill-tag" data-cat="mgmt">Account Management</span>
+        <span class="skill-tag" data-cat="marketing">Graphic Design</span>
+        <span class="skill-tag" data-cat="adobe">Adobe Premiere Pro</span>
+        <span class="skill-tag" data-cat="events">Brand Activation</span>
+        <span class="skill-tag" data-cat="tools">Microsoft Office</span>
+        <span class="skill-tag" data-cat="arch">Innenarchitektur</span>
+        <span class="skill-tag" data-cat="mgmt">Client Relations</span>
+        <span class="skill-tag" data-cat="adobe">Adobe After Effects</span>
+        <span class="skill-tag" data-cat="mgmt">Brand Management</span>
+        <span class="skill-tag" data-cat="tools">Wix Website-Baukasten</span>
+        <span class="skill-tag" data-cat="adobe">Adobe XD</span>
+        <span class="skill-tag" data-cat="arch">Vectorworks</span>
+        <span class="skill-tag" data-cat="soft">Teamwork</span>
       </div>
     </div>
   </section>
+
+  <script>
+  (function(){
+    var cloud = document.getElementById('skills-cloud');
+    if(!cloud) return;
+    cloud.querySelectorAll('.skill-tag').forEach(function(t){
+      t.addEventListener('mouseenter', function(){
+        cloud.classList.add('cat-active');
+        cloud.querySelectorAll('[data-cat="'+t.dataset.cat+'"]').forEach(function(x){ x.classList.add('hl'); });
+      });
+      t.addEventListener('mouseleave', function(){
+        cloud.classList.remove('cat-active');
+        cloud.querySelectorAll('.skill-tag').forEach(function(x){ x.classList.remove('hl'); });
+      });
+    });
+  })();
+  </script>
 
   <!-- Certificates -->
   <section class="experience-section">
