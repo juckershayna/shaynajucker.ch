@@ -1309,9 +1309,9 @@ ul, ol {
 
 .portfolio-subpage .page-intro {
   max-width: 720px;
-  margin: 0 auto 200px;
+  margin: 0 auto 60px;
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.75;
   color: #f1f1f1;
 }
