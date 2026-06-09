@@ -680,11 +680,11 @@ ul, ol {
   position: relative;
 }
 
-/* Continuous vertical centre line */
+/* Continuous vertical line – positioned at 28% (dates narrow, details wide) */
 .timeline::before {
   content: '';
   position: absolute;
-  left: 50%;
+  left: 28%;
   top: 0;
   bottom: 0;
   width: 0.5px;
@@ -705,13 +705,13 @@ ul, ol {
 }
 
 .timeline-dates {
-  flex: 0 0 50%;
+  flex: 0 0 28%;
   text-align: right;
   padding-right: 20px;
 }
 
 .timeline-details {
-  flex: 0 0 50%;
+  flex: 0 0 72%;
   padding-left: 20px;
 }
 
@@ -727,7 +727,7 @@ ul, ol {
   position: relative;
 }
 
-/* Dot sits exactly on the centre line */
+/* Dot sits exactly on the line */
 .timeline-details p.has-dot::before {
   content: '';
   position: absolute;
