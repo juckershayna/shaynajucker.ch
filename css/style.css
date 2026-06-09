@@ -591,12 +591,23 @@ ul, ol {
 }
 
 .about-role {
-  font-size: 20px;
-  font-weight: 500;
-  color: #f1f1f1;
+  font-size: 43px;
+  font-weight: 800;
+  color: #957b5f;
   text-transform: uppercase;
   letter-spacing: 2px;
+  line-height: 1.1em;
   margin-bottom: 5px;
+}
+
+.about-role + .about-role {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #f1f1f1 !important;
+  letter-spacing: 1.5px !important;
+  opacity: 0.75 !important;
+  line-height: 1.5em !important;
+  margin-bottom: 20px !important;
 }
 
 .about-name {
@@ -989,21 +1000,22 @@ ul, ol {
   }
 
   .hero-name {
-    font-size: clamp(42px, 12vw, 60px);
+    font-size: clamp(36px, 10vw, 60px);
     letter-spacing: 2px;
     line-height: 1.05em;
   }
 
   .hero-subtitle {
-    font-size: clamp(11px, 3.2vw, 16px);
-    letter-spacing: 1.5px;
-    margin-top: 8px;
+    font-size: clamp(36px, 10vw, 60px);
+    letter-spacing: 2px;
+    line-height: 1.05em;
+    margin-top: 0;
   }
 
   .hero-tagline {
-    font-size: clamp(10px, 2.8vw, 14px);
+    font-size: clamp(10px, 2.8vw, 13px);
     letter-spacing: 1px;
-    margin-top: 4px;
+    margin-top: 8px;
   }
 
   /* --- Quote --- */
@@ -1060,12 +1072,17 @@ ul, ol {
   }
 
   .about-name {
-    font-size: 30px;
+    font-size: clamp(28px, 8vw, 43px);
   }
 
   .about-role {
-    font-size: 12px;
-    letter-spacing: 1px;
+    font-size: clamp(28px, 8vw, 43px);
+    letter-spacing: 2px;
+  }
+
+  .about-role + .about-role {
+    font-size: 12px !important;
+    letter-spacing: 1px !important;
   }
 
   .about-location {
