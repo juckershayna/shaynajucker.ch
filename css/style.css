@@ -2163,7 +2163,7 @@ ul, ol {
 
 /* === CASE STUDY PAGE === */
 .case-study {
-  margin-bottom: 160px;
+  margin-bottom: 240px;
 }
 
 .case-subtitle {
@@ -2265,7 +2265,7 @@ ul, ol {
   height: 1px;
   background-color: #957b5f;
   opacity: 0.3;
-  margin: 0 0 160px;
+  margin: 0 0 240px;
 }
 
 .case-cta {
