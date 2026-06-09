@@ -985,17 +985,25 @@ ul, ol {
   }
 
   .hero-content {
-    padding: 0 18px 36px;
+    padding: 0 18px 40px;
   }
 
   .hero-name {
-    font-size: 30px;
+    font-size: clamp(42px, 12vw, 60px);
     letter-spacing: 2px;
+    line-height: 1.05em;
   }
 
   .hero-subtitle {
-    font-size: 12px;
+    font-size: clamp(11px, 3.2vw, 16px);
+    letter-spacing: 1.5px;
+    margin-top: 8px;
+  }
+
+  .hero-tagline {
+    font-size: clamp(10px, 2.8vw, 14px);
     letter-spacing: 1px;
+    margin-top: 4px;
   }
 
   /* --- Quote --- */
@@ -1203,7 +1211,7 @@ ul, ol {
 /* Extra small phones (≤ 390px) */
 @media (max-width: 390px) {
   .hero-name {
-    font-size: 26px;
+    font-size: clamp(36px, 11vw, 42px);
   }
 
   .section-heading {
