@@ -151,6 +151,85 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // === Logo scroll-fly effect ===
+  (function () {
+    const logoEl = document.querySelector('.logo');
+    if (!logoEl) return;
+
+    // Resolve cursor image path from the existing logo img src (already absolute)
+    const logoImgEl = logoEl.querySelector('img');
+    const cursorSrc = logoImgEl
+      ? logoImgEl.src.replace(/[^/]+$/, 'cursor-sj.png')
+      : '';
+
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    let isScrolling = false;
+    let scrollTimer = null;
+
+    function spawnGhost(fromX, fromY, toX, toY, startSize, endSize, startOpacity, endOpacity) {
+      const ghost = new Image();
+      ghost.src = cursorSrc;
+      ghost.setAttribute('aria-hidden', 'true');
+      ghost.style.cssText =
+        'position:fixed;pointer-events:none;z-index:99999;' +
+        'transform:translate(-50%,-50%);' +
+        'width:' + startSize + 'px;height:auto;' +
+        'opacity:' + startOpacity + ';' +
+        'left:' + fromX + 'px;top:' + fromY + 'px;' +
+        'transition:' +
+          'left 0.5s cubic-bezier(0.4,0,0.2,1),' +
+          'top 0.5s cubic-bezier(0.4,0,0.2,1),' +
+          'width 0.5s ease,' +
+          'opacity 0.45s ease';
+      document.body.appendChild(ghost);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          ghost.style.left = toX + 'px';
+          ghost.style.top = toY + 'px';
+          ghost.style.width = endSize + 'px';
+          ghost.style.opacity = endOpacity;
+        });
+      });
+      setTimeout(function () { ghost.remove(); }, 600);
+    }
+
+    function getLogoCenter() {
+      const r = logoEl.getBoundingClientRect();
+      return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+    }
+
+    function hideLogo() {
+      const c = getLogoCenter();
+      logoEl.classList.add('logo--hidden');
+      spawnGhost(mouseX, mouseY, c.x, c.y, 36, 80, 1, 0);
+    }
+
+    function showLogo() {
+      const c = getLogoCenter();
+      spawnGhost(c.x, c.y, mouseX, mouseY, 80, 36, 1, 0);
+      setTimeout(function () {
+        logoEl.classList.remove('logo--hidden');
+      }, 350);
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!isScrolling) {
+        isScrolling = true;
+        hideLogo();
+      }
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function () {
+        isScrolling = false;
+        showLogo();
+      }, 200);
+    }, { passive: true });
+  }());
+
   // === Gallery Marquee (supports multiple) ===
   document.querySelectorAll('.gallery-slider').forEach(initGalleryMarquee);
 

@@ -3,6 +3,12 @@
    1:1 Copy of shaynajucker.ch
    ============================================ */
 
+/* === CUSTOM CURSOR === */
+body,
+body * {
+  cursor: url('../assets/images/cursor-sj.png') 2 0, auto !important;
+}
+
 /* === FONT FACES === */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
@@ -137,6 +143,12 @@ ul, ol {
 .logo img {
   height: 148px;
   width: auto;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.logo--hidden img {
+  opacity: 0;
+  transform: scale(0.4);
 }
 
 .main-nav {
