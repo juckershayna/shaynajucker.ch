@@ -1256,8 +1256,17 @@ ul, ol {
   text-transform: uppercase;
   letter-spacing: 3px;
   line-height: 1.3em;
-  margin-bottom: 240px;
+  margin-bottom: 40px;
   text-align: center;
+}
+
+.portfolio-subpage .page-intro {
+  max-width: 720px;
+  margin: 0 auto 200px;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #555;
 }
 
 /* === BLURB CARDS (used in Bachelor, Architectures, Graphics, Events) === */
