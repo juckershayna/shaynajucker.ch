@@ -1877,7 +1877,7 @@ ul, ol {
   }
 }
 
-/* === SKILLS CLOUD (scattered interactive) === */
+/* === SKILLS CLOUD (interactive) === */
 .skills-cloud {
   display: flex;
   flex-wrap: wrap;
@@ -1901,43 +1901,23 @@ ul, ol {
   background: transparent;
   border: 1.5px solid rgba(149,123,95,0.45);
   color: #957b5f;
-  transition: transform 220ms ease, opacity 220ms ease, background 220ms ease, color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  transition: opacity 300ms ease, background 300ms ease, color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
 }
-
-/* per-category accent colors */
-.skills-cloud .skill-tag[data-cat="mgmt"]      { --cc: #957b5f; }
-.skills-cloud .skill-tag[data-cat="events"]    { --cc: #c4714a; }
-.skills-cloud .skill-tag[data-cat="marketing"] { --cc: #c47a7a; }
-.skills-cloud .skill-tag[data-cat="adobe"]     { --cc: #7a6595; }
-.skills-cloud .skill-tag[data-cat="tools"]     { --cc: #4f8c72; }
-.skills-cloud .skill-tag[data-cat="arch"]      { --cc: #5f7595; }
-.skills-cloud .skill-tag[data-cat="soft"]      { --cc: #888; }
-.skills-cloud .skill-tag[data-cat="lang"]      { --cc: #666; }
-
-/* scattered rotations */
-.skills-cloud .skill-tag:nth-child(7n+1) { transform: rotate(-2deg); }
-.skills-cloud .skill-tag:nth-child(7n+2) { transform: rotate(1.5deg); }
-.skills-cloud .skill-tag:nth-child(7n+3) { transform: rotate(-1deg); }
-.skills-cloud .skill-tag:nth-child(7n+4) { transform: rotate(2.5deg); }
-.skills-cloud .skill-tag:nth-child(7n+5) { transform: rotate(-0.5deg); }
-.skills-cloud .skill-tag:nth-child(7n+6) { transform: rotate(1deg); }
-.skills-cloud .skill-tag:nth-child(7n)   { transform: rotate(-1.8deg); }
 
 /* dim all when a category is active */
 .skills-cloud.cat-active .skill-tag {
-  opacity: 0.18;
-  border-color: transparent;
-  color: #aaa;
+  opacity: 0.2;
+  border-color: rgba(149,123,95,0.15);
+  color: rgba(149,123,95,0.4);
 }
 
 /* highlight matching category */
 .skills-cloud.cat-active .skill-tag.hl {
   opacity: 1;
-  background: var(--cc);
-  color: #fff;
-  border-color: var(--cc);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.18);
-  transform: scale(1.07) rotate(0deg) !important;
+  background: #957b5f;
+  color: #f1f1f1;
+  border-color: #957b5f;
+  box-shadow: 0 4px 18px rgba(149,123,95,0.35);
 }
 
 /* legacy skill-tag styles kept for other pages */

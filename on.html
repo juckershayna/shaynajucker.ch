@@ -110,14 +110,40 @@
   (function(){
     var cloud = document.getElementById('skills-cloud');
     if(!cloud) return;
+    var cats = ['mgmt','events','marketing','adobe','tools','arch','lang','soft'];
+    var idx = 0, timer = null, hovered = false;
+
+    function showCat(cat) {
+      cloud.classList.add('cat-active');
+      cloud.querySelectorAll('.skill-tag').forEach(function(x){ x.classList.remove('hl'); });
+      cloud.querySelectorAll('[data-cat="'+cat+'"]').forEach(function(x){ x.classList.add('hl'); });
+    }
+    function clearAll() {
+      cloud.classList.remove('cat-active');
+      cloud.querySelectorAll('.skill-tag').forEach(function(x){ x.classList.remove('hl'); });
+    }
+    function step() {
+      if(hovered) return;
+      showCat(cats[idx]);
+      idx = (idx + 1) % cats.length;
+    }
+    function startCycle() {
+      clearInterval(timer);
+      timer = setInterval(step, 2000);
+      step();
+    }
+
+    startCycle();
+
     cloud.querySelectorAll('.skill-tag').forEach(function(t){
       t.addEventListener('mouseenter', function(){
-        cloud.classList.add('cat-active');
-        cloud.querySelectorAll('[data-cat="'+t.dataset.cat+'"]').forEach(function(x){ x.classList.add('hl'); });
+        hovered = true;
+        clearInterval(timer);
+        showCat(t.dataset.cat);
       });
       t.addEventListener('mouseleave', function(){
-        cloud.classList.remove('cat-active');
-        cloud.querySelectorAll('.skill-tag').forEach(function(x){ x.classList.remove('hl'); });
+        hovered = false;
+        startCycle();
       });
     });
   })();
