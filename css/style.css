@@ -2152,6 +2152,23 @@ ul, ol {
   margin-bottom: 240px;
 }
 
+.case-study--has-media {
+  margin-bottom: 40px;
+}
+
+.case-actions {
+  margin-top: 32px;
+}
+
+.case-media-block {
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.case-divider--spaced {
+  margin: 80px 0 80px;
+}
+
 .case-subtitle {
   font-size: 14px;
   color: #957b5f;
