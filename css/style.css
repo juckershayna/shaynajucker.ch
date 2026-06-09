@@ -6,7 +6,7 @@
 /* === CUSTOM CURSOR === */
 body,
 body * {
-  cursor: url('../assets/images/cursor-sj.png') 10 22, auto !important;
+  cursor: url('../assets/images/cursor-sj.png') 16 16, crosshair !important;
 }
 
 a, button, [role="button"], label, select,
@@ -14,7 +14,7 @@ input[type="submit"], input[type="button"], input[type="reset"],
 .btn, .play-btn, .video-thumbnail, .portfolio-item,
 .menu-toggle, .back-to-top, .lang-btn,
 .gallery-slide img, .portfolio-group-toggle {
-  cursor: url('../assets/images/cursor-sj-hover.png') 10 22, pointer !important;
+  cursor: url('../assets/images/cursor-sj-hover.png') 16 16, pointer !important;
 }
 
 /* === FONT FACES === */
