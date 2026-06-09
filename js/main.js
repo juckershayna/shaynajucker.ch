@@ -15,15 +15,36 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // === Header scroll effect ===
+  // === Header scroll effect + nav hide/show ===
   const header = document.querySelector('.site-header');
-  if (header && !header.classList.contains('scrolled')) {
+  const mainNav = document.querySelector('.main-nav');
+  let lastScrollY = window.scrollY;
+
+  if (header) {
     window.addEventListener('scroll', function () {
-      if (window.scrollY > 100) {
+      const currentY = window.scrollY;
+
+      // scrolled class for background
+      if (currentY > 100) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
+
+      // hide nav when scrolled away from top, show on any scroll movement
+      if (mainNav) {
+        if (currentY <= 50) {
+          mainNav.classList.remove('nav-hidden');
+        } else if (currentY !== lastScrollY) {
+          mainNav.classList.remove('nav-hidden');
+          clearTimeout(mainNav._hideTimer);
+          mainNav._hideTimer = setTimeout(function () {
+            if (window.scrollY > 50) mainNav.classList.add('nav-hidden');
+          }, 1500);
+        }
+      }
+
+      lastScrollY = currentY;
     });
   }
 

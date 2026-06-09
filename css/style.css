@@ -142,6 +142,13 @@ ul, ol {
 .main-nav {
   display: flex;
   align-items: center;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.main-nav.nav-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
 }
 
 .main-nav ul {
