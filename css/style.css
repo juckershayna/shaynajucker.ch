@@ -482,6 +482,11 @@ ul, ol {
   content: '\f39e';
 }
 
+.fa-linkedin-in::before {
+  font-family: 'Font Awesome 5 Brands';
+  content: '\f0e1';
+}
+
 /* ETmodules LinkedIn icon */
 .et-linkedin::before {
   font-family: 'ETmodules';
