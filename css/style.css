@@ -6,7 +6,15 @@
 /* === CUSTOM CURSOR === */
 body,
 body * {
-  cursor: url('../assets/images/cursor-sj.png') 12 26, auto !important;
+  cursor: url('../assets/images/cursor-sj.png') 20 28, auto !important;
+}
+
+a, button, [role="button"], label, select,
+input[type="submit"], input[type="button"], input[type="reset"],
+.btn, .play-btn, .video-thumbnail, .portfolio-item,
+.menu-toggle, .back-to-top, .lang-btn,
+.gallery-slide img, .portfolio-group-toggle {
+  cursor: url('../assets/images/cursor-sj-hover.png') 20 28, pointer !important;
 }
 
 /* === FONT FACES === */
