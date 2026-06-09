@@ -562,12 +562,22 @@ ul, ol {
 
 .portfolio-item a:hover {
   color: #c6a47e;
-  letter-spacing: 4px;
   transform: scale(1.015);
   text-shadow: 0 2px 10px rgba(198, 164, 126, 0.15);
 }
 
-/* === ABOUT PAGE === */
+/* === PAGE INTRO === */
+.page-intro {
+  color: #f1f1f1;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8em;
+  max-width: 680px;
+  margin-top: 18px;
+  margin-bottom: 0;
+}
+
+
 
 /* Intro / Profile Section */
 .about-intro {
