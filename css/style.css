@@ -6,7 +6,7 @@
 /* === CUSTOM CURSOR === */
 body,
 body * {
-  cursor: url('../assets/images/cursor-sj.png') 2 0, auto !important;
+  cursor: url('../assets/images/cursor-sj.png') 12 26, auto !important;
 }
 
 /* === FONT FACES === */
