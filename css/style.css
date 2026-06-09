@@ -1097,15 +1097,21 @@ ul, ol {
     display: flex;
   }
 
+  .timeline::before {
+    left: 30%;
+  }
+
   .timeline-row {
     margin-bottom: 20px;
   }
 
   .timeline-dates {
+    flex: 0 0 30%;
     padding-right: 14px;
   }
 
   .timeline-details {
+    flex: 0 0 70%;
     padding-left: 14px;
   }
 
@@ -1208,10 +1214,12 @@ ul, ol {
   }
 
   .timeline-dates {
+    flex: 0 0 30%;
     padding-right: 11px;
   }
 
   .timeline-details {
+    flex: 0 0 70%;
     padding-left: 11px;
   }
 
