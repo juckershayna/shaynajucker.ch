@@ -2058,6 +2058,19 @@ ul, ol {
   border-width: 6px 0 6px 11px;
 }
 
+/* === VIDEO LIST (stacked, equal size) === */
+.video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.video-list .video-wrapper {
+  width: 100%;
+  padding-bottom: 56.25% !important;
+}
+
 /* === RESPONSIVE PORTFOLIO SUBPAGES === */
 @media (max-width: 980px) {
   .portfolio-subpage .page-title {
