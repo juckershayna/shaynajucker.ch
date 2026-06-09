@@ -1311,9 +1311,9 @@ ul, ol {
   max-width: 720px;
   margin: 0 auto 200px;
   text-align: center;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.75;
-  color: #555;
+  color: #f1f1f1;
 }
 
 /* === BLURB CARDS (used in Bachelor, Architectures, Graphics, Events) === */
