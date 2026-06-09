@@ -1921,6 +1921,67 @@ ul, ol {
   }
 }
 
+/* === VIDEO SHOWCASE === */
+.video-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.video-showcase__featured {
+  width: 100%;
+}
+
+.video-showcase__thumbs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.video-showcase__thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.video-showcase__thumbs .video-wrapper {
+  flex: 0 0 calc(25% - 7.5px);
+  min-width: 100px;
+  padding-bottom: 0 !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+  opacity: 0.6;
+  transition: opacity 200ms ease, transform 200ms ease, outline 200ms ease;
+  outline: 2px solid transparent;
+}
+
+.video-showcase__thumbs .video-wrapper:hover {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+.video-showcase__thumbs .video-wrapper.active {
+  opacity: 1;
+  outline: 2px solid #957b5f;
+}
+
+.video-showcase__thumbs .video-wrapper img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.video-showcase__thumbs .video-thumbnail .play-btn {
+  width: 36px;
+  height: 36px;
+}
+
+.video-showcase__thumbs .video-thumbnail .play-btn::after {
+  border-width: 6px 0 6px 11px;
+}
+
 /* === RESPONSIVE PORTFOLIO SUBPAGES === */
 @media (max-width: 980px) {
   .portfolio-subpage .page-title {

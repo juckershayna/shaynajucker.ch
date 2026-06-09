@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // === YouTube Click-to-Play (privacy-enhanced, no branding) ===
   document.querySelectorAll('.video-thumbnail[data-yt]').forEach(function (thumb) {
+    if (thumb.closest('.video-showcase__thumbs')) return;
     thumb.addEventListener('click', function () {
       const id = thumb.getAttribute('data-yt');
       if (!id) return;
@@ -77,6 +78,43 @@ document.addEventListener('DOMContentLoaded', function () {
       thumb.innerHTML = '';
       thumb.appendChild(iframe);
       thumb.classList.add('playing');
+    });
+  });
+
+  // === Video Showcase: swap thumbnail → featured + autoplay ===
+  function ytPlay(el, id) {
+    const params = 'autoplay=1&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=1&playsinline=1&color=white';
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?' + params;
+    iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('frameborder', '0');
+    el.innerHTML = '';
+    el.appendChild(iframe);
+    el.classList.add('playing');
+  }
+
+  document.querySelectorAll('.video-showcase').forEach(function(showcase) {
+    const featured = showcase.querySelector('.video-showcase__featured .video-thumbnail');
+
+    showcase.querySelectorAll('.video-showcase__thumbs .video-thumbnail').forEach(function(thumb) {
+      thumb.addEventListener('click', function() {
+        const thumbId = thumb.getAttribute('data-yt');
+        const featuredId = featured.getAttribute('data-yt');
+
+        featured.setAttribute('data-yt', thumbId);
+        thumb.setAttribute('data-yt', featuredId);
+
+        const thumbImg = thumb.querySelector('img');
+        if (thumbImg) thumbImg.src = 'https://i.ytimg.com/vi/' + featuredId + '/hqdefault.jpg';
+
+        showcase.querySelectorAll('.video-showcase__thumbs .video-thumbnail').forEach(function(t) {
+          t.classList.remove('active');
+        });
+        thumb.classList.add('active');
+
+        ytPlay(featured, thumbId);
+      });
     });
   });
 
