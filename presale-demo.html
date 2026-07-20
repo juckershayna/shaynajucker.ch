@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>LUMA RIVERS &middot; Slow Light Tour 2027 &middot; Presale</title>
+<link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<style>
+  :root {
+    --bg: #121212;
+    --surface: #1b1b1b;
+    --line: #2e2e2e;
+    --ink: #f1f1f1;
+    --muted: #8d857a;
+    --accent: #957b5f;
+    --accent-lt: #c6a47e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* --- work-sample disclosure --- */
+  .sample-bar {
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 9px 16px;
+    font-weight: 700;
+  }
+  .sample-bar a { color: #fff; text-decoration: underline; }
+
+  /* --- language toggle --- */
+  .lang-bar { display: flex; justify-content: flex-end; padding-top: 20px; }
+  .lang-btn {
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: border-color 250ms, color 250ms;
+  }
+  .lang-btn:hover { border-color: var(--accent); color: var(--accent-lt); }
+
+  /* --- hero --- */
+  .hero { padding: 40px 0 56px; border-bottom: 1px solid var(--line); }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--accent-lt); font-weight: 700; margin-bottom: 22px;
+  }
+  .artist {
+    font-size: clamp(52px, 13vw, 148px);
+    line-height: .86;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    text-transform: uppercase;
+  }
+  .tour {
+    margin-top: 14px;
+    font-size: clamp(15px, 3vw, 24px);
+    font-weight: 300;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: var(--accent-lt);
+  }
+  .date-line {
+    margin-top: 30px;
+    display: flex; flex-wrap: wrap; gap: 10px 28px;
+    font-size: 14px; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .date-line span { white-space: nowrap; }
+  .date-line b { color: var(--accent-lt); font-weight: 700; }
+
+  /* --- countdown --- */
+  .countdown { padding: 40px 0; border-bottom: 1px solid var(--line); }
+  .cd-label {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--muted); font-weight: 700; margin-bottom: 18px;
+  }
+  .cd-grid { display: flex; gap: 14px; flex-wrap: wrap; }
+  .cd-cell {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 2px solid var(--accent);
+    min-width: 92px; padding: 14px 8px; text-align: center;
+  }
+  .cd-num {
+    font-size: 34px; font-weight: 800; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .cd-unit {
+    margin-top: 6px; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .cd-note { margin-top: 18px; font-size: 14px; color: var(--muted); }
+  .cd-note b { color: var(--ink); font-weight: 600; }
+
+  /* --- generic section --- */
+  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+  h2 {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--accent-lt); font-weight: 700; margin-bottom: 26px;
+  }
+  h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 34px; }
+
+  .steps { counter-reset: step; display: grid; gap: 22px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step::before {
+    counter-increment: step;
+    content: counter(step);
+    flex: 0 0 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--accent);
+    color: var(--accent-lt);
+    font-size: 12px; font-weight: 700;
+  }
+  .step p { color: var(--muted); }
+  .step p b { color: var(--ink); font-weight: 600; }
+
+  /* --- tickets --- */
+  .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .tier { background: var(--surface); padding: 22px; }
+  .tier-name { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+  .tier-price { font-size: 30px; font-weight: 800; margin: 8px 0 4px; }
+  .tier-note { font-size: 13px; color: var(--muted); }
+  .fees { margin-top: 16px; font-size: 13px; color: var(--muted); }
+
+  /* --- newsletter (demo state) --- */
+  .signup { background: var(--surface); border: 1px solid var(--line); padding: 26px; }
+  .signup-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  .signup input, .signup button {
+    font: inherit; font-size: 14px; padding: 12px 16px; border: 1px solid var(--line);
+  }
+  .signup input { flex: 1 1 240px; background: #161616; color: var(--muted); }
+  .signup button { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 12px; }
+  .signup input:disabled, .signup button:disabled { opacity: .45; cursor: not-allowed; }
+  .demo-flag {
+    display: inline-block; margin-top: 14px; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--accent-lt); border: 1px dashed var(--accent);
+    padding: 4px 10px;
+  }
+
+  /* --- faq --- */
+  .faq details { border-bottom: 1px solid var(--line); padding: 16px 0; }
+  .faq details:first-of-type { border-top: 1px solid var(--line); }
+  .faq summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 20px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; color: var(--accent-lt); font-weight: 400; font-size: 20px; line-height: 1; }
+  .faq details[open] summary::after { content: '\2013'; }
+  .faq p { color: var(--muted); margin-top: 10px; }
+
+  .press p { color: var(--muted); }
+  .press b { color: var(--ink); }
+
+  footer { padding: 34px 0 60px; font-size: 13px; color: var(--muted); }
+  footer a { color: var(--accent-lt); }
+
+  @media (max-width: 560px) {
+    .cd-cell { min-width: 0; flex: 1 1 calc(50% - 7px); }
+  }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  <span data-en="Work sample by Shayna Jucker &middot; demo show, fictional artist &middot; not official material of any promoter">Arbeitsprobe von Shayna Jucker &middot; Demo-Show, erfundener Act &middot; kein offizielles Material eines Veranstalters</span>
+</div>
+
+<div class="wrap">
+  <div class="lang-bar">
+    <button class="lang-btn" id="lang-btn" type="button">EN</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Presale &middot; Zurich">Presale &middot; Z&uuml;rich</p>
+    <h1 class="artist">Luma Rivers</h1>
+    <p class="tour">Slow Light Tour 2027</p>
+    <div class="date-line">
+      <span data-en="Sat <b>13 March 2027</b>">Sa <b>13. M&auml;rz 2027</b></span>
+      <span><b>Hallenstadion</b> Z&uuml;rich</span>
+      <span data-en="Doors <b>18:30</b> &middot; Start <b>20:00</b>">Doors <b>18:30</b> &middot; Beginn <b>20:00</b></span>
+      <span data-en="Support <b>Nils Bregenz</b>">Support <b>Nils Bregenz</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="countdown">
+  <div class="wrap">
+    <p class="cd-label" id="cd-label">Presale startet in</p>
+    <div class="cd-grid" id="cd-grid">
+      <div class="cd-cell"><div class="cd-num" id="cd-d">--</div><div class="cd-unit" data-en="Days">Tage</div></div>
+      <div class="cd-cell"><div class="cd-num" id="cd-h">--</div><div class="cd-unit" data-en="Hours">Stunden</div></div>
+      <div class="cd-cell"><div class="cd-num" id="cd-m">--</div><div class="cd-unit" data-en="Minutes">Minuten</div></div>
+      <div class="cd-cell"><div class="cd-num" id="cd-s">--</div><div class="cd-unit" data-en="Seconds">Sekunden</div></div>
+    </div>
+    <p class="cd-note" id="cd-note"></p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2 data-en="How the presale works">So funktioniert der Presale</h2>
+    <div class="steps">
+      <div class="step">
+        <p data-en="<b>Get the code.</b> The presale code goes out by newsletter on Tuesday, 8 September 2026, 17:00. One code per address, valid for two tickets."><b>Code sichern.</b> Der Presale-Code wird am Dienstag, 8. September 2026, 17:00 Uhr per Newsletter verschickt. Ein Code pro Adresse, g&uuml;ltig f&uuml;r zwei Tickets.</p>
+      </div>
+      <div class="step">
+        <p data-en="<b>Be on time.</b> The presale runs from Wednesday, 9 September 2026, 10:00 until Friday, 11 September 2026, 10:00 &ndash; or until the contingent is gone."><b>P&uuml;nktlich sein.</b> Der Presale l&auml;uft von Mittwoch, 9. September 2026, 10:00 Uhr bis Freitag, 11. September 2026, 10:00 Uhr &ndash; oder bis das Kontingent weg ist.</p>
+      </div>
+      <div class="step">
+        <p data-en="<b>General sale.</b> Remaining tickets go on open sale on Friday, 11 September 2026, 11:00."><b>Allgemeiner Verkauf.</b> Restliche Tickets gehen am Freitag, 11. September 2026, 11:00 Uhr in den freien Verkauf.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 data-en="Tickets">Tickets</h2>
+    <div class="tiers">
+      <div class="tier">
+        <p class="tier-name" data-en="Standing floor">Stehplatz Innenraum</p>
+        <p class="tier-price">CHF 79</p>
+        <p class="tier-note" data-en="Unnumbered, from age 16">Unnummeriert, ab 16 Jahren</p>
+      </div>
+      <div class="tier">
+        <p class="tier-name" data-en="Seated, tier 2">Sitzplatz Kategorie 2</p>
+        <p class="tier-price">CHF 99</p>
+        <p class="tier-note" data-en="Numbered seat">Nummerierter Sitzplatz</p>
+      </div>
+      <div class="tier">
+        <p class="tier-name" data-en="Seated, tier 1">Sitzplatz Kategorie 1</p>
+        <p class="tier-price">CHF 129</p>
+        <p class="tier-note" data-en="Numbered, front blocks">Nummeriert, vordere Bl&ouml;cke</p>
+      </div>
+    </div>
+    <p class="fees" data-en="Prices excluding booking and delivery fees. Wheelchair spaces and companion tickets are booked by phone &ndash; see FAQ.">Preise exklusive Vorverkaufs- und Versandgeb&uuml;hren. Rollstuhlpl&auml;tze und Begleittickets werden telefonisch gebucht &ndash; siehe FAQ.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 data-en="Presale code">Presale-Code</h2>
+    <div class="signup">
+      <h3 data-en="Get the code by newsletter">Code per Newsletter erhalten</h3>
+      <p data-en="Subscribers receive the presale code the evening before the presale opens." style="color:var(--muted)">Abonnentinnen und Abonnenten erhalten den Presale-Code am Vorabend des Verkaufsstarts.</p>
+      <div class="signup-row">
+        <input type="email" placeholder="name@beispiel.ch" disabled aria-label="E-Mail">
+        <button type="button" disabled data-en="Subscribe">Anmelden</button>
+      </div>
+      <span class="demo-flag" data-en="Demo &middot; form intentionally inactive, no data is collected">Demo &middot; Formular bewusst inaktiv, es werden keine Daten erfasst</span>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2 data-en="Good to know">Gut zu wissen</h2>
+
+    <details>
+      <summary data-en="Is there an age limit?">Gibt es eine Altersbeschr&auml;nkung?</summary>
+      <p data-en="Standing floor from age 16. Under 16 only accompanied by a legal guardian. Please bring ID.">Innenraum ab 16 Jahren. Unter 16 nur in Begleitung einer erziehungsberechtigten Person. Ausweis mitbringen.</p>
+    </details>
+
+    <details>
+      <summary data-en="I use a wheelchair. How do I book?">Ich bin auf einen Rollstuhl angewiesen. Wie buche ich?</summary>
+      <p data-en="Wheelchair spaces and one companion ticket each are booked by phone, not online. The companion ticket is free. Line opens with the presale.">Rollstuhlpl&auml;tze und je ein Begleitticket werden telefonisch gebucht, nicht online. Das Begleitticket ist kostenlos. Die Hotline &ouml;ffnet mit dem Presale.</p>
+    </details>
+
+    <details>
+      <summary data-en="What can I bring?">Was darf ich mitnehmen?</summary>
+      <p data-en="Bags up to A4 size. No professional cameras, no glass, no umbrellas. Cloakroom on site, CHF 3 per item.">Taschen bis A4-Gr&ouml;sse. Keine Profikameras, kein Glas, keine Schirme. Garderobe vor Ort, CHF 3 pro St&uuml;ck.</p>
+    </details>
+
+    <details>
+      <summary data-en="Can I resell my ticket?">Kann ich mein Ticket weiterverkaufen?</summary>
+      <p data-en="Only through the official resale channel. Tickets from third-party platforms may be blocked at the door &ndash; and we cannot help you if they are.">Nur &uuml;ber den offiziellen Zweitmarkt. Tickets von Drittplattformen k&ouml;nnen am Einlass gesperrt werden &ndash; in dem Fall k&ouml;nnen wir nicht helfen.</p>
+    </details>
+
+    <details>
+      <summary data-en="The show is cancelled or moved. What now?">Die Show f&auml;llt aus oder wird verschoben. Was jetzt?</summary>
+      <p data-en="On a new date, tickets stay valid. On cancellation, the ticket price is refunded through the original point of sale. Fees are not refunded.">Bei einem neuen Datum bleiben Tickets g&uuml;ltig. Bei Absage wird der Ticketpreis &uuml;ber die urspr&uuml;ngliche Verkaufsstelle zur&uuml;ckerstattet. Geb&uuml;hren werden nicht erstattet.</p>
+    </details>
+  </div>
+</section>
+
+<section class="press">
+  <div class="wrap">
+    <h2 data-en="Media &amp; accreditation">Medien &amp; Akkreditierung</h2>
+    <div class="cols">
+      <div>
+        <h3 data-en="Photo accreditation">Fotoakkreditierung</h3>
+        <p data-en="Requests up to 10 days before the show, with medium, publication date and portfolio. First three songs, no flash, from the pit."><b>Anfragen bis 10 Tage vor der Show</b>, mit Medium, Publikationsdatum und Portfolio. Erste drei Songs, ohne Blitz, aus dem Graben.</p>
+      </div>
+      <div>
+        <h3 data-en="Press contact">Pressekontakt</h3>
+        <p><b>Shayna Jucker</b><br><a href="mailto:jucker.shayna@gmail.com" style="color:var(--accent-lt)">jucker.shayna@gmail.com</a><br>079 195 72 73</p>
+      </div>
+      <div>
+        <h3 data-en="Press kit">Pressematerial</h3>
+        <p data-en="Show announcement in German and English as PDF.">Show-Announcement auf Deutsch und Englisch als PDF.<br><a href="assets/pdfs/Arbeitsprobe-Medienmitteilung.pdf" target="_blank" rel="noopener" style="color:var(--accent-lt)">Medienmitteilung &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p data-en="Work sample &middot; Luma Rivers, Nils Bregenz and the show date are invented. Built as a single HTML file without frameworks, build tools or external requests. &mdash; <a href='presale.html'>Back to the write-up</a>">Arbeitsprobe &middot; Luma Rivers, Nils Bregenz und das Showdatum sind erfunden. Gebaut als einzelne HTML-Datei ohne Framework, Build-Tools oder externe Requests. &mdash; <a href="presale.html">Zur&uuml;ck zur Erl&auml;uterung</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* --- language toggle (self-contained, this page ships as one file) --- */
+  var btn = document.getElementById('lang-btn');
+  var nodes = document.querySelectorAll('[data-en]');
+  nodes.forEach(function (el) { el.dataset.de = el.innerHTML; });
+  var lang = 'de';
+
+  function setLang(next) {
+    lang = next;
+    nodes.forEach(function (el) { el.innerHTML = el.dataset[lang]; });
+    btn.textContent = lang === 'de' ? 'EN' : 'DE';
+    document.documentElement.lang = lang;
+    render();
+  }
+  btn.addEventListener('click', function () { setLang(lang === 'de' ? 'en' : 'de'); });
+
+  /* --- countdown --- */
+  var PRESALE_START = new Date('2026-09-09T10:00:00+02:00');
+  var PRESALE_END   = new Date('2026-09-11T10:00:00+02:00');
+  var PUBLIC_START  = new Date('2026-09-11T11:00:00+02:00');
+
+  var TEXT = {
+    de: {
+      toPresale: 'Presale startet in',
+      inPresale: 'Presale l&auml;uft &ndash; endet in',
+      toPublic:  'Allgemeiner Verkauf startet in',
+      onSale:    'Tickets im Verkauf',
+      noteToPresale: 'Code kommt am <b>8. September 2026</b> per Newsletter.',
+      noteInPresale: 'Code bereithalten &ndash; ein Code gilt f&uuml;r <b>zwei Tickets</b>.',
+      noteToPublic:  'Der Presale ist beendet. Restliche Tickets folgen im <b>freien Verkauf</b>.',
+      noteOnSale:    'Tickets sind ab sofort <b>frei erh&auml;ltlich</b>.'
+    },
+    en: {
+      toPresale: 'Presale starts in',
+      inPresale: 'Presale is live &ndash; ends in',
+      toPublic:  'General sale starts in',
+      onSale:    'Tickets on sale',
+      noteToPresale: 'The code goes out by newsletter on <b>8 September 2026</b>.',
+      noteInPresale: 'Have your code ready &ndash; one code covers <b>two tickets</b>.',
+      noteToPublic:  'The presale has ended. Remaining tickets follow in the <b>general sale</b>.',
+      noteOnSale:    'Tickets are <b>on open sale</b> now.'
+    }
+  };
+
+  var grid  = document.getElementById('cd-grid');
+  var label = document.getElementById('cd-label');
+  var note  = document.getElementById('cd-note');
+  var cells = {
+    d: document.getElementById('cd-d'),
+    h: document.getElementById('cd-h'),
+    m: document.getElementById('cd-m'),
+    s: document.getElementById('cd-s')
+  };
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function render() {
+    var t = TEXT[lang];
+    var now = new Date();
+    var target, key;
+
+    if (now < PRESALE_START)      { target = PRESALE_START; key = 'toPresale'; }
+    else if (now < PRESALE_END)   { target = PRESALE_END;   key = 'inPresale'; }
+    else if (now < PUBLIC_START)  { target = PUBLIC_START;  key = 'toPublic';  }
+    else                          { target = null;          key = 'onSale';    }
+
+    label.innerHTML = t[key];
+    note.innerHTML  = t['note' + key.charAt(0).toUpperCase() + key.slice(1)];
+
+    if (!target) { grid.style.display = 'none'; return; }
+    grid.style.display = '';
+
+    var diff = Math.max(0, target - now);
+    var s = Math.floor(diff / 1000);
+    cells.d.textContent = Math.floor(s / 86400);
+    cells.h.textContent = pad(Math.floor(s % 86400 / 3600));
+    cells.m.textContent = pad(Math.floor(s % 3600 / 60));
+    cells.s.textContent = pad(s % 60);
+  }
+
+  render();
+  setInterval(render, 1000);
+})();
+</script>
+
+<script src="js/pw-protect.js"></script>
+</body>
+</html>
