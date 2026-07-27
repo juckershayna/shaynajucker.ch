@@ -597,6 +597,35 @@ ul, ol {
   margin-bottom: 0;
 }
 
+.intro-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(149, 123, 95, 0.3);
+}
+
+.intro-stat {
+  min-width: 200px;
+}
+
+.intro-stat-number {
+  font-size: 15px;
+  font-weight: 700;
+  color: #957b5f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.intro-stat p {
+  font-size: 14px;
+  color: #f1f1f1;
+  line-height: 1.6em;
+  margin: 0;
+}
+
 
 
 /* Intro / Profile Section */
