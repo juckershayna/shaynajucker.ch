@@ -1694,6 +1694,19 @@ ul, ol {
   grid-template-columns: 1fr 1fr;
 }
 
+.video-grid--portrait {
+  justify-items: center;
+}
+
+.video-portrait {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  background-color: #000;
+}
+
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
