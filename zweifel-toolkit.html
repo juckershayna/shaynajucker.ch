@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Weinblatt &middot; POS-Baukasten &middot; Arbeitsprobe</title>
+<link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<style>
+  :root {
+    --bg: #121212;
+    --surface: #1b1b1b;
+    --surface-2: #232323;
+    --line: #2e2e2e;
+    --ink: #f1f1f1;
+    --muted: #8d857a;
+    --accent: #957b5f;
+    --accent-lt: #c6a47e;
+
+    /* Materialfarben je Weinkategorie – das Layout bleibt, nur der Akzent wechselt */
+    --w-ink: #1c1a17;
+    --w-soft: #6b6459;
+    --w-line: #ddd6ca;
+    --w-paper: #fbf9f5;
+    --w-accent: #9a7d2f;
+    --w-tint: #f3eeddd0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+
+  /* --- Arbeitsproben-Hinweis --- */
+  .sample-bar {
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 9px 16px;
+    font-weight: 700;
+  }
+  .sample-bar a { color: #fff; text-decoration: underline; }
+
+  /* --- Kopf --- */
+  .top { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; padding-top: 22px; flex-wrap: wrap; }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--accent-lt); font-weight: 700;
+  }
+  .lang-switch { display: flex; border: 1px solid var(--line); }
+  .lang-switch button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    padding: 7px 14px; cursor: pointer; transition: background 200ms, color 200ms;
+  }
+  .lang-switch button.on { background: var(--accent); color: #fff; }
+
+  .hero { padding: 18px 0 40px; border-bottom: 1px solid var(--line); }
+  h1 {
+    font-size: clamp(34px, 6vw, 66px);
+    line-height: 1.02; font-weight: 800; letter-spacing: -.02em;
+    text-transform: uppercase; margin: 14px 0 18px;
+  }
+  .lede { max-width: 780px; color: #cfc9c0; font-size: 16px; }
+  .lede + .lede { margin-top: 14px; }
+  .lede b { color: var(--ink); font-weight: 600; }
+
+  .kpi-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .kpi {
+    background: var(--surface); border: 1px solid var(--line);
+    border-top: 2px solid var(--accent); padding: 14px 18px; min-width: 170px; flex: 1 1 170px;
+  }
+  .kpi b { display: block; font-size: 26px; font-weight: 800; line-height: 1.1; }
+  .kpi span { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+
+  /* --- Layout Werkzeug --- */
+  .tool { display: grid; grid-template-columns: 350px 1fr; gap: 34px; padding: 44px 0 10px; align-items: start; }
+  @media (max-width: 1080px) { .tool { grid-template-columns: 1fr; } }
+
+  .panel {
+    background: var(--surface); border: 1px solid var(--line);
+    padding: 22px; position: sticky; top: 18px;
+  }
+  @media (max-width: 1080px) { .panel { position: static; } }
+
+  .panel h2, .stage h2 {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--accent-lt); font-weight: 700; margin-bottom: 18px;
+  }
+  .fieldset { border-top: 1px solid var(--line); margin-top: 20px; padding-top: 18px; }
+  .fieldset:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+  .fs-title { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 12px; }
+
+  label { display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 5px; }
+  input, select, textarea {
+    width: 100%; background: var(--surface-2); border: 1px solid var(--line);
+    color: var(--ink); font-family: inherit; font-size: 14px; padding: 8px 10px;
+    outline: none; transition: border-color 200ms;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 62px; line-height: 1.55; }
+  .field { margin-bottom: 13px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .hint { font-size: 11px; color: var(--muted); line-height: 1.5; margin-top: 6px; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .chip {
+    background: none; border: 1px solid var(--line); color: var(--muted);
+    font: inherit; font-size: 11px; letter-spacing: .5px; padding: 5px 9px;
+    cursor: pointer; transition: all 180ms;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent-lt); }
+  .chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .btn-s {
+    background: none; border: 1px solid var(--accent); color: var(--accent-lt);
+    font: inherit; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    padding: 7px 12px; cursor: pointer; transition: background 200ms, color 200ms;
+  }
+  .btn-s:hover { background: var(--accent); color: #fff; }
+  .btn-s.solid { background: var(--accent); color: #fff; }
+  .btn-s.solid:hover { background: var(--accent-lt); }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+  /* --- Bühne --- */
+  .stage { min-width: 0; }
+  .material { margin-bottom: 46px; }
+  .mat-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 20px; }
+  .mat-title { font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .mat-meta { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+  .mat-why { font-size: 13px; color: #b6afa5; max-width: 640px; margin: -8px 0 20px; }
+
+  .paper-scroll { overflow-x: auto; padding-bottom: 8px; }
+  .paper {
+    background: var(--w-paper); color: var(--w-ink);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    box-shadow: 0 18px 46px rgba(0,0,0,.55);
+    position: relative; overflow: hidden;
+  }
+  .paper .ser { font-family: Georgia, 'Times New Roman', serif; }
+
+  /* Gemeinsame Bausteine der Materialien */
+  .m-cat { font-size: 7pt; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: var(--w-accent); }
+  .m-name { font-weight: 400; line-height: 1.06; letter-spacing: -.01em; }
+  .m-prod { color: var(--w-soft); }
+  .m-rule { height: 1px; background: var(--w-line); }
+  .m-mark { font-size: 7pt; letter-spacing: 3.4px; text-transform: uppercase; font-weight: 700; color: var(--w-soft); }
+
+  /* 1 — Regal-Talker 55 x 105 mm */
+  .talker { width: 55mm; height: 105mm; padding: 7mm 6mm 6mm; display: flex; flex-direction: column; }
+  .talker .accent-top { position: absolute; inset: 0 0 auto 0; height: 4mm; background: var(--w-accent); }
+  .talker .m-name { font-size: 15pt; margin: 3mm 0 1.6mm; }
+  .talker .m-prod { font-size: 7.5pt; line-height: 1.35; }
+  .talker .t-note { font-size: 8pt; line-height: 1.45; margin-top: 4mm; }
+  .talker .t-spacer { flex: 1; }
+  .talker .t-price { font-size: 21pt; font-weight: 300; letter-spacing: -.01em; line-height: 1; }
+  .talker .t-price small { font-size: 8pt; font-weight: 700; letter-spacing: 1px; vertical-align: 3.2mm; color: var(--w-soft); }
+  .talker .t-unit { font-size: 6.6pt; letter-spacing: 1.4px; text-transform: uppercase; color: var(--w-soft); margin-top: .8mm; }
+  .talker .t-foot { display: flex; flex-direction: column; gap: 1.2mm; margin-top: 3.4mm; padding-top: 2.2mm; border-top: 1px solid var(--w-line); }
+  .talker .t-sku { font-size: 6.2pt; letter-spacing: 1px; color: var(--w-soft); }
+  .talker .m-mark { letter-spacing: 2.6px; }
+  .talker .t-award { display: inline-block; font-size: 6.4pt; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; color: #fff; background: var(--w-accent); padding: 1mm 2mm; margin-top: 3mm; }
+
+  /* 2 — Degustations-Tischkarte A6 quer 148 x 105 mm */
+  .tent { width: 148mm; height: 105mm; padding: 9mm 11mm; display: flex; gap: 9mm; }
+  .tent .num { font-size: 30pt; font-weight: 200; line-height: .8; color: var(--w-accent); font-family: Georgia, serif; }
+  .tent .num small { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 6pt; letter-spacing: 2px; text-transform: uppercase; color: var(--w-soft); font-weight: 700; margin-top: 2.4mm; }
+  .tent .body { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .tent .m-name { font-size: 20pt; margin: 1.4mm 0 1.4mm; }
+  .tent .m-prod { font-size: 8.4pt; }
+  .tent .specs { display: flex; flex-wrap: wrap; gap: 1.4mm 6mm; margin: 4mm 0; padding: 2.6mm 0; border-top: 1px solid var(--w-line); border-bottom: 1px solid var(--w-line); }
+  .tent .spec { font-size: 7pt; letter-spacing: .4px; }
+  .tent .spec b { display: block; font-size: 5.8pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--w-soft); font-weight: 700; margin-bottom: .5mm; }
+  .tent .t-note { font-size: 8.6pt; line-height: 1.5; }
+  .tent .pair { font-size: 7.4pt; color: var(--w-soft); margin-top: 3mm; }
+  .tent .pair b { color: var(--w-ink); text-transform: uppercase; letter-spacing: 1.4px; font-size: 6pt; }
+  .tent .t-spacer { flex: 1; }
+  .tent .notes-lines { margin-top: 1.4mm; }
+  .tent .notes-lines i { display: block; height: 4.6mm; border-bottom: 1px solid var(--w-line); }
+  .tent .tent-foot { display: flex; justify-content: space-between; align-items: baseline; margin-top: 3mm; padding-bottom: 1mm; }
+
+  /* 3 — Gastro-Verkaufsblatt A5 148 x 210 mm */
+  .sheet { width: 148mm; height: 210mm; padding: 12mm 12mm 10mm; display: flex; flex-direction: column; }
+  .sheet .s-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 3mm; border-bottom: 2px solid var(--w-accent); }
+  .sheet .s-kind { font-size: 6.4pt; letter-spacing: 2.6px; text-transform: uppercase; font-weight: 700; color: var(--w-soft); }
+  .sheet .m-name { font-size: 23pt; margin: 6mm 0 1.6mm; }
+  .sheet .m-prod { font-size: 9pt; }
+  .sheet .facts { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm 4mm; margin: 6mm 0; padding: 4mm 0; border-top: 1px solid var(--w-line); border-bottom: 1px solid var(--w-line); }
+  .sheet .fact { font-size: 8pt; }
+  .sheet .fact b { display: block; font-size: 5.8pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--w-soft); font-weight: 700; margin-bottom: .6mm; }
+  .sheet .block-title { font-size: 6.4pt; letter-spacing: 2.6px; text-transform: uppercase; font-weight: 700; color: var(--w-accent); margin-bottom: 2mm; }
+  .sheet .s-note { font-size: 8.8pt; line-height: 1.55; }
+  .sheet .args { margin-top: 6mm; }
+  .sheet .arg { display: flex; gap: 3.4mm; font-size: 8.6pt; line-height: 1.5; margin-bottom: 2.4mm; }
+  .sheet .arg i { font-style: normal; font-weight: 700; color: var(--w-accent); font-size: 8pt; min-width: 4mm; }
+  .sheet .s-spacer { flex: 1; }
+  .sheet .calc { background: var(--w-tint); border-left: 2px solid var(--w-accent); padding: 4mm 5mm; margin-top: 6mm; }
+  .sheet .calc-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; margin-top: 2.4mm; }
+  .sheet .calc-cell { display: flex; flex-direction: column; justify-content: space-between; }
+  .sheet .calc-cell b { display: block; font-size: 5.8pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--w-soft); font-weight: 700; margin-bottom: .8mm; }
+  .sheet .calc-cell span { font-size: 12pt; font-weight: 300; }
+  .sheet .calc-note { font-size: 6pt; color: var(--w-soft); margin-top: 2.6mm; line-height: 1.4; }
+  .sheet .s-foot { display: flex; justify-content: space-between; align-items: baseline; margin-top: 6mm; padding-top: 2.6mm; border-top: 1px solid var(--w-line); font-size: 6.4pt; letter-spacing: 1.2px; color: var(--w-soft); }
+
+  /* 4 — Social-Kachel 1:1 */
+  .tile { width: 108mm; height: 108mm; padding: 9mm; display: flex; flex-direction: column; background: var(--w-ink); color: #f6f2ea; }
+  .tile .badge { align-self: flex-start; font-size: 6.4pt; letter-spacing: 2.6px; text-transform: uppercase; font-weight: 700; color: #fff; background: var(--w-accent); padding: 1.4mm 2.6mm; }
+  .tile .t-spacer { flex: 1; }
+  .tile .m-name { font-size: 25pt; line-height: 1.02; }
+  .tile .tl-hook { font-size: 9.6pt; line-height: 1.5; color: #d9d2c6; margin-top: 4mm; max-width: 78mm; }
+  .tile .tl-meta { font-size: 7pt; letter-spacing: 2.4px; text-transform: uppercase; color: var(--w-accent); margin-bottom: 3mm; }
+  .tile .tl-foot { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 7mm; padding-top: 3mm; border-top: 1px solid rgba(255,255,255,.18); }
+  .tile .tl-price { font-size: 13pt; font-weight: 300; }
+  .tile .m-mark { color: rgba(246,242,234,.62); }
+
+  /* --- Designsystem-Panel --- */
+  .system { padding: 48px 0; border-top: 1px solid var(--line); }
+  .sys-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 24px; }
+  .sys-card { background: var(--surface); border: 1px solid var(--line); padding: 18px; }
+  .sys-card h3 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+  .sys-card p { font-size: 13px; color: #b6afa5; }
+  .swatches { display: flex; gap: 8px; margin-bottom: 12px; }
+  .sw { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.15); }
+
+  .honest { padding: 44px 0 70px; border-top: 1px solid var(--line); }
+  .honest ul { list-style: none; margin-top: 18px; }
+  .honest li { position: relative; padding-left: 20px; margin-bottom: 9px; color: #b6afa5; font-size: 14px; }
+  .honest li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+  .backlinks { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+  .backlinks a {
+    text-decoration: none; border: 1px solid var(--accent); color: var(--accent-lt);
+    font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 11px 20px;
+    transition: background 200ms, color 200ms;
+  }
+  .backlinks a:hover { background: var(--accent); color: #fff; }
+
+  /* --- Druck: nur das gewaehlte Material, exakt eine Seite im Endformat --- */
+  #print-stage { display: none; }
+  @media print {
+    html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
+    body.printing > *:not(#print-stage) { display: none !important; }
+    body.printing #print-stage { display: block !important; }
+    body.printing #print-stage .paper {
+      box-shadow: none !important; margin: 0 !important; overflow: hidden;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="sample-bar" id="bar">
+  Arbeitsprobe von Shayna Jucker &middot; kein offizielles Material der Zweifel Weine &amp; Getr&auml;nke Gruppe &middot;
+  <a href="zweifel.html">zur&uuml;ck zur Bewerbung</a>
+</div>
+
+<div class="wrap">
+  <div class="top">
+    <p class="eyebrow" id="tx-eyebrow">Arbeitsprobe f&uuml;r Zweifel Weine &amp; Getr&auml;nke</p>
+    <div class="lang-switch">
+      <button id="btn-de" class="on" onclick="setLang('de')">DE</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1 id="tx-h1">Weinblatt</h1>
+    <p class="lede" id="tx-lede1"><b>Ein Wein, vier Materialien, ein Layoutsystem.</b> Links die Daten eintippen, rechts entstehen Regal-Talker, Degustationskarte, Gastro-Verkaufsblatt und Social-Kachel gleichzeitig &ndash; druckfertig im richtigen Format.</p>
+    <p class="lede" id="tx-lede2">Ein neuer Wein im Sortiment braucht sonst vier Dateien, vier Mal dieselben Angaben und vier Gelegenheiten, sich zu vertippen. Hier gibt es eine Datenquelle. Das Corporate Design steckt im System, nicht in der Disziplin der Person, die gerade Zeit hat.</p>
+
+    <div class="kpi-row">
+      <div class="kpi"><b>4</b><span id="tx-k1">Materialien pro Wein</span></div>
+      <div class="kpi"><b>1</b><span id="tx-k2">Dateneingabe</span></div>
+      <div class="kpi"><b>3</b><span id="tx-k3">Tonalit&auml;ten: POS, Gastro, Social</span></div>
+      <div class="kpi"><b>DE/EN</b><span id="tx-k4">zweisprachig angelegt</span></div>
+    </div>
+  </div>
+
+  <!-- ============ WERKZEUG ============ -->
+  <div class="tool">
+
+    <!-- Eingabe -->
+    <aside class="panel">
+      <h2 id="tx-panel">Weindaten</h2>
+
+      <div class="fieldset">
+        <div class="field">
+          <label id="tx-l-preset">Beispielwein laden</label>
+          <select id="f-preset" onchange="loadPreset(this.value)">
+            <option value="0">R&auml;uschling &laquo;Chilerain&raquo; 2024</option>
+            <option value="1">Malbec &laquo;Alto Viento&raquo; 2022</option>
+            <option value="2">Cr&eacute;mant Brut &laquo;Verri&egrave;re&raquo;</option>
+          </select>
+        </div>
+        <div class="field">
+          <label id="tx-l-sender">Absender / Wortmarke</label>
+          <input id="f-sender" type="text">
+          <p class="hint" id="tx-h-sender">Platzhalter. Im Betrieb steht hier die Wortmarke des Hauses &ndash; das System ist bewusst markenneutral gebaut.</p>
+        </div>
+      </div>
+
+      <div class="fieldset">
+        <p class="fs-title" id="tx-fs1">Der Wein</p>
+        <div class="field"><label id="tx-l-name">Weinname</label><input id="f-name" type="text"></div>
+        <div class="field"><label id="tx-l-producer">Produzent</label><input id="f-producer" type="text"></div>
+        <div class="row2">
+          <div class="field"><label id="tx-l-year">Jahrgang</label><input id="f-year" type="text"></div>
+          <div class="field"><label id="tx-l-cat">Kategorie</label>
+            <select id="f-cat">
+              <option value="weiss">Weisswein</option>
+              <option value="rot">Rotwein</option>
+              <option value="rose">Ros&eacute;</option>
+              <option value="schaum">Schaumwein</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label id="tx-l-grape">Rebsorte</label><input id="f-grape" type="text"></div>
+        <div class="row2">
+          <div class="field"><label id="tx-l-region">Region</label><input id="f-region" type="text"></div>
+          <div class="field"><label id="tx-l-country">Land</label><input id="f-country" type="text"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label id="tx-l-temp">Serviertemperatur</label><input id="f-temp" type="text"></div>
+          <div class="field"><label id="tx-l-window">Trinkfenster</label><input id="f-window" type="text"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label id="tx-l-award">Auszeichnung</label><input id="f-award" type="text"></div>
+          <div class="field"><label id="tx-l-pos">Flight-Nr.</label><input id="f-pos" type="text"></div>
+        </div>
+      </div>
+
+      <div class="fieldset">
+        <p class="fs-title" id="tx-fs2">Charakter</p>
+        <div class="chips" id="chips"></div>
+        <p class="hint" id="tx-h-chips">Merkmale w&auml;hlen, dann pro Kanal einen Rohentwurf erzeugen. Der Vorschlag ist regelbasiert, kein Sprachmodell &ndash; er liefert einen Startpunkt zum &Uuml;berschreiben, nicht den fertigen Text.</p>
+      </div>
+
+      <div class="fieldset">
+        <p class="fs-title" id="tx-fs3">Texte je Kanal</p>
+        <div class="field">
+          <label id="tx-l-n1">POS &middot; kurz</label>
+          <textarea id="f-note-pos"></textarea>
+          <div class="btn-row"><button class="btn-s" onclick="suggest('pos')" id="tx-b1">Vorschlag</button></div>
+        </div>
+        <div class="field">
+          <label id="tx-l-n2">Gastro &amp; Degustation &middot; fachlich</label>
+          <textarea id="f-note-pro" style="min-height:88px"></textarea>
+          <div class="btn-row"><button class="btn-s" onclick="suggest('pro')" id="tx-b2">Vorschlag</button></div>
+        </div>
+        <div class="field">
+          <label id="tx-l-n3">Social &middot; locker</label>
+          <textarea id="f-note-social"></textarea>
+          <div class="btn-row"><button class="btn-s" onclick="suggest('social')" id="tx-b3">Vorschlag</button></div>
+        </div>
+        <div class="field">
+          <label id="tx-l-pair">Passt zu</label>
+          <input id="f-pair" type="text">
+        </div>
+      </div>
+
+      <div class="fieldset">
+        <p class="fs-title" id="tx-fs4">Verkaufsargumente</p>
+        <div class="field"><input id="f-arg1" type="text"></div>
+        <div class="field"><input id="f-arg2" type="text"></div>
+        <div class="field"><input id="f-arg3" type="text"></div>
+      </div>
+
+      <div class="fieldset">
+        <p class="fs-title" id="tx-fs5">Handel &amp; Kalkulation</p>
+        <div class="row2">
+          <div class="field"><label id="tx-l-price">Ladenpreis CHF</label><input id="f-price" type="text"></div>
+          <div class="field"><label id="tx-l-gprice">Gastro-Einkauf CHF</label><input id="f-gprice" type="text"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label id="tx-l-sku">Artikelnummer</label><input id="f-sku" type="text"></div>
+          <div class="field"><label id="tx-l-factor">Kalkulationsfaktor</label><input id="f-factor" type="text"></div>
+        </div>
+        <p class="hint" id="tx-h-calc">Aus Einkaufspreis und Faktor rechnet das Blatt den empfohlenen Flaschen- und Offenausschankpreis. Genau die Zahl, nach der im Gastro-Gespr&auml;ch als Erstes gefragt wird.</p>
+      </div>
+    </aside>
+
+    <!-- Ausgabe -->
+    <main class="stage">
+
+      <!-- 1 -->
+      <section class="material">
+        <div class="mat-head">
+          <span class="mat-title" id="tx-m1">01 &middot; Regal-Talker</span>
+          <span class="mat-meta">55 &times; 105 mm &middot; <span id="tx-m1c">Handel &amp; Vinothek</span></span>
+        </div>
+        <p class="mat-why" id="tx-w1">H&auml;ngt am Regal und verkauft, wenn niemand vom Verkauf danebensteht. Deshalb: eine Aussage, ein Preis, kein Fliesstext.</p>
+        <div class="paper-scroll"><div class="paper talker" id="mat-talker">
+          <div class="accent-top"></div>
+          <p class="m-cat" id="o-cat1">WEISSWEIN</p>
+          <p class="m-name ser" id="o-name1">&nbsp;</p>
+          <p class="m-prod" id="o-prod1">&nbsp;</p>
+          <p class="t-note" id="o-note1">&nbsp;</p>
+          <p><span class="t-award" id="o-award1">&nbsp;</span></p>
+          <div class="t-spacer"></div>
+          <p class="t-price" id="o-price1"><small>CHF</small> 18.50</p>
+          <p class="t-unit" id="o-unit1">pro Flasche 75 cl</p>
+          <div class="t-foot">
+            <span class="m-mark" id="o-mark1">&nbsp;</span>
+            <span class="t-sku" id="o-sku1">&nbsp;</span>
+          </div>
+        </div></div>
+        <div class="btn-row"><button class="btn-s solid" onclick="printMat('mat-talker','55mm 105mm')" id="tx-p1">Drucken / PDF</button></div>
+      </section>
+
+      <!-- 2 -->
+      <section class="material">
+        <div class="mat-head">
+          <span class="mat-title" id="tx-m2">02 &middot; Degustationskarte</span>
+          <span class="mat-meta">A6 quer &middot; <span id="tx-m2c">Degustation, Messe, Event</span></span>
+        </div>
+        <p class="mat-why" id="tx-w2">Steht am Tisch neben der Flasche. Beantwortet die drei Fragen, die sonst zwanzig Mal pro Abend m&uuml;ndlich beantwortet werden &ndash; und l&auml;sst Platz f&uuml;r die Notizen der Gäste.</p>
+        <div class="paper-scroll"><div class="paper tent" id="mat-tent">
+          <div>
+            <p class="num" id="o-pos2">01<small id="tx-flight">Flight</small></p>
+          </div>
+          <div class="body">
+            <p class="m-cat" id="o-cat2">&nbsp;</p>
+            <p class="m-name ser" id="o-name2">&nbsp;</p>
+            <p class="m-prod" id="o-prod2">&nbsp;</p>
+            <div class="specs" id="o-specs2"></div>
+            <p class="t-note" id="o-note2">&nbsp;</p>
+            <p class="pair"><b id="tx-pair2">Passt zu</b> <span id="o-pair2"></span></p>
+            <div class="t-spacer"></div>
+            <div class="tent-foot">
+              <span class="t-sku" style="font-size:5.8pt;letter-spacing:1.6px;text-transform:uppercase;color:var(--w-soft)" id="o-notes2">Notizen</span>
+              <span class="m-mark" id="o-mark2">&nbsp;</span>
+            </div>
+            <div class="notes-lines"><i></i><i></i></div>
+          </div>
+        </div></div>
+        <div class="btn-row"><button class="btn-s solid" onclick="printMat('mat-tent','148mm 105mm')" id="tx-p2">Drucken / PDF</button></div>
+      </section>
+
+      <!-- 3 -->
+      <section class="material">
+        <div class="mat-head">
+          <span class="mat-title" id="tx-m3">03 &middot; Verkaufsblatt Gastronomie</span>
+          <span class="mat-meta">A5 &middot; <span id="tx-m3c">Aussendienst &amp; Handel</span></span>
+        </div>
+        <p class="mat-why" id="tx-w3">Das Blatt, das im Gastro-Termin auf den Tisch kommt. Fakten oben, Argumente in der Mitte, Kalkulation unten &ndash; in der Reihenfolge, in der gefragt wird.</p>
+        <div class="paper-scroll"><div class="paper sheet" id="mat-sheet">
+          <div class="s-head">
+            <span class="m-mark" id="o-mark3">&nbsp;</span>
+            <span class="s-kind" id="tx-kind3">Verkaufsblatt Gastronomie</span>
+          </div>
+          <p class="m-cat" id="o-cat3">&nbsp;</p>
+          <p class="m-name ser" id="o-name3">&nbsp;</p>
+          <p class="m-prod" id="o-prod3">&nbsp;</p>
+          <div class="facts" id="o-facts3"></div>
+          <p class="block-title" id="tx-bt-note">Degustationsnotiz</p>
+          <p class="s-note" id="o-note3">&nbsp;</p>
+          <div class="args">
+            <p class="block-title" id="tx-bt-args">Warum dieser Wein auf die Karte geh&ouml;rt</p>
+            <div id="o-args3"></div>
+          </div>
+          <p class="s-note" style="margin-top:5mm"><b id="tx-bt-pair">Passt zu:</b> <span id="o-pair3"></span></p>
+          <div class="s-spacer"></div>
+          <div class="calc">
+            <p class="block-title" id="tx-bt-calc">Kalkulationshilfe</p>
+            <div class="calc-grid" id="o-calc3"></div>
+            <p class="calc-note" id="o-calcnote3">&nbsp;</p>
+          </div>
+          <div class="s-foot">
+            <span id="o-sku3">&nbsp;</span>
+            <span id="o-foot3">&nbsp;</span>
+          </div>
+        </div></div>
+        <div class="btn-row"><button class="btn-s solid" onclick="printMat('mat-sheet','148mm 210mm')" id="tx-p3">Drucken / PDF</button></div>
+      </section>
+
+      <!-- 4 -->
+      <section class="material">
+        <div class="mat-head">
+          <span class="mat-title" id="tx-m4">04 &middot; Social-Kachel</span>
+          <span class="mat-meta">1:1 &middot; <span id="tx-m4c">Instagram, Newsletter, Website</span></span>
+        </div>
+        <p class="mat-why" id="tx-w4">Gleiches System, anderer Ton. Dieselbe Datenquelle, damit online und im Regal derselbe Wein steht &ndash; mit demselben Namen, demselben Jahrgang, demselben Preis.</p>
+        <div class="paper-scroll"><div class="paper tile" id="mat-tile">
+          <span class="badge" id="o-cat4">&nbsp;</span>
+          <div class="t-spacer"></div>
+          <p class="tl-meta" id="o-meta4">&nbsp;</p>
+          <p class="m-name ser" id="o-name4">&nbsp;</p>
+          <p class="tl-hook" id="o-hook4">&nbsp;</p>
+          <div class="tl-foot">
+            <span class="tl-price" id="o-price4">&nbsp;</span>
+            <span class="m-mark" id="o-mark4">&nbsp;</span>
+          </div>
+        </div></div>
+        <div class="btn-row">
+          <button class="btn-s solid" onclick="printMat('mat-tile','108mm 108mm')" id="tx-p4">Drucken / PDF</button>
+          <button class="btn-s" onclick="downloadSVG()" id="tx-p4b">Als SVG f&uuml;r Illustrator</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ============ DESIGNSYSTEM ============ -->
+  <section class="system">
+    <p class="eyebrow" id="tx-sys">Das System dahinter</p>
+    <div class="sys-grid">
+      <div class="sys-card">
+        <div class="swatches">
+          <span class="sw" style="background:#9a7d2f"></span>
+          <span class="sw" style="background:#6e1f2a"></span>
+          <span class="sw" style="background:#b96b70"></span>
+          <span class="sw" style="background:#3e5561"></span>
+        </div>
+        <h3 id="tx-s1h">Ein Akzent pro Kategorie</h3>
+        <p id="tx-s1p">Weiss, Rot, Ros&eacute;, Schaumwein. Der Akzent wechselt, Raster, Schriftgr&ouml;ssen und Abst&auml;nde bleiben. So bleibt das Sortiment unterscheidbar und der Auftritt trotzdem einer.</p>
+      </div>
+      <div class="sys-card">
+        <h3 id="tx-s2h">Eine Datenquelle, vier Kan&auml;le</h3>
+        <p id="tx-s2p">Jahrgang, Preis und Artikelnummer werden einmal erfasst. Wo dieselbe Zahl an vier Orten von Hand steht, steht sie irgendwann an drei Orten falsch.</p>
+      </div>
+      <div class="sys-card">
+        <h3 id="tx-s3h">Drei Tonalit&auml;ten, ein Wein</h3>
+        <p id="tx-s3p">Am Regal z&auml;hlen f&uuml;nf Worte, im Gastro-Termin z&auml;hlt Fachsprache, auf Social z&auml;hlt der erste Satz. Derselbe Wein, drei Register &ndash; das ist Textarbeit, keine Formatfrage.</p>
+      </div>
+      <div class="sys-card">
+        <h3 id="tx-s4h">Druckfertig, nicht bildschirmfertig</h3>
+        <p id="tx-s4p">Jedes Material druckt im echten Endformat &ndash; 55&times;105 mm, A6 quer, A5. Die Social-Kachel l&auml;sst sich als SVG herunterladen und in Illustrator weiterbauen.</p>
+      </div>
+      <div class="sys-card">
+        <h3 id="tx-s5h">Zweisprachig angelegt</h3>
+        <p id="tx-s5p">Alle festen Beschriftungen liegen in Deutsch und Englisch in derselben Datei. Umschalten oben rechts &ndash; kein zweites Template, keine zweite Pflegestelle.</p>
+      </div>
+      <div class="sys-card">
+        <h3 id="tx-s6h">Wo KI hier wirklich hilft</h3>
+        <p id="tx-s6p">Beim Rohentwurf und bei Varianten, nicht beim Endtext. Der Textvorschlag hier ist bewusst regelbasiert und l&auml;dt nichts von aussen nach &ndash; die Datei bleibt eigenst&auml;ndig. Im Alltag nutze ich KI-Tools genau so: als Startpunkt, den ich danach &uuml;berschreibe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EHRLICHKEIT ============ -->
+  <section class="honest">
+    <p class="eyebrow" id="tx-honest">Ehrlichkeitshalber</p>
+    <ul>
+      <li id="tx-ho1">Alle Weine, Produzenten, Preise und Auszeichnungen in dieser Demo sind frei erfunden.</li>
+      <li id="tx-ho2">Kein offizielles Material der Zweifel Weine &amp; Getr&auml;nke Gruppe, keine Verwendung ihrer Marken oder Logos.</li>
+      <li id="tx-ho3">Die Wortmarke ist ein Platzhalter und frei &uuml;berschreibbar &ndash; das System ist markenneutral gebaut.</li>
+      <li id="tx-ho4">Eine einzige HTML-Datei: kein Framework, keine Build-Tools, keine externen Requests, keine Datenerfassung.</li>
+      <li id="tx-ho5">Der Textvorschlag ist regelbasiert und ersetzt keine Redaktion &ndash; er ersetzt das leere Feld.</li>
+      <li id="tx-ho6">Gebaut als Arbeitsprobe zur Bewerbung, an einem Wochenende.</li>
+    </ul>
+    <div class="backlinks">
+      <a href="zweifel.html" id="tx-bl1">Zur&uuml;ck zur Bewerbung</a>
+      <a href="mailto:jucker.shayna@gmail.com?subject=Arbeitsprobe%20Weinblatt" id="tx-bl2">Schreib mir</a>
+    </div>
+  </section>
+</div>
+
+<script src="js/pw-protect.js"></script>
+<script>
+/* ============================================================
+   WEINBLATT – POS-Baukasten
+   Arbeitsprobe Shayna Jucker
+   Eine Datei, keine Abhängigkeiten.
+   ============================================================ */
+
+var LANG = 'de';
+
+/* --- Kategorie-Akzente: Layout bleibt, Akzent wechselt --- */
+var CATS = {
+  weiss:  { accent: '#9a7d2f', tint: '#f4efdd', de: 'Weisswein',   en: 'White wine' },
+  rot:    { accent: '#6e1f2a', tint: '#f3e6e6', de: 'Rotwein',     en: 'Red wine' },
+  rose:   { accent: '#b96b70', tint: '#faeaea', de: 'Ros&eacute;', en: 'Ros&eacute;' },
+  schaum: { accent: '#3e5561', tint: '#e7edf0', de: 'Schaumwein',  en: 'Sparkling' }
+};
+
+/* --- Merkmale für den Textvorschlag --- */
+var TRAITS = [
+  { id: 'zitrus',  de: 'Zitrus',             en: 'Citrus',           pos: { de: 'Zitrus', en: 'citrus' },              nose: { de: 'Zitronenzeste', en: 'lemon zest' } },
+  { id: 'stein',   de: 'Steinobst',          en: 'Stone fruit',      pos: { de: 'Steinobst', en: 'stone fruit' },       nose: { de: 'Aprikose', en: 'apricot' } },
+  { id: 'bluete',  de: 'Weisse Bl&uuml;ten', en: 'White blossom',    pos: { de: 'weisse Bl&uuml;ten', en: 'white blossom' }, nose: { de: 'weisse Bl&uuml;ten', en: 'white blossom' } },
+  { id: 'beere',   de: 'Dunkle Beeren',      en: 'Dark berries',     pos: { de: 'dunkle Beeren', en: 'dark berries' },  nose: { de: 'dunkle Beeren', en: 'dark berries' } },
+  { id: 'gewuerz', de: 'Gew&uuml;rz',        en: 'Spice',            pos: { de: 'Gew&uuml;rz', en: 'spice' },           nose: { de: 'Pfeffer', en: 'pepper' } },
+  { id: 'frisch',  de: 'Frisch',             en: 'Fresh',            pos: { de: 'frisch', en: 'fresh' },                palate: { de: 'frisch', en: 'fresh' } },
+  { id: 'saftig',  de: 'Saftig',             en: 'Juicy',            pos: { de: 'saftig', en: 'juicy' },                palate: { de: 'saftig', en: 'juicy' } },
+  { id: 'kraft',   de: 'Kraftvoll',          en: 'Powerful',         pos: { de: 'kraftvoll', en: 'powerful' },          palate: { de: 'kraftvoll', en: 'powerful' } },
+  { id: 'mineral', de: 'Mineralisch',        en: 'Mineral',          pos: { de: 'mineralisch', en: 'mineral' },         palate: { de: 'mineralisch', en: 'mineral' } },
+  { id: 'tannin',  de: 'Feines Tannin',      en: 'Fine tannin',      pos: { de: 'feines Tannin', en: 'fine tannin' },   palate: { de: 'feink&ouml;rnig im Tannin', en: 'fine-grained in the tannin' } },
+  { id: 'stahl',   de: 'Stahlausbau',        en: 'Steel-aged',       pos: { de: 'Stahlausbau', en: 'steel-aged' },      aging: { de: 'Im Stahltank ausgebaut', en: 'Aged in stainless steel' } },
+  { id: 'holz',    de: 'Holzausbau',         en: 'Oak-aged',         pos: { de: 'Holzausbau', en: 'oak-aged' },         aging: { de: 'Zw&ouml;lf Monate im Holzfass gereift', en: 'Aged twelve months in oak' } },
+  { id: 'flasche', de: 'Flascheng&auml;rung', en: 'Bottle-fermented', pos: { de: 'Flascheng&auml;rung', en: 'bottle-fermented' }, aging: { de: 'Traditionell in der Flasche verg&auml;rt', en: 'Traditionally fermented in the bottle' } }
+];
+
+var selected = {};
+var dirty = {};   /* von Hand &uuml;berschriebene Textfelder nicht &uuml;berb&uuml;geln */
+
+/* --- Beispieldaten: frei erfunden --- */
+var PRESETS = [
+  {
+    sender: 'WEINHAUS MUSTER', name: 'R&auml;uschling &laquo;Chilerain&raquo;', producer: 'Weingut Muster, Z&uuml;rich',
+    year: '2024', cat: 'weiss', grape: 'R&auml;uschling', region: 'Z&uuml;rich AOC', country: 'Schweiz',
+    temp: '10&ndash;12 &deg;C', win: '2025&ndash;2029', award: 'Silber, Muster-Cup', pos: '01',
+    pair: 'Felchenfilet, Sp&auml;rgeln, junger Alpk&auml;se',
+    price: '19.50', gprice: '11.80', sku: 'W-10234', factor: '3.0',
+    traits: ['zitrus', 'bluete', 'frisch', 'mineral', 'stahl'],
+    arg1: 'Zwei Autominuten Herkunft: die Rebsorte, die es fast nur hier gibt.',
+    arg2: 'Offenausschank-tauglich, weil er auch am zweiten Tag noch steht.',
+    arg3: 'Der Wein, den G&auml;ste nach dem Namen fragen, wenn sie ihn nicht kennen.'
+  },
+  {
+    sender: 'WEINHAUS MUSTER', name: 'Malbec &laquo;Alto Viento&raquo;', producer: 'Bodega Ejemplo, Mendoza',
+    year: '2022', cat: 'rot', grape: 'Malbec', region: 'Uco Valley', country: 'Argentinien',
+    temp: '16&ndash;18 &deg;C', win: '2025&ndash;2032', award: '92 Punkte, Muster-Guide', pos: '04',
+    pair: 'Kurzgebratenes vom Rind, Grillgem&uuml;se, Hartk&auml;se',
+    price: '24.00', gprice: '14.50', sku: 'R-20871', factor: '3.0',
+    traits: ['beere', 'gewuerz', 'kraft', 'tannin', 'holz'],
+    arg1: 'Der Rotwein f&uuml;r G&auml;ste, die ohne Karte bestellen.',
+    arg2: 'H&ouml;he statt Hitze: 1100 Meter, deshalb Frische trotz Kraft.',
+    arg3: 'Bew&auml;hrt als Glasempfehlung zum Fleischgang.'
+  },
+  {
+    sender: 'WEINHAUS MUSTER', name: 'Cr&eacute;mant Brut &laquo;Verri&egrave;re&raquo;', producer: 'Maison Exemple, Alsace',
+    year: 'o. J.', cat: 'schaum', grape: 'Pinot Blanc, Chardonnay', region: 'Alsace', country: 'Frankreich',
+    temp: '6&ndash;8 &deg;C', win: 'jetzt trinken', award: '', pos: '07',
+    pair: 'Ap&eacute;ro, Austern, Tempura, Fr&uuml;chtedessert',
+    price: '16.90', gprice: '9.90', sku: 'S-30512', factor: '3.2',
+    traits: ['zitrus', 'stein', 'frisch', 'flasche'],
+    arg1: 'Der Ap&eacute;ro, der ein Men&uuml; er&ouml;ffnet, ohne es zu &uuml;bert&ouml;nen.',
+    arg2: 'Flaschengärung zum Preis, bei dem Offenausschank rechnet.',
+    arg3: 'Funktioniert im Bankett genauso wie an der Bar.'
+  }
+];
+
+/* ---------- Wörterbuch DE / EN ---------- */
+var T = {
+  de: {
+    'tx-eyebrow': 'Arbeitsprobe f&uuml;r Zweifel Weine &amp; Getr&auml;nke',
+    'tx-lede1': '<b>Ein Wein, vier Materialien, ein Layoutsystem.</b> Links die Daten eintippen, rechts entstehen Regal-Talker, Degustationskarte, Gastro-Verkaufsblatt und Social-Kachel gleichzeitig &ndash; druckfertig im richtigen Format.',
+    'tx-lede2': 'Ein neuer Wein im Sortiment braucht sonst vier Dateien, vier Mal dieselben Angaben und vier Gelegenheiten, sich zu vertippen. Hier gibt es eine Datenquelle. Das Corporate Design steckt im System, nicht in der Disziplin der Person, die gerade Zeit hat.',
+    'tx-k1': 'Materialien pro Wein', 'tx-k2': 'Dateneingabe', 'tx-k3': 'Tonalit&auml;ten: POS, Gastro, Social', 'tx-k4': 'zweisprachig angelegt',
+    'tx-panel': 'Weindaten', 'tx-l-preset': 'Beispielwein laden', 'tx-l-sender': 'Absender / Wortmarke',
+    'tx-h-sender': 'Platzhalter. Im Betrieb steht hier die Wortmarke des Hauses &ndash; das System ist bewusst markenneutral gebaut.',
+    'tx-fs1': 'Der Wein', 'tx-l-name': 'Weinname', 'tx-l-producer': 'Produzent', 'tx-l-year': 'Jahrgang',
+    'tx-l-cat': 'Kategorie', 'tx-l-grape': 'Rebsorte', 'tx-l-region': 'Region', 'tx-l-country': 'Land',
+    'tx-l-temp': 'Serviertemperatur', 'tx-l-window': 'Trinkfenster', 'tx-l-award': 'Auszeichnung', 'tx-l-pos': 'Flight-Nr.',
+    'tx-fs2': 'Charakter',
+    'tx-h-chips': 'Merkmale w&auml;hlen, dann pro Kanal einen Rohentwurf erzeugen. Der Vorschlag ist regelbasiert, kein Sprachmodell &ndash; er liefert einen Startpunkt zum &Uuml;berschreiben, nicht den fertigen Text.',
+    'tx-fs3': 'Texte je Kanal', 'tx-l-n1': 'POS &middot; kurz', 'tx-l-n2': 'Gastro &amp; Degustation &middot; fachlich', 'tx-l-n3': 'Social &middot; locker',
+    'tx-b1': 'Vorschlag', 'tx-b2': 'Vorschlag', 'tx-b3': 'Vorschlag', 'tx-l-pair': 'Passt zu',
+    'tx-fs4': 'Verkaufsargumente', 'tx-fs5': 'Handel &amp; Kalkulation',
+    'tx-l-price': 'Ladenpreis CHF', 'tx-l-gprice': 'Gastro-Einkauf CHF', 'tx-l-sku': 'Artikelnummer', 'tx-l-factor': 'Kalkulationsfaktor',
+    'tx-h-calc': 'Aus Einkaufspreis und Faktor rechnet das Blatt den empfohlenen Flaschen- und Offenausschankpreis. Genau die Zahl, nach der im Gastro-Gespr&auml;ch als Erstes gefragt wird.',
+    'tx-m1': '01 &middot; Regal-Talker', 'tx-m1c': 'Handel &amp; Vinothek',
+    'tx-w1': 'H&auml;ngt am Regal und verkauft, wenn niemand vom Verkauf danebensteht. Deshalb: eine Aussage, ein Preis, kein Fliesstext.',
+    'tx-m2': '02 &middot; Degustationskarte', 'tx-m2c': 'Degustation, Messe, Event',
+    'tx-w2': 'Steht am Tisch neben der Flasche. Beantwortet die drei Fragen, die sonst zwanzig Mal pro Abend m&uuml;ndlich beantwortet werden &ndash; und l&auml;sst Platz f&uuml;r die Notizen der G&auml;ste.',
+    'tx-m3': '03 &middot; Verkaufsblatt Gastronomie', 'tx-m3c': 'Aussendienst &amp; Handel',
+    'tx-w3': 'Das Blatt, das im Gastro-Termin auf den Tisch kommt. Fakten oben, Argumente in der Mitte, Kalkulation unten &ndash; in der Reihenfolge, in der gefragt wird.',
+    'tx-m4': '04 &middot; Social-Kachel', 'tx-m4c': 'Instagram, Newsletter, Website',
+    'tx-w4': 'Gleiches System, anderer Ton. Dieselbe Datenquelle, damit online und im Regal derselbe Wein steht &ndash; mit demselben Namen, demselben Jahrgang, demselben Preis.',
+    'tx-p1': 'Drucken / PDF', 'tx-p2': 'Drucken / PDF', 'tx-p3': 'Drucken / PDF', 'tx-p4': 'Drucken / PDF', 'tx-p4b': 'Als SVG f&uuml;r Illustrator',
+    'tx-flight': 'Flight', 'tx-pair2': 'Passt zu', 'tx-kind3': 'Verkaufsblatt Gastronomie',
+    'tx-bt-note': 'Degustationsnotiz', 'tx-bt-args': 'Warum dieser Wein auf die Karte geh&ouml;rt', 'tx-bt-pair': 'Passt zu:', 'tx-bt-calc': 'Kalkulationshilfe',
+    'tx-sys': 'Das System dahinter',
+    'tx-s1h': 'Ein Akzent pro Kategorie',
+    'tx-s1p': 'Weiss, Rot, Ros&eacute;, Schaumwein. Der Akzent wechselt, Raster, Schriftgr&ouml;ssen und Abst&auml;nde bleiben. So bleibt das Sortiment unterscheidbar und der Auftritt trotzdem einer.',
+    'tx-s2h': 'Eine Datenquelle, vier Kan&auml;le',
+    'tx-s2p': 'Jahrgang, Preis und Artikelnummer werden einmal erfasst. Wo dieselbe Zahl an vier Orten von Hand steht, steht sie irgendwann an drei Orten falsch.',
+    'tx-s3h': 'Drei Tonalit&auml;ten, ein Wein',
+    'tx-s3p': 'Am Regal z&auml;hlen f&uuml;nf Worte, im Gastro-Termin z&auml;hlt Fachsprache, auf Social z&auml;hlt der erste Satz. Derselbe Wein, drei Register &ndash; das ist Textarbeit, keine Formatfrage.',
+    'tx-s4h': 'Druckfertig, nicht bildschirmfertig',
+    'tx-s4p': 'Jedes Material druckt im echten Endformat &ndash; 55&times;105 mm, A6 quer, A5. Die Social-Kachel l&auml;sst sich als SVG herunterladen und in Illustrator weiterbauen.',
+    'tx-s5h': 'Zweisprachig angelegt',
+    'tx-s5p': 'Alle festen Beschriftungen liegen in Deutsch und Englisch in derselben Datei. Umschalten oben rechts &ndash; kein zweites Template, keine zweite Pflegestelle.',
+    'tx-s6h': 'Wo KI hier wirklich hilft',
+    'tx-s6p': 'Beim Rohentwurf und bei Varianten, nicht beim Endtext. Der Textvorschlag hier ist bewusst regelbasiert und l&auml;dt nichts von aussen nach &ndash; die Datei bleibt eigenst&auml;ndig. Im Alltag nutze ich KI-Tools genau so: als Startpunkt, den ich danach &uuml;berschreibe.',
+    'tx-honest': 'Ehrlichkeitshalber',
+    'tx-ho1': 'Alle Weine, Produzenten, Preise und Auszeichnungen in dieser Demo sind frei erfunden.',
+    'tx-ho2': 'Kein offizielles Material der Zweifel Weine &amp; Getr&auml;nke Gruppe, keine Verwendung ihrer Marken oder Logos.',
+    'tx-ho3': 'Die Wortmarke ist ein Platzhalter und frei &uuml;berschreibbar &ndash; das System ist markenneutral gebaut.',
+    'tx-ho4': 'Eine einzige HTML-Datei: kein Framework, keine Build-Tools, keine externen Requests, keine Datenerfassung.',
+    'tx-ho5': 'Der Textvorschlag ist regelbasiert und ersetzt keine Redaktion &ndash; er ersetzt das leere Feld.',
+    'tx-ho6': 'Gebaut als Arbeitsprobe zur Bewerbung, an einem Wochenende.',
+    'tx-bl1': 'Zur&uuml;ck zur Bewerbung', 'tx-bl2': 'Schreib mir'
+  },
+  en: {
+    'tx-eyebrow': 'Work sample for Zweifel Weine &amp; Getr&auml;nke',
+    'tx-lede1': '<b>One wine, four materials, one layout system.</b> Type the data on the left and the shelf talker, tasting card, gastronomy sales sheet and social tile are built on the right at the same time &ndash; print-ready, at the correct size.',
+    'tx-lede2': 'A new wine in the range normally needs four files, the same details typed four times and four chances to make a typo. Here there is one source of data. The corporate design sits in the system, not in the discipline of whoever happens to have time.',
+    'tx-k1': 'materials per wine', 'tx-k2': 'data entry', 'tx-k3': 'registers: POS, trade, social', 'tx-k4': 'bilingual by design',
+    'tx-panel': 'Wine data', 'tx-l-preset': 'Load example wine', 'tx-l-sender': 'Sender / wordmark',
+    'tx-h-sender': 'Placeholder. In production this is the house wordmark &ndash; the system is deliberately brand-neutral.',
+    'tx-fs1': 'The wine', 'tx-l-name': 'Wine name', 'tx-l-producer': 'Producer', 'tx-l-year': 'Vintage',
+    'tx-l-cat': 'Category', 'tx-l-grape': 'Grape', 'tx-l-region': 'Region', 'tx-l-country': 'Country',
+    'tx-l-temp': 'Serving temperature', 'tx-l-window': 'Drinking window', 'tx-l-award': 'Award', 'tx-l-pos': 'Flight no.',
+    'tx-fs2': 'Character',
+    'tx-h-chips': 'Pick the characteristics, then generate a draft per channel. The suggestion is rule-based, not a language model &ndash; it gives you a starting point to overwrite, not a finished text.',
+    'tx-fs3': 'Copy per channel', 'tx-l-n1': 'POS &middot; short', 'tx-l-n2': 'Trade &amp; tasting &middot; technical', 'tx-l-n3': 'Social &middot; relaxed',
+    'tx-b1': 'Suggest', 'tx-b2': 'Suggest', 'tx-b3': 'Suggest', 'tx-l-pair': 'Pairs with',
+    'tx-fs4': 'Selling points', 'tx-fs5': 'Trade &amp; margin',
+    'tx-l-price': 'Retail price CHF', 'tx-l-gprice': 'Trade price CHF', 'tx-l-sku': 'Item number', 'tx-l-factor': 'Markup factor',
+    'tx-h-calc': 'From the trade price and the factor the sheet calculates the recommended bottle and by-the-glass price. Exactly the number that gets asked first in a restaurant meeting.',
+    'tx-m1': '01 &middot; Shelf talker', 'tx-m1c': 'Retail &amp; wine shop',
+    'tx-w1': 'It hangs on the shelf and sells when nobody from sales is standing next to it. So: one statement, one price, no body copy.',
+    'tx-m2': '02 &middot; Tasting card', 'tx-m2c': 'Tastings, trade fairs, events',
+    'tx-w2': 'It stands on the table next to the bottle and answers the three questions that would otherwise be answered out loud twenty times an evening &ndash; and leaves room for the guests&rsquo; own notes.',
+    'tx-m3': '03 &middot; Gastronomy sales sheet', 'tx-m3c': 'Field sales &amp; retail',
+    'tx-w3': 'The sheet that goes on the table in a restaurant meeting. Facts at the top, arguments in the middle, margin at the bottom &ndash; in the order they get asked.',
+    'tx-m4': '04 &middot; Social tile', 'tx-m4c': 'Instagram, newsletter, website',
+    'tx-w4': 'Same system, different tone. Same source of data, so the wine online and the wine on the shelf are the same wine &ndash; same name, same vintage, same price.',
+    'tx-p1': 'Print / PDF', 'tx-p2': 'Print / PDF', 'tx-p3': 'Print / PDF', 'tx-p4': 'Print / PDF', 'tx-p4b': 'Download SVG for Illustrator',
+    'tx-flight': 'Flight', 'tx-pair2': 'Pairs with', 'tx-kind3': 'Gastronomy sales sheet',
+    'tx-bt-note': 'Tasting note', 'tx-bt-args': 'Why this wine belongs on the list', 'tx-bt-pair': 'Pairs with:', 'tx-bt-calc': 'Margin calculator',
+    'tx-sys': 'The system behind it',
+    'tx-s1h': 'One accent per category',
+    'tx-s1p': 'White, red, ros&eacute;, sparkling. The accent changes; grid, type sizes and spacing stay. The range stays distinguishable and the brand still reads as one.',
+    'tx-s2h': 'One data source, four channels',
+    'tx-s2p': 'Vintage, price and item number are entered once. Where the same number is typed by hand in four places, it eventually ends up wrong in three.',
+    'tx-s3h': 'Three registers, one wine',
+    'tx-s3p': 'On the shelf five words count, in a trade meeting the technical language counts, on social the first sentence counts. Same wine, three registers &ndash; that is writing, not formatting.',
+    'tx-s4h': 'Print-ready, not screen-ready',
+    'tx-s4p': 'Every material prints at its real final size &ndash; 55&times;105 mm, A6 landscape, A5. The social tile downloads as an SVG and opens straight in Illustrator.',
+    'tx-s5h': 'Bilingual by design',
+    'tx-s5p': 'All fixed labels live in German and English in the same file. Switch top right &ndash; no second template, no second thing to maintain.',
+    'tx-s6h': 'Where AI genuinely helps',
+    'tx-s6p': 'With drafts and variants, not with the final text. The suggestion here is deliberately rule-based and loads nothing from outside &ndash; the file stays self-contained. In daily work I use AI tools exactly like that: as a starting point I then overwrite.',
+    'tx-honest': 'For the record',
+    'tx-ho1': 'Every wine, producer, price and award in this demo is invented.',
+    'tx-ho2': 'Not official material of the Zweifel Weine &amp; Getr&auml;nke group, and it uses none of their brands or logos.',
+    'tx-ho3': 'The wordmark is a placeholder and freely editable &ndash; the system is built brand-neutral.',
+    'tx-ho4': 'A single HTML file: no framework, no build tools, no external requests, no data collection.',
+    'tx-ho5': 'The text suggestion is rule-based and replaces no editor &ndash; it replaces the empty field.',
+    'tx-ho6': 'Built as a work sample for this application, over a weekend.',
+    'tx-bl1': 'Back to the application', 'tx-bl2': 'Write me'
+  }
+};
+
+/* Beschriftungen innerhalb der Materialien */
+var L = {
+  de: { grape: 'Rebsorte', region: 'Region', country: 'Land', year: 'Jahrgang', temp: 'Serviert bei',
+        win: 'Trinkfenster', sku: 'Art.-Nr.', bottle: 'pro Flasche 75 cl', notes: 'Notizen',
+        cbottle: 'Flasche auf der Karte', cglass: 'Offen, 1 dl', cmargin: 'Marge / Flasche',
+        cnote: 'Richtwerte auf Basis Einkauf und Faktor, exkl. MwSt. Gerundet auf 50 Rappen. Ersetzt die eigene Kalkulation nicht.',
+        cta: 'Jetzt im Sortiment', contact: 'Fragen zum Wein? Ihr Kontakt im Verkauf.' },
+  en: { grape: 'Grape', region: 'Region', country: 'Country', year: 'Vintage', temp: 'Serve at',
+        win: 'Drink', sku: 'Item no.', bottle: 'per 75 cl bottle', notes: 'Notes',
+        cbottle: 'Bottle on the list', cglass: 'By the glass, 1 dl', cmargin: 'Margin / bottle',
+        cnote: 'Guide figures based on trade price and factor, excl. VAT. Rounded to 50 cents. Does not replace your own calculation.',
+        cta: 'Now in the range', contact: 'Questions about the wine? Your contact in sales.' }
+};
+
+/* ---------- Helfer ---------- */
+function $(id) { return document.getElementById(id); }
+function val(id) { var e = $(id); return e ? e.value.trim() : ''; }
+function esc(s) {
+  return String(s).replace(/&(?![a-zA-Z#0-9]+;)/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+/* Entities -> Klartext, für SVG-Export und Titel */
+function plain(html) {
+  var d = document.createElement('div');
+  d.innerHTML = html;
+  return d.textContent || '';
+}
+function money(n) {
+  if (!isFinite(n)) return '–';
+  return n.toFixed(2);
+}
+function roundHalf(n) { return Math.round(n * 2) / 2; }
+
+/* ---------- Merkmals-Chips ---------- */
+function buildChips() {
+  var box = $('chips');
+  box.innerHTML = '';
+  TRAITS.forEach(function (t) {
+    var b = document.createElement('button');
+    b.className = 'chip' + (selected[t.id] ? ' on' : '');
+    b.type = 'button';
+    b.innerHTML = t[LANG];
+    b.onclick = function () {
+      selected[t.id] = !selected[t.id];
+      b.classList.toggle('on');
+    };
+    box.appendChild(b);
+  });
+}
+
+function pick(kind) {
+  return TRAITS.filter(function (t) { return selected[t.id] && t[kind]; })
+               .map(function (t) { return t[kind][LANG]; });
+}
+
+function joinList(arr) {
+  if (!arr.length) return '';
+  if (arr.length === 1) return arr[0];
+  var and = LANG === 'de' ? ' und ' : ' and ';
+  return arr.slice(0, -1).join(', ') + and + arr[arr.length - 1];
+}
+
+/* ---------- Textvorschlag: regelbasiert, drei Register ---------- */
+function suggest(kind) {
+  var nose = pick('nose'), palate = pick('palate'), aging = pick('aging');
+  var cat = val('f-cat') || 'weiss';
+  var temp = plain(val('f-temp'));
+  var out = '';
+
+  if (kind === 'pos') {
+    /* Regal: kurz, nominal, keine ganzen S&auml;tze */
+    var parts = pick('pos').slice(0, 4);
+    if (!parts.length) {
+      out = LANG === 'de' ? 'Merkmale links w&auml;hlen.' : 'Select characteristics on the left.';
+    } else {
+      out = parts.join(', ') + '.';
+      out = out.charAt(0).toUpperCase() + out.slice(1);
+    }
+
+  } else if (kind === 'pro') {
+    /* Gastro und Degustation: fachlich, vollst&auml;ndige S&auml;tze */
+    if (LANG === 'de') {
+      if (nose.length) out += 'In der Nase ' + joinList(nose) + '. ';
+      if (palate.length) out += 'Am Gaumen ' + joinList(palate) + '. ';
+      if (aging.length) out += aging.join('. ') + '. ';
+      if (temp) out += 'Serviert bei ' + temp + '.';
+    } else {
+      if (nose.length) out += 'On the nose ' + joinList(nose) + '. ';
+      if (palate.length) out += 'On the palate ' + joinList(palate) + '. ';
+      if (aging.length) out += aging.join('. ') + '. ';
+      if (temp) out += 'Serve at ' + temp + '.';
+    }
+
+  } else {
+    /* Social: zwei S&auml;tze, Alltagssprache, keine Fachbegriffe */
+    var mood = {
+      weiss:  { de: 'Der Wein f&uuml;r den ersten Abend, an dem es draussen l&auml;nger hell bleibt.', en: 'The wine for the first evening that stays light a little longer.' },
+      rot:    { de: 'Der Wein f&uuml;r lange Tische und den Gang, der Zeit braucht.', en: 'The wine for long tables and the course that takes its time.' },
+      rose:   { de: 'Der Wein, der schon k&uuml;hl ist, wenn die G&auml;ste kommen.', en: 'The wine that is already chilled when the guests arrive.' },
+      schaum: { de: 'Der Wein f&uuml;r den Moment, in dem noch niemand sitzt.', en: 'The wine for the moment when nobody has sat down yet.' }
+    }[cat][LANG];
+    var lead = '';
+    if (nose.length) {
+      lead = joinList(nose.slice(0, 2));
+      lead = lead.charAt(0).toUpperCase() + lead.slice(1);
+      lead += LANG === 'de' ? ' im Glas. ' : ' in the glass. ';
+    }
+    out = lead + mood;
+  }
+
+  var target = kind === 'pos' ? 'f-note-pos' : (kind === 'pro' ? 'f-note-pro' : 'f-note-social');
+  $(target).value = plain(out).trim();
+  dirty[target] = false;
+  render();
+}
+
+/* ---------- Beispieldaten laden ---------- */
+function loadPreset(i) {
+  var p = PRESETS[+i];
+  $('f-sender').value = plain(p.sender);
+  $('f-name').value = plain(p.name);
+  $('f-producer').value = plain(p.producer);
+  $('f-year').value = p.year;
+  $('f-cat').value = p.cat;
+  $('f-grape').value = plain(p.grape);
+  $('f-region').value = plain(p.region);
+  $('f-country').value = plain(p.country);
+  $('f-temp').value = plain(p.temp);
+  $('f-window').value = plain(p.win);
+  $('f-award').value = plain(p.award);
+  $('f-pos').value = p.pos;
+  $('f-pair').value = plain(p.pair);
+  $('f-price').value = p.price;
+  $('f-gprice').value = p.gprice;
+  $('f-sku').value = p.sku;
+  $('f-factor').value = p.factor;
+  $('f-arg1').value = plain(p.arg1);
+  $('f-arg2').value = plain(p.arg2);
+  $('f-arg3').value = plain(p.arg3);
+
+  selected = {};
+  dirty = {};
+  p.traits.forEach(function (t) { selected[t] = true; });
+  buildChips();
+
+  suggest('pos'); suggest('pro'); suggest('social');
+  render();
+}
+
+/* ---------- Rendern ---------- */
+function render() {
+  var cat = val('f-cat') || 'weiss';
+  var c = CATS[cat];
+  var l = L[LANG];
+
+  document.documentElement.style.setProperty('--w-accent', c.accent);
+  document.documentElement.style.setProperty('--w-tint', c.tint);
+
+  var name = esc(val('f-name')), prod = esc(val('f-producer')), year = esc(val('f-year'));
+  var grape = esc(val('f-grape')), region = esc(val('f-region')), country = esc(val('f-country'));
+  var mark = esc(val('f-sender')), sku = esc(val('f-sku'));
+  var catLabel = c[LANG];
+  var subline = [prod, year].filter(Boolean).join(' &middot; ');
+
+  /* 1 – Regal-Talker */
+  $('o-cat1').innerHTML = catLabel;
+  $('o-name1').innerHTML = name || '&nbsp;';
+  $('o-prod1').innerHTML = [prod, [grape, region].filter(Boolean).join(', ')].filter(Boolean).join('<br>');
+  $('o-note1').innerHTML = esc(val('f-note-pos'));
+  var aw = val('f-award');
+  $('o-award1').innerHTML = aw ? esc(aw) : '';
+  $('o-award1').style.display = aw ? 'inline-block' : 'none';
+  $('o-price1').innerHTML = '<small>CHF</small> ' + esc(val('f-price') || '–');
+  $('o-unit1').innerHTML = l.bottle;
+  $('o-sku1').innerHTML = sku ? l.sku + ' ' + sku : '';
+  $('o-mark1').innerHTML = mark;
+
+  /* 2 – Degustationskarte */
+  $('o-pos2').innerHTML = esc(val('f-pos') || '–') + '<small>' + T[LANG]['tx-flight'] + '</small>';
+  $('o-cat2').innerHTML = catLabel;
+  $('o-name2').innerHTML = name || '&nbsp;';
+  $('o-prod2').innerHTML = subline;
+  $('o-specs2').innerHTML = [
+    [l.grape, grape], [l.region, [region, country].filter(Boolean).join(', ')],
+    [l.temp, esc(val('f-temp'))], [l.win, esc(val('f-window'))]
+  ].filter(function (s) { return s[1]; })
+   .map(function (s) { return '<span class="spec"><b>' + s[0] + '</b>' + s[1] + '</span>'; }).join('');
+  $('o-note2').innerHTML = esc(val('f-note-pro'));
+  $('o-pair2').innerHTML = esc(val('f-pair'));
+  $('o-notes2').innerHTML = l.notes;
+  $('o-mark2').innerHTML = mark;
+
+  /* 3 – Verkaufsblatt */
+  $('o-mark3').innerHTML = mark;
+  $('o-cat3').innerHTML = catLabel;
+  $('o-name3').innerHTML = name || '&nbsp;';
+  $('o-prod3').innerHTML = subline + (country ? ' &middot; ' + country : '');
+  $('o-facts3').innerHTML = [
+    [l.year, year], [l.grape, grape], [l.region, region],
+    [l.country, country], [l.temp, esc(val('f-temp'))], [l.win, esc(val('f-window'))]
+  ].filter(function (s) { return s[1]; })
+   .map(function (s) { return '<span class="fact"><b>' + s[0] + '</b>' + s[1] + '</span>'; }).join('');
+  $('o-note3').innerHTML = esc(val('f-note-pro'));
+  $('o-args3').innerHTML = ['f-arg1', 'f-arg2', 'f-arg3']
+    .map(function (id, i) { return val(id) ? '<p class="arg"><i>0' + (i + 1) + '</i><span>' + esc(val(id)) + '</span></p>' : ''; })
+    .join('');
+  $('o-pair3').innerHTML = esc(val('f-pair'));
+  $('o-sku3').innerHTML = sku ? l.sku + ' ' + sku : '';
+  $('o-foot3').innerHTML = l.contact;
+
+  /* Kalkulation */
+  var g = parseFloat(val('f-gprice').replace(',', '.'));
+  var f = parseFloat(val('f-factor').replace(',', '.'));
+  var bottle = g * f;
+  var glass = roundHalf(bottle / 7.5 * 1.15);
+  $('o-calc3').innerHTML = [
+    [l.cbottle, isFinite(bottle) ? 'CHF ' + money(roundHalf(bottle)) : '–'],
+    [l.cglass, isFinite(glass) ? 'CHF ' + money(glass) : '–'],
+    [l.cmargin, isFinite(bottle) ? 'CHF ' + money(roundHalf(bottle) - g) : '–']
+  ].map(function (s) { return '<span class="calc-cell"><b>' + s[0] + '</b><span>' + s[1] + '</span></span>'; }).join('');
+  $('o-calcnote3').innerHTML = l.cnote;
+  $('tx-kind3').innerHTML = T[LANG]['tx-kind3'];
+
+  /* 4 – Social-Kachel */
+  $('o-cat4').innerHTML = catLabel;
+  $('o-meta4').innerHTML = [year, grape, country].filter(Boolean).join(' &middot; ');
+  $('o-name4').innerHTML = name || '&nbsp;';
+  $('o-hook4').innerHTML = esc(val('f-note-social'));
+  $('o-price4').innerHTML = val('f-price') ? 'CHF ' + esc(val('f-price')) : '';
+  $('o-mark4').innerHTML = mark;
+}
+
+/* ---------- Sprache ---------- */
+function setLang(lang) {
+  LANG = lang;
+  document.documentElement.lang = lang;
+  $('btn-de').classList.toggle('on', lang === 'de');
+  $('btn-en').classList.toggle('on', lang === 'en');
+
+  var dict = T[lang];
+  Object.keys(dict).forEach(function (k) {
+    var el = $(k);
+    if (el) el.innerHTML = dict[k];
+  });
+
+  /* Kategorie-Auswahl neu beschriften */
+  var sel = $('f-cat'), cur = sel.value;
+  sel.innerHTML = Object.keys(CATS).map(function (k) {
+    return '<option value="' + k + '">' + CATS[k][lang] + '</option>';
+  }).join('');
+  sel.value = cur;
+
+  buildChips();
+  ['pos', 'pro', 'social'].forEach(function (k) {
+    var id = k === 'pos' ? 'f-note-pos' : (k === 'pro' ? 'f-note-pro' : 'f-note-social');
+    if (!dirty[id]) suggest(k);
+  });
+  render();
+}
+
+/* ---------- Druck: echtes Endformat ---------- */
+function printMat(id, size) {
+  var el = $(id);
+  var anchor = document.createElement('span');   /* merkt sich den Platz im Layout */
+  el.parentNode.insertBefore(anchor, el);
+
+  var stage = document.createElement('div');
+  stage.id = 'print-stage';
+  stage.appendChild(el);
+  document.body.appendChild(stage);
+
+  var style = document.createElement('style');
+  style.id = 'print-page';
+  style.textContent = '@page { size: ' + size + '; margin: 0; }';
+  document.head.appendChild(style);
+  document.body.classList.add('printing');
+
+  var done = false;
+  var cleanup = function () {
+    if (done) return;
+    done = true;
+    anchor.parentNode.insertBefore(el, anchor);
+    anchor.remove();
+    stage.remove();
+    document.body.classList.remove('printing');
+    var s = $('print-page');
+    if (s) s.remove();
+    window.removeEventListener('afterprint', cleanup);
+  };
+  window.addEventListener('afterprint', cleanup);
+  window.print();
+  setTimeout(cleanup, 1500);
+}
+
+/* ---------- SVG-Export der Social-Kachel ---------- */
+function svgEsc(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function wrapText(text, max) {
+  var words = String(text).split(/\s+/), lines = [], line = '';
+  words.forEach(function (w) {
+    if ((line + ' ' + w).trim().length > max) { if (line) lines.push(line); line = w; }
+    else { line = (line + ' ' + w).trim(); }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+function downloadSVG() {
+  var cat = val('f-cat') || 'weiss';
+  var c = CATS[cat];
+  var l = L[LANG];
+  var S = 1080, P = 88;
+
+  var nameLines = wrapText(plain(val('f-name')), 16);
+  var hookLines = wrapText(plain(val('f-note-social')), 44);
+  var meta = [plain(val('f-year')), plain(val('f-grape')), plain(val('f-country'))].filter(Boolean).join('  ·  ');
+
+  var y = S - P - 150 - (nameLines.length - 1) * 92 - hookLines.length * 46;
+  var svg = [];
+  svg.push('<svg xmlns="http://www.w3.org/2000/svg" width="' + S + '" height="' + S + '" viewBox="0 0 ' + S + ' ' + S + '">');
+  svg.push('<rect width="' + S + '" height="' + S + '" fill="#1c1a17"/>');
+  /* Kategorie-Badge */
+  svg.push('<rect x="' + P + '" y="' + P + '" width="270" height="46" fill="' + c.accent + '"/>');
+  svg.push('<text x="' + (P + 22) + '" y="' + (P + 31) + '" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="4" fill="#ffffff">' + svgEsc(plain(c[LANG])).toUpperCase() + '</text>');
+  /* Meta */
+  svg.push('<text x="' + P + '" y="' + y + '" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="5" fill="' + c.accent + '">' + svgEsc(meta.toUpperCase()) + '</text>');
+  /* Name */
+  y += 78;
+  nameLines.forEach(function (ln, i) {
+    svg.push('<text x="' + P + '" y="' + (y + i * 92) + '" font-family="Georgia, serif" font-size="86" fill="#f6f2ea">' + svgEsc(ln) + '</text>');
+  });
+  y += (nameLines.length - 1) * 92 + 62;
+  /* Hook */
+  hookLines.forEach(function (ln, i) {
+    svg.push('<text x="' + P + '" y="' + (y + i * 46) + '" font-family="Helvetica, Arial, sans-serif" font-size="31" fill="#d9d2c6">' + svgEsc(ln) + '</text>');
+  });
+  /* Fuss */
+  svg.push('<line x1="' + P + '" y1="' + (S - P - 74) + '" x2="' + (S - P) + '" y2="' + (S - P - 74) + '" stroke="#ffffff" stroke-opacity="0.18"/>');
+  svg.push('<text x="' + P + '" y="' + (S - P - 26) + '" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="300" fill="#f6f2ea">' + svgEsc(val('f-price') ? 'CHF ' + plain(val('f-price')) : plain(l.cta)) + '</text>');
+  svg.push('<text x="' + (S - P) + '" y="' + (S - P - 30) + '" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="6" fill="#9c968c">' + svgEsc(plain(val('f-sender')).toUpperCase()) + '</text>');
+  svg.push('</svg>');
+
+  var blob = new Blob([svg.join('\n')], { type: 'image/svg+xml;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = (plain(val('f-name')).replace(/[^a-z0-9]+/gi, '-').toLowerCase() || 'social') + '-1080.svg';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+}
+
+/* ---------- Start ---------- */
+document.querySelectorAll('input, select, textarea').forEach(function (el) {
+  if (el.id === 'f-preset') return;
+  el.addEventListener('input', render);
+  el.addEventListener('change', render);
+});
+['f-note-pos', 'f-note-pro', 'f-note-social'].forEach(function (id) {
+  $(id).addEventListener('input', function () { dirty[id] = true; });
+});
+buildChips();
+loadPreset(0);
+</script>
+</body>
+</html>
