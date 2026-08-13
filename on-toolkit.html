@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Move Kit &middot; Activation Blueprint &middot; Arbeitsprobe</title>
+<link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<style>
+  :root {
+    --bg: #121212;
+    --surface: #1b1b1b;
+    --surface-2: #232323;
+    --line: #2e2e2e;
+    --ink: #f1f1f1;
+    --muted: #8d857a;
+    --accent: #957b5f;
+    --accent-lt: #c6a47e;
+    --ok: #4f8a6b;
+    --warn: #b4553f;
+
+    /* Materialfarben je Aktivierungsformat - das Layout bleibt, nur der Akzent wechselt */
+    --m-ink: #16181a;
+    --m-soft: #5f6569;
+    --m-line: #d7dade;
+    --m-paper: #fbfbfa;
+    --m-accent: #b4643c;
+    --m-tint: #f4ece6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+
+  /* --- Arbeitsproben-Hinweis --- */
+  .sample-bar {
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 9px 16px;
+    font-weight: 700;
+  }
+  .sample-bar a { color: #fff; text-decoration: underline; }
+
+  /* --- Kopf --- */
+  .top { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; padding-top: 22px; flex-wrap: wrap; }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--accent-lt); font-weight: 700;
+  }
+  .lang-switch { display: flex; border: 1px solid var(--line); }
+  .lang-switch button {
+    background: none; border: none; color: var(--muted);
+    font: inherit; font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    padding: 7px 14px; cursor: pointer; transition: background 200ms, color 200ms;
+  }
+  .lang-switch button.on { background: var(--accent); color: #fff; }
+
+  .hero { padding: 18px 0 40px; border-bottom: 1px solid var(--line); }
+  h1 {
+    font-size: clamp(32px, 5.4vw, 62px);
+    line-height: 1.03; font-weight: 800; letter-spacing: -.02em;
+    text-transform: uppercase; margin: 14px 0 18px;
+  }
+  .lede { max-width: 790px; color: #cfc9c0; font-size: 16px; }
+  .lede + .lede { margin-top: 14px; }
+  .lede b { color: var(--ink); font-weight: 600; }
+
+  .kpi-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .kpi {
+    background: var(--surface); border: 1px solid var(--line);
+    border-top: 2px solid var(--accent); padding: 14px 18px; min-width: 158px; flex: 1 1 158px;
+  }
+  .kpi b { display: block; font-size: 25px; font-weight: 800; line-height: 1.15; }
+  .kpi span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+  .kpi small { display: block; font-size: 11px; color: var(--muted); letter-spacing: 0; text-transform: none; margin-top: 2px; }
+
+  /* --- Layout Werkzeug --- */
+  .tool { display: grid; grid-template-columns: 350px 1fr; gap: 34px; padding: 44px 0 10px; align-items: start; }
+  @media (max-width: 1080px) { .tool { grid-template-columns: 1fr; } }
+
+  .panel {
+    min-width: 0; background: var(--surface); border: 1px solid var(--line);
+    padding: 22px; position: sticky; top: 18px; max-height: calc(100vh - 36px); overflow-y: auto;
+  }
+  @media (max-width: 1080px) { .panel { position: static; max-height: none; overflow: visible; } }
+
+  .panel h2, .stage h2 {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--accent-lt); font-weight: 700; margin-bottom: 18px;
+  }
+  .fieldset { border-top: 1px solid var(--line); margin-top: 20px; padding-top: 18px; }
+  .fieldset:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+  .fs-title { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 12px; }
+
+  label { display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 5px; }
+  input, select, textarea {
+    width: 100%; min-width: 0; background: var(--surface-2); border: 1px solid var(--line);
+    color: var(--ink); font-family: inherit; font-size: 14px; padding: 8px 10px;
+    outline: none; transition: border-color 200ms;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 62px; line-height: 1.55; }
+  .field { margin-bottom: 13px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  @media (max-width: 620px) { .row2, .row3 { grid-template-columns: 1fr; } }
+  .hint { font-size: 11px; color: var(--muted); line-height: 1.5; margin-top: 6px; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .chip {
+    background: none; border: 1px solid var(--line); color: var(--muted);
+    font: inherit; font-size: 11px; letter-spacing: .5px; padding: 5px 9px;
+    cursor: pointer; transition: all 180ms; text-align: left;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent-lt); }
+  .chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .chip i { font-style: normal; opacity: .65; font-size: 10px; }
+
+  .btn-s {
+    background: none; border: 1px solid var(--accent); color: var(--accent-lt);
+    font: inherit; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    padding: 7px 12px; cursor: pointer; transition: background 200ms, color 200ms;
+  }
+  .btn-s:hover { background: var(--accent); color: #fff; }
+  .btn-s.solid { background: var(--accent); color: #fff; }
+  .btn-s.solid:hover { background: var(--accent-lt); }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+  /* --- Pr&uuml;fungen --- */
+  .checks { margin-top: 6px; }
+  .check {
+    display: flex; gap: 9px; align-items: flex-start;
+    font-size: 12px; line-height: 1.5; padding: 8px 0; border-bottom: 1px solid var(--line);
+  }
+  .check:last-child { border-bottom: none; }
+  .check .dot { width: 8px; height: 8px; flex: 0 0 8px; margin-top: 6px; background: var(--ok); }
+  .check.bad .dot { background: var(--warn); }
+  .check span { color: #bdb6ac; }
+  .check.bad span { color: #e0b6aa; }
+  .check b { color: var(--ink); font-weight: 700; }
+
+  /* --- B&uuml;hne --- */
+  .stage { min-width: 0; }
+  .material { margin-bottom: 46px; }
+  .mat-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 20px; }
+  .mat-title { font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .mat-meta { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+  .mat-note { font-size: 12.5px; color: var(--muted); max-width: 720px; margin: -8px 0 18px; line-height: 1.6; }
+
+  .sheet-scroll { overflow-x: auto; max-width: 100%; padding-bottom: 6px; }
+
+  /* --- Papier --- */
+  .paper {
+    background: var(--m-paper); color: var(--m-ink);
+    box-shadow: 0 18px 44px rgba(0,0,0,.45);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5; position: relative;
+  }
+  .paper * { box-sizing: border-box; }
+
+  /* Standplan A4 quer */
+  .p-plan { width: 297mm; min-height: 210mm; padding: 12mm 13mm; }
+  .plan-head { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1.4pt solid var(--m-ink); padding-bottom: 3mm; }
+  .plan-head h3 { font-size: 17pt; font-weight: 800; letter-spacing: -.01em; line-height: 1.1; }
+  .plan-head .sub { font-size: 8pt; letter-spacing: 2.4pt; text-transform: uppercase; color: var(--m-accent); font-weight: 700; margin-bottom: 2mm; }
+  .plan-head .id { text-align: right; font-size: 7.6pt; letter-spacing: .4pt; color: var(--m-soft); line-height: 1.7; }
+  .plan-head .id b { color: var(--m-ink); }
+  .plan-body { display: grid; grid-template-columns: 1fr 62mm; gap: 8mm; margin-top: 6mm; }
+  .plan-legend h4 { font-size: 7.4pt; letter-spacing: 2.2pt; text-transform: uppercase; color: var(--m-soft); margin-bottom: 2.5mm; }
+  .leg-item { display: flex; gap: 2.5mm; align-items: flex-start; font-size: 8pt; padding: 1.4mm 0; border-bottom: .4pt solid var(--m-line); }
+  .leg-item:last-child { border-bottom: none; }
+  .leg-sw { width: 4.4mm; height: 4.4mm; flex: 0 0 4.4mm; margin-top: .6mm; border: .5pt solid var(--m-ink); }
+  .leg-no { width: 5.4mm; height: 4.2mm; flex: 0 0 5.4mm; margin-top: .5mm; background: var(--m-ink); color: #fff; font-size: 6.4pt; font-weight: 700; text-align: center; line-height: 4.2mm; letter-spacing: .3pt; }
+  .leg-item b { display: block; font-weight: 700; }
+  .leg-item span { color: var(--m-soft); font-size: 7.2pt; letter-spacing: .3pt; }
+  .plan-foot { margin-top: 5mm; border-top: .6pt solid var(--m-line); padding-top: 2.5mm; font-size: 7.2pt; color: var(--m-soft); display: flex; justify-content: space-between; gap: 6mm; }
+  .plan-svg { width: 100%; height: auto; display: block; }
+
+  /* Ablaufplan A4 hoch */
+  .p-run { width: 210mm; min-height: 297mm; padding: 14mm 14mm 12mm; }
+  .run-head { border-bottom: 1.4pt solid var(--m-ink); padding-bottom: 3mm; margin-bottom: 5mm; }
+  .run-head .sub { font-size: 8pt; letter-spacing: 2.4pt; text-transform: uppercase; color: var(--m-accent); font-weight: 700; }
+  .run-head h3 { font-size: 20pt; font-weight: 800; margin: 1.5mm 0; line-height: 1.08; }
+  .run-head .meta { font-size: 8.4pt; color: var(--m-soft); letter-spacing: .3pt; }
+  .run-table { width: 100%; border-collapse: collapse; font-size: 8.6pt; }
+  .run-table th { text-align: left; font-size: 7pt; letter-spacing: 2pt; text-transform: uppercase; color: var(--m-soft); border-bottom: .8pt solid var(--m-ink); padding: 0 2mm 1.6mm 0; font-weight: 700; }
+  .run-table td { padding: 2mm 2mm 2mm 0; border-bottom: .4pt solid var(--m-line); vertical-align: top; }
+  .run-table td.t { font-weight: 800; white-space: nowrap; width: 17mm; font-variant-numeric: tabular-nums; }
+  .run-table td.w b { display: block; font-weight: 700; }
+  .run-table td.w span { color: var(--m-soft); font-size: 7.6pt; }
+  .run-table td.who { width: 26mm; font-size: 7.6pt; letter-spacing: .3pt; text-transform: uppercase; color: var(--m-soft); }
+  .run-table td.box { width: 8mm; }
+  .run-table .bx { width: 3.6mm; height: 3.6mm; border: .6pt solid var(--m-soft); display: block; }
+  .run-table tr.key td { background: var(--m-tint); }
+  .run-table tr.key td.t { color: var(--m-accent); }
+  .tally { margin-top: 6mm; border-top: .8pt solid var(--m-ink); padding-top: 3mm; }
+  .tally b { font-size: 7pt; letter-spacing: 2pt; text-transform: uppercase; display: block; margin-bottom: 2mm; }
+  .tally table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .tally td { padding: 0 .8mm; }
+  .tally td span { display: block; font-size: 6.4pt; color: var(--m-soft); text-align: center; margin-bottom: .8mm; letter-spacing: .2pt; }
+  .tally td div { height: 11mm; border: .5pt solid var(--m-line); border-bottom: 1pt solid var(--m-soft); }
+  .tally td.tot div { border: .8pt solid var(--m-accent); }
+  .tally td.tot span { color: var(--m-accent); font-weight: 700; }
+  .tally > span { display: block; font-size: 7pt; color: var(--m-soft); margin-top: 2mm; }
+  .run-foot { margin-top: 5mm; display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; font-size: 7.6pt; color: var(--m-soft); }
+  .run-foot b { color: var(--m-ink); display: block; font-size: 7pt; letter-spacing: 2pt; text-transform: uppercase; margin-bottom: 1.2mm; }
+
+  /* Crew-Karte A6 quer */
+  .p-crew { width: 148mm; height: 105mm; padding: 8mm 9mm; display: flex; flex-direction: column; }
+  .crew-head { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1pt solid var(--m-ink); padding-bottom: 2mm; }
+  .crew-head .sub { font-size: 6.4pt; letter-spacing: 2pt; text-transform: uppercase; color: var(--m-accent); font-weight: 700; }
+  .crew-head h3 { font-size: 12pt; font-weight: 800; line-height: 1.1; margin-top: .8mm; }
+  .crew-head .when { text-align: right; font-size: 6.8pt; color: var(--m-soft); line-height: 1.6; }
+  .crew-head .when b { display: block; color: var(--m-ink); font-size: 8.4pt; }
+  .crew-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 3mm; flex: 1; }
+  .crew-grid h4 { font-size: 6pt; letter-spacing: 1.8pt; text-transform: uppercase; color: var(--m-soft); margin-bottom: 1.4mm; }
+  .crew-grid ul { list-style: none; }
+  .crew-grid li { font-size: 7.2pt; line-height: 1.45; padding-left: 3mm; position: relative; margin-bottom: 1.2mm; }
+  .crew-grid li:before { content: ''; position: absolute; left: 0; top: 1.5mm; width: 1.6mm; height: 1.6mm; background: var(--m-accent); }
+  .crew-grid .no li:before { background: var(--m-soft); }
+  .crew-say { background: var(--m-tint); padding: 2.4mm 3mm; margin-top: 2mm; }
+  .crew-say b { font-size: 6pt; letter-spacing: 1.8pt; text-transform: uppercase; color: var(--m-accent); display: block; margin-bottom: 1mm; }
+  .crew-say p { font-size: 7.6pt; line-height: 1.4; }
+  .crew-foot { border-top: .5pt solid var(--m-line); margin-top: 2.5mm; padding-top: 1.8mm; display: flex; justify-content: space-between; font-size: 6.4pt; color: var(--m-soft); letter-spacing: .3pt; }
+
+  /* Kostenblatt A5 */
+  .p-cost { width: 148mm; min-height: 210mm; padding: 12mm 12mm; }
+  .cost-head { border-bottom: 1.2pt solid var(--m-ink); padding-bottom: 2.5mm; margin-bottom: 4mm; }
+  .cost-head .sub { font-size: 6.8pt; letter-spacing: 2.2pt; text-transform: uppercase; color: var(--m-accent); font-weight: 700; }
+  .cost-head h3 { font-size: 14pt; font-weight: 800; margin-top: 1mm; line-height: 1.1; }
+  .cost-table { width: 100%; border-collapse: collapse; font-size: 8.2pt; }
+  .cost-table td { padding: 1.8mm 0; border-bottom: .4pt solid var(--m-line); vertical-align: top; }
+  .cost-table td.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; padding-left: 3mm; }
+  .cost-table td small { display: block; color: var(--m-soft); font-size: 7pt; }
+  .cost-table tr.sum td { border-top: 1pt solid var(--m-ink); border-bottom: none; font-weight: 800; font-size: 9.4pt; padding-top: 2.4mm; }
+  .cost-table tr.delta td { border-bottom: none; font-size: 8pt; color: var(--m-soft); }
+  .cost-table tr.delta td.n.over { color: var(--m-accent); font-weight: 700; }
+  .cost-kpi { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-top: 6mm; }
+  .cost-kpi div { border: .5pt solid var(--m-line); border-top: 1.2pt solid var(--m-accent); padding: 2.6mm 3mm; }
+  .cost-kpi b { display: block; font-size: 15pt; font-weight: 800; line-height: 1.1; }
+  .cost-kpi span { font-size: 6.4pt; letter-spacing: 1.6pt; text-transform: uppercase; color: var(--m-soft); }
+  .cost-note { margin-top: 5mm; font-size: 7pt; color: var(--m-soft); line-height: 1.55; border-top: .5pt solid var(--m-line); padding-top: 2.5mm; }
+
+  /* Social 9:16 */
+  .p-social { width: 300px; height: 533px; background: var(--m-ink); color: #fff; padding: 26px 24px; display: flex; flex-direction: column; }
+  .soc-badge { align-self: flex-start; background: var(--m-accent); font-size: 8px; letter-spacing: 2.4px; text-transform: uppercase; font-weight: 700; padding: 5px 9px; }
+  .soc-mid { margin-top: auto; }
+  .soc-mid .kick { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--m-accent); font-weight: 700; }
+  .soc-mid h3 { font-size: 27px; line-height: 1.06; font-weight: 800; margin: 9px 0 10px; letter-spacing: -.02em; }
+  .soc-mid p { font-size: 12px; line-height: 1.45; color: #cdd1d4; }
+  .soc-foot { border-top: 1px solid rgba(255,255,255,.2); margin-top: 16px; padding-top: 11px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .soc-foot .big { font-size: 15px; font-weight: 300; }
+  .soc-foot .mark { font-size: 9px; letter-spacing: 3px; font-weight: 700; color: #8d9296; text-transform: uppercase; }
+
+  .three-up { display: grid; grid-template-columns: 300px 1fr; gap: 26px; align-items: start; }
+  @media (max-width: 780px) { .three-up { grid-template-columns: 1fr; } }
+  .tone { border-left: 2px solid var(--accent); padding: 0 0 0 16px; margin-bottom: 20px; }
+  .tone b { display: block; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent-lt); margin-bottom: 5px; }
+  .tone p { font-size: 14px; color: #cfc9c0; line-height: 1.6; }
+
+  .colophon { border-top: 1px solid var(--line); margin-top: 40px; padding: 34px 0 60px; }
+  .colophon h2 { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-lt); font-weight: 700; margin-bottom: 16px; }
+  .colophon p { max-width: 790px; color: #a9a299; font-size: 13.5px; margin-bottom: 12px; }
+  .colophon a { color: var(--accent-lt); }
+
+  @media (max-width: 1080px) {
+    .sheet-scroll .paper { transform-origin: top left; }
+  }
+
+  @media print {
+    html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
+    body.printing > *:not(#print-stage) { display: none !important; }
+    body.printing #print-stage { display: block !important; }
+    body.printing #print-stage .paper {
+      box-shadow: none !important; margin: 0 !important; overflow: hidden;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  Arbeitsprobe von Shayna Jucker &middot; fiktives Beispielmaterial &middot;
+  <a href="on-brand-event.html" id="tx-back">zur&uuml;ck zur Bewerbung</a>
+</div>
+
+<div class="wrap">
+
+  <div class="top">
+    <div class="eyebrow" id="tx-eyebrow">Move Kit &middot; Activation Blueprint</div>
+    <div class="lang-switch">
+      <button id="btn-de" class="on" onclick="setLang('de')">DE</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1 id="tx-h1">Ein Tourstopp.<br>F&uuml;nf Dokumente.<br>Ein Markenstandard.</h1>
+    <p class="lede" id="tx-lede1">Eine Marke, die an vielen Orten gleichzeitig stattfindet, scheitert selten an der Idee. Sie scheitert daran, dass jeder Standort seinen eigenen Plan zeichnet, sein eigenes Briefing schreibt und seine eigene Zahl rechnet. <b>Move Kit</b> ist die Antwort darauf: ein Datensatz pro Tourstopp, aus dem gleichzeitig Standplan, Ablaufplan, Crew-Briefing, Social-Asset und Kostenblatt entstehen.</p>
+    <p class="lede" id="tx-lede2">Alles unten ist live: &Auml;ndern Sie links die Fl&auml;che, die Module oder die &Ouml;ffnungszeiten &ndash; der Plan zeichnet sich neu, der Ablauf rechnet neu, das Budget auch. Und wenn es nicht aufgeht, sagt es das.</p>
+    <div class="kpi-row" id="kpis"></div>
+  </div>
+
+  <div class="tool">
+
+    <!-- ---------- Eingabe ---------- -->
+    <div class="panel">
+      <h2 id="tx-panel">Eingabe</h2>
+
+      <div class="fieldset">
+        <div class="fs-title" id="tx-fs-preset">Tourstopp laden</div>
+        <div class="chips" id="presets"></div>
+        <p class="hint" id="tx-preset-hint">Vier Stopps, ein System. Alles danach ist frei &uuml;berschreibbar.</p>
+      </div>
+
+      <div class="fieldset">
+        <div class="fs-title" id="tx-fs-event">Eckdaten</div>
+        <div class="field">
+          <label id="tx-l-format">Format</label>
+          <select id="f-format" onchange="formatChanged()"></select>
+        </div>
+        <div class="field">
+          <label id="tx-l-name">Titel der Aktivierung</label>
+          <input id="f-name" type="text" value="Move Lab Z&uuml;rich">
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label id="tx-l-city">Ort</label>
+            <input id="f-city" type="text" value="Z&uuml;rich">
+          </div>
+          <div class="field">
+            <label id="tx-l-venue">Standort</label>
+            <input id="f-venue" type="text" value="Europaallee">
+          </div>
+        </div>
+        <div class="row3">
+          <div class="field">
+            <label id="tx-l-date">Datum</label>
+            <input id="f-date" type="date" value="2026-09-12">
+          </div>
+          <div class="field">
+            <label id="tx-l-open">Auf</label>
+            <input id="f-open" type="time" value="10:00">
+          </div>
+          <div class="field">
+            <label id="tx-l-close">Zu</label>
+            <input id="f-close" type="time" value="18:00">
+          </div>
+        </div>
+      </div>
+
+      <div class="fieldset">
+        <div class="fs-title" id="tx-fs-space">Fl&auml;che</div>
+        <div class="row2">
+          <div class="field">
+            <label id="tx-l-w">Breite (m)</label>
+            <input id="f-w" type="number" step="0.5" min="3" max="30" value="10">
+          </div>
+          <div class="field">
+            <label id="tx-l-d">Tiefe (m)</label>
+            <input id="f-d" type="number" step="0.5" min="3" max="30" value="8">
+          </div>
+        </div>
+        <p class="hint" id="tx-space-hint">1.20 m an der Front bleiben frei &ndash; das ist die Zone, in der Leute stehen bleiben, ohne den Weg zu blockieren.</p>
+      </div>
+
+      <div class="fieldset">
+        <div class="fs-title" id="tx-fs-mods">Module</div>
+        <div class="chips" id="mods"></div>
+        <p class="hint" id="tx-mods-hint">Jedes Modul bringt seine Masse, seinen Personalbedarf, seinen Durchsatz und seine Kosten mit.</p>
+      </div>
+
+      <div class="fieldset">
+        <div class="fs-title" id="tx-fs-ops">Crew &amp; Budget</div>
+        <div class="row2">
+          <div class="field">
+            <label id="tx-l-crew">Crew vor Ort</label>
+            <input id="f-crew" type="number" min="1" max="30" value="4">
+          </div>
+          <div class="field">
+            <label id="tx-l-budget">Budget CHF</label>
+            <input id="f-budget" type="number" step="500" min="0" value="27000">
+          </div>
+        </div>
+        <div class="field">
+          <label id="tx-l-target">Zielwert Kosten pro Kontakt (CHF)</label>
+          <input id="f-target" type="number" step="0.5" min="0" value="25">
+        </div>
+      </div>
+
+      <div class="fieldset">
+        <div class="fs-title" id="tx-fs-copy">Text</div>
+        <div class="field">
+          <label id="tx-l-head">Headline vor Ort</label>
+          <input id="f-head" type="text" value="">
+        </div>
+        <div class="field">
+          <label id="tx-l-social">Social-Text</label>
+          <textarea id="f-social"></textarea>
+        </div>
+        <div class="btn-row">
+          <button class="btn-s" onclick="suggestCopy(true)" id="tx-copy-btn">Texte neu vorschlagen</button>
+        </div>
+        <p class="hint" id="tx-copy-hint">Vorschlag kommt aus Format und Modulen. Sobald Sie tippen, bleibt Ihr Text stehen.</p>
+      </div>
+
+      <div class="fieldset">
+        <div class="fs-title" id="tx-fs-checks">Pr&uuml;fung</div>
+        <div class="checks" id="checks"></div>
+      </div>
+    </div>
+
+    <!-- ---------- B&uuml;hne ---------- -->
+    <div class="stage">
+
+      <!-- Standplan -->
+      <div class="material">
+        <div class="mat-head">
+          <div class="mat-title" id="tx-m1">01 &middot; Standplan</div>
+          <div class="mat-meta">A4 quer &middot; <span id="tx-m1-meta">massst&auml;blich, Bemassung in Metern</span></div>
+        </div>
+        <p class="mat-note" id="tx-m1-note">Der Plan zeichnet sich aus den gew&auml;hlten Modulen: echte Masse, 30 cm Fugen, Zirkulationszone an der Front, Besucherfluss. Passt etwas nicht in die Fl&auml;che, wird es rot &ndash; nicht kleiner gerechnet.</p>
+        <div class="sheet-scroll">
+          <div class="paper p-plan" id="o-plan"></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-s solid" onclick="printMat('o-plan','A4 landscape')" id="tx-m1-print">Als A4 quer drucken</button>
+          <button class="btn-s" onclick="downloadPlan()" id="tx-m1-svg">Plan als SVG</button>
+        </div>
+      </div>
+
+      <!-- Ablaufplan -->
+      <div class="material">
+        <div class="mat-head">
+          <div class="mat-title" id="tx-m2">02 &middot; Ablaufplan</div>
+          <div class="mat-meta">A4 hoch &middot; <span id="tx-m2-meta">Run of Show</span></div>
+        </div>
+        <p class="mat-note" id="tx-m2-note">Aufbau- und Abbauzeit werden aus der Anzahl Module gerechnet, nicht geraten. Der Rest h&auml;ngt an den &Ouml;ffnungszeiten: Crew-Call, Briefing, Content-Slot, letzte Runde, Abbau, Kurzreport.</p>
+        <div class="sheet-scroll">
+          <div class="paper p-run" id="o-run"></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-s solid" onclick="printMat('o-run','A4 portrait')" id="tx-m2-print">Als A4 drucken</button>
+        </div>
+      </div>
+
+      <!-- Crew-Karte -->
+      <div class="material">
+        <div class="mat-head">
+          <div class="mat-title" id="tx-m3">03 &middot; Crew-Karte</div>
+          <div class="mat-meta">A6 quer &middot; <span id="tx-m3-meta">Hosentaschenformat</span></div>
+        </div>
+        <p class="mat-note" id="tx-m3-note">Das Dokument, das dar&uuml;ber entscheidet, ob die Marke am Stand ankommt. Kein Handbuch: eine Karte, die in die Jackentasche passt &ndash; Talking Points aus den gew&auml;hlten Modulen, drei Do, drei Don&rsquo;t, ein Satz, den alle gleich sagen.</p>
+        <div class="sheet-scroll">
+          <div class="paper p-crew" id="o-crew"></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-s solid" onclick="printMat('o-crew','A6 landscape')" id="tx-m3-print">Als A6 drucken</button>
+        </div>
+      </div>
+
+      <!-- Social + Tonalit&auml;ten -->
+      <div class="material">
+        <div class="mat-head">
+          <div class="mat-title" id="tx-m4">04 &middot; Social-Asset</div>
+          <div class="mat-meta">1080 &times; 1920 &middot; <span id="tx-m4-meta">SVG-Export</span></div>
+        </div>
+        <p class="mat-note" id="tx-m4-note">Derselbe Anlass, drei Tonalit&auml;ten. Am Stand k&uuml;rzer als auf Social, im internen Briefing n&uuml;chterner als beides. Das ist Textarbeit, keine Formatfrage.</p>
+        <div class="three-up">
+          <div class="paper p-social" id="o-social"></div>
+          <div>
+            <div class="tone"><b id="tx-t1">Vor Ort</b><p id="o-tone-sign"></p></div>
+            <div class="tone"><b id="tx-t2">Social</b><p id="o-tone-social"></p></div>
+            <div class="tone"><b id="tx-t3">Internes Briefing</b><p id="o-tone-brief"></p></div>
+            <div class="btn-row">
+              <button class="btn-s" onclick="downloadSocial()" id="tx-m4-svg">Kachel als SVG f&uuml;r Illustrator</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kostenblatt -->
+      <div class="material">
+        <div class="mat-head">
+          <div class="mat-title" id="tx-m5">05 &middot; Kosten &amp; Wirkung</div>
+          <div class="mat-meta">A5 &middot; <span id="tx-m5-meta">Kalkulation</span></div>
+        </div>
+        <p class="mat-note" id="tx-m5-note">Die Zahl, nach der im zweiten Meeting gefragt wird: Was kostet ein Kontakt? Gerechnet wird aus Modulen, Crew-Stunden, Logistik und Reserve &ndash; gegen das eingegebene Budget, mit Differenz in beide Richtungen.</p>
+        <div class="sheet-scroll">
+          <div class="paper p-cost" id="o-cost"></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-s solid" onclick="printMat('o-cost','A5 portrait')" id="tx-m5-print">Als A5 drucken</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="colophon">
+    <h2 id="tx-col">Zum Werkzeug</h2>
+    <p id="tx-col1"><b>Warum ausgerechnet das?</b> Weil ein Markenauftritt an f&uuml;nfzehn Orten nicht an der Kreation scheitert, sondern an der &Uuml;bersetzung: Was im Deck steht, muss auf dem Platz stehen, in der Hosentasche der Crew liegen und am Ende in einer Zahl auftauchen. Move Kit ist mein Vorschlag daf&uuml;r, wie diese &Uuml;bersetzung ein System bekommt statt einer Excel-Tabelle pro Standort.</p>
+    <p id="tx-col2"><b>Was daran echt ist:</b> die Logik. Modulmasse, Fugen, Zirkulationsbreite, Aufbauzeiten, Crew-Durchsatz und Kostenans&auml;tze sind Erfahrungswerte aus Festivalaufbauten und bewusst konservativ gesetzt. <b>Was daran fiktiv ist:</b> alles andere. Orte, Daten, Preise und die Wortmarke sind Platzhalter, es ist kein offizielles Material.</p>
+    <p id="tx-col3">Technisch: eine einzige HTML-Datei, kein Framework, keine externen Requests, keine Datenerfassung. Zweisprachig Deutsch und Englisch. Der Standplan und die Social-Kachel gehen als SVG raus und &ouml;ffnen direkt in Illustrator.</p>
+    <p><a href="on-brand-event.html" id="tx-col-back">&larr; Zur&uuml;ck zur Bewerbung</a></p>
+  </div>
+
+</div>
+
+<script>
+/* =========================================================
+   MOVE KIT - Activation Blueprint Builder
+   Arbeitsprobe Shayna Jucker
+   ========================================================= */
+
+var LANG = 'de';
+var dirty = {};
+
+function $(id) { return document.getElementById(id); }
+function val(id) { var e = $(id); return e ? e.value : ''; }
+function esc(s) { return String(s).replace(/&(?![a-zA-Z#0-9]+;)/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+/* HTML-Entities zu Klartext (f&uuml;r SVG-Export) */
+var _dec = document.createElement('textarea');
+function plain(s) { _dec.innerHTML = String(s); return _dec.value; }
+function svgEsc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+/* ---------- Formate ---------- */
+var FORMATS = {
+  popup: {
+    de: 'Retail Pop-up', en: 'Retail pop-up',
+    accent: '#b4643c', tint: '#f4ece6',
+    head: { de: 'Anziehen. Rausgehen. Merken, was passiert.', en: 'Put them on. Step out. Notice the difference.' },
+    social: { de: 'Zwei Tage, eine Frage: Wie f&uuml;hlt sich der n&auml;chste Schritt an? Vorbeikommen, anprobieren, weiterlaufen.', en: 'Two days, one question: how does the next step feel? Come by, try them on, keep moving.' },
+    brief: { de: 'Ziel ist Probieren, nicht Verkaufen. Erfolg messen wir in Anproben und wiederkehrenden Gesichtern, nicht in Fl&auml;chenumsatz.', en: 'The goal is trial, not sales. We measure success in fittings and returning faces, not floor revenue.' },
+    kick: { de: 'Pop-up', en: 'Pop-up' },
+    cta: { de: 'Eintritt frei', en: 'Free entry' }
+  },
+  expo: {
+    de: 'Race Expo', en: 'Race expo',
+    accent: '#a8452f', tint: '#f6e9e5',
+    head: { de: 'Startnummer geholt. Jetzt die Schuhe.', en: 'Bib collected. Now the shoes.' },
+    social: { de: 'Wir sind an der Expo. Bring deine Startnummer vorbei, lass deinen Schritt anschauen und geh vorbereitet an den Start.', en: 'We are at the expo. Bring your bib, have your stride checked and start prepared.' },
+    brief: { de: 'Hohe Frequenz, wenig Zeit pro Person. Kurze Gespr&auml;che, klare Wege, Nachschub im Blick behalten.', en: 'High frequency, little time per person. Short conversations, clear routes, keep an eye on stock.' },
+    kick: { de: 'Race Expo', en: 'Race expo' },
+    cta: { de: 'Halle 3', en: 'Hall 3' }
+  },
+  run: {
+    de: 'Community Run', en: 'Community run',
+    accent: '#3c6b57', tint: '#e7efea',
+    head: { de: 'Donnerstag, 18:30. Alle Tempi.', en: 'Thursday, 6:30 pm. Every pace.' },
+    social: { de: 'Fester Termin, offene Gruppe, jedes Tempo. Treffpunkt ist der Store, danach gibt es etwas zu trinken. Kein Anmeldeformular.', en: 'Fixed date, open group, every pace. We meet at the store and have a drink afterwards. No sign-up form.' },
+    brief: { de: 'Wiederkehr ist die Kennzahl. Namen merken, Gruppen nach Tempo teilen, niemanden hinten lassen.', en: 'Return rate is the metric. Remember names, split groups by pace, nobody left behind.' },
+    kick: { de: 'Community Run', en: 'Community run' },
+    cta: { de: 'Treffpunkt Store', en: 'Meet at the store' }
+  },
+  fest: {
+    de: 'Festival-Aktivierung', en: 'Festival activation',
+    accent: '#5a5686', tint: '#eceaf2',
+    head: { de: 'Vier Tage stehen. Dann laufen.', en: 'Four days on your feet. Then run.' },
+    social: { de: 'Wir sind auf dem Gel&auml;nde: Pause machen, Schuhe wechseln, Wasser holen und danach zur&uuml;ck nach vorn.', en: 'We are on site: take a break, change shoes, grab water and head back to the front row.' },
+    brief: { de: 'Wetter und Personenstrom bestimmen den Tag. Auf- und Abbau in Fenstern, Material sichern, Schichten sauber &uuml;bergeben.', en: 'Weather and crowd flow run the day. Build and strike in windows, secure material, hand over shifts cleanly.' },
+    kick: { de: 'Festival', en: 'Festival' },
+    cta: { de: 'Beim Hauptweg', en: 'By the main path' }
+  }
+};
+
+/* ---------- Module: Masse in Metern, Personal, Durchsatz pro Stunde, Kosten CHF ---------- */
+var MODULES = [
+  { id: 'host',  de: 'Welcome &amp; Host-Point',   en: 'Welcome &amp; host point',   w: 2,   d: 1,   staff: 1, thr: 60, cost: 900,
+    say: { de: 'Ansprechen, eine Frage stellen, weiterleiten &ndash; niemand steht l&auml;nger als zwanzig Sekunden unbeachtet.', en: 'Greet, ask one question, hand over &ndash; nobody stands unnoticed for more than twenty seconds.' } },
+  { id: 'tryon', de: 'Try-On-Wand',               en: 'Try-on wall',               w: 4,   d: 1,   staff: 1, thr: 40, cost: 3400,
+    say: { de: 'Gr&ouml;sse holen, hinsetzen lassen, beide Schuhe. Ein halbes Paar sagt nichts.', en: 'Fetch the size, sit them down, both shoes. Half a pair tells you nothing.' } },
+  { id: 'bench', de: 'Anprobe-Bank',              en: 'Fitting bench',             w: 3,   d: 1.5, staff: 0, thr: 0,  cost: 800,
+    say: { de: 'Sitzpl&auml;tze freihalten. Wer sitzt, probiert l&auml;nger &ndash; wer steht, geht schneller.', en: 'Keep seats free. People who sit try longer, people who stand leave sooner.' } },
+  { id: 'gait',  de: 'Laufbandanalyse',           en: 'Gait analysis treadmill',   w: 2,   d: 3,   staff: 1, thr: 12, cost: 6800,
+    say: { de: 'Sechs Minuten pro Person, Warteliste per Zeitfenster statt Schlange.', en: 'Six minutes per person, waiting list by time slot instead of a queue.' } },
+  { id: 'serv',  de: 'Service- &amp; Repair-Bar', en: 'Service &amp; repair bar',  w: 3,   d: 1.5, staff: 1, thr: 15, cost: 2400,
+    say: { de: 'Reparieren statt ersetzen. Auch wer nichts kauft, bekommt den Schuh wieder in Ordnung.', en: 'Repair before replace. Even people who buy nothing leave with a working shoe.' } },
+  { id: 'photo', de: 'Photo Moment',              en: 'Photo moment',              w: 2.5, d: 2.5, staff: 0, thr: 30, cost: 1900,
+    say: { de: 'Bild machen lassen, nicht selbst posieren. Handy der Leute schl&auml;gt unsere Kamera.', en: 'Let them take the picture. Their phone beats our camera.' } },
+  { id: 'bar',   de: 'Refreshment-Bar',           en: 'Refreshment bar',           w: 3,   d: 1,   staff: 1, thr: 90, cost: 1500,
+    say: { de: 'Wasser zuerst, Rest danach. Die Bar ist der Grund, l&auml;nger zu bleiben.', en: 'Water first, the rest after. The bar is the reason to stay longer.' } },
+  { id: 'loun',  de: 'Community-Tisch',           en: 'Community table',           w: 3,   d: 3,   staff: 0, thr: 20, cost: 1300,
+    say: { de: 'Hier entstehen die Gespr&auml;che, die man nicht planen kann. Nicht bespielen, nur offen halten.', en: 'This is where the unplannable conversations happen. Do not programme it, just keep it open.' } },
+  { id: 'gate',  de: 'Start-Gate',                en: 'Start gate',                w: 4,   d: 1,   staff: 1, thr: 25, cost: 2600,
+    say: { de: 'Gruppen nach Tempo teilen, bevor gestartet wird. Danach z&auml;hlen, wer zur&uuml;ckkommt.', en: 'Split groups by pace before the start. Afterwards, count who comes back.' } },
+  { id: 'store', de: 'Lager &amp; Backstage',     en: 'Storage &amp; backstage',   w: 2,   d: 2,   staff: 0, thr: 0,  cost: 500,
+    say: { de: 'Nachschub und Taschen geh&ouml;ren hierhin, nicht hinter die Bank.', en: 'Stock and bags belong here, not behind the bench.' } }
+];
+
+/* ---------- Tourstopp-Presets ---------- */
+var PRESETS = [
+  { id: 'zh', de: 'Z&uuml;rich &middot; Pop-up', en: 'Zurich &middot; pop-up',
+    v: { format: 'popup', name: { de: 'Move Lab Z&uuml;rich', en: 'Move Lab Zurich' }, city: { de: 'Z&uuml;rich', en: 'Zurich' }, venue: { de: 'Europaallee', en: 'Europaallee' },
+         date: '2026-09-12', open: '10:00', close: '18:00', w: 10, d: 8, crew: 4, budget: 27000, target: 25,
+         mods: ['host', 'tryon', 'bench', 'gait', 'photo', 'bar', 'store'] } },
+  { id: 'ls', de: 'Lausanne &middot; Race Expo', en: 'Lausanne &middot; race expo',
+    v: { format: 'expo', name: { de: 'Expo Lausanne Marathon', en: 'Lausanne Marathon expo' }, city: { de: 'Lausanne', en: 'Lausanne' }, venue: { de: 'Beaulieu, Halle 3', en: 'Beaulieu, hall 3' },
+         date: '2026-10-24', open: '09:00', close: '19:00', w: 8, d: 7, crew: 5, budget: 19000, target: 20,
+         mods: ['host', 'tryon', 'bench', 'serv', 'store'] } },
+  { id: 'bs', de: 'Basel &middot; Community Run', en: 'Basel &middot; community run',
+    v: { format: 'run', name: { de: 'Thursday Run Basel', en: 'Thursday Run Basel' }, city: { de: 'Basel', en: 'Basel' }, venue: { de: 'Store Freie Strasse', en: 'Freie Strasse store' },
+         date: '2026-05-07', open: '18:00', close: '21:00', w: 6, d: 7, crew: 3, budget: 13000, target: 40,
+         mods: ['host', 'gate', 'bar', 'loun', 'store'] } },
+  { id: 'ff', de: 'Frauenfeld &middot; Festival', en: 'Frauenfeld &middot; festival',
+    v: { format: 'fest', name: { de: 'Recovery Camp Frauenfeld', en: 'Recovery Camp Frauenfeld' }, city: { de: 'Frauenfeld', en: 'Frauenfeld' }, venue: { de: 'Gel&auml;nde Ost', en: 'East grounds' },
+         date: '2026-07-10', open: '12:00', close: '23:00', w: 12, d: 8, crew: 6, budget: 28000, target: 12,
+         mods: ['host', 'tryon', 'bench', 'photo', 'bar', 'loun', 'serv', 'store'] } }
+];
+
+/* ---------- Oberfl&auml;chentexte ---------- */
+var T = {
+  de: {
+    'tx-back': 'zur&uuml;ck zur Bewerbung',
+    'tx-eyebrow': 'Move Kit &middot; Activation Blueprint',
+    'tx-h1': 'Ein Tourstopp.<br>F&uuml;nf Dokumente.<br>Ein Markenstandard.',
+    'tx-lede1': 'Eine Marke, die an vielen Orten gleichzeitig stattfindet, scheitert selten an der Idee. Sie scheitert daran, dass jeder Standort seinen eigenen Plan zeichnet, sein eigenes Briefing schreibt und seine eigene Zahl rechnet. <b>Move Kit</b> ist die Antwort darauf: ein Datensatz pro Tourstopp, aus dem gleichzeitig Standplan, Ablaufplan, Crew-Briefing, Social-Asset und Kostenblatt entstehen.',
+    'tx-lede2': 'Alles unten ist live: &Auml;ndern Sie links die Fl&auml;che, die Module oder die &Ouml;ffnungszeiten &ndash; der Plan zeichnet sich neu, der Ablauf rechnet neu, das Budget auch. Und wenn es nicht aufgeht, sagt es das.',
+    'tx-panel': 'Eingabe',
+    'tx-fs-preset': 'Tourstopp laden',
+    'tx-preset-hint': 'Vier Stopps, ein System. Alles danach ist frei &uuml;berschreibbar.',
+    'tx-fs-event': 'Eckdaten',
+    'tx-l-format': 'Format',
+    'tx-l-name': 'Titel der Aktivierung',
+    'tx-l-city': 'Ort',
+    'tx-l-venue': 'Standort',
+    'tx-l-date': 'Datum',
+    'tx-l-open': 'Auf',
+    'tx-l-close': 'Zu',
+    'tx-fs-space': 'Fl&auml;che',
+    'tx-l-w': 'Breite (m)',
+    'tx-l-d': 'Tiefe (m)',
+    'tx-space-hint': '1.20 m an der Front bleiben frei &ndash; das ist die Zone, in der Leute stehen bleiben, ohne den Weg zu blockieren.',
+    'tx-fs-mods': 'Module',
+    'tx-mods-hint': 'Jedes Modul bringt seine Masse, seinen Personalbedarf, seinen Durchsatz und seine Kosten mit.',
+    'tx-fs-ops': 'Crew &amp; Budget',
+    'tx-l-crew': 'Crew vor Ort',
+    'tx-l-budget': 'Budget CHF',
+    'tx-l-target': 'Zielwert Kosten pro Kontakt (CHF)',
+    'tx-fs-copy': 'Text',
+    'tx-l-head': 'Headline vor Ort',
+    'tx-l-social': 'Social-Text',
+    'tx-copy-btn': 'Texte neu vorschlagen',
+    'tx-copy-hint': 'Vorschlag kommt aus Format und Modulen. Sobald Sie tippen, bleibt Ihr Text stehen.',
+    'tx-fs-checks': 'Pr&uuml;fung',
+    'tx-m1': '01 &middot; Standplan',
+    'tx-m1-meta': 'massst&auml;blich, Bemassung in Metern',
+    'tx-m1-note': 'Der Plan zeichnet sich aus den gew&auml;hlten Modulen: echte Masse, 30 cm Fugen, Zirkulationszone an der Front, Besucherfluss. Passt etwas nicht in die Fl&auml;che, wird es rot &ndash; nicht kleiner gerechnet.',
+    'tx-m1-print': 'Als A4 quer drucken',
+    'tx-m1-svg': 'Plan als SVG',
+    'tx-m2': '02 &middot; Ablaufplan',
+    'tx-m2-meta': 'Run of Show',
+    'tx-m2-note': 'Aufbau- und Abbauzeit werden aus der Anzahl Module gerechnet, nicht geraten. Der Rest h&auml;ngt an den &Ouml;ffnungszeiten: Crew-Call, Briefing, Content-Slot, letzte Runde, Abbau, Kurzreport.',
+    'tx-m2-print': 'Als A4 drucken',
+    'tx-m3': '03 &middot; Crew-Karte',
+    'tx-m3-meta': 'Hosentaschenformat',
+    'tx-m3-note': 'Das Dokument, das dar&uuml;ber entscheidet, ob die Marke am Stand ankommt. Kein Handbuch: eine Karte, die in die Jackentasche passt &ndash; Talking Points aus den gew&auml;hlten Modulen, drei Do, drei Don&rsquo;t, ein Satz, den alle gleich sagen.',
+    'tx-m3-print': 'Als A6 drucken',
+    'tx-m4': '04 &middot; Social-Asset',
+    'tx-m4-meta': 'SVG-Export',
+    'tx-m4-note': 'Derselbe Anlass, drei Tonalit&auml;ten. Am Stand k&uuml;rzer als auf Social, im internen Briefing n&uuml;chterner als beides. Das ist Textarbeit, keine Formatfrage.',
+    'tx-m4-svg': 'Kachel als SVG f&uuml;r Illustrator',
+    'tx-t1': 'Vor Ort',
+    'tx-t2': 'Social',
+    'tx-t3': 'Internes Briefing',
+    'tx-m5': '05 &middot; Kosten &amp; Wirkung',
+    'tx-m5-meta': 'Kalkulation',
+    'tx-m5-note': 'Die Zahl, nach der im zweiten Meeting gefragt wird: Was kostet ein Kontakt? Gerechnet wird aus Modulen, Crew-Stunden, Logistik und Reserve &ndash; gegen das eingegebene Budget, mit Differenz in beide Richtungen.',
+    'tx-m5-print': 'Als A5 drucken',
+    'tx-col': 'Zum Werkzeug',
+    'tx-col1': '<b>Warum ausgerechnet das?</b> Weil ein Markenauftritt an f&uuml;nfzehn Orten nicht an der Kreation scheitert, sondern an der &Uuml;bersetzung: Was im Deck steht, muss auf dem Platz stehen, in der Hosentasche der Crew liegen und am Ende in einer Zahl auftauchen. Move Kit ist mein Vorschlag daf&uuml;r, wie diese &Uuml;bersetzung ein System bekommt statt einer Excel-Tabelle pro Standort.',
+    'tx-col2': '<b>Was daran echt ist:</b> die Logik. Modulmasse, Fugen, Zirkulationsbreite, Aufbauzeiten, Crew-Durchsatz und Kostenans&auml;tze sind Erfahrungswerte aus Festivalaufbauten und bewusst konservativ gesetzt. <b>Was daran fiktiv ist:</b> alles andere. Orte, Daten, Preise und die Wortmarke sind Platzhalter, es ist kein offizielles Material.',
+    'tx-col3': 'Technisch: eine einzige HTML-Datei, kein Framework, keine externen Requests, keine Datenerfassung. Zweisprachig Deutsch und Englisch. Der Standplan und die Social-Kachel gehen als SVG raus und &ouml;ffnen direkt in Illustrator.',
+    'tx-col-back': '&larr; Zur&uuml;ck zur Bewerbung',
+    /* Materialtexte */
+    'plan-sub': 'Standplan &middot; Aktivierungsfl&auml;che',
+    'plan-scale': 'Massstab siehe Massstabsbalken &middot; Bemassung in Metern',
+    'plan-legend': 'Module',
+    'plan-circ': 'Zirkulation &amp; Verweilzone 1.20 m',
+    'plan-entry': 'Besucherfluss',
+    'plan-free': 'frei',
+    'plan-usable': 'nutzbar',
+    'leg-nostaff': 'ohne Personal',
+    'leg-thr': 'Kontakte/Std.',
+    'leg-nothr': 'kein Durchsatz',
+    'plan-used': 'Module',
+    'plan-area': 'Fl&auml;che gesamt',
+    'plan-drawn': 'Gezeichnet von',
+    'plan-rev': 'Stand',
+    'run-sub': 'Ablaufplan &middot; Run of Show',
+    'run-th-time': 'Zeit',
+    'run-th-what': 'Was',
+    'run-th-who': 'Wer',
+    'run-th-ok': 'Ok',
+    'tally': 'Kontakte z&auml;hlen &ndash; pro Stunde eine Zahl',
+    'tally-total': 'Total',
+    'tally-note': 'Erwartet sind {n} Kontakte, rund {h} pro Stunde. Am Abend wandert diese Zeile in den Kurzreport &ndash; ohne sie ist die Kosten-pro-Kontakt-Rechnung nur eine Sch&auml;tzung.',
+    'run-foot1': 'Verantwortung',
+    'run-foot2': 'Wenn etwas kippt',
+    'run-foot1t': 'Lead vor Ort entscheidet, Crew meldet fr&uuml;h statt sch&ouml;n. Alle Zeiten sind Sollzeiten, die Reihenfolge ist verbindlich.',
+    'run-foot2t': 'Erst Sicherheit, dann Ablauf, dann Optik. Wer etwas streicht, sagt es dem Lead &ndash; nicht dem Kunden.',
+    'crew-sub': 'Crew-Karte',
+    'crew-say': 'Talking Points',
+    'crew-do': 'Machen',
+    'crew-dont': 'Lassen',
+    'crew-one': 'Der eine Satz',
+    'crew-lead': 'Lead vor Ort',
+    'crew-note': 'Karte bitte in der Jacke behalten &ndash; nicht am Stand liegen lassen.',
+    'cost-sub': 'Kosten &amp; Wirkung',
+    'cost-modcount': 'Module',
+    'cost-modnote': 'Miete, Aufbau, Transportanteil',
+    'cost-mods': 'Module, Aufbau und Transport anteilig',
+    'cost-crew': 'Crew',
+    'cost-crew-n': 'Personen &times; Stunden inkl. Auf- und Abbau',
+    'cost-log': 'Logistik &amp; Anlieferung',
+    'cost-log-n': 'Grundpauschale plus Zuschlag je Modul',
+    'cost-content': 'Content-Produktion vor Ort',
+    'cost-content-n': 'Foto und Video, Schnitt am Folgetag',
+    'cost-res': 'Reserve 10 Prozent',
+    'cost-res-n': 'Wetter, Ersatzmaterial, Nachschub',
+    'cost-total': 'Total',
+    'cost-budget': 'Budget',
+    'cost-delta-under': 'Spielraum',
+    'cost-delta-over': '&Uuml;berzogen',
+    'cost-k1': 'Erwartete Kontakte',
+    'cost-k2': 'Kosten pro Kontakt',
+    'cost-k3': 'Kapazit&auml;t pro Stunde',
+    'cost-k4': '&Ouml;ffnungsdauer',
+    'cost-note': 'Rechenweg: Kapazit&auml;t ist die Summe der Modul-Durchs&auml;tze, begrenzt durch die Crew mit 45 Kontakten pro Person und Stunde. Darauf ein Auslastungsfaktor von 0.75, weil nie alle Stationen gleichzeitig voll laufen. Kontakte sind Gespr&auml;che und Anproben, keine Passantenzahlen. Alle Ans&auml;tze sind Platzhalter.',
+    'unit-h': 'Std.',
+    'unit-pers': 'Pers.',
+    'kpi-area': 'Fl&auml;che belegt',
+    'kpi-cap': 'Kapazit&auml;t / Std.',
+    'kpi-contacts': 'Erwartete Kontakte',
+    'kpi-cpc': 'Kosten / Kontakt',
+    'kpi-crew': 'Crew n&ouml;tig / da',
+    'kpi-build': 'Aufbau',
+    'chk-fit-ok': 'Alle Module passen auf die Fl&auml;che.',
+    'chk-fit-bad': 'Module passen nicht: Tiefe reicht nicht.',
+    'chk-fit-ok-d': 'Belegt <b>{u} m&sup2;</b> von <b>{a} m&sup2;</b> nutzbarer Fl&auml;che, {f} m&sup2; bleiben frei.',
+    'chk-fit-bad-d': 'Ben&ouml;tigt <b>{u} m</b> Tiefe, verf&uuml;gbar sind <b>{a} m</b>. Fl&auml;che vergr&ouml;ssern oder ein Modul streichen.',
+    'chk-crew-ok': 'Crew reicht f&uuml;r die gew&auml;hlten Module.',
+    'chk-crew-bad': 'Zu wenig Crew f&uuml;r die Module.',
+    'chk-crew-ok-d': '<b>{n}</b> Personen n&ouml;tig, <b>{c}</b> eingeplant.',
+    'chk-crew-bad-d': '<b>{n}</b> Personen n&ouml;tig, nur <b>{c}</b> eingeplant. Der Durchsatz sinkt entsprechend.',
+    'chk-cost-ok': 'Kosten pro Kontakt im Zielwert.',
+    'chk-cost-bad': 'Kosten pro Kontakt &uuml;ber Zielwert.',
+    'chk-cost-ok-d': '<b>CHF {v}</b> gegen Zielwert CHF {t}.',
+    'chk-cost-bad-d': '<b>CHF {v}</b> gegen Zielwert CHF {t}. Mehr Stunden, mehr Durchsatz oder weniger Aufbau.',
+    'chk-bud-ok': 'Kalkulation innerhalb Budget.',
+    'chk-bud-bad': 'Kalkulation &uuml;ber Budget.',
+    'chk-bud-ok-d': 'CHF <b>{d}</b> Spielraum bei CHF {b}.',
+    'chk-bud-bad-d': 'CHF <b>{d}</b> zu viel bei CHF {b}.',
+    'chk-open-ok': '&Ouml;ffnungszeit plausibel.',
+    'chk-open-bad': '&Ouml;ffnungszeit pr&uuml;fen.',
+    'chk-open-ok-d': '<b>{h} Stunden</b> offen, Crew ist {t} Stunden im Einsatz.',
+    'chk-open-bad-d': 'Schliessung liegt vor der &Ouml;ffnung.',
+    'chk-mod-bad': 'Keine Module gew&auml;hlt.',
+    'chk-mod-bad-d': 'Ohne Modul gibt es keinen Plan, keinen Durchsatz und keine Kalkulation.',
+    'chk-store-bad': 'Kein Lager eingeplant.',
+    'chk-store-bad-d': 'Nachschub, Taschen und Leergut landen sonst hinter der Anprobe-Bank.',
+    'chk-store-ok': 'Lager eingeplant.',
+    'chk-store-ok-d': 'Nachschub und Crew-Taschen haben einen Ort.',
+    /* Ablauf */
+    'r1': 'Anlieferung, Fl&auml;che &uuml;bernehmen', 'r1s': 'Zufahrt, Boden pr&uuml;fen, Strom kontrollieren',
+    'r2': 'Aufbau Module', 'r2s': 'Reihenfolge: Lager, schwere Module, Front zuletzt',
+    'r3': 'Technikcheck und Feinschliff', 'r3s': 'Licht, Ton, Ladeger&auml;te, Beschriftung gerade',
+    'r4': 'Crew-Briefing', 'r4s': 'Karte verteilen, Rollen setzen, den einen Satz gemeinsam sagen',
+    'r5': 'T&uuml;r auf', 'r5s': 'Erste halbe Stunde geht der Lead durch die Fl&auml;che, nicht ans Telefon',
+    'r6': 'Content-Slot', 'r6s': 'Story live, drei Bilder, ein O-Ton &ndash; solange Tageslicht da ist',
+    'r7': 'Zwischenstand', 'r7s': 'Kontakte z&auml;hlen, Nachschub pr&uuml;fen, Pausen tauschen',
+    'r8': 'Letzte Runde', 'r8s': 'Niemanden mehr neu anfangen lassen, laufende Gespr&auml;che sauber beenden',
+    'r9': 'T&uuml;r zu', 'r9s': 'Fl&auml;che r&auml;umen, Material z&auml;hlen',
+    'r10': 'Abbau und &Uuml;bergabe', 'r10s': 'Boden besenrein, Schl&uuml;ssel zur&uuml;ck, Sch&auml;den fotografieren',
+    'r11': 'Kurzreport', 'r11s': 'Kontakte, Auff&auml;lligkeiten, drei Bilder &ndash; noch am selben Abend',
+    'who-lead': 'Lead', 'who-crew': 'Crew', 'who-all': 'Alle', 'who-content': 'Content',
+    'crew-do1': 'Zuerst fragen, dann erz&auml;hlen.',
+    'crew-do2': 'Beide Schuhe, immer im Sitzen.',
+    'crew-do3': 'Namen merken und beim Verabschieden benutzen.',
+    'crew-dont1': 'Keine Rabattsprache, wir verkaufen hier nichts weg.',
+    'crew-dont2': 'Nicht zu zweit am selben Gast stehen.',
+    'crew-dont3': 'Keine Versprechen zu Lieferdaten oder Modellen, die es nicht gibt.',
+    'crew-onetext': 'Probier sie an, geh ein paar Schritte, und sag mir, was du sp&uuml;rst.'
+  },
+  en: {
+    'tx-back': 'back to the application',
+    'tx-eyebrow': 'Move Kit &middot; activation blueprint',
+    'tx-h1': 'One tour stop.<br>Five documents.<br>One brand standard.',
+    'tx-lede1': 'A brand that happens in many places at once rarely fails on the idea. It fails because every location draws its own plan, writes its own briefing and does its own maths. <b>Move Kit</b> is my answer: one data set per tour stop, from which the floor plan, run of show, crew briefing, social asset and cost sheet are built at the same time.',
+    'tx-lede2': 'Everything below is live: change the footprint, the modules or the opening hours on the left and the plan redraws, the schedule recalculates, the budget too. And when it does not add up, it says so.',
+    'tx-panel': 'Input',
+    'tx-fs-preset': 'Load a tour stop',
+    'tx-preset-hint': 'Four stops, one system. Everything after that is free to overwrite.',
+    'tx-fs-event': 'Key data',
+    'tx-l-format': 'Format',
+    'tx-l-name': 'Activation title',
+    'tx-l-city': 'City',
+    'tx-l-venue': 'Location',
+    'tx-l-date': 'Date',
+    'tx-l-open': 'Open',
+    'tx-l-close': 'Close',
+    'tx-fs-space': 'Footprint',
+    'tx-l-w': 'Width (m)',
+    'tx-l-d': 'Depth (m)',
+    'tx-space-hint': '1.20 m at the front stays clear &ndash; that is the zone where people stop without blocking the route.',
+    'tx-fs-mods': 'Modules',
+    'tx-mods-hint': 'Every module carries its own dimensions, staffing, throughput and cost.',
+    'tx-fs-ops': 'Crew &amp; budget',
+    'tx-l-crew': 'Crew on site',
+    'tx-l-budget': 'Budget CHF',
+    'tx-l-target': 'Target cost per contact (CHF)',
+    'tx-fs-copy': 'Copy',
+    'tx-l-head': 'On-site headline',
+    'tx-l-social': 'Social copy',
+    'tx-copy-btn': 'Suggest copy again',
+    'tx-copy-hint': 'The suggestion comes from format and modules. Once you type, your text stays.',
+    'tx-fs-checks': 'Checks',
+    'tx-m1': '01 &middot; Floor plan',
+    'tx-m1-meta': 'to scale, dimensions in metres',
+    'tx-m1-note': 'The plan draws itself from the selected modules: real dimensions, 30 cm joints, circulation zone at the front, visitor flow. If something does not fit the footprint it turns red &ndash; it is not quietly shrunk.',
+    'tx-m1-print': 'Print as A4 landscape',
+    'tx-m1-svg': 'Plan as SVG',
+    'tx-m2': '02 &middot; Run of show',
+    'tx-m2-meta': 'Run of show',
+    'tx-m2-note': 'Build and strike times are calculated from the number of modules, not guessed. The rest follows the opening hours: crew call, briefing, content slot, last round, strike, short report.',
+    'tx-m2-print': 'Print as A4',
+    'tx-m3': '03 &middot; Crew card',
+    'tx-m3-meta': 'pocket size',
+    'tx-m3-note': 'The document that decides whether the brand actually lands on the floor. Not a manual: a card that fits in a jacket pocket &ndash; talking points from the chosen modules, three do, three don&rsquo;t, one sentence everyone says the same way.',
+    'tx-m3-print': 'Print as A6',
+    'tx-m4': '04 &middot; Social asset',
+    'tx-m4-meta': 'SVG export',
+    'tx-m4-note': 'Same occasion, three registers. Shorter on site than on social, more sober in the internal briefing than either. That is writing, not formatting.',
+    'tx-m4-svg': 'Tile as SVG for Illustrator',
+    'tx-t1': 'On site',
+    'tx-t2': 'Social',
+    'tx-t3': 'Internal briefing',
+    'tx-m5': '05 &middot; Cost &amp; impact',
+    'tx-m5-meta': 'Calculation',
+    'tx-m5-note': 'The number people ask about in the second meeting: what does one contact cost? Calculated from modules, crew hours, logistics and contingency &ndash; against the budget you entered, with the difference in both directions.',
+    'tx-m5-print': 'Print as A5',
+    'tx-col': 'About the tool',
+    'tx-col1': '<b>Why this of all things?</b> Because a brand presence in fifteen places does not fail on creative, it fails in translation: what is in the deck has to stand on the floor, sit in the crew&rsquo;s pocket and show up as a number at the end. Move Kit is my proposal for giving that translation a system instead of one spreadsheet per location.',
+    'tx-col2': '<b>What is real about it:</b> the logic. Module dimensions, joints, circulation width, build times, crew throughput and cost rates are experience values from festival builds, deliberately set on the conservative side. <b>What is fictional:</b> everything else. Places, dates, prices and the wordmark are placeholders, it is not official material.',
+    'tx-col3': 'Technically: a single HTML file, no framework, no external requests, no data collection. Bilingual German and English. The floor plan and the social tile export as SVG and open straight in Illustrator.',
+    'tx-col-back': '&larr; Back to the application',
+    'plan-sub': 'Floor plan &middot; activation footprint',
+    'plan-scale': 'Scale see bar &middot; dimensions in metres',
+    'plan-legend': 'Modules',
+    'plan-circ': 'Circulation &amp; dwell zone 1.20 m',
+    'plan-entry': 'Visitor flow',
+    'plan-free': 'free',
+    'plan-usable': 'usable',
+    'leg-nostaff': 'unstaffed',
+    'leg-thr': 'contacts/h',
+    'leg-nothr': 'no throughput',
+    'plan-used': 'modules',
+    'plan-area': 'Total area',
+    'plan-drawn': 'Drawn by',
+    'plan-rev': 'Version',
+    'run-sub': 'Run of show',
+    'run-th-time': 'Time',
+    'run-th-what': 'What',
+    'run-th-who': 'Who',
+    'run-th-ok': 'Ok',
+    'tally': 'Count contacts &ndash; one number per hour',
+    'tally-total': 'Total',
+    'tally-note': 'Expected are {n} contacts, roughly {h} per hour. In the evening this line goes into the short report &ndash; without it the cost-per-contact figure is only an estimate.',
+    'run-foot1': 'Ownership',
+    'run-foot2': 'When something slips',
+    'run-foot1t': 'The on-site lead decides, the crew reports early rather than nicely. All times are target times, the order is binding.',
+    'run-foot2t': 'Safety first, then the schedule, then the looks. Whoever drops something tells the lead &ndash; not the client.',
+    'crew-sub': 'Crew card',
+    'crew-say': 'Talking points',
+    'crew-do': 'Do',
+    'crew-dont': 'Don&rsquo;t',
+    'crew-one': 'The one sentence',
+    'crew-lead': 'Lead on site',
+    'crew-note': 'Keep the card in your jacket &ndash; do not leave it on the stand.',
+    'cost-sub': 'Cost &amp; impact',
+    'cost-modcount': 'modules',
+    'cost-modnote': 'rental, build, transport share',
+    'cost-mods': 'Modules, build and transport share',
+    'cost-crew': 'Crew',
+    'cost-crew-n': 'people &times; hours incl. build and strike',
+    'cost-log': 'Logistics &amp; delivery',
+    'cost-log-n': 'Base rate plus surcharge per module',
+    'cost-content': 'On-site content production',
+    'cost-content-n': 'Photo and video, edit the following day',
+    'cost-res': 'Contingency 10 per cent',
+    'cost-res-n': 'Weather, replacement material, restocking',
+    'cost-total': 'Total',
+    'cost-budget': 'Budget',
+    'cost-delta-under': 'Headroom',
+    'cost-delta-over': 'Over budget',
+    'cost-k1': 'Expected contacts',
+    'cost-k2': 'Cost per contact',
+    'cost-k3': 'Capacity per hour',
+    'cost-k4': 'Opening hours',
+    'cost-note': 'How it is calculated: capacity is the sum of module throughputs, capped by the crew at 45 contacts per person and hour. A utilisation factor of 0.75 is applied on top, because stations are never all busy at once. Contacts are conversations and fittings, not footfall. All rates are placeholders.',
+    'unit-h': 'h',
+    'unit-pers': 'pers.',
+    'kpi-area': 'Footprint used',
+    'kpi-cap': 'Capacity / hour',
+    'kpi-contacts': 'Expected contacts',
+    'kpi-cpc': 'Cost / contact',
+    'kpi-crew': 'Crew needed / on site',
+    'kpi-build': 'Build time',
+    'chk-fit-ok': 'All modules fit the footprint.',
+    'chk-fit-bad': 'Modules do not fit: not enough depth.',
+    'chk-fit-ok-d': 'Uses <b>{u} m&sup2;</b> of <b>{a} m&sup2;</b> usable area, {f} m&sup2; stay free.',
+    'chk-fit-bad-d': 'Needs <b>{u} m</b> of depth, <b>{a} m</b> available. Enlarge the footprint or drop a module.',
+    'chk-crew-ok': 'Crew covers the selected modules.',
+    'chk-crew-bad': 'Not enough crew for the modules.',
+    'chk-crew-ok-d': '<b>{n}</b> people needed, <b>{c}</b> planned.',
+    'chk-crew-bad-d': '<b>{n}</b> people needed, only <b>{c}</b> planned. Throughput drops accordingly.',
+    'chk-cost-ok': 'Cost per contact within target.',
+    'chk-cost-bad': 'Cost per contact above target.',
+    'chk-cost-ok-d': '<b>CHF {v}</b> against a target of CHF {t}.',
+    'chk-cost-bad-d': '<b>CHF {v}</b> against a target of CHF {t}. More hours, more throughput or less build.',
+    'chk-bud-ok': 'Calculation within budget.',
+    'chk-bud-bad': 'Calculation over budget.',
+    'chk-bud-ok-d': 'CHF <b>{d}</b> headroom on CHF {b}.',
+    'chk-bud-bad-d': 'CHF <b>{d}</b> too much on CHF {b}.',
+    'chk-open-ok': 'Opening hours plausible.',
+    'chk-open-bad': 'Check the opening hours.',
+    'chk-open-ok-d': 'Open for <b>{h} hours</b>, crew on duty for {t} hours.',
+    'chk-open-bad-d': 'Closing time is before opening time.',
+    'chk-mod-bad': 'No modules selected.',
+    'chk-mod-bad-d': 'Without a module there is no plan, no throughput and no calculation.',
+    'chk-store-bad': 'No storage planned.',
+    'chk-store-bad-d': 'Otherwise stock, bags and empties end up behind the fitting bench.',
+    'chk-store-ok': 'Storage planned.',
+    'chk-store-ok-d': 'Stock and crew bags have a place.',
+    'r1': 'Delivery, take over the site', 'r1s': 'Access, check the floor, check the power',
+    'r2': 'Build modules', 'r2s': 'Order: storage, heavy modules, front last',
+    'r3': 'Tech check and finishing', 'r3s': 'Light, sound, chargers, signage straight',
+    'r4': 'Crew briefing', 'r4s': 'Hand out the card, set roles, say the one sentence together',
+    'r5': 'Doors open', 'r5s': 'For the first half hour the lead walks the floor, not the phone',
+    'r6': 'Content slot', 'r6s': 'Story live, three stills, one soundbite &ndash; while there is daylight',
+    'r7': 'Mid-point check', 'r7s': 'Count contacts, check stock, rotate breaks',
+    'r8': 'Last round', 'r8s': 'Start no new conversations, finish the running ones properly',
+    'r9': 'Doors closed', 'r9s': 'Clear the floor, count material',
+    'r10': 'Strike and handover', 'r10s': 'Floor swept, keys returned, photograph any damage',
+    'r11': 'Short report', 'r11s': 'Contacts, anything notable, three pictures &ndash; the same evening',
+    'who-lead': 'Lead', 'who-crew': 'Crew', 'who-all': 'All', 'who-content': 'Content',
+    'crew-do1': 'Ask first, talk second.',
+    'crew-do2': 'Both shoes, always seated.',
+    'crew-do3': 'Remember names and use them when saying goodbye.',
+    'crew-dont1': 'No discount language, we are not selling anything off here.',
+    'crew-dont2': 'Never two of us on the same guest.',
+    'crew-dont3': 'No promises about delivery dates or models that do not exist.',
+    'crew-onetext': 'Try them on, take a few steps, and tell me what you feel.'
+  }
+};
+
+function t(k) { return T[LANG][k] !== undefined ? T[LANG][k] : k; }
+function fill(s, o) { return String(s).replace(/\{(\w+)\}/g, function (m, k) { return o[k] !== undefined ? o[k] : m; }); }
+
+/* ---------- Zustand ---------- */
+var selected = ['host', 'tryon', 'bench', 'gait', 'photo', 'bar', 'store'];
+
+function modById(id) {
+  for (var i = 0; i < MODULES.length; i++) { if (MODULES[i].id === id) return MODULES[i]; }
+  return null;
+}
+function selectedMods() {
+  var out = [];
+  MODULES.forEach(function (m) { if (selected.indexOf(m.id) > -1) out.push(m); });
+  return out;
+}
+
+/* ---------- Zeit ---------- */
+function toMin(hhmm) {
+  var p = String(hhmm || '').split(':');
+  if (p.length < 2) return null;
+  var h = parseInt(p[0], 10), m = parseInt(p[1], 10);
+  if (isNaN(h) || isNaN(m)) return null;
+  return h * 60 + m;
+}
+function toHHMM(min) {
+  var m = ((min % 1440) + 1440) % 1440;
+  var h = Math.floor(m / 60), r = m % 60;
+  return (h < 10 ? '0' : '') + h + ':' + (r < 10 ? '0' : '') + r;
+}
+function fmtDate(iso) {
+  if (!iso) return '';
+  var p = iso.split('-');
+  if (p.length !== 3) return iso;
+  var d = new Date(p[0], parseInt(p[1], 10) - 1, p[2]);
+  var wd = LANG === 'de'
+    ? ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag']
+    : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  return wd[d.getDay()] + ', ' + p[2] + '.' + p[1] + '.' + p[0];
+}
+function fmtDateShort(iso) {
+  if (!iso) return '';
+  var p = iso.split('-');
+  return p.length === 3 ? p[2] + '.' + p[1] + '.' + p[0] : iso;
+}
+function nf(n) { return Math.round(n).toLocaleString('de-CH').replace(/’/g, '’'); }
+function n1(n) { return (Math.round(n * 10) / 10).toFixed(1); }
+function nm(n) { return (Math.round(n * 10) % 10 === 0) ? String(Math.round(n)) : (Math.round(n * 10) / 10).toFixed(1); }
+
+/* ---------- Rechenkern ---------- */
+var RATE_CREW = 55;      /* CHF pro Crew-Stunde, Platzhalter */
+var THR_PER_CREW = 45;   /* Kontakte pro Person und Stunde */
+var UTIL = 0.75;         /* Auslastungsfaktor */
+var AISLE = 1.2;         /* Zirkulationstiefe an der Front */
+var GAP = 0.3;           /* Fuge zwischen Modulen */
+
+function layout(mods, W, D) {
+  var x = 0, y = 0, rowH = 0, placed = [], tooWide = false;
+  /* Tiefe Module nach hinten, flache an die Front - und dabei die Reihen f&uuml;llen */
+  var sorted = mods.slice().sort(function (a, b) { return (b.d - a.d) || (b.w - a.w); });
+  sorted.forEach(function (m) {
+    if (m.w > W) tooWide = true;
+    if (x > 0 && x + m.w > W + 0.001) { x = 0; y += rowH + GAP; rowH = 0; }
+    placed.push({ m: m, x: x, y: y });
+    x += m.w + GAP;
+    rowH = Math.max(rowH, m.d);
+  });
+  var usedD = placed.length ? y + rowH : 0;
+  var availD = Math.max(0, D - AISLE);
+  return {
+    placed: placed, usedD: usedD, availD: availD, tooWide: tooWide,
+    fits: !tooWide && usedD <= availD + 0.001
+  };
+}
+
+function calc() {
+  var mods = selectedMods();
+  var W = parseFloat(val('f-w')) || 0;
+  var D = parseFloat(val('f-d')) || 0;
+  var crew = parseInt(val('f-crew'), 10) || 0;
+  var budget = parseFloat(val('f-budget')) || 0;
+  var target = parseFloat(val('f-target')) || 0;
+
+  var open = toMin(val('f-open')), close = toMin(val('f-close'));
+  var validHours = open !== null && close !== null && close > open;
+  var openMin = validHours ? close - open : 0;
+  var openH = openMin / 60;
+
+  var build = 90 + 25 * mods.length;        /* Minuten */
+  var strike = 45 + 12 * mods.length;
+  build = Math.round(build / 5) * 5;
+  strike = Math.round(strike / 5) * 5;
+
+  var lay = layout(mods, W, D);
+  var areaTotal = W * D;
+  var areaAvail = W * Math.max(0, D - AISLE);
+  var areaUsed = 0, staffNeed = 0, thrSum = 0, modCost = 0;
+  mods.forEach(function (m) { areaUsed += m.w * m.d; staffNeed += m.staff; thrSum += m.thr; modCost += m.cost; });
+
+  var capCrew = crew * THR_PER_CREW;
+  var capacity = Math.min(thrSum, capCrew) * UTIL;
+  var contacts = Math.round(capacity * openH);
+
+  var crewHours = crew * (openH + (build + strike) / 60);
+  var crewCost = crewHours * RATE_CREW;
+  var logCost = 900 + 120 * mods.length;
+  var contentCost = 1200;
+  var sub = modCost + crewCost + logCost + contentCost;
+  var reserve = sub * 0.1;
+  var total = sub + reserve;
+  var cpc = contacts > 0 ? total / contacts : 0;
+
+  return {
+    mods: mods, W: W, D: D, crew: crew, budget: budget, target: target,
+    open: open, close: close, validHours: validHours, openH: openH,
+    build: build, strike: strike, lay: lay,
+    areaTotal: areaTotal, areaAvail: areaAvail, areaUsed: areaUsed,
+    staffNeed: staffNeed, thrSum: thrSum, capacity: capacity, contacts: contacts,
+    modCost: modCost, crewHours: crewHours, crewCost: crewCost, logCost: logCost,
+    contentCost: contentCost, reserve: reserve, total: total, cpc: cpc,
+    delta: budget - total
+  };
+}
+
+/* ---------- Oberfl&auml;che aufbauen ---------- */
+function buildPresets() {
+  $('presets').innerHTML = PRESETS.map(function (p) {
+    return '<button class="chip" onclick="loadPreset(\'' + p.id + '\')">' + p[LANG] + '</button>';
+  }).join('');
+}
+function buildFormats() {
+  var sel = $('f-format'), cur = sel.value || 'popup';
+  sel.innerHTML = Object.keys(FORMATS).map(function (k) {
+    return '<option value="' + k + '">' + plain(FORMATS[k][LANG]) + '</option>';
+  }).join('');
+  sel.value = cur;
+}
+function buildMods() {
+  $('mods').innerHTML = MODULES.map(function (m) {
+    var on = selected.indexOf(m.id) > -1 ? ' on' : '';
+    return '<button class="chip' + on + '" onclick="toggleMod(\'' + m.id + '\')">' + m[LANG] +
+           ' <i>' + nm(m.w) + '&times;' + nm(m.d) + ' m</i></button>';
+  }).join('');
+}
+function toggleMod(id) {
+  var i = selected.indexOf(id);
+  if (i > -1) selected.splice(i, 1); else selected.push(id);
+  buildMods();
+  if (!dirty['f-head'] || !dirty['f-social']) suggestCopy(false);
+  render();
+}
+function loadPreset(id) {
+  var p = null;
+  PRESETS.forEach(function (x) { if (x.id === id) p = x; });
+  if (!p) return;
+  var v = p.v;
+  $('f-format').value = v.format;
+  $('f-name').value = plain(v.name[LANG]);
+  $('f-city').value = plain(v.city[LANG]);
+  $('f-venue').value = plain(v.venue[LANG]);
+  $('f-date').value = v.date;
+  $('f-open').value = v.open;
+  $('f-close').value = v.close;
+  $('f-w').value = v.w;
+  $('f-d').value = v.d;
+  $('f-crew').value = v.crew;
+  $('f-budget').value = v.budget;
+  $('f-target').value = v.target;
+  selected = v.mods.slice();
+  dirty['f-head'] = false;
+  dirty['f-social'] = false;
+  buildMods();
+  suggestCopy(true);
+  render();
+}
+function formatChanged() {
+  if (!dirty['f-head'] || !dirty['f-social']) suggestCopy(false);
+  render();
+}
+function suggestCopy(force) {
+  var f = FORMATS[val('f-format')] || FORMATS.popup;
+  if (force || !dirty['f-head']) { $('f-head').value = plain(f.head[LANG]); if (force) dirty['f-head'] = false; }
+  if (force || !dirty['f-social']) { $('f-social').value = plain(f.social[LANG]); if (force) dirty['f-social'] = false; }
+  render();
+}
+
+/* ---------- KPI und Pr&uuml;fung ---------- */
+function renderKpis(c) {
+  var pct = c.areaAvail > 0 ? Math.round(c.areaUsed / c.areaAvail * 100) : 0;
+  var items = [
+    { v: pct + '%', l: t('kpi-area'), s: n1(c.areaUsed) + ' / ' + n1(c.areaAvail) + ' m&sup2;' },
+    { v: nf(c.capacity), l: t('kpi-cap'), s: t('unit-pers') },
+    { v: nf(c.contacts), l: t('kpi-contacts'), s: n1(c.openH) + ' ' + t('unit-h') },
+    { v: 'CHF ' + (c.contacts > 0 ? n1(c.cpc) : '&ndash;'), l: t('kpi-cpc'), s: 'CHF ' + nf(c.total) },
+    { v: c.staffNeed + ' / ' + c.crew, l: t('kpi-crew'), s: t('unit-pers') },
+    { v: Math.floor(c.build / 60) + ':' + (c.build % 60 < 10 ? '0' : '') + (c.build % 60), l: t('kpi-build'), s: c.build + ' min' }
+  ];
+  $('kpis').innerHTML = items.map(function (i) {
+    return '<div class="kpi"><b>' + i.v + '</b><span>' + i.l + '</span><small>' + i.s + '</small></div>';
+  }).join('');
+}
+
+function renderChecks(c) {
+  var out = [];
+  function push(ok, title, detail) {
+    out.push('<div class="check' + (ok ? '' : ' bad') + '"><span class="dot"></span><span><b>' +
+             title + '</b><br>' + detail + '</span></div>');
+  }
+
+  if (c.mods.length === 0) {
+    push(false, t('chk-mod-bad'), t('chk-mod-bad-d'));
+  } else if (c.lay.fits) {
+    push(true, t('chk-fit-ok'), fill(t('chk-fit-ok-d'), {
+      u: n1(c.areaUsed), a: n1(c.areaAvail), f: n1(Math.max(0, c.areaAvail - c.areaUsed))
+    }));
+  } else {
+    push(false, t('chk-fit-bad'), fill(t('chk-fit-bad-d'), { u: n1(c.lay.usedD), a: n1(c.lay.availD) }));
+  }
+
+  var crewOk = c.crew >= c.staffNeed;
+  push(crewOk, crewOk ? t('chk-crew-ok') : t('chk-crew-bad'),
+       fill(crewOk ? t('chk-crew-ok-d') : t('chk-crew-bad-d'), { n: c.staffNeed, c: c.crew }));
+
+  if (c.validHours) {
+    push(true, t('chk-open-ok'), fill(t('chk-open-ok-d'), {
+      h: n1(c.openH), t: n1(c.openH + (c.build + c.strike) / 60)
+    }));
+  } else {
+    push(false, t('chk-open-bad'), t('chk-open-bad-d'));
+  }
+
+  var budOk = c.delta >= 0;
+  push(budOk, budOk ? t('chk-bud-ok') : t('chk-bud-bad'),
+       fill(budOk ? t('chk-bud-ok-d') : t('chk-bud-bad-d'), { d: nf(Math.abs(c.delta)), b: nf(c.budget) }));
+
+  var costOk = c.contacts > 0 && c.cpc <= c.target;
+  push(costOk, costOk ? t('chk-cost-ok') : t('chk-cost-bad'),
+       fill(costOk ? t('chk-cost-ok-d') : t('chk-cost-bad-d'),
+            { v: c.contacts > 0 ? n1(c.cpc) : '&ndash;', t: n1(c.target) }));
+
+  var hasStore = selected.indexOf('store') > -1;
+  push(hasStore, hasStore ? t('chk-store-ok') : t('chk-store-bad'),
+       hasStore ? t('chk-store-ok-d') : t('chk-store-bad-d'));
+
+  $('checks').innerHTML = out.join('');
+}
+
+/* ---------- 01 Standplan ---------- */
+function planSVG(c, forExport) {
+  var f = FORMATS[val('f-format')] || FORMATS.popup;
+  var W = c.W, D = c.D;
+  if (!(W > 0 && D > 0)) return '<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"></svg>';
+
+  var S = Math.max(16, Math.min(74, Math.min(980 / W, 430 / D)));  /* px pro Meter */
+  var ML = 56, MT = 46, MR = 16, MB = 26;
+  var VW = W * S + ML + MR, VH = D * S + MT + MB;
+  var g = [];
+
+  function X(m) { return ML + m * S; }
+  function Y(m) { return MT + m * S; }
+
+  /* Raster 1 m */
+  for (var gx = 1; gx < W; gx++) {
+    g.push('<line x1="' + X(gx) + '" y1="' + Y(0) + '" x2="' + X(gx) + '" y2="' + Y(D) + '" stroke="#e4e7ea" stroke-width="0.6"/>');
+  }
+  for (var gy = 1; gy < D; gy++) {
+    g.push('<line x1="' + X(0) + '" y1="' + Y(gy) + '" x2="' + X(W) + '" y2="' + Y(gy) + '" stroke="#e4e7ea" stroke-width="0.6"/>');
+  }
+
+  /* Zirkulationszone an der Front */
+  var aY = Math.max(0, D - AISLE);
+  g.push('<rect x="' + X(0) + '" y="' + Y(aY) + '" width="' + (W * S) + '" height="' + (Math.min(AISLE, D) * S) + '" fill="#f0f2f4"/>');
+  g.push('<text x="' + (X(W / 2)) + '" y="' + (Y(aY) + Math.min(AISLE, D) * S / 2 + 4) + '" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" letter-spacing="2" fill="#8b9298">' + svgEsc(plain(t('plan-circ'))).toUpperCase() + '</text>');
+
+  /* Module */
+  c.lay.placed.forEach(function (p, i) {
+    var bad = (p.y + p.m.d > c.lay.availD + 0.001) || (p.x + p.m.w > W + 0.001);
+    var fillC = bad ? '#f6e2dd' : f.tint;
+    var strokeC = bad ? '#b0402c' : '#2b3034';
+    g.push('<rect x="' + X(p.x) + '" y="' + Y(p.y) + '" width="' + (p.m.w * S) + '" height="' + (p.m.d * S) + '" fill="' + fillC + '" stroke="' + strokeC + '" stroke-width="1.2"' + (bad ? ' stroke-dasharray="5 3"' : '') + '/>');
+    var cx = X(p.x + p.m.w / 2), cy = Y(p.y + p.m.d / 2);
+    var lbl = plain(p.m[LANG]);
+    var fs = Math.max(6.5, Math.min(11.5, p.m.w * S / (lbl.length * 0.62)));
+    g.push('<text x="' + cx + '" y="' + (cy - 2) + '" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="' + n1(fs) + '" font-weight="700" fill="#20262a">' + svgEsc(lbl) + '</text>');
+    g.push('<text x="' + cx + '" y="' + (cy + 11) + '" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="8" fill="#6b7378">' + nm(p.m.w) + ' &#215; ' + nm(p.m.d) + ' m</text>');
+    /* Positionsnummer wie im Plankopf einer Zeichnung */
+    g.push('<rect x="' + (X(p.x) + 3) + '" y="' + (Y(p.y) + 3) + '" width="15" height="13" fill="' + strokeC + '"/>');
+    g.push('<text x="' + (X(p.x) + 10.5) + '" y="' + (Y(p.y) + 12.5) + '" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="8.5" font-weight="700" fill="#ffffff">' + (i + 1 < 10 ? '0' : '') + (i + 1) + '</text>');
+  });
+
+  /* Rahmen */
+  g.push('<rect x="' + X(0) + '" y="' + Y(0) + '" width="' + (W * S) + '" height="' + (D * S) + '" fill="none" stroke="#16181a" stroke-width="1.8"/>');
+
+  /* Bemassung oben */
+  var dy = MT - 20;
+  g.push('<line x1="' + X(0) + '" y1="' + dy + '" x2="' + X(W) + '" y2="' + dy + '" stroke="#16181a" stroke-width="0.8"/>');
+  g.push('<line x1="' + X(0) + '" y1="' + (dy - 4) + '" x2="' + X(0) + '" y2="' + (dy + 4) + '" stroke="#16181a" stroke-width="1.2"/>');
+  g.push('<line x1="' + X(W) + '" y1="' + (dy - 4) + '" x2="' + X(W) + '" y2="' + (dy + 4) + '" stroke="#16181a" stroke-width="1.2"/>');
+  g.push('<rect x="' + (X(W / 2) - 26) + '" y="' + (dy - 9) + '" width="52" height="14" fill="#fbfbfa"/>');
+  g.push('<text x="' + X(W / 2) + '" y="' + (dy + 2) + '" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#16181a">' + nm(W) + ' m</text>');
+
+  /* Bemassung links */
+  var dx = ML - 22;
+  g.push('<line x1="' + dx + '" y1="' + Y(0) + '" x2="' + dx + '" y2="' + Y(D) + '" stroke="#16181a" stroke-width="0.8"/>');
+  g.push('<line x1="' + (dx - 4) + '" y1="' + Y(0) + '" x2="' + (dx + 4) + '" y2="' + Y(0) + '" stroke="#16181a" stroke-width="1.2"/>');
+  g.push('<line x1="' + (dx - 4) + '" y1="' + Y(D) + '" x2="' + (dx + 4) + '" y2="' + Y(D) + '" stroke="#16181a" stroke-width="1.2"/>');
+  g.push('<g transform="translate(' + dx + ',' + Y(D / 2) + ') rotate(-90)"><rect x="-26" y="-9" width="52" height="14" fill="#fbfbfa"/><text x="0" y="2" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#16181a">' + nm(D) + ' m</text></g>');
+
+  /* Besucherfluss */
+  var ay = Y(D) + 13;
+  g.push('<text x="' + X(0) + '" y="' + (ay + 3.5) + '" font-family="Helvetica, Arial, sans-serif" font-size="9" letter-spacing="2" font-weight="700" fill="' + f.accent + '">' + svgEsc(plain(t('plan-entry'))).toUpperCase() + '</text>');
+  g.push('<path d="M ' + X(W * 0.34) + ' ' + ay + ' L ' + X(W * 0.92) + ' ' + ay + '" stroke="' + f.accent + '" stroke-width="1.4" fill="none"/>');
+  g.push('<path d="M ' + X(W * 0.92) + ' ' + ay + ' l -7 -3.5 l 0 7 z" fill="' + f.accent + '"/>');
+
+  /* Massstabsbalken */
+  var sbX = X(W) - 2 * S, sbY = MT - 34;
+  if (sbX < ML) sbX = ML;
+  g.push('<rect x="' + sbX + '" y="' + sbY + '" width="' + S + '" height="5" fill="#16181a"/>');
+  g.push('<rect x="' + (sbX + S) + '" y="' + sbY + '" width="' + S + '" height="5" fill="none" stroke="#16181a" stroke-width="0.8"/>');
+  g.push('<text x="' + sbX + '" y="' + (sbY - 4) + '" font-family="Helvetica, Arial, sans-serif" font-size="8" fill="#6b7378">0</text>');
+  g.push('<text x="' + (sbX + 2 * S) + '" y="' + (sbY - 4) + '" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="8" fill="#6b7378">2 m</text>');
+
+  var head = forExport
+    ? '<rect width="' + VW + '" height="' + VH + '" fill="#ffffff"/>'
+    : '';
+  return '<svg xmlns="http://www.w3.org/2000/svg" class="plan-svg" viewBox="0 0 ' + n1(VW) + ' ' + n1(VH) + '" width="' + n1(VW) + '" height="' + n1(VH) + '">' + head + g.join('') + '</svg>';
+}
+
+function renderPlan(c) {
+  var f = FORMATS[val('f-format')] || FORMATS.popup;
+  var legend = c.lay.placed.map(function (p, i) {
+    var m = p.m;
+    return '<div class="leg-item"><span class="leg-no">' + (i + 1 < 10 ? '0' : '') + (i + 1) + '</span><div><b>' + m[LANG] + '</b>' +
+           '<span>' + nm(m.w) + ' &times; ' + nm(m.d) + ' m &middot; ' + n1(m.w * m.d) + ' m&sup2; &middot; ' +
+           (m.staff ? m.staff + ' ' + t('unit-pers') : t('leg-nostaff')) + ' &middot; ' +
+           (m.thr ? m.thr + ' ' + t('leg-thr') : t('leg-nothr')) + '</span></div></div>';
+  }).join('') || '<div class="leg-item"><div><b>&ndash;</b></div></div>';
+
+  $('o-plan').innerHTML =
+    '<div class="plan-head">' +
+      '<div><div class="sub">' + t('plan-sub') + '</div>' +
+      '<h3>' + esc(val('f-name')) + '</h3></div>' +
+      '<div class="id"><b>' + esc(val('f-city')) + ' &middot; ' + esc(val('f-venue')) + '</b><br>' +
+      fmtDate(val('f-date')) + ' &middot; ' + esc(val('f-open')) + '&ndash;' + esc(val('f-close')) + '<br>' +
+      f[LANG] + ' &middot; ' + nm(c.W) + ' &times; ' + nm(c.D) + ' m</div>' +
+    '</div>' +
+    '<div class="plan-body">' +
+      '<div>' + planSVG(c, false) + '</div>' +
+      '<div class="plan-legend"><h4>' + t('plan-legend') + '</h4>' + legend +
+        '<div class="plan-foot" style="display:block;margin-top:4mm">' +
+          '<b style="color:#16181a">' + t('plan-area') + '</b> ' + n1(c.areaTotal) + ' m&sup2;<br>' +
+          t('plan-usable') + ' ' + n1(c.areaAvail) + ' m&sup2; &middot; ' +
+          t('plan-used') + ' ' + n1(c.areaUsed) + ' m&sup2; &middot; ' + t('plan-free') + ' ' +
+          n1(Math.max(0, c.areaAvail - c.areaUsed)) + ' m&sup2;' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="plan-foot">' +
+      '<span>' + t('plan-scale') + '</span>' +
+      '<span>' + t('plan-drawn') + ': Shayna Jucker &middot; ' + t('plan-rev') + ' ' + fmtDateShort(val('f-date')) + ' &middot; Move Kit</span>' +
+    '</div>';
+}
+
+/* ---------- 02 Ablaufplan ---------- */
+function runRows(c) {
+  var o = c.validHours ? c.open : 600;
+  var cl = c.validHours ? c.close : 1080;
+  var span = cl - o;
+  return [
+    { t: o - c.build, w: 'r1', who: 'who-lead', key: false },
+    { t: o - c.build + 25, w: 'r2', who: 'who-crew', key: false },
+    { t: o - 45, w: 'r3', who: 'who-crew', key: false },
+    { t: o - 25, w: 'r4', who: 'who-all', key: true },
+    { t: o, w: 'r5', who: 'who-all', key: true },
+    { t: o + Math.round(span * 0.15), w: 'r6', who: 'who-content', key: false },
+    { t: o + Math.round(span * 0.5), w: 'r7', who: 'who-lead', key: false },
+    { t: cl - 30, w: 'r8', who: 'who-all', key: false },
+    { t: cl, w: 'r9', who: 'who-all', key: true },
+    { t: cl + 15, w: 'r10', who: 'who-crew', key: false },
+    { t: cl + 15 + c.strike, w: 'r11', who: 'who-lead', key: false }
+  ];
+}
+function tallyCells(c) {
+  var o = c.validHours ? c.open : 600, cl = c.validHours ? c.close : 1080;
+  var cells = [];
+  for (var h = o; h < cl && cells.length < 16; h += 60) {
+    cells.push('<td><span>' + toHHMM(h) + '</span><div></div></td>');
+  }
+  cells.push('<td class="tot"><span>' + t('tally-total') + '</span><div></div></td>');
+  return cells.join('');
+}
+function renderRun(c) {
+  var f = FORMATS[val('f-format')] || FORMATS.popup;
+  var rows = runRows(c).map(function (r) {
+    return '<tr' + (r.key ? ' class="key"' : '') + '>' +
+      '<td class="t">' + toHHMM(r.t) + '</td>' +
+      '<td class="w"><b>' + t(r.w) + '</b><span>' + t(r.w + 's') + '</span></td>' +
+      '<td class="who">' + t(r.who) + '</td>' +
+      '<td class="box"><span class="bx"></span></td></tr>';
+  }).join('');
+
+  $('o-run').innerHTML =
+    '<div class="run-head">' +
+      '<div class="sub">' + t('run-sub') + ' &middot; ' + f[LANG] + '</div>' +
+      '<h3>' + esc(val('f-name')) + '</h3>' +
+      '<div class="meta">' + fmtDate(val('f-date')) + ' &middot; ' + esc(val('f-city')) + ', ' + esc(val('f-venue')) +
+      ' &middot; ' + esc(val('f-open')) + '&ndash;' + esc(val('f-close')) +
+      ' &middot; ' + c.crew + ' ' + t('unit-pers') + '</div>' +
+    '</div>' +
+    '<table class="run-table"><thead><tr>' +
+      '<th>' + t('run-th-time') + '</th><th>' + t('run-th-what') + '</th>' +
+      '<th>' + t('run-th-who') + '</th><th>' + t('run-th-ok') + '</th>' +
+    '</tr></thead><tbody>' + rows + '</tbody></table>' +
+    '<div class="tally"><b>' + t('tally') + '</b>' +
+      '<table><tr>' + tallyCells(c) + '</tr></table>' +
+      '<span>' + fill(t('tally-note'), { n: nf(c.contacts), h: nf(c.capacity) }) + '</span>' +
+    '</div>' +
+    '<div class="run-foot">' +
+      '<div><b>' + t('run-foot1') + '</b>' + t('run-foot1t') + '</div>' +
+      '<div><b>' + t('run-foot2') + '</b>' + t('run-foot2t') + '</div>' +
+    '</div>';
+}
+
+/* ---------- 03 Crew-Karte ---------- */
+function renderCrew(c) {
+  var f = FORMATS[val('f-format')] || FORMATS.popup;
+  var says = c.mods.filter(function (m) { return m.say; }).slice(0, 5).map(function (m) {
+    return '<li><b style="font-weight:700">' + m[LANG] + ':</b> ' + m.say[LANG] + '</li>';
+  }).join('');
+
+  $('o-crew').innerHTML =
+    '<div class="crew-head">' +
+      '<div><div class="sub">' + t('crew-sub') + ' &middot; ' + f[LANG] + '</div>' +
+      '<h3>' + esc(val('f-name')) + '</h3></div>' +
+      '<div class="when"><b>' + esc(val('f-open')) + '&ndash;' + esc(val('f-close')) + '</b>' +
+      fmtDateShort(val('f-date')) + '<br>' + esc(val('f-city')) + ' &middot; ' + esc(val('f-venue')) + '</div>' +
+    '</div>' +
+    '<div class="crew-grid">' +
+      '<div><h4>' + t('crew-say') + '</h4><ul>' + says + '</ul></div>' +
+      '<div>' +
+        '<h4>' + t('crew-do') + '</h4><ul>' +
+          '<li>' + t('crew-do1') + '</li><li>' + t('crew-do2') + '</li><li>' + t('crew-do3') + '</li></ul>' +
+        '<h4 style="margin-top:2mm">' + t('crew-dont') + '</h4><ul class="no">' +
+          '<li>' + t('crew-dont1') + '</li><li>' + t('crew-dont2') + '</li><li>' + t('crew-dont3') + '</li></ul>' +
+      '</div>' +
+    '</div>' +
+    '<div class="crew-say"><b>' + t('crew-one') + '</b><p>&laquo;' + esc(val('f-head') || t('crew-onetext')) + '&raquo;</p></div>' +
+    '<div class="crew-foot"><span>' + t('crew-lead') + ': Shayna Jucker &middot; +41 &middot;&middot; &middot;&middot;&middot; &middot;&middot; &middot;&middot;</span>' +
+    '<span>' + t('crew-note') + '</span></div>';
+}
+
+/* ---------- 04 Social ---------- */
+function renderSocial(c) {
+  var f = FORMATS[val('f-format')] || FORMATS.popup;
+  $('o-social').innerHTML =
+    '<div class="soc-badge" style="background:' + f.accent + '">' + f.kick[LANG] + '</div>' +
+    '<div class="soc-mid">' +
+      '<div class="kick" style="color:' + f.accent + '">' + esc(val('f-city')) + ' &middot; ' + fmtDateShort(val('f-date')) + '</div>' +
+      '<h3>' + esc(val('f-head')) + '</h3>' +
+      '<p>' + esc(val('f-social')) + '</p>' +
+    '</div>' +
+    '<div class="soc-foot"><span class="big">' + esc(val('f-open')) + '&ndash;' + esc(val('f-close')) + ' &middot; ' + esc(val('f-venue')) + '</span>' +
+    '<span class="mark">Move Kit</span></div>';
+
+  $('o-tone-sign').innerHTML = '&laquo;' + esc(val('f-head')) + '&raquo; &ndash; ' +
+    (LANG === 'de' ? 'auf der Fl&auml;che, gross, ohne Nebensatz.' : 'on the floor, large, no subclause.');
+  $('o-tone-social').innerHTML = esc(val('f-social'));
+  $('o-tone-brief').innerHTML = f.brief[LANG] + ' ' +
+    (LANG === 'de'
+      ? 'Zielgr&ouml;sse f&uuml;r diesen Stopp: ' + nf(c.contacts) + ' Kontakte bei CHF ' + n1(c.cpc) + ' pro Kontakt.'
+      : 'Target for this stop: ' + nf(c.contacts) + ' contacts at CHF ' + n1(c.cpc) + ' per contact.');
+}
+
+/* ---------- 05 Kostenblatt ---------- */
+function renderCost(c) {
+  var f = FORMATS[val('f-format')] || FORMATS.popup;
+  var over = c.delta < 0;
+  $('o-cost').innerHTML =
+    '<div class="cost-head"><div class="sub">' + t('cost-sub') + ' &middot; ' + f[LANG] + '</div>' +
+    '<h3>' + esc(val('f-name')) + '</h3>' +
+    '<div style="font-size:7.6pt;color:var(--m-soft);margin-top:1mm">' + esc(val('f-city')) + ' &middot; ' +
+    fmtDateShort(val('f-date')) + ' &middot; ' + nm(c.W) + ' &times; ' + nm(c.D) + ' m &middot; ' + c.mods.length + ' ' + t('cost-modcount') + '</div></div>' +
+    '<table class="cost-table">' +
+      '<tr><td>' + t('cost-mods') + '<small>' + c.mods.length + ' &times; ' + t('cost-modcount') + '</small></td><td class="n">' + nf(c.modCost) + '</td></tr>' +
+      '<tr><td>' + t('cost-crew') + '<small>' + c.crew + ' ' + t('unit-pers') + ' &times; ' + n1(c.openH + (c.build + c.strike) / 60) + ' ' + t('unit-h') + ' &times; CHF ' + RATE_CREW + '</small></td><td class="n">' + nf(c.crewCost) + '</td></tr>' +
+      '<tr><td>' + t('cost-log') + '<small>' + t('cost-log-n') + '</small></td><td class="n">' + nf(c.logCost) + '</td></tr>' +
+      '<tr><td>' + t('cost-content') + '<small>' + t('cost-content-n') + '</small></td><td class="n">' + nf(c.contentCost) + '</td></tr>' +
+      '<tr><td>' + t('cost-res') + '<small>' + t('cost-res-n') + '</small></td><td class="n">' + nf(c.reserve) + '</td></tr>' +
+      '<tr class="sum"><td>' + t('cost-total') + '</td><td class="n">CHF ' + nf(c.total) + '</td></tr>' +
+      '<tr class="delta"><td>' + t('cost-budget') + '</td><td class="n">CHF ' + nf(c.budget) + '</td></tr>' +
+      '<tr class="delta"><td>' + (over ? t('cost-delta-over') : t('cost-delta-under')) + '</td><td class="n' + (over ? ' over' : '') + '">CHF ' + nf(Math.abs(c.delta)) + '</td></tr>' +
+    '</table>' +
+    '<div class="cost-kpi">' +
+      '<div><b>' + nf(c.contacts) + '</b><span>' + t('cost-k1') + '</span></div>' +
+      '<div><b>CHF ' + (c.contacts > 0 ? n1(c.cpc) : '&ndash;') + '</b><span>' + t('cost-k2') + '</span></div>' +
+      '<div><b>' + nf(c.capacity) + '</b><span>' + t('cost-k3') + '</span></div>' +
+      '<div><b>' + n1(c.openH) + ' ' + t('unit-h') + '</b><span>' + t('cost-k4') + '</span></div>' +
+    '</div>' +
+    '<div class="cost-note">' + t('cost-note') + '</div>';
+}
+
+/* ---------- Render ---------- */
+function render() {
+  var f = FORMATS[val('f-format')] || FORMATS.popup;
+  document.documentElement.style.setProperty('--m-accent', f.accent);
+  document.documentElement.style.setProperty('--m-tint', f.tint);
+
+  var c = calc();
+  renderKpis(c);
+  renderChecks(c);
+  renderPlan(c);
+  renderRun(c);
+  renderCrew(c);
+  renderSocial(c);
+  renderCost(c);
+  fitSheets();
+}
+
+/* Papierbogen auf schmalen Bildschirmen skalieren */
+function fitSheets() {
+  document.querySelectorAll('.sheet-scroll').forEach(function (box) {
+    var sheet = box.querySelector('.paper');
+    if (!sheet) return;
+    sheet.style.transform = '';
+    sheet.style.marginBottom = '';
+    var avail = box.clientWidth;
+    var natural = sheet.offsetWidth;
+    if (natural > avail && avail > 0) {
+      var s = avail / natural;
+      sheet.style.transform = 'scale(' + s + ')';
+      sheet.style.transformOrigin = 'top left';
+      sheet.style.marginBottom = (-(1 - s) * sheet.offsetHeight) + 'px';
+    }
+  });
+}
+window.addEventListener('resize', fitSheets);
+
+/* ---------- Sprache ---------- */
+function setLang(lang) {
+  LANG = lang;
+  $('btn-de').classList.toggle('on', lang === 'de');
+  $('btn-en').classList.toggle('on', lang === 'en');
+  document.documentElement.lang = lang;
+  Object.keys(T[lang]).forEach(function (k) {
+    var el = $(k);
+    if (el) el.innerHTML = T[lang][k];
+  });
+  buildPresets();
+  buildFormats();
+  buildMods();
+  if (!dirty['f-head']) $('f-head').value = plain((FORMATS[val('f-format')] || FORMATS.popup).head[lang]);
+  if (!dirty['f-social']) $('f-social').value = plain((FORMATS[val('f-format')] || FORMATS.popup).social[lang]);
+  render();
+}
+
+/* ---------- Druck im echten Endformat ---------- */
+function printMat(id, size) {
+  var el = $(id);
+  var prevTransform = el.style.transform, prevMargin = el.style.marginBottom;
+  el.style.transform = ''; el.style.marginBottom = '';
+
+  var anchor = document.createElement('span');
+  el.parentNode.insertBefore(anchor, el);
+
+  var stage = document.createElement('div');
+  stage.id = 'print-stage';
+  stage.appendChild(el);
+  document.body.appendChild(stage);
+
+  var style = document.createElement('style');
+  style.id = 'print-page';
+  style.textContent = '@page { size: ' + size + '; margin: 0; }';
+  document.head.appendChild(style);
+  document.body.classList.add('printing');
+
+  var done = false;
+  var cleanup = function () {
+    if (done) return;
+    done = true;
+    anchor.parentNode.insertBefore(el, anchor);
+    anchor.remove();
+    stage.remove();
+    document.body.classList.remove('printing');
+    var s = $('print-page');
+    if (s) s.remove();
+    el.style.transform = prevTransform;
+    el.style.marginBottom = prevMargin;
+    window.removeEventListener('afterprint', cleanup);
+    fitSheets();
+  };
+  window.addEventListener('afterprint', cleanup);
+  window.print();
+  setTimeout(cleanup, 1500);
+}
+
+/* ---------- Exporte ---------- */
+function download(text, name, type) {
+  var blob = new Blob([text], { type: type });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+}
+function slug(s) {
+  return plain(s).toLowerCase()
+    .replace(/\u00e4/g, 'ae').replace(/\u00f6/g, 'oe').replace(/\u00fc/g, 'ue').replace(/\u00df/g, 'ss')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'move-kit';
+}
+function downloadPlan() {
+  var c = calc();
+  download(planSVG(c, true), 'standplan-' + slug(val('f-name')) + '.svg', 'image/svg+xml;charset=utf-8');
+}
+function wrapText(text, max) {
+  var words = plain(text).split(/\s+/), lines = [], line = '';
+  words.forEach(function (w) {
+    if ((line + ' ' + w).trim().length > max) { if (line) lines.push(line); line = w; }
+    else { line = (line + ' ' + w).trim(); }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+function downloadSocial() {
+  var f = FORMATS[val('f-format')] || FORMATS.popup;
+  var W = 1080, H = 1920, P = 96;
+  var headLines = wrapText(val('f-head'), 20);
+  var bodyLines = wrapText(val('f-social'), 42);
+
+  var s = [];
+  s.push('<svg xmlns="http://www.w3.org/2000/svg" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '">');
+  s.push('<rect width="' + W + '" height="' + H + '" fill="#16181a"/>');
+  /* Badge */
+  s.push('<rect x="' + P + '" y="' + P + '" width="300" height="54" fill="' + f.accent + '"/>');
+  s.push('<text x="' + (P + 24) + '" y="' + (P + 36) + '" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="5" fill="#ffffff">' + svgEsc(plain(f.kick[LANG])).toUpperCase() + '</text>');
+
+  var footY = H - P - 120;
+  var y = footY - 60 - bodyLines.length * 52 - headLines.length * 104;
+  /* Kicker */
+  s.push('<text x="' + P + '" y="' + y + '" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="6" fill="' + f.accent + '">' +
+    svgEsc((plain(val('f-city')) + '  ·  ' + fmtDateShort(val('f-date'))).toUpperCase()) + '</text>');
+  y += 96;
+  headLines.forEach(function (ln, i) {
+    s.push('<text x="' + P + '" y="' + (y + i * 104) + '" font-family="Helvetica, Arial, sans-serif" font-size="94" font-weight="800" letter-spacing="-2" fill="#ffffff">' + svgEsc(ln) + '</text>');
+  });
+  y += (headLines.length - 1) * 104 + 78;
+  bodyLines.forEach(function (ln, i) {
+    s.push('<text x="' + P + '" y="' + (y + i * 52) + '" font-family="Helvetica, Arial, sans-serif" font-size="36" fill="#cdd1d4">' + svgEsc(ln) + '</text>');
+  });
+  /* Fuss */
+  s.push('<line x1="' + P + '" y1="' + (H - P - 96) + '" x2="' + (W - P) + '" y2="' + (H - P - 96) + '" stroke="#ffffff" stroke-opacity="0.22"/>');
+  s.push('<text x="' + P + '" y="' + (H - P - 34) + '" font-family="Helvetica, Arial, sans-serif" font-size="44" font-weight="300" fill="#ffffff">' +
+    svgEsc(plain(val('f-open')) + '–' + plain(val('f-close')) + '  ·  ' + plain(val('f-venue'))) + '</text>');
+  s.push('<text x="' + (W - P) + '" y="' + (H - P - 38) + '" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="7" fill="#8d9296">MOVE KIT</text>');
+  s.push('</svg>');
+
+  download(s.join('\n'), 'social-' + slug(val('f-name')) + '.svg', 'image/svg+xml;charset=utf-8');
+}
+
+/* ---------- Start ---------- */
+(function init() {
+  buildPresets();
+  buildFormats();
+  buildMods();
+  ['f-head', 'f-social'].forEach(function (id) {
+    $(id).addEventListener('input', function () { dirty[id] = true; });
+  });
+  ['f-name', 'f-city', 'f-venue', 'f-date', 'f-open', 'f-close', 'f-w', 'f-d',
+   'f-crew', 'f-budget', 'f-target', 'f-head', 'f-social'].forEach(function (id) {
+    $(id).addEventListener('input', render);
+  });
+  suggestCopy(true);
+  render();
+})();
+</script>
+
+</body>
+</html>
