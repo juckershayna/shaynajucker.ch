@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>H&ouml;henmeter &middot; Kampagnenkonzept &middot; Arbeitsprobe</title>
+<link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<style>
+  :root {
+    --bg: #121212;
+    --surface: #1b1b1b;
+    --line: #2e2e2e;
+    --ink: #f1f1f1;
+    --muted: #8d857a;
+    --accent: #957b5f;
+    --accent-lt: #c6a47e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1360px; margin: 0 auto; padding: 0 26px; }
+
+  .sample-bar {
+    background: var(--accent); color: #fff; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; text-align: center; padding: 9px 16px; font-weight: 700;
+  }
+  .sample-bar a { color: #fff; text-decoration: underline; }
+
+  .top { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; padding-top: 24px; flex-wrap: wrap; }
+  .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-lt); font-weight: 700; }
+  .lang-switch { display: flex; border: 1px solid var(--line); }
+  .lang-switch button {
+    background: none; border: none; color: var(--muted); font: inherit; font-size: 11px;
+    font-weight: 700; letter-spacing: 2px; padding: 7px 14px; cursor: pointer;
+    transition: background 200ms, color 200ms;
+  }
+  .lang-switch button.on { background: var(--accent); color: #fff; }
+
+  .hero { padding: 20px 0 46px; border-bottom: 1px solid var(--line); }
+  h1 { font-size: clamp(38px, 7vw, 82px); line-height: .98; font-weight: 800; letter-spacing: -.03em; text-transform: uppercase; margin: 16px 0 20px; }
+  h1 em { font-style: normal; color: var(--accent-lt); }
+  .lede { max-width: 700px; color: #cfc9c0; font-size: 17px; }
+
+  /* --- Plakate --- */
+  .boards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; padding: 46px 0 10px; }
+  @media (max-width: 1080px) { .boards { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 720px) { .boards { grid-template-columns: 1fr; } }
+  .board figure { background: #000; box-shadow: 0 20px 46px rgba(0,0,0,.5); }
+  .board svg { display: block; width: 100%; height: auto; }
+  .board figcaption {
+    display: flex; justify-content: space-between; gap: 12px; align-items: baseline;
+    margin-top: 12px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 700;
+  }
+  .board figcaption button {
+    background: none; border: 1px solid var(--line); color: var(--accent-lt);
+    font: inherit; font-size: 9.5px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase;
+    padding: 5px 9px; cursor: pointer; transition: background 180ms, color 180ms, border-color 180ms;
+  }
+  .board figcaption button:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  /* --- System --- */
+  .system { padding: 56px 0 10px; border-top: 1px solid var(--line); margin-top: 46px; }
+  .system h2, .formats h2 { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-lt); font-weight: 700; margin-bottom: 24px; }
+  .rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  @media (max-width: 860px) { .rules { grid-template-columns: 1fr; gap: 22px; } }
+  .rule { border-top: 2px solid var(--accent); padding-top: 14px; }
+  .rule b { display: block; font-size: 17px; font-weight: 700; margin-bottom: 7px; }
+  .rule span { color: #a9a299; font-size: 14px; line-height: 1.6; }
+
+  /* --- Formate --- */
+  .formats { padding: 56px 0 20px; }
+  .fmt-row { display: flex; gap: 26px; align-items: flex-end; flex-wrap: wrap; }
+  .fmt { }
+  .fmt svg { display: block; height: auto; box-shadow: 0 14px 34px rgba(0,0,0,.45); }
+  .fmt span { display: block; margin-top: 10px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .fmt.f1 svg { width: 300px; }
+  .fmt.f2 svg { width: 230px; }
+  .fmt.f3 svg { width: 172px; }
+  @media (max-width: 620px) { .fmt.f1 svg { width: 210px; } .fmt.f2 svg { width: 165px; } .fmt.f3 svg { width: 124px; } }
+
+  .colophon { border-top: 1px solid var(--line); margin-top: 40px; padding: 34px 0 64px; }
+  .colophon h2 { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-lt); font-weight: 700; margin-bottom: 16px; }
+  .colophon p { max-width: 790px; color: #a9a299; font-size: 13.5px; margin-bottom: 12px; }
+  .colophon b { color: var(--ink); }
+  .colophon a { color: var(--accent-lt); }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Kampagnenkonzept, kein offizielles ON-Material</span> &middot;
+  <a href="on-brand-event.html" data-t="bar-back">zur&uuml;ck zur Bewerbung</a>
+</div>
+
+<div class="wrap">
+
+  <div class="top">
+    <div class="eyebrow" data-t="eyebrow">Kampagnenkonzept &middot; drei Key Visuals</div>
+    <div class="lang-switch">
+      <button id="btn-de" class="on" onclick="setLang('de')">DE</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1 data-t="h1">H&ouml;henmeter.<br><em>Jede Linie ist ein Weg.</em></h1>
+    <p class="lede" data-t="lede">Die H&ouml;henkurve der Landeskarte als Bildsprache: Jedes Motiv ist eine echte Route, gezeichnet wie eine Karte, mit ihrem H&ouml;henprofil als Signatur. Ein System, drei Gel&auml;nde &ndash; Berg, H&uuml;gel, Stadt bei Nacht.</p>
+  </div>
+
+  <div class="boards" id="boards"></div>
+
+  <div class="system">
+    <h2 data-t="sys-h">Das System</h2>
+    <div class="rules" id="rules"></div>
+  </div>
+
+  <div class="formats">
+    <h2 data-t="fmt-h">Ein Motiv, drei Formate</h2>
+    <div class="fmt-row" id="formats"></div>
+  </div>
+
+  <div class="colophon">
+    <h2 data-t="col-h">Zur Arbeitsprobe</h2>
+    <p data-t="col-1"><b>Fiktiv:</b> Kampagne, Routen, Zeiten und die Wortmarke. Kein offizielles Material von ON.</p>
+    <p data-t="col-2"><b>Selbst gemacht:</b> Idee, Claim, Headlines, Bildsprache und Umsetzung. Die H&ouml;henkurven sind nicht abgezeichnet, sondern gerechnet &ndash; jedes Motiv entsteht aus einem eigenen Gel&auml;ndemodell, das H&ouml;henprofil unter der Headline ist aus derselben Route abgeleitet. Eine HTML-Datei, keine externen Requests. Jedes Visual l&auml;sst sich als SVG herunterladen und in Illustrator weiterbauen.</p>
+    <p><a href="on-brand-event.html" data-t="col-back">&larr; Zur&uuml;ck zur Bewerbung</a></p>
+  </div>
+
+</div>
+
+<script>
+/* =========================================================
+   HOEHENMETER - Kampagnenkonzept, drei Key Visuals
+   Arbeitsprobe Shayna Jucker
+   ========================================================= */
+
+var LANG = 'de';
+function $(id) { return document.getElementById(id); }
+var _dec = document.createElement('textarea');
+function plain(x) { _dec.innerHTML = String(x); return _dec.value; }
+function esc(x) { return String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+/* ---------- Oberflaeche ---------- */
+var T = {
+  de: {
+    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Kampagnenkonzept, kein offizielles ON-Material',
+    'bar-back': 'zur&uuml;ck zur Bewerbung',
+    'eyebrow': 'Kampagnenkonzept &middot; drei Key Visuals',
+    'h1': 'H&ouml;henmeter.<br><em>Jede Linie ist ein Weg.</em>',
+    'lede': 'Die H&ouml;henkurve der Landeskarte als Bildsprache: Jedes Motiv ist eine echte Route, gezeichnet wie eine Karte, mit ihrem H&ouml;henprofil als Signatur. Ein System, drei Gel&auml;nde &ndash; Berg, H&uuml;gel, Stadt bei Nacht.',
+    'sys-h': 'Das System',
+    'fmt-h': 'Ein Motiv, drei Formate',
+    'col-h': 'Zur Arbeitsprobe',
+    'col-1': '<b>Fiktiv:</b> Kampagne, Routen, Zeiten und die Wortmarke. Kein offizielles Material von ON.',
+    'col-2': '<b>Selbst gemacht:</b> Idee, Claim, Headlines, Bildsprache und Umsetzung. Die H&ouml;henkurven sind nicht abgezeichnet, sondern gerechnet &ndash; jedes Motiv entsteht aus einem eigenen Gel&auml;ndemodell, das H&ouml;henprofil unter der Headline ist aus derselben Route abgeleitet. Eine HTML-Datei, keine externen Requests. Jedes Visual l&auml;sst sich als SVG herunterladen und in Illustrator weiterbauen.',
+    'col-back': '&larr; Zur&uuml;ck zur Bewerbung',
+    'dl': 'SVG',
+    'fmt1': 'Plakat F4 &middot; 895 &times; 1280 mm',
+    'fmt2': 'Social 1:1 &middot; 1080 &times; 1080',
+    'fmt3': 'Story 9:16 &middot; 1080 &times; 1920',
+    'wordmark': 'Wortmarke'
+  },
+  en: {
+    'bar': 'Work sample by Shayna Jucker &middot; fictional campaign concept, not official ON material',
+    'bar-back': 'back to the application',
+    'eyebrow': 'Campaign concept &middot; three key visuals',
+    'h1': 'Elevation.<br><em>Every line is a route.</em>',
+    'lede': 'The contour line of the Swiss national map as a visual language: every motif is a real route, drawn like a map, carrying its elevation profile as a signature. One system, three kinds of terrain &ndash; mountain, hill, city at night.',
+    'sys-h': 'The system',
+    'fmt-h': 'One motif, three formats',
+    'col-h': 'About this work sample',
+    'col-1': '<b>Fictional:</b> the campaign, the routes, the times and the wordmark. Not official ON material.',
+    'col-2': '<b>Made by me:</b> idea, claim, headlines, visual language and build. The contour lines are not traced, they are computed &ndash; every motif comes from its own terrain model, and the elevation profile under the headline is derived from the same route. One HTML file, no external requests. Every visual downloads as an SVG and opens straight in Illustrator.',
+    'col-back': '&larr; Back to the application',
+    'dl': 'SVG',
+    'fmt1': 'Poster F4 &middot; 895 &times; 1280 mm',
+    'fmt2': 'Social 1:1 &middot; 1080 &times; 1080',
+    'fmt3': 'Story 9:16 &middot; 1080 &times; 1920',
+    'wordmark': 'Wordmark'
+  }
+};
+function t(k) { return T[LANG][k] !== undefined ? T[LANG][k] : k; }
+
+/* ---------- Regeln des Systems ---------- */
+var RULES = [
+  { b: { de: 'Die Karte tr&auml;gt, nicht das Produkt', en: 'The map carries it, not the product' },
+    s: { de: 'Kein Schuh im Bild. Wer eine Laufmarke ist, muss den Schuh nicht zeigen &ndash; er muss zeigen, wohin man mit ihm geht.', en: 'No shoe in the picture. A running brand does not have to show the shoe &ndash; it has to show where the shoe takes you.' } },
+  { b: { de: 'Raster und Typografie bleiben, das Gel&auml;nde wechselt', en: 'Grid and typography stay, the terrain changes' },
+    s: { de: 'Jedes Motiv hat dieselbe Architektur: Karte oben, H&ouml;henprofil als Trennlinie, Headline unten. Erkennbar auch dann, wenn drei Plakate nebeneinander h&auml;ngen.', en: 'Every motif has the same architecture: map on top, elevation profile as the divider, headline below. Recognisable even when three posters hang side by side.' } },
+  { b: { de: 'Die Zahl ist der Beweis', en: 'The number is the proof' },
+    s: { de: 'Distanz, H&ouml;henmeter, Zeit &ndash; klein gesetzt, aber immer da. Sie machen aus einem sch&ouml;nen Bild eine nachvollziehbare Strecke.', en: 'Distance, elevation gain, time &ndash; set small, but always present. They turn a nice picture into a route you can actually run.' } }
+];
+
+/* ---------- Motive ---------- */
+var MOTIFS = [
+  {
+    id: 'furka', seed: 21, dark: false, relief: 1.0, peaks: [[0.30, 0.30, 0.9], [0.74, 0.52, 0.7]],
+    head: { de: 'Oben ist<br>Halbzeit.', en: 'The top is<br>half time.' },
+    place: { de: 'Furkapass, Uri', en: 'Furka Pass, Uri' },
+    stats: { de: '14.2 km &middot; 780 hm &middot; 1:41', en: '14.2 km &middot; 780 m gain &middot; 1:41' },
+    route: [[0.06, 0.88], [0.24, 0.70], [0.34, 0.46], [0.52, 0.38], [0.66, 0.22], [0.88, 0.16]]
+  },
+  {
+    id: 'uetli', seed: 7, dark: false, relief: 0.62, peaks: [[0.56, 0.34, 0.8]],
+    head: { de: '300 H&ouml;henmeter<br>vor dem Zmorge.', en: '300 metres of climb<br>before breakfast.' },
+    place: { de: 'Uetliberg, Z&uuml;rich', en: 'Uetliberg, Zurich' },
+    stats: { de: '8.4 km &middot; 320 hm &middot; 0:52', en: '8.4 km &middot; 320 m gain &middot; 0:52' },
+    route: [[0.10, 0.86], [0.26, 0.74], [0.40, 0.62], [0.52, 0.48], [0.62, 0.36], [0.80, 0.28]]
+  },
+  {
+    id: 'nacht', seed: 43, dark: true, relief: 0.30, step: 0.028, peaks: [],
+    head: { de: 'Flach ist auch<br>ein Gel&auml;nde.', en: 'Flat is a terrain<br>as well.' },
+    place: { de: 'Seeufer Z&uuml;rich, 21:40', en: 'Lakeside Zurich, 21:40' },
+    stats: { de: '10.0 km &middot; 40 hm &middot; 0:48', en: '10.0 km &middot; 40 m gain &middot; 0:48' },
+    route: [[0.08, 0.62], [0.28, 0.56], [0.46, 0.64], [0.64, 0.54], [0.80, 0.60], [0.94, 0.50]]
+  }
+];
+
+/* ---------- Gelaendemodell: Value Noise ---------- */
+function rnd(seed) {
+  var s = seed >>> 0;
+  return function () {
+    s ^= s << 13; s >>>= 0;
+    s ^= s >> 17;
+    s ^= s << 5; s >>>= 0;
+    return s / 4294967296;
+  };
+}
+function lattice(seed, n) {
+  var r = rnd(seed), g = [];
+  for (var y = 0; y <= n; y++) { var row = []; for (var x = 0; x <= n; x++) row.push(r()); g.push(row); }
+  return g;
+}
+function smooth(a, b, k) { var s = k * k * (3 - 2 * k); return a + (b - a) * s; }
+function sampleLattice(g, n, x, y) {
+  var fx = Math.min(0.9999, Math.max(0, x)) * n, fy = Math.min(0.9999, Math.max(0, y)) * n;
+  var ix = Math.floor(fx), iy = Math.floor(fy), tx = fx - ix, ty = fy - iy;
+  var a = smooth(g[iy][ix], g[iy][ix + 1], tx);
+  var b = smooth(g[iy + 1][ix], g[iy + 1][ix + 1], tx);
+  return smooth(a, b, ty);
+}
+function makeField(m) {
+  var octs = [
+    { g: lattice(m.seed, 3), n: 3, a: 1.0 },
+    { g: lattice(m.seed + 101, 6), n: 6, a: 0.5 },
+    { g: lattice(m.seed + 202, 12), n: 12, a: 0.24 },
+    { g: lattice(m.seed + 303, 24), n: 24, a: 0.11 }
+  ];
+  return function (x, y) {
+    var v = 0, sum = 0;
+    for (var i = 0; i < octs.length; i++) { v += sampleLattice(octs[i].g, octs[i].n, x, y) * octs[i].a; sum += octs[i].a; }
+    v = v / sum;
+    /* Gipfel als weiche Kuppeln addieren */
+    for (var p = 0; p < m.peaks.length; p++) {
+      var px = m.peaks[p][0], py = m.peaks[p][1], pa = m.peaks[p][2];
+      var d = Math.sqrt((x - px) * (x - px) + (y - py) * (y - py)) / 0.42;
+      if (d < 1) { var f = Math.cos(d * Math.PI / 2); v += pa * f * f; }
+    }
+    return v * m.relief;
+  };
+}
+
+/* ---------- Marching Squares ---------- */
+function contours(field, level, cols, rows) {
+  var vals = [], x, y;
+  for (y = 0; y <= rows; y++) {
+    var row = [];
+    for (x = 0; x <= cols; x++) row.push(field(x / cols, y / rows));
+    vals.push(row);
+  }
+  var segs = [];
+  function ip(x1, y1, v1, x2, y2, v2) {
+    var k = (level - v1) / (v2 - v1);
+    return [x1 + (x2 - x1) * k, y1 + (y2 - y1) * k];
+  }
+  for (y = 0; y < rows; y++) {
+    for (x = 0; x < cols; x++) {
+      var tl = vals[y][x], tr = vals[y][x + 1], br = vals[y + 1][x + 1], bl = vals[y + 1][x];
+      var idx = (tl > level ? 8 : 0) | (tr > level ? 4 : 0) | (br > level ? 2 : 0) | (bl > level ? 1 : 0);
+      if (idx === 0 || idx === 15) continue;
+      var T_ = ip(x, y, tl, x + 1, y, tr);
+      var R_ = ip(x + 1, y, tr, x + 1, y + 1, br);
+      var B_ = ip(x, y + 1, bl, x + 1, y + 1, br);
+      var L_ = ip(x, y, tl, x, y + 1, bl);
+      var pairs = {
+        1: [[L_, B_]], 2: [[B_, R_]], 3: [[L_, R_]], 4: [[T_, R_]],
+        5: [[L_, T_], [B_, R_]], 6: [[T_, B_]], 7: [[L_, T_]], 8: [[L_, T_]],
+        9: [[T_, B_]], 10: [[L_, B_], [T_, R_]], 11: [[T_, R_]], 12: [[L_, R_]],
+        13: [[B_, R_]], 14: [[L_, B_]]
+      }[idx];
+      for (var i = 0; i < pairs.length; i++) segs.push(pairs[i]);
+    }
+  }
+  /* Segmente zu Polylinien verketten */
+  var key = function (p) { return p[0].toFixed(3) + ',' + p[1].toFixed(3); };
+  var map = {};
+  segs.forEach(function (s, i) {
+    [key(s[0]), key(s[1])].forEach(function (k) { (map[k] = map[k] || []).push(i); });
+  });
+  var used = new Array(segs.length).fill(false), lines = [];
+  for (var i2 = 0; i2 < segs.length; i2++) {
+    if (used[i2]) continue;
+    used[i2] = true;
+    var line = [segs[i2][0], segs[i2][1]];
+    for (var dir = 0; dir < 2; dir++) {
+      var grow = true;
+      while (grow) {
+        grow = false;
+        var endp = dir === 0 ? line[line.length - 1] : line[0];
+        var cand = map[key(endp)] || [];
+        for (var c = 0; c < cand.length; c++) {
+          var j = cand[c];
+          if (used[j]) continue;
+          var s2 = segs[j];
+          var next = key(s2[0]) === key(endp) ? s2[1] : (key(s2[1]) === key(endp) ? s2[0] : null);
+          if (!next) continue;
+          used[j] = true;
+          if (dir === 0) line.push(next); else line.unshift(next);
+          grow = true;
+          break;
+        }
+      }
+    }
+    if (line.length > 2) lines.push(line);
+  }
+  return lines;
+}
+
+/* ---------- Route ---------- */
+function catmull(pts, closed) {
+  var d = 'M ' + pts[0][0].toFixed(2) + ' ' + pts[0][1].toFixed(2);
+  for (var i = 0; i < pts.length - 1; i++) {
+    var p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || pts[i + 1];
+    var c1x = p1[0] + (p2[0] - p0[0]) / 6, c1y = p1[1] + (p2[1] - p0[1]) / 6;
+    var c2x = p2[0] - (p3[0] - p1[0]) / 6, c2y = p2[1] - (p3[1] - p1[1]) / 6;
+    d += ' C ' + c1x.toFixed(2) + ' ' + c1y.toFixed(2) + ', ' + c2x.toFixed(2) + ' ' + c2y.toFixed(2) + ', ' + p2[0].toFixed(2) + ' ' + p2[1].toFixed(2);
+  }
+  return d;
+}
+
+/* ---------- Plakat zeichnen ---------- */
+function poster(m, W, H, opt) {
+  opt = opt || {};
+  var dark = m.dark;
+  var paper = dark ? '#101317' : '#f3f1ec';
+  var ink = dark ? '#f3f1ec' : '#14161a';
+  var soft = dark ? '#6f7a83' : '#8b8781';
+  var lineC = dark ? '#26303a' : '#cfcabf';
+  var lineB = dark ? '#33414e' : '#b3ac9e';
+  var acc = dark ? '#c6a47e' : '#957b5f';
+
+  var scale = W / 700;                      /* alles ist auf 700 Breite entworfen */
+  var pad = 46 * scale;
+  var mapH = H * (opt.mapRatio || 0.615);
+  var g = [];
+
+  g.push('<rect width="' + W + '" height="' + H + '" fill="' + paper + '"/>');
+
+  /* Karte */
+  var field = makeField(m);
+  var cols = 46, rows = Math.round(46 * (mapH / W));
+  var maxV = 0;
+  for (var sy = 0; sy <= 20; sy++) for (var sx = 0; sx <= 20; sx++) maxV = Math.max(maxV, field(sx / 20, sy / 20));
+  var step = m.step || 0.055, idx = 0;
+  g.push('<g clip-path="url(#clip' + m.id + (opt.tag || '') + ')">');
+  for (var lv = step; lv < maxV; lv += step) {
+    idx++;
+    var major = idx % 5 === 0;
+    var lines = contours(field, lv, cols, rows);
+    var dd = lines.map(function (ln) {
+      return 'M ' + ln.map(function (p) {
+        return (p[0] / cols * W).toFixed(1) + ' ' + (p[1] / rows * mapH).toFixed(1);
+      }).join(' L ');
+    }).join(' ');
+    if (dd) g.push('<path d="' + dd + '" fill="none" stroke="' + (major ? lineB : lineC) + '" stroke-width="' + ((major ? 1.5 : 0.9) * scale).toFixed(2) + '" stroke-linejoin="round"/>');
+  }
+
+  /* Route */
+  var rp = m.route.map(function (p) { return [p[0] * W, p[1] * mapH]; });
+  var rd = catmull(rp);
+  g.push('<path d="' + rd + '" fill="none" stroke="' + acc + '" stroke-width="' + (4.4 * scale).toFixed(2) + '" stroke-linecap="round" stroke-linejoin="round"/>');
+  g.push('<circle cx="' + rp[0][0].toFixed(1) + '" cy="' + rp[0][1].toFixed(1) + '" r="' + (7 * scale).toFixed(1) + '" fill="' + paper + '" stroke="' + acc + '" stroke-width="' + (3.4 * scale).toFixed(2) + '"/>');
+  var last = rp[rp.length - 1];
+  g.push('<circle cx="' + last[0].toFixed(1) + '" cy="' + last[1].toFixed(1) + '" r="' + (6 * scale).toFixed(1) + '" fill="' + acc + '"/>');
+  g.push('</g>');
+
+  /* Kopfzeile auf der Karte */
+  g.push('<text x="' + pad + '" y="' + (pad + 4 * scale) + '" font-family="Helvetica, Arial, sans-serif" font-size="' + (15 * scale).toFixed(1) + '" font-weight="700" letter-spacing="' + (4 * scale).toFixed(1) + '" fill="' + ink + '">H&#214;HENMETER</text>');
+  g.push('<text x="' + (W - pad) + '" y="' + (pad + 4 * scale) + '" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="' + (12 * scale).toFixed(1) + '" letter-spacing="' + (2.4 * scale).toFixed(1) + '" fill="' + soft + '">' + esc(plain(m.place[LANG])).toUpperCase() + '</text>');
+
+  /* Hoehenprofil als Trennlinie */
+  var profH = 54 * scale, profY = mapH + profH;
+  var steps = 150, prof = [];
+  for (var i = 0; i <= steps; i++) {
+    var k = i / steps, seg = k * (m.route.length - 1), si = Math.min(m.route.length - 2, Math.floor(seg)), st = seg - si;
+    var px = m.route[si][0] + (m.route[si + 1][0] - m.route[si][0]) * st;
+    var py = m.route[si][1] + (m.route[si + 1][1] - m.route[si][1]) * st;
+    prof.push(field(px, py));
+  }
+  var pmin = Math.min.apply(null, prof), pmax = Math.max.apply(null, prof), rng = Math.max(0.001, pmax - pmin);
+  var pd = 'M ' + pad + ' ' + profY;
+  prof.forEach(function (v, i) {
+    var x = pad + (W - 2 * pad) * (i / steps);
+    var y = profY - ((v - pmin) / rng) * (profH - 10 * scale) - 3 * scale;
+    pd += ' L ' + x.toFixed(1) + ' ' + y.toFixed(1);
+  });
+  pd += ' L ' + (W - pad) + ' ' + profY + ' Z';
+  g.push('<rect x="0" y="' + mapH + '" width="' + W + '" height="' + (H - mapH) + '" fill="' + paper + '"/>');
+  g.push('<path d="' + pd + '" fill="' + acc + '" fill-opacity="0.16" stroke="' + acc + '" stroke-width="' + (1.6 * scale).toFixed(2) + '" stroke-linejoin="round"/>');
+  g.push('<line x1="' + pad + '" y1="' + profY + '" x2="' + (W - pad) + '" y2="' + profY + '" stroke="' + ink + '" stroke-width="' + (1.4 * scale).toFixed(2) + '"/>');
+
+  /* Headline */
+  var hl = plain(m.head[LANG]).split('<br>');
+  var hSize = (opt.headSize || 58) * scale;
+  var hy = profY + hSize + 26 * scale;
+  hl.forEach(function (ln, i) {
+    g.push('<text x="' + pad + '" y="' + (hy + i * hSize * 1.02).toFixed(1) + '" font-family="Helvetica, Arial, sans-serif" font-size="' + hSize.toFixed(1) + '" font-weight="800" letter-spacing="' + (-1.6 * scale).toFixed(2) + '" fill="' + ink + '">' + esc(ln) + '</text>');
+  });
+
+  /* Fusszeile */
+  var fy = H - pad;
+  g.push('<line x1="' + pad + '" y1="' + (fy - 30 * scale) + '" x2="' + (W - pad) + '" y2="' + (fy - 30 * scale) + '" stroke="' + lineB + '" stroke-width="' + (0.9 * scale).toFixed(2) + '"/>');
+  g.push('<text x="' + pad + '" y="' + fy + '" font-family="Helvetica, Arial, sans-serif" font-size="' + (15 * scale).toFixed(1) + '" font-weight="700" letter-spacing="' + (1.4 * scale).toFixed(1) + '" fill="' + ink + '">' + esc(plain(m.stats[LANG])) + '</text>');
+  var wmW = 92 * scale, wmH = 26 * scale;
+  g.push('<rect x="' + (W - pad - wmW) + '" y="' + (fy - wmH + 4 * scale) + '" width="' + wmW + '" height="' + wmH + '" fill="none" stroke="' + soft + '" stroke-width="' + (1 * scale).toFixed(2) + '" stroke-dasharray="' + (3 * scale).toFixed(1) + ' ' + (3 * scale).toFixed(1) + '"/>');
+  g.push('<text x="' + (W - pad - wmW / 2) + '" y="' + (fy - wmH / 2 + 8 * scale) + '" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="' + (8.5 * scale).toFixed(1) + '" letter-spacing="' + (1.8 * scale).toFixed(1) + '" fill="' + soft + '">' + esc(plain(t('wordmark'))).toUpperCase() + '</text>');
+
+  var defs = '<defs><clipPath id="clip' + m.id + (opt.tag || '') + '"><rect x="0" y="0" width="' + W + '" height="' + mapH + '"/></clipPath></defs>';
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '">' + defs + g.join('') + '</svg>';
+}
+
+/* ---------- Aufbau ---------- */
+function renderBoards() {
+  $('boards').innerHTML = MOTIFS.map(function (m, i) {
+    return '<div class="board"><figure>' + poster(m, 700, 1000, { headSize: 58 }) + '</figure>' +
+      '<figcaption><span>0' + (i + 1) + ' &middot; ' + plain(m.place[LANG]) + '</span>' +
+      '<button onclick="dl(\'' + m.id + '\')">' + t('dl') + '</button></figcaption></div>';
+  }).join('');
+}
+function renderFormats() {
+  var m = MOTIFS[1];
+  $('formats').innerHTML =
+    '<div class="fmt f1">' + poster(m, 700, 1000, { headSize: 58, tag: 'a' }) + '<span>' + t('fmt1') + '</span></div>' +
+    '<div class="fmt f2">' + poster(m, 700, 700, { headSize: 46, mapRatio: 0.5, tag: 'b' }) + '<span>' + t('fmt2') + '</span></div>' +
+    '<div class="fmt f3">' + poster(m, 700, 1244, { headSize: 60, mapRatio: 0.66, tag: 'c' }) + '<span>' + t('fmt3') + '</span></div>';
+}
+function renderRules() {
+  $('rules').innerHTML = RULES.map(function (r) {
+    return '<div class="rule"><b>' + r.b[LANG] + '</b><span>' + r.s[LANG] + '</span></div>';
+  }).join('');
+}
+function renderStatic() {
+  document.querySelectorAll('[data-t]').forEach(function (el) {
+    var k = el.getAttribute('data-t');
+    if (T[LANG][k] !== undefined) el.innerHTML = T[LANG][k];
+  });
+  document.documentElement.lang = LANG;
+}
+function dl(id) {
+  var m = null;
+  MOTIFS.forEach(function (x) { if (x.id === id) m = x; });
+  if (!m) return;
+  var svg = poster(m, 700, 1000, { headSize: 58, tag: 'dl' });
+  var blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'hoehenmeter-' + m.id + '.svg';
+  document.body.appendChild(a); a.click();
+  setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+}
+function setLang(lang) {
+  LANG = lang;
+  $('btn-de').classList.toggle('on', lang === 'de');
+  $('btn-en').classList.toggle('on', lang === 'en');
+  renderAll();
+}
+function renderAll() { renderStatic(); renderBoards(); renderRules(); renderFormats(); }
+renderAll();
+</script>
+
+</body>
+</html>
