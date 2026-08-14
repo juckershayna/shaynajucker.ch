@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Volle Balken &middot; Sponsoring-Cockpit &middot; Arbeitsprobe</title>
+<link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<style>
+  :root {
+    --ink: #101416;
+    --ink-2: #384249;
+    --soft: #6b757c;
+    --line: #d7dde0;
+    --line-2: #eaeef0;
+    --paper: #f5f7f8;
+    --paper-2: #ffffff;
+    --accent: #0e7c8b;
+    --accent-dk: #0a5c67;
+    --tint: #e2f1f3;
+    --dark: #101416;
+    --ok: #3f7d5f;
+    --warn: #b0553d;
+    --mid: #b8862f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.68; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  .col { max-width: 780px; }
+
+  .sample-bar {
+    background: var(--accent); color: #fff; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; text-align: center; padding: 9px 16px; font-weight: 700;
+  }
+  .sample-bar a { color: #fff; text-decoration: underline; }
+
+  .cover { background: var(--dark); color: #f2f4f5; padding: 34px 0 54px; }
+  .cover-top { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 54px; }
+  .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #62c2ce; font-weight: 700; }
+  .lang-switch { display: flex; border: 1px solid #2f3639; }
+  .lang-switch button {
+    background: none; border: none; color: #8b9298; font: inherit; font-size: 11px;
+    font-weight: 700; letter-spacing: 2px; padding: 7px 14px; cursor: pointer;
+    transition: background 200ms, color 200ms;
+  }
+  .lang-switch button.on { background: var(--accent); color: #fff; }
+  .cover h1 { font-size: clamp(40px, 8vw, 92px); line-height: .96; font-weight: 800; letter-spacing: -.03em; text-transform: uppercase; margin-bottom: 18px; }
+  .cover .claim { font-size: clamp(19px, 2.4vw, 27px); line-height: 1.35; color: #d3d7d9; max-width: 720px; font-weight: 300; }
+  .cover .kind { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #8b9298; font-weight: 700; margin-bottom: 20px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #242a2d; border: 1px solid #242a2d; margin-top: 46px; }
+  @media (max-width: 860px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+  .facts div { background: var(--dark); padding: 14px 16px; }
+  .facts span { display: block; font-size: 9.5px; letter-spacing: 2.4px; text-transform: uppercase; color: #7f868c; font-weight: 700; margin-bottom: 4px; }
+  .facts b { font-size: 15px; font-weight: 600; color: #f2f4f5; line-height: 1.35; }
+
+  section.doc { padding: 60px 0; border-bottom: 1px solid var(--line); }
+  section.doc:last-of-type { border-bottom: none; }
+  .sec-head { display: flex; gap: 18px; align-items: baseline; margin-bottom: 26px; }
+  .sec-no { font-size: 12px; font-weight: 800; letter-spacing: 2px; color: var(--accent); padding-top: 6px; }
+  .sec-head h2 { font-size: clamp(24px, 3.4vw, 34px); line-height: 1.14; font-weight: 800; letter-spacing: -.02em; }
+  .sec-head p { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-top: 6px; }
+  .doc p { margin-bottom: 16px; }
+  .doc p:last-child { margin-bottom: 0; }
+  .lead { font-size: 18.5px; line-height: 1.6; }
+
+  .callout { background: var(--tint); border-left: 3px solid var(--accent); padding: 22px 26px; margin: 30px 0; }
+  .callout b { display: block; font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--accent-dk); margin-bottom: 8px; }
+  .callout p { font-size: 20px; line-height: 1.45; font-weight: 600; margin: 0; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; margin-top: 30px; }
+  @media (max-width: 820px) { .split { grid-template-columns: 1fr; gap: 24px; } }
+  .split h3 { font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 12px; }
+  ul.ticks { list-style: none; }
+  ul.ticks li { position: relative; padding-left: 22px; margin-bottom: 9px; font-size: 15px; line-height: 1.55; }
+  ul.ticks li:before { content: ''; position: absolute; left: 0; top: 9px; width: 9px; height: 2px; background: var(--accent); }
+  ul.ticks.no li:before { background: var(--soft); }
+
+  /* ---------- Cockpit ---------- */
+  .tool { background: var(--paper-2); border: 1px solid var(--line); margin-top: 30px; }
+  .tool-head { background: var(--dark); color: #f2f4f5; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .tool-head b { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
+  .tool-head span { font-size: 12px; color: #99a0a6; }
+  .tool-body { padding: 24px 22px; }
+
+  .ctrl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 34px; }
+  @media (max-width: 900px) { .ctrl-grid { grid-template-columns: 1fr; } }
+  .slider-row { margin-bottom: 4px; }
+  .slider-row label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 11.5px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 7px; }
+  .slider-row label b { color: var(--ink); letter-spacing: 0; text-transform: none; font-size: 15px; white-space: nowrap; }
+  input[type=range] { width: 100%; accent-color: var(--accent); }
+  .segs { display: flex; border: 1px solid var(--line); }
+  .segs button {
+    flex: 1; background: var(--paper-2); border: none; border-right: 1px solid var(--line); font: inherit;
+    font-size: 12.5px; font-weight: 700; letter-spacing: .5px; padding: 10px 6px; cursor: pointer;
+    color: var(--ink-2); transition: background 160ms, color 160ms;
+  }
+  .segs button:last-child { border-right: none; }
+  .segs button.on { background: var(--accent); color: #fff; }
+  .segs button small { display: block; font-weight: 400; font-size: 10.5px; opacity: .75; }
+  .seg-label { font-size: 11.5px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 7px; display: block; }
+
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 26px; }
+  @media (max-width: 900px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+  .kpis > div { background: var(--paper-2); padding: 15px 15px 13px; position: relative; }
+  .kpis span { display: block; font-size: 9.5px; letter-spacing: 2.2px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 5px; }
+  .kpis b { font-size: 25px; font-weight: 800; letter-spacing: -.02em; display: block; line-height: 1.15; }
+  .kpis em { font-style: normal; font-size: 11.5px; color: var(--soft); display: block; margin-top: 2px; }
+  .kpis .dot { position: absolute; top: 15px; right: 15px; width: 9px; height: 9px; border-radius: 50%; background: var(--soft); }
+  .dot.ok { background: var(--ok); } .dot.mid { background: var(--mid); } .dot.bad { background: var(--warn); }
+
+  .gauge { margin-top: 26px; }
+  .gauge h3, .barsplit h3 { font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 12px; }
+  .gtrack { position: relative; height: 30px; background: var(--line-2); border: 1px solid var(--line); }
+  .gtrack i { position: absolute; left: 0; top: 0; height: 100%; background: var(--accent); }
+  .gtrack u { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); text-decoration: none; }
+  .gtrack em { position: absolute; top: 6px; right: 10px; font-style: normal; font-size: 12px; font-weight: 700; color: var(--ink); }
+  .gscale { display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-top: 7px; }
+
+  .barsplit { margin-top: 26px; }
+  .bar { display: flex; height: 26px; border: 1px solid var(--line); overflow: hidden; }
+  .bar i { display: block; height: 100%; }
+  .bar-legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 18px; margin-top: 12px; }
+  @media (max-width: 700px) { .bar-legend { grid-template-columns: repeat(2, 1fr); } }
+  .bar-legend div { font-size: 12.5px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+  .bar-legend i { width: 11px; height: 11px; flex: none; display: block; }
+
+  .verdict { margin-top: 26px; border: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--paper); padding: 18px 22px; }
+  .verdict b { display: block; font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase; color: var(--accent-dk); margin-bottom: 7px; }
+  .verdict p { font-size: 15.5px; line-height: 1.6; margin: 0; }
+  .verdict.warn { border-left-color: var(--warn); } .verdict.warn b { color: var(--warn); }
+  .verdict.mid { border-left-color: var(--mid); } .verdict.mid b { color: #8a651f; }
+
+  .ab { margin-top: 26px; border-top: 1px solid var(--line); padding-top: 22px; }
+  .ab-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+  .btn {
+    background: var(--dark); color: #fff; border: none; font: inherit; font-size: 11.5px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; padding: 11px 18px; cursor: pointer; transition: background 200ms;
+  }
+  .btn:hover { background: var(--accent); }
+  .btn.ghost { background: none; color: var(--ink-2); border: 1px solid var(--line); }
+  .btn.ghost:hover { border-color: var(--accent); color: var(--accent); background: none; }
+  .ab-hint { font-size: 12.5px; color: var(--soft); }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 14px; }
+  th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; border-bottom: 2px solid var(--ink); padding: 0 10px 8px 0; }
+  td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--line-2); vertical-align: top; }
+  td.num, th.num { text-align: right; padding-right: 0; font-variant-numeric: tabular-nums; }
+  .tbl-wrap { overflow-x: auto; }
+  .up { color: var(--ok); font-weight: 700; } .down { color: var(--warn); font-weight: 700; }
+  .flat { color: var(--soft); }
+
+  .note { font-size: 13px; color: var(--soft); line-height: 1.6; margin-top: 16px; }
+
+  .colophon { background: var(--dark); color: #cdd2d4; padding: 54px 0 62px; }
+  .colophon h2 { color: #f2f4f5; font-size: 22px; font-weight: 800; margin-bottom: 18px; letter-spacing: -.01em; }
+  .colophon p { font-size: 14.5px; line-height: 1.7; margin-bottom: 14px; max-width: 780px; }
+  .colophon b { color: #f2f4f5; }
+  .backlink { display: inline-block; margin-top: 12px; color: #62c2ce; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; text-decoration: none; border-bottom: 1px solid #62c2ce; padding-bottom: 3px; }
+
+  @media print {
+    .sample-bar, .lang-switch, .segs, input[type=range], .ab-actions { display: none !important; }
+    body { background: #fff; font-size: 11pt; }
+    section.doc { padding: 18px 0; page-break-inside: avoid; }
+    .cover, .colophon { background: #fff; color: #000; }
+    .cover h1, .colophon h2, .facts b, .colophon b { color: #000; }
+    .facts, .facts div { background: #fff; border-color: #999; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Swisscom-Material</span>
+  &nbsp;&middot;&nbsp; <a href="swisscom.html" data-t="bar-back">zur&uuml;ck zur Bewerbung</a>
+</div>
+
+<!-- ================= Deckblatt ================= -->
+<header class="cover">
+  <div class="wrap">
+    <div class="cover-top">
+      <div class="eyebrow" data-t="eyebrow">Sponsoring-Aktivierung &amp; Wirkungscockpit</div>
+      <div class="lang-switch">
+        <button id="btn-de" class="on" onclick="setLang('de')">DE</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+    <div class="kind" data-t="kind">Arbeitsprobe f&uuml;r die Bewerbung als Marketing Brand &amp; Event Manager</div>
+    <h1 data-t="title">Volle Balken</h1>
+    <p class="claim" data-t="claim">Eine Sponsoring-Aktivierung, die genau das liefert, was an einem Grossanlass wirklich fehlt. Und ein Cockpit, das zeigt, ab wann mehr Budget nichts mehr bringt.</p>
+    <div class="facts">
+      <div><span data-t="f1-l">Format</span><b data-t="f1">Lade- &amp; Ruhepunkt am Anlass</b></div>
+      <div><span data-t="f2-l">Umfang</span><b data-t="f2">1 bis 12 Standorte pro Saison</b></div>
+      <div><span data-t="f3-l">Kern</span><b data-t="f3">Cockpit mit Szenarienvergleich</b></div>
+      <div><span data-t="f4-l">Steuergr&ouml;sse</span><b data-t="f4">Kosten pro Qualit&auml;tskontakt</b></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 01 -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">01</div>
+      <div><h2 data-t="s1-h">Ausgangslage</h2><p data-t="s1-sub">Was an einem Grossanlass wirklich fehlt</p></div>
+    </div>
+    <div class="col">
+      <p class="lead" data-t="s1-p1">An einem Anlass mit 30'000 Menschen fehlt niemandem ein Gewinnspiel. Es fehlt Akku, es fehlt Empfang, es fehlt ein Ort zum Sitzen, und es fehlt eine ehrliche Antwort auf die Frage &laquo;warum l&auml;dt das nicht?&raquo;. Das sind die drei Momente, in denen an einem solchen Tag geflucht wird.</p>
+      <p data-t="s1-p2">Genau diese drei Momente geh&ouml;ren einem Telekommunikationsunternehmen. Kein anderer Sponsor auf dem Gel&auml;nde kann sie glaubw&uuml;rdig besetzen &ndash; und keine Aktivierung ist so einfach zu beweisen: Entweder das Ger&auml;t l&auml;dt und das Netz tr&auml;gt, oder eben nicht.</p>
+      <div class="callout">
+        <b data-t="s1-insight-l">Insight</b>
+        <p data-t="s1-insight">Die st&auml;rkste Markenbotschaft an einem Grossanlass ist ein Handy, das am Abend noch funktioniert.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">02</div>
+      <div><h2 data-t="s2-h">Die Idee</h2><p data-t="s2-sub">Zwei Bausteine, einer davon unbequem</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s2-p1"><strong>Baustein eins &ndash; der Ladepunkt.</strong> Abschliessbare Ladef&auml;cher und ausleihbare Powerbanks, dazu Schatten, Sitzgelegenheiten und Trinkwasser. Kein Gegenzug, keine Datenerfassung, kein Abo-Gespr&auml;ch als Bedingung. Wer l&auml;dt, sitzt im Schnitt zwanzig Minuten &ndash; das ist die l&auml;ngste freiwillige Kontaktzeit, die man an einem Anlass bekommen kann.</p>
+      <p data-t="s2-p2"><strong>Baustein zwei &ndash; die Netztafel.</strong> Am Eingang der Fl&auml;che h&auml;ngt eine Tafel, auf der t&auml;glich die tats&auml;chlich gemessene Netzqualit&auml;t auf dem Gel&auml;nde steht. Auch wenn sie schlecht ist. Auch am Freitagabend um 21 Uhr, wenn alle gleichzeitig filmen. Dazu ein Satz, was dagegen unternommen wird.</p>
+      <p data-t="s2-p3">Der zweite Baustein ist der eigentliche Vorschlag. Er ist unbequem, weil er die Marke angreifbar macht. Und genau deshalb wirkt er: Eine Zahl, die auch schlecht sein darf, ist die einzige Art von Zahl, der geglaubt wird. Wer sie aush&auml;ngt, gewinnt mehr Vertrauen als mit jeder Kampagne, die dasselbe behauptet.</p>
+    </div>
+    <div class="split col">
+      <div>
+        <h3 data-t="s2-is">Was es ist</h3>
+        <ul class="ticks">
+          <li data-t="s2-is1">Ein Dienst, den man auch ohne Marke gebaut h&auml;tte, wenn man das Publikum ernst nimmt</li>
+          <li data-t="s2-is2">Zwanzig Minuten freiwillige Verweildauer statt drei Sekunden Blickkontakt</li>
+          <li data-t="s2-is3">Eine t&auml;glich aktualisierte Messung, die auch schlechte Werte zeigt</li>
+          <li data-t="s2-is4">Ein Format, das mit derselben Crew an einem Ski-Weltcup wie an einem Openair funktioniert</li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-t="s2-isnot">Was es ausdr&uuml;cklich nicht ist</h3>
+        <ul class="ticks no">
+          <li data-t="s2-no1">Kein Laden gegen E-Mail-Adresse &ndash; das macht aus einem Dienst eine Falle</li>
+          <li data-t="s2-no2">Kein Verkaufsgespr&auml;ch als Eintrittspreis</li>
+          <li data-t="s2-no3">Keine Tafel, die nur bei guten Werten h&auml;ngt</li>
+          <li data-t="s2-no4">Keine Fl&auml;che, die gr&ouml;sser ist als die Zahl der Ladepl&auml;tze dahinter</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Cockpit -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">03</div>
+      <div><h2 data-t="s3-h">Das Cockpit</h2><p data-t="s3-sub">Schieben, vergleichen, entscheiden</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s3-p1">Das Cockpit rechnet live. Es ist nicht dazu da, eine Aktivierung sch&ouml;nzurechnen, sondern um den Engpass sichtbar zu machen: An einem bestimmten Punkt bringt weder mehr Publikum noch mehr Budget zus&auml;tzliche Kontakte, weil die Ladepl&auml;tze voll sind. Diesen Punkt zu kennen, bevor die Offerte rausgeht, ist der ganze Zweck.</p>
+      <p data-t="s3-p2">Stell eine Variante ein, sichere sie als Szenario A, ver&auml;ndere etwas und vergleiche. Genau so sitze ich in Budgetgespr&auml;chen &ndash; nicht mit einer Meinung, sondern mit zwei Varianten und der Differenz dazwischen.</p>
+    </div>
+
+    <div class="tool">
+      <div class="tool-head">
+        <b data-t="tool-title">Wirkungscockpit Sponsoring</b>
+        <span data-t="tool-note">Alle Betr&auml;ge in CHF, Annahmen unter Ziffer 05</span>
+      </div>
+      <div class="tool-body">
+
+        <div class="ctrl-grid">
+          <div>
+            <div class="slider-row">
+              <label><span data-t="c-rights">Rechtebeitrag pro Saison</span><b id="v-rights">300'000</b></label>
+              <input type="range" id="rights" min="100000" max="1200000" step="25000" value="300000">
+            </div>
+            <div class="slider-row">
+              <label><span data-t="c-act">Aktivierungsbudget pro Saison</span><b id="v-act">300'000</b></label>
+              <input type="range" id="act" min="50000" max="1200000" step="10000" value="300000">
+            </div>
+            <div class="slider-row">
+              <label><span data-t="c-sites">Standorte pro Saison</span><b id="v-sites">6</b></label>
+              <input type="range" id="sites" min="1" max="12" step="1" value="6">
+            </div>
+            <div class="slider-row">
+              <label><span data-t="c-vis">Besuchende pro Standort</span><b id="v-vis">28'000</b></label>
+              <input type="range" id="vis" min="5000" max="120000" step="2500" value="28000">
+            </div>
+            <div class="slider-row">
+              <label><span data-t="c-days">Anlasstage pro Standort</span><b id="v-days">3</b></label>
+              <input type="range" id="days" min="1" max="5" step="1" value="3">
+            </div>
+          </div>
+
+          <div>
+            <span class="seg-label" data-t="c-size">Ausbaustufe der Fl&auml;che</span>
+            <div class="segs" id="segs"></div>
+            <div class="kpis" id="kpis" style="margin-top:22px;"></div>
+          </div>
+        </div>
+
+        <div class="gauge">
+          <h3 data-t="g-h">Auslastung der Ladepl&auml;tze</h3>
+          <div class="gtrack"><i id="g-fill"></i><u style="left:85%"></u><em id="g-val"></em></div>
+          <div class="gscale"><span>0%</span><span data-t="g-mark">Zielkorridor bis 85%</span><span>100%</span></div>
+        </div>
+
+        <div class="barsplit">
+          <h3 data-t="split-h">Verh&auml;ltnis Rechte zu Aktivierung</h3>
+          <div class="bar" id="bar"></div>
+          <div class="bar-legend" id="bar-legend"></div>
+        </div>
+
+        <div class="verdict" id="verdict"></div>
+
+        <div class="ab">
+          <div class="ab-actions">
+            <button class="btn" id="save-a" data-t="ab-save">Als Szenario A sichern</button>
+            <button class="btn ghost" id="clear-a" data-t="ab-clear">Vergleich l&ouml;schen</button>
+            <span class="ab-hint" id="ab-hint" data-t="ab-hint">Noch kein Szenario gesichert.</span>
+          </div>
+          <div class="tbl-wrap"><table id="compare"></table></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Faustregel -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">04</div>
+      <div><h2 data-t="s4-h">Die Faustregel</h2><p data-t="s4-sub">Warum das Verh&auml;ltnis wichtiger ist als die Summe</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s4-p1">Im Sponsoring gilt als Faustregel, dass auf jeden Franken Rechtebeitrag mindestens ein Franken Aktivierung geh&ouml;rt. Wer eine halbe Million f&uuml;r Rechte zahlt und f&uuml;nfzigtausend f&uuml;r die Umsetzung, hat kein Sponsoring gekauft, sondern ein Logo auf einer Fl&auml;che, an der niemand stehen bleibt.</p>
+      <p data-t="s4-p2">Die Faustregel ist grob, und sie ist trotzdem n&uuml;tzlich: Sie verschiebt die Diskussion von &laquo;wie viel kostet uns das?&raquo; zu &laquo;was machen wir daraus?&raquo;. In meiner Erfahrung ist die zweite Frage die, an der Anl&auml;sse entschieden werden &ndash; und die, die am seltensten gestellt wird.</p>
+      <p data-t="s4-p3">Deshalb steht sie im Cockpit als eigener Balken. Wenn das Verh&auml;ltnis kippt, sagt es das, bevor jemand anders es sagt.</p>
+    </div>
+  </section>
+
+  <!-- 05 Messung -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">05</div>
+      <div><h2 data-t="s5-h">Annahmen und Messung</h2><p data-t="s5-sub">Jede Zahl mit ihrem Messweg</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s5-p1">Ein Cockpit ohne offengelegte Annahmen ist eine Behauptung mit Diagramm. Hier stehen sie. Und daneben steht, wie ich die Zahl im Betrieb tats&auml;chlich erheben w&uuml;rde &ndash; denn eine Kennzahl, die man nur sch&auml;tzen kann, geh&ouml;rt nicht in eine Zielvereinbarung.</p>
+    </div>
+    <div class="tbl-wrap"><table id="assumptions"></table></div>
+    <div class="col">
+      <p class="note" data-t="s5-note">Ein Qualit&auml;tskontakt ist bei mir eine tats&auml;chliche Nutzung: geladen, ausgeliehen, gesessen, gesprochen. Ein Sichtkontakt ist jemand, der die Fl&auml;che gesehen hat. Beide Zahlen stehen im Bericht, aber nur die erste taugt als Ziel.</p>
+    </div>
+  </section>
+
+  <!-- 06 Grenzen -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">06</div>
+      <div><h2 data-t="s6-h">Was dieses Cockpit nicht kann</h2><p data-t="s6-sub">Die Grenzen, bevor sie jemand anders findet</p></div>
+    </div>
+    <div class="col">
+      <ul class="ticks no" style="margin-bottom:18px;">
+        <li data-t="s6-l1">Es rechnet <strong>Kontakte und Kosten</strong>, keine Markenwirkung. Ob jemand deswegen die Marke wechselt, misst nur eine Befragung vorher und nachher &ndash; die geh&ouml;rt ins Budget und steht dort auch drin.</li>
+        <li data-t="s6-l2">Die Nutzungsquote von f&uuml;nf Prozent ist mein Erfahrungswert von Publikumsanl&auml;ssen, nicht ein gemessener Wert dieser Branche. Beim ersten echten Einsatz wird sie ersetzt.</li>
+        <li data-t="s6-l3">Es kennt die tats&auml;chlichen Rechtepakete nicht. Was ein Sponsoringvertrag an Fl&auml;che, Exklusivit&auml;t und Auftritten enth&auml;lt, ver&auml;ndert die Rechnung mehr als jeder Schieberegler hier.</li>
+        <li data-t="s6-l4">Es unterstellt gleiches Wetter und gleiche Publikumsstruktur an allen Standorten. Beides stimmt nie.</li>
+      </ul>
+      <p data-t="s6-p1">Was es daf&uuml;r kann: den Engpass zeigen, bevor er Geld kostet. Und aus einer Budgetdiskussion einen Entscheid mit zwei sichtbaren Varianten machen.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= Kolophon ================= -->
+<footer class="colophon">
+  <div class="wrap">
+    <h2 data-t="col-h">Zur Arbeitsprobe</h2>
+    <p data-t="col-1"><b>Was daran fiktiv ist:</b> alles Konkrete. Die Aktivierung, die Betr&auml;ge, die Quoten und die Standorte gibt es nicht. Es ist kein offizielles Material von Swisscom, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen.</p>
+    <p data-t="col-2"><b>Was daran echt ist:</b> die Rechenlogik und die Haltung zur Messung. So kalkuliere ich Aktivierungen, so lege ich Zielwerte fest und so begr&uuml;nde ich, warum eine gr&ouml;ssere Fl&auml;che nicht automatisch mehr bringt.</p>
+    <p data-t="col-3">Konzept, Text, Gestaltung und Umsetzung: Shayna Jucker. Eine einzige HTML-Datei, keine externen Requests, keine Datenerfassung. Zweisprachig Deutsch und Englisch. Druckbar &uuml;ber die Druckfunktion des Browsers.</p>
+    <p><a class="backlink" href="swisscom.html" data-t="col-back">&larr; Zur&uuml;ck zur Bewerbung</a></p>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   VOLLE BALKEN - Sponsoring-Aktivierung & Wirkungscockpit
+   Arbeitsprobe Shayna Jucker
+   ========================================================= */
+
+var LANG = 'de';
+function $(id) { return document.getElementById(id); }
+function tr(k) { return T[LANG][k] !== undefined ? T[LANG][k] : k; }
+
+var T = {
+  de: {
+    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Swisscom-Material',
+    'bar-back': 'zur&uuml;ck zur Bewerbung',
+    'eyebrow': 'Sponsoring-Aktivierung &amp; Wirkungscockpit',
+    'kind': 'Arbeitsprobe f&uuml;r die Bewerbung als Marketing Brand &amp; Event Manager',
+    'title': 'Volle Balken',
+    'claim': 'Eine Sponsoring-Aktivierung, die genau das liefert, was an einem Grossanlass wirklich fehlt. Und ein Cockpit, das zeigt, ab wann mehr Budget nichts mehr bringt.',
+    'f1-l': 'Format', 'f1': 'Lade- &amp; Ruhepunkt am Anlass',
+    'f2-l': 'Umfang', 'f2': '1 bis 12 Standorte pro Saison',
+    'f3-l': 'Kern', 'f3': 'Cockpit mit Szenarienvergleich',
+    'f4-l': 'Steuergr&ouml;sse', 'f4': 'Kosten pro Qualit&auml;tskontakt',
+    's1-h': 'Ausgangslage', 's1-sub': 'Was an einem Grossanlass wirklich fehlt',
+    's1-p1': 'An einem Anlass mit 30\'000 Menschen fehlt niemandem ein Gewinnspiel. Es fehlt Akku, es fehlt Empfang, es fehlt ein Ort zum Sitzen, und es fehlt eine ehrliche Antwort auf die Frage &laquo;warum l&auml;dt das nicht?&raquo;. Das sind die drei Momente, in denen an einem solchen Tag geflucht wird.',
+    's1-p2': 'Genau diese drei Momente geh&ouml;ren einem Telekommunikationsunternehmen. Kein anderer Sponsor auf dem Gel&auml;nde kann sie glaubw&uuml;rdig besetzen &ndash; und keine Aktivierung ist so einfach zu beweisen: Entweder das Ger&auml;t l&auml;dt und das Netz tr&auml;gt, oder eben nicht.',
+    's1-insight-l': 'Insight',
+    's1-insight': 'Die st&auml;rkste Markenbotschaft an einem Grossanlass ist ein Handy, das am Abend noch funktioniert.',
+    's2-h': 'Die Idee', 's2-sub': 'Zwei Bausteine, einer davon unbequem',
+    's2-p1': '<strong>Baustein eins &ndash; der Ladepunkt.</strong> Abschliessbare Ladef&auml;cher und ausleihbare Powerbanks, dazu Schatten, Sitzgelegenheiten und Trinkwasser. Kein Gegenzug, keine Datenerfassung, kein Abo-Gespr&auml;ch als Bedingung. Wer l&auml;dt, sitzt im Schnitt zwanzig Minuten &ndash; das ist die l&auml;ngste freiwillige Kontaktzeit, die man an einem Anlass bekommen kann.',
+    's2-p2': '<strong>Baustein zwei &ndash; die Netztafel.</strong> Am Eingang der Fl&auml;che h&auml;ngt eine Tafel, auf der t&auml;glich die tats&auml;chlich gemessene Netzqualit&auml;t auf dem Gel&auml;nde steht. Auch wenn sie schlecht ist. Auch am Freitagabend um 21 Uhr, wenn alle gleichzeitig filmen. Dazu ein Satz, was dagegen unternommen wird.',
+    's2-p3': 'Der zweite Baustein ist der eigentliche Vorschlag. Er ist unbequem, weil er die Marke angreifbar macht. Und genau deshalb wirkt er: Eine Zahl, die auch schlecht sein darf, ist die einzige Art von Zahl, der geglaubt wird. Wer sie aush&auml;ngt, gewinnt mehr Vertrauen als mit jeder Kampagne, die dasselbe behauptet.',
+    's2-is': 'Was es ist',
+    's2-is1': 'Ein Dienst, den man auch ohne Marke gebaut h&auml;tte, wenn man das Publikum ernst nimmt',
+    's2-is2': 'Zwanzig Minuten freiwillige Verweildauer statt drei Sekunden Blickkontakt',
+    's2-is3': 'Eine t&auml;glich aktualisierte Messung, die auch schlechte Werte zeigt',
+    's2-is4': 'Ein Format, das mit derselben Crew an einem Ski-Weltcup wie an einem Openair funktioniert',
+    's2-isnot': 'Was es ausdr&uuml;cklich nicht ist',
+    's2-no1': 'Kein Laden gegen E-Mail-Adresse &ndash; das macht aus einem Dienst eine Falle',
+    's2-no2': 'Kein Verkaufsgespr&auml;ch als Eintrittspreis',
+    's2-no3': 'Keine Tafel, die nur bei guten Werten h&auml;ngt',
+    's2-no4': 'Keine Fl&auml;che, die gr&ouml;sser ist als die Zahl der Ladepl&auml;tze dahinter',
+    's3-h': 'Das Cockpit', 's3-sub': 'Schieben, vergleichen, entscheiden',
+    's3-p1': 'Das Cockpit rechnet live. Es ist nicht dazu da, eine Aktivierung sch&ouml;nzurechnen, sondern um den Engpass sichtbar zu machen: An einem bestimmten Punkt bringt weder mehr Publikum noch mehr Budget zus&auml;tzliche Kontakte, weil die Ladepl&auml;tze voll sind. Diesen Punkt zu kennen, bevor die Offerte rausgeht, ist der ganze Zweck.',
+    's3-p2': 'Stell eine Variante ein, sichere sie als Szenario A, ver&auml;ndere etwas und vergleiche. Genau so sitze ich in Budgetgespr&auml;chen &ndash; nicht mit einer Meinung, sondern mit zwei Varianten und der Differenz dazwischen.',
+    'tool-title': 'Wirkungscockpit Sponsoring',
+    'tool-note': 'Alle Betr&auml;ge in CHF, Annahmen unter Ziffer 05',
+    'c-rights': 'Rechtebeitrag pro Saison', 'c-act': 'Aktivierungsbudget pro Saison',
+    'c-sites': 'Standorte pro Saison', 'c-vis': 'Besuchende pro Standort', 'c-days': 'Anlasstage pro Standort',
+    'c-size': 'Ausbaustufe der Fl&auml;che',
+    'g-h': 'Auslastung der Ladepl&auml;tze', 'g-mark': 'Zielkorridor bis 85%',
+    'split-h': 'Verh&auml;ltnis Rechte zu Aktivierung',
+    'ab-save': 'Als Szenario A sichern', 'ab-clear': 'Vergleich l&ouml;schen',
+    'ab-hint': 'Noch kein Szenario gesichert.',
+    'ab-hint2': 'Szenario A ist gesichert. Ver&auml;ndere die Regler &ndash; die Differenz erscheint in der Tabelle.',
+    's4-h': 'Die Faustregel', 's4-sub': 'Warum das Verh&auml;ltnis wichtiger ist als die Summe',
+    's4-p1': 'Im Sponsoring gilt als Faustregel, dass auf jeden Franken Rechtebeitrag mindestens ein Franken Aktivierung geh&ouml;rt. Wer eine halbe Million f&uuml;r Rechte zahlt und f&uuml;nfzigtausend f&uuml;r die Umsetzung, hat kein Sponsoring gekauft, sondern ein Logo auf einer Fl&auml;che, an der niemand stehen bleibt.',
+    's4-p2': 'Die Faustregel ist grob, und sie ist trotzdem n&uuml;tzlich: Sie verschiebt die Diskussion von &laquo;wie viel kostet uns das?&raquo; zu &laquo;was machen wir daraus?&raquo;. In meiner Erfahrung ist die zweite Frage die, an der Anl&auml;sse entschieden werden &ndash; und die, die am seltensten gestellt wird.',
+    's4-p3': 'Deshalb steht sie im Cockpit als eigener Balken. Wenn das Verh&auml;ltnis kippt, sagt es das, bevor jemand anders es sagt.',
+    's5-h': 'Annahmen und Messung', 's5-sub': 'Jede Zahl mit ihrem Messweg',
+    's5-p1': 'Ein Cockpit ohne offengelegte Annahmen ist eine Behauptung mit Diagramm. Hier stehen sie. Und daneben steht, wie ich die Zahl im Betrieb tats&auml;chlich erheben w&uuml;rde &ndash; denn eine Kennzahl, die man nur sch&auml;tzen kann, geh&ouml;rt nicht in eine Zielvereinbarung.',
+    's5-note': 'Ein Qualit&auml;tskontakt ist bei mir eine tats&auml;chliche Nutzung: geladen, ausgeliehen, gesessen, gesprochen. Ein Sichtkontakt ist jemand, der die Fl&auml;che gesehen hat. Beide Zahlen stehen im Bericht, aber nur die erste taugt als Ziel.',
+    's6-h': 'Was dieses Cockpit nicht kann', 's6-sub': 'Die Grenzen, bevor sie jemand anders findet',
+    's6-l1': 'Es rechnet <strong>Kontakte und Kosten</strong>, keine Markenwirkung. Ob jemand deswegen die Marke wechselt, misst nur eine Befragung vorher und nachher &ndash; die geh&ouml;rt ins Budget und steht dort auch drin.',
+    's6-l2': 'Die Nutzungsquote von f&uuml;nf Prozent ist mein Erfahrungswert von Publikumsanl&auml;ssen, nicht ein gemessener Wert dieser Branche. Beim ersten echten Einsatz wird sie ersetzt.',
+    's6-l3': 'Es kennt die tats&auml;chlichen Rechtepakete nicht. Was ein Sponsoringvertrag an Fl&auml;che, Exklusivit&auml;t und Auftritten enth&auml;lt, ver&auml;ndert die Rechnung mehr als jeder Schieberegler hier.',
+    's6-l4': 'Es unterstellt gleiches Wetter und gleiche Publikumsstruktur an allen Standorten. Beides stimmt nie.',
+    's6-p1': 'Was es daf&uuml;r kann: den Engpass zeigen, bevor er Geld kostet. Und aus einer Budgetdiskussion einen Entscheid mit zwei sichtbaren Varianten machen.',
+    'col-h': 'Zur Arbeitsprobe',
+    'col-1': '<b>Was daran fiktiv ist:</b> alles Konkrete. Die Aktivierung, die Betr&auml;ge, die Quoten und die Standorte gibt es nicht. Es ist kein offizielles Material von Swisscom, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen.',
+    'col-2': '<b>Was daran echt ist:</b> die Rechenlogik und die Haltung zur Messung. So kalkuliere ich Aktivierungen, so lege ich Zielwerte fest und so begr&uuml;nde ich, warum eine gr&ouml;ssere Fl&auml;che nicht automatisch mehr bringt.',
+    'col-3': 'Konzept, Text, Gestaltung und Umsetzung: Shayna Jucker. Eine einzige HTML-Datei, keine externen Requests, keine Datenerfassung. Zweisprachig Deutsch und Englisch. Druckbar &uuml;ber die Druckfunktion des Browsers.',
+    'col-back': '&larr; Zur&uuml;ck zur Bewerbung',
+    /* Cockpit */
+    'seg-s': 'Stufe S', 'seg-s-sub': '60 Pl&auml;tze &middot; 3 Crew',
+    'seg-m': 'Stufe M', 'seg-m-sub': '140 Pl&auml;tze &middot; 5 Crew',
+    'seg-l': 'Stufe L', 'seg-l-sub': '240 Pl&auml;tze &middot; 8 Crew',
+    'k-total': 'Gesamtaufwand', 'k-total-e': 'Rechte plus Aktivierung',
+    'k-qc': 'Qualit&auml;tskontakte', 'k-qc-e': 'tats&auml;chliche Nutzungen',
+    'k-cpq': 'CHF pro Qualit&auml;tskontakt', 'k-cpq-e': 'Zielkorridor 35 bis 80',
+    'k-cps': 'CHF pro Sichtkontakt', 'k-cps-e': 'zum Vergleich, nicht als Ziel',
+    'leg-rights': 'Rechtebeitrag', 'leg-act': 'Aktivierung',
+    'v-cap-l': 'Engpass Kapazit&auml;t',
+    'v-cap': 'Die Ladepl&auml;tze sind zu {u}% belegt. Ab hier bringt weder mehr Publikum noch mehr Reichweite zus&auml;tzliche Kontakte &ndash; die Leute stehen an und gehen weiter. Bevor ich einen weiteren Standort dazunehme, w&uuml;rde ich die Ausbaustufe erh&ouml;hen: Dieselbe Crew betreut mehr Pl&auml;tze, und die Kosten pro Kontakt sinken.',
+    'v-idle-l': 'Fl&auml;che zu gross',
+    'v-idle': 'Die Ladepl&auml;tze sind nur zu {u}% belegt. Die Fl&auml;che ist f&uuml;r dieses Publikum &uuml;berbaut &ndash; das kostet Miete, Crew und Aufbau, ohne einen einzigen zus&auml;tzlichen Kontakt zu bringen. Eine Stufe kleiner bauen und das Geld in einen weiteren Standort stecken.',
+    'v-ratio-l': 'Verh&auml;ltnis kippt',
+    'v-ratio': 'Auf einen Franken Rechte kommen nur {r} Rappen Aktivierung. Damit ist der teuerste Teil des Sponsorings gekauft und der wirksamste nicht bezahlt. Ich w&uuml;rde in dieser Lage eher &uuml;ber ein kleineres Rechtepaket verhandeln als &uuml;ber eine kleinere Fl&auml;che.',
+    'v-ok-l': 'Ausgewogen',
+    'v-ok': 'Auslastung {u}%, Verh&auml;ltnis 1 zu {r2}, Kosten pro Qualit&auml;tskontakt CHF {c}. Das ist die Konstellation, mit der ich in ein Budgetgespr&auml;ch gehen w&uuml;rde. Der n&auml;chste sinnvolle Schritt ist nicht mehr Geld, sondern ein Standort mehr bei gleicher Ausbaustufe.',
+    'th-pos': 'Position', 'th-basis': 'Annahme', 'th-how': 'Wie ich das messe',
+    'th-metric': 'Kennzahl', 'th-a': 'Szenario A', 'th-b': 'Aktuell', 'th-d': 'Differenz',
+    'cmp-total': 'Gesamtaufwand', 'cmp-qc': 'Qualit&auml;tskontakte', 'cmp-cpq': 'CHF pro Qualit&auml;tskontakt',
+    'cmp-util': 'Auslastung', 'cmp-sites': 'Standorte', 'cmp-talks': 'Beratungsgespr&auml;che',
+    'a-use': 'Nutzungsquote', 'a-use-b': '5% der Besuchenden wollen laden oder sitzen',
+    'a-use-h': 'Z&auml;hlung der Ausleihen und Belegungen pro Stunde, von Hand auf dem Ablaufblatt',
+    'a-turn': 'Umschlag pro Platz', 'a-turn-b': '4 Nutzungen pro Ladeplatz und Tag, 20 Minuten pro Nutzung',
+    'a-turn-h': 'Belegungsprotokoll der Ladef&auml;cher, stichprobenweise verifiziert',
+    'a-vis': 'Sichtkontakte', 'a-vis-b': '38% der Besuchenden passieren die Fl&auml;che mindestens einmal',
+    'a-vis-h': 'Z&auml;hlung am Durchgang w&auml;hrend zwei Stunden, hochgerechnet auf den Tag',
+    'a-talk': 'Beratungsgespr&auml;che', 'a-talk-b': '11% der Nutzungen f&uuml;hren zu einem echten Gespr&auml;ch',
+    'a-talk-h': 'Strichliste der Crew, ein Strich pro Gespr&auml;ch &uuml;ber zwei Minuten',
+    'a-crew': 'Crew', 'a-crew-b': 'CHF 520 pro Person und Tag, plus ein Aufbautag',
+    'a-crew-h': 'Einsatzplan gegen Stundenrapport',
+    'a-fix': 'Fl&auml;che pro Standort', 'a-fix-b': 'Stufenabh&auml;ngige Pauschale f&uuml;r Aufbau, Technik und Strom',
+    'a-fix-h': 'Lieferantenrechnungen, Nachkalkulation nach jedem Standort',
+    'a-lift': 'Markenwirkung', 'a-lift-b': 'Nicht im Cockpit enthalten &ndash; separat budgetiert',
+    'a-lift-h': 'Kurzbefragung vor Ort, 150 Antworten pro Standort, Vergleich mit Kontrollgruppe'
+  },
+  en: {
+    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official Swisscom material',
+    'bar-back': 'back to the application',
+    'eyebrow': 'Sponsorship activation &amp; impact cockpit',
+    'kind': 'Work sample for the application as Marketing Brand &amp; Event Manager',
+    'title': 'Full Bars',
+    'claim': 'A sponsorship activation that delivers exactly what is actually missing at a major event. Plus a cockpit that shows the point where more budget stops buying anything.',
+    'f1-l': 'Format', 'f1': 'Charging &amp; rest point on site',
+    'f2-l': 'Scope', 'f2': '1 to 12 sites per season',
+    'f3-l': 'Core', 'f3': 'Cockpit with scenario comparison',
+    'f4-l': 'Steering metric', 'f4': 'Cost per quality contact',
+    's1-h': 'Starting point', 's1-sub': 'What is actually missing at a major event',
+    's1-p1': 'At an event with 30,000 people nobody is missing a prize draw. What is missing is battery, reception, somewhere to sit, and an honest answer to &ldquo;why is this not loading?&rdquo;. Those are the three moments people swear at on a day like that.',
+    's1-p2': 'Those three moments belong to a telecoms company. No other sponsor on site can credibly occupy them &ndash; and no activation is easier to prove: either the device charges and the network holds, or it does not.',
+    's1-insight-l': 'Insight',
+    's1-insight': 'The strongest brand message at a major event is a phone that still works in the evening.',
+    's2-h': 'The idea', 's2-sub': 'Two building blocks, one of them uncomfortable',
+    's2-p1': '<strong>Block one &ndash; the charging point.</strong> Lockable charging compartments and power banks to borrow, plus shade, seating and drinking water. No trade-off, no data collection, no sales conversation as a condition. People who charge sit for twenty minutes on average &ndash; the longest voluntary contact time you can get at an event.',
+    's2-p2': '<strong>Block two &ndash; the network board.</strong> At the entrance to the area hangs a board showing the actually measured network quality on the site, updated daily. Even when it is bad. Even at 21:00 on Friday when everyone is filming at once. Together with one sentence on what is being done about it.',
+    's2-p3': 'The second block is the actual proposal. It is uncomfortable because it makes the brand attackable. And that is exactly why it works: a number that is allowed to be bad is the only kind of number people believe. Publishing it earns more trust than any campaign claiming the same thing.',
+    's2-is': 'What it is',
+    's2-is1': 'A service you would have built even without a brand on it, if you take the audience seriously',
+    's2-is2': 'Twenty minutes of voluntary dwell time instead of three seconds of eye contact',
+    's2-is3': 'A daily measurement that also shows the bad values',
+    's2-is4': 'A format that works with the same crew at a ski world cup and at an open air',
+    's2-isnot': 'What it explicitly is not',
+    's2-no1': 'Not charging in exchange for an email address &ndash; that turns a service into a trap',
+    's2-no2': 'Not a sales conversation as the price of entry',
+    's2-no3': 'Not a board that only hangs there on good days',
+    's2-no4': 'Not an area larger than the number of charging points behind it',
+    's3-h': 'The cockpit', 's3-sub': 'Slide, compare, decide',
+    's3-p1': 'The cockpit calculates live. It does not exist to make an activation look good but to make the bottleneck visible: at a certain point neither more audience nor more budget produces additional contacts, because the charging points are full. Knowing that point before the quote goes out is the whole purpose.',
+    's3-p2': 'Set up a variant, save it as scenario A, change something and compare. That is exactly how I sit in budget meetings &ndash; not with an opinion, but with two variants and the difference between them.',
+    'tool-title': 'Sponsorship impact cockpit',
+    'tool-note': 'All amounts in CHF, assumptions under section 05',
+    'c-rights': 'Rights fee per season', 'c-act': 'Activation budget per season',
+    'c-sites': 'Sites per season', 'c-vis': 'Visitors per site', 'c-days': 'Event days per site',
+    'c-size': 'Build level of the area',
+    'g-h': 'Utilisation of charging points', 'g-mark': 'target corridor up to 85%',
+    'split-h': 'Ratio of rights to activation',
+    'ab-save': 'Save as scenario A', 'ab-clear': 'Clear comparison',
+    'ab-hint': 'No scenario saved yet.',
+    'ab-hint2': 'Scenario A is saved. Move the sliders &ndash; the difference appears in the table.',
+    's4-h': 'The rule of thumb', 's4-sub': 'Why the ratio matters more than the sum',
+    's4-p1': 'In sponsorship the rule of thumb is that every franc of rights fee deserves at least one franc of activation. Pay half a million for rights and fifty thousand for delivery and you have not bought a sponsorship but a logo on a surface nobody stops at.',
+    's4-p2': 'The rule is crude and still useful: it shifts the discussion from &ldquo;how much does this cost us?&rdquo; to &ldquo;what do we make of it?&rdquo;. In my experience the second question is the one events are decided on &ndash; and the one asked least often.',
+    's4-p3': 'That is why it has its own bar in the cockpit. When the ratio tips, it says so before somebody else does.',
+    's5-h': 'Assumptions and measurement', 's5-sub': 'Every number with its measurement path',
+    's5-p1': 'A cockpit without disclosed assumptions is a claim with a chart. Here they are. And next to them is how I would actually collect the number in operation &ndash; because a metric you can only estimate does not belong in a target agreement.',
+    's5-note': 'A quality contact for me is actual usage: charged, borrowed, sat, talked. A visual contact is someone who saw the area. Both numbers go into the report, but only the first works as a target.',
+    's6-h': 'What this cockpit cannot do', 's6-sub': 'The limits, before someone else finds them',
+    's6-l1': 'It calculates <strong>contacts and costs</strong>, not brand impact. Whether someone switches brands because of it is only measured by a survey before and after &ndash; which belongs in the budget and is in there.',
+    's6-l2': 'The five per cent usage rate is my experience value from public events, not a measured value from this industry. It gets replaced after the first real deployment.',
+    's6-l3': 'It does not know the actual rights packages. What a sponsorship contract contains in surface, exclusivity and appearances changes the calculation more than any slider here.',
+    's6-l4': 'It assumes identical weather and audience structure at every site. Neither is ever true.',
+    's6-p1': 'What it can do: show the bottleneck before it costs money. And turn a budget discussion into a decision with two visible variants.',
+    'col-h': 'About this work sample',
+    'col-1': '<b>What is fictional:</b> everything concrete. The activation, the amounts, the rates and the sites do not exist. This is not official Swisscom material, not an agreed collaboration and is based on no internal information whatsoever.',
+    'col-2': '<b>What is real:</b> the calculation logic and the attitude to measurement. This is how I cost activations, how I set targets and how I argue why a bigger surface does not automatically deliver more.',
+    'col-3': 'Concept, copy, design and build: Shayna Jucker. A single HTML file, no external requests, no data collection. Bilingual German and English. Printable via the browser print function.',
+    'col-back': '&larr; Back to the application',
+    'seg-s': 'Level S', 'seg-s-sub': '60 points &middot; 3 crew',
+    'seg-m': 'Level M', 'seg-m-sub': '140 points &middot; 5 crew',
+    'seg-l': 'Level L', 'seg-l-sub': '240 points &middot; 8 crew',
+    'k-total': 'Total spend', 'k-total-e': 'rights plus activation',
+    'k-qc': 'Quality contacts', 'k-qc-e': 'actual usages',
+    'k-cpq': 'CHF per quality contact', 'k-cpq-e': 'target corridor 35 to 80',
+    'k-cps': 'CHF per visual contact', 'k-cps-e': 'for comparison, not as a target',
+    'leg-rights': 'Rights fee', 'leg-act': 'Activation',
+    'v-cap-l': 'Capacity bottleneck',
+    'v-cap': 'The charging points are {u}% occupied. Beyond this neither more audience nor more reach produces additional contacts &ndash; people queue and walk on. Before adding another site I would raise the build level: the same crew serves more points, and cost per contact goes down.',
+    'v-idle-l': 'Area too large',
+    'v-idle': 'The charging points are only {u}% occupied. The area is overbuilt for this audience &ndash; that costs rent, crew and build-up without producing a single additional contact. Build one level smaller and put the money into another site.',
+    'v-ratio-l': 'Ratio is tipping',
+    'v-ratio': 'Every franc of rights is matched by only {r} centimes of activation. That means the most expensive part of the sponsorship has been bought and the most effective part has not been paid for. In this situation I would rather negotiate a smaller rights package than a smaller area.',
+    'v-ok-l': 'Balanced',
+    'v-ok': 'Utilisation {u}%, ratio 1 to {r2}, cost per quality contact CHF {c}. That is the constellation I would take into a budget meeting. The next sensible step is not more money but one more site at the same build level.',
+    'th-pos': 'Position', 'th-basis': 'Assumption', 'th-how': 'How I measure it',
+    'th-metric': 'Metric', 'th-a': 'Scenario A', 'th-b': 'Current', 'th-d': 'Difference',
+    'cmp-total': 'Total spend', 'cmp-qc': 'Quality contacts', 'cmp-cpq': 'CHF per quality contact',
+    'cmp-util': 'Utilisation', 'cmp-sites': 'Sites', 'cmp-talks': 'Advisory conversations',
+    'a-use': 'Usage rate', 'a-use-b': '5% of visitors want to charge or sit down',
+    'a-use-h': 'Hourly count of loans and occupancy, by hand on the run sheet',
+    'a-turn': 'Turnover per point', 'a-turn-b': '4 usages per charging point and day, 20 minutes each',
+    'a-turn-h': 'Occupancy log of the lockers, verified by sampling',
+    'a-vis': 'Visual contacts', 'a-vis-b': '38% of visitors pass the area at least once',
+    'a-vis-h': 'Count at the passage over two hours, extrapolated to the day',
+    'a-talk': 'Advisory conversations', 'a-talk-b': '11% of usages lead to a real conversation',
+    'a-talk-h': 'Tally by the crew, one mark per conversation over two minutes',
+    'a-crew': 'Crew', 'a-crew-b': 'CHF 520 per person and day, plus one build-up day',
+    'a-crew-h': 'Deployment plan against timesheets',
+    'a-fix': 'Area per site', 'a-fix-b': 'Level-dependent flat rate for build-up, technology and power',
+    'a-fix-h': 'Supplier invoices, post-calculation after every site',
+    'a-lift': 'Brand impact', 'a-lift-b': 'Not included in the cockpit &ndash; budgeted separately',
+    'a-lift-h': 'Short survey on site, 150 responses per site, compared against a control group'
+  }
+};
+
+/* ---------- Modell ---------- */
+var LEVELS = {
+  S: { key: 'S', slots: 60,  crew: 3, fix: 26000, lbl: 'seg-s', sub: 'seg-s-sub' },
+  M: { key: 'M', slots: 140, crew: 5, fix: 48000, lbl: 'seg-m', sub: 'seg-m-sub' },
+  L: { key: 'L', slots: 240, crew: 8, fix: 79000, lbl: 'seg-l', sub: 'seg-l-sub' }
+};
+var A = {
+  useRate: 0.05,     /* Anteil der Besuchenden mit Nutzungsabsicht */
+  turnover: 4,       /* Nutzungen pro Ladeplatz und Tag */
+  visShare: 0.38,    /* Anteil Sichtkontakte */
+  talkRate: 0.11,    /* Anteil Nutzungen mit Beratungsgespr&auml;ch */
+  crewDay: 520
+};
+var state = { rights: 300000, act: 300000, sites: 6, vis: 28000, days: 3, lvl: 'M' };
+var snapA = null;
+
+function chf(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '’'); }
+function dec(n, d) { return n.toFixed(d === undefined ? 1 : d); }
+
+function compute(s) {
+  var lv = LEVELS[s.lvl];
+  var demand    = s.vis * A.useRate;                       /* Nutzungswillige pro Standort */
+  var capacity  = lv.slots * A.turnover * s.days;          /* Kapazit&auml;t pro Standort */
+  var uses      = Math.min(demand, capacity);
+  var util      = capacity ? demand / capacity : 0;
+  var qc        = uses * s.sites;
+  var visual    = s.vis * A.visShare * s.sites;
+  var talks     = uses * A.talkRate * s.sites;
+  var crewCost  = lv.crew * (s.days + 1) * A.crewDay * s.sites;
+  var siteCost  = lv.fix * s.sites;
+  var actUsed   = crewCost + siteCost;
+  var total     = s.rights + s.act;
+  return {
+    lv: lv, demand: demand, capacity: capacity, uses: uses, util: util,
+    qc: qc, visual: visual, talks: talks, actUsed: actUsed, total: total,
+    cpq: qc ? total / qc : 0, cps: visual ? total / visual : 0,
+    ratio: s.rights ? s.act / s.rights : 0
+  };
+}
+
+/* ---------- Rendering ---------- */
+function renderSegs() {
+  var h = '';
+  ['S', 'M', 'L'].forEach(function (k) {
+    var lv = LEVELS[k];
+    h += '<button data-lvl="' + k + '"' + (state.lvl === k ? ' class="on"' : '') + '>' +
+         tr(lv.lbl) + '<small>' + tr(lv.sub) + '</small></button>';
+  });
+  $('segs').innerHTML = h;
+  Array.prototype.forEach.call($('segs').querySelectorAll('button'), function (b) {
+    b.addEventListener('click', function () { state.lvl = b.getAttribute('data-lvl'); renderSegs(); renderAll(); });
+  });
+}
+
+function dotClass(v, good, mid) {
+  if (v <= good) return 'ok';
+  if (v <= mid) return 'mid';
+  return 'bad';
+}
+
+function renderKpis(r) {
+  $('kpis').innerHTML =
+    '<div><span>' + tr('k-total') + '</span><b>' + chf(r.total) + '</b><em>' + tr('k-total-e') + '</em></div>' +
+    '<div><span>' + tr('k-qc') + '</span><b>' + chf(r.qc) + '</b><em>' + tr('k-qc-e') + '</em></div>' +
+    '<div><span class="dot ' + dotClass(r.cpq, 80, 140) + '"></span><span>' + tr('k-cpq') + '</span><b>' +
+      dec(r.cpq) + '</b><em>' + tr('k-cpq-e') + '</em></div>' +
+    '<div><span>' + tr('k-cps') + '</span><b>' + dec(r.cps, 2) + '</b><em>' + tr('k-cps-e') + '</em></div>';
+}
+
+function renderGauge(r) {
+  var pct = Math.min(r.util * 100, 100);
+  $('g-fill').style.width = pct + '%';
+  $('g-fill').style.background = pct > 92 ? 'var(--warn)' : (pct < 45 ? 'var(--mid)' : 'var(--accent)');
+  $('g-val').textContent = dec(pct, 0) + '%';
+}
+
+function renderBar(r) {
+  var tot = r.total || 1;
+  $('bar').innerHTML =
+    '<i style="width:' + (state.rights / tot * 100) + '%;background:#101416"></i>' +
+    '<i style="width:' + (state.act / tot * 100) + '%;background:#0e7c8b"></i>';
+  $('bar-legend').innerHTML =
+    '<div><i style="background:#101416"></i>' + tr('leg-rights') + ' &middot; ' + chf(state.rights) + '</div>' +
+    '<div><i style="background:#0e7c8b"></i>' + tr('leg-act') + ' &middot; ' + chf(state.act) + '</div>' +
+    '<div><span style="font-weight:700">1 : ' + dec(r.ratio, 2) + '</span></div>';
+}
+
+function renderVerdict(r) {
+  var el = $('verdict'), u = dec(r.util * 100, 0);
+  if (r.ratio < 0.7) {
+    el.className = 'verdict warn';
+    el.innerHTML = '<b>' + tr('v-ratio-l') + '</b><p>' + tr('v-ratio').replace('{r}', dec(r.ratio * 100, 0)) + '</p>';
+  } else if (r.util > 1) {
+    el.className = 'verdict warn';
+    el.innerHTML = '<b>' + tr('v-cap-l') + '</b><p>' + tr('v-cap').replace('{u}', u) + '</p>';
+  } else if (r.util < 0.45) {
+    el.className = 'verdict mid';
+    el.innerHTML = '<b>' + tr('v-idle-l') + '</b><p>' + tr('v-idle').replace('{u}', u) + '</p>';
+  } else {
+    el.className = 'verdict';
+    el.innerHTML = '<b>' + tr('v-ok-l') + '</b><p>' + tr('v-ok')
+      .replace('{u}', u).replace('{r2}', dec(r.ratio, 2)).replace('{c}', dec(r.cpq)) + '</p>';
+  }
+}
+
+function renderAssumptions() {
+  var rows = [
+    ['a-use', 'a-use-b', 'a-use-h'], ['a-turn', 'a-turn-b', 'a-turn-h'],
+    ['a-vis', 'a-vis-b', 'a-vis-h'], ['a-talk', 'a-talk-b', 'a-talk-h'],
+    ['a-crew', 'a-crew-b', 'a-crew-h'], ['a-fix', 'a-fix-b', 'a-fix-h'],
+    ['a-lift', 'a-lift-b', 'a-lift-h']
+  ];
+  var h = '<thead><tr><th>' + tr('th-pos') + '</th><th>' + tr('th-basis') + '</th><th>' + tr('th-how') + '</th></tr></thead><tbody>';
+  rows.forEach(function (r) {
+    h += '<tr><td><strong>' + tr(r[0]) + '</strong></td><td>' + tr(r[1]) + '</td><td>' + tr(r[2]) + '</td></tr>';
+  });
+  $('assumptions').innerHTML = h + '</tbody>';
+}
+
+function delta(a, b, invert, digits) {
+  var d = b - a;
+  if (Math.abs(d) < 0.0001) return '<span class="flat">&plusmn;0</span>';
+  var good = invert ? d < 0 : d > 0;
+  var sign = d > 0 ? '+' : '&minus;';
+  var val = digits === undefined ? chf(Math.abs(d)) : dec(Math.abs(d), digits);
+  return '<span class="' + (good ? 'up' : 'down') + '">' + sign + val + '</span>';
+}
+
+function renderCompare(r) {
+  if (!snapA) { $('compare').innerHTML = ''; $('ab-hint').innerHTML = tr('ab-hint'); return; }
+  $('ab-hint').innerHTML = tr('ab-hint2');
+  var a = snapA.r, sa = snapA.s;
+  var h = '<thead><tr><th>' + tr('th-metric') + '</th><th class="num">' + tr('th-a') + '</th><th class="num">' +
+          tr('th-b') + '</th><th class="num">' + tr('th-d') + '</th></tr></thead><tbody>' +
+    '<tr><td>' + tr('cmp-total') + '</td><td class="num">' + chf(a.total) + '</td><td class="num">' + chf(r.total) +
+      '</td><td class="num">' + delta(a.total, r.total, true) + '</td></tr>' +
+    '<tr><td>' + tr('cmp-qc') + '</td><td class="num">' + chf(a.qc) + '</td><td class="num">' + chf(r.qc) +
+      '</td><td class="num">' + delta(a.qc, r.qc, false) + '</td></tr>' +
+    '<tr><td>' + tr('cmp-cpq') + '</td><td class="num">' + dec(a.cpq) + '</td><td class="num">' + dec(r.cpq) +
+      '</td><td class="num">' + delta(a.cpq, r.cpq, true, 1) + '</td></tr>' +
+    '<tr><td>' + tr('cmp-util') + '</td><td class="num">' + dec(a.util * 100, 0) + '%</td><td class="num">' +
+      dec(r.util * 100, 0) + '%</td><td class="num">' + delta(a.util * 100, r.util * 100, false, 0) + '</td></tr>' +
+    '<tr><td>' + tr('cmp-talks') + '</td><td class="num">' + chf(a.talks) + '</td><td class="num">' + chf(r.talks) +
+      '</td><td class="num">' + delta(a.talks, r.talks, false) + '</td></tr>' +
+    '<tr><td>' + tr('cmp-sites') + '</td><td class="num">' + sa.sites + ' &times; ' + sa.lvl + '</td><td class="num">' +
+      state.sites + ' &times; ' + state.lvl + '</td><td class="num">&mdash;</td></tr>' +
+    '</tbody>';
+  $('compare').innerHTML = h;
+}
+
+function renderAll() {
+  $('v-rights').textContent = chf(state.rights);
+  $('v-act').textContent = chf(state.act);
+  $('v-sites').textContent = state.sites;
+  $('v-vis').textContent = chf(state.vis);
+  $('v-days').textContent = state.days;
+  var r = compute(state);
+  renderKpis(r); renderGauge(r); renderBar(r); renderVerdict(r); renderAssumptions(); renderCompare(r);
+}
+
+/* ---------- Sprache ---------- */
+function applyT() {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-t]'), function (el) {
+    var k = el.getAttribute('data-t');
+    if (T[LANG][k] !== undefined) el.innerHTML = T[LANG][k];
+  });
+  document.documentElement.lang = LANG;
+}
+function setLang(l) {
+  LANG = l;
+  $('btn-de').className = l === 'de' ? 'on' : '';
+  $('btn-en').className = l === 'en' ? 'on' : '';
+  applyT(); renderSegs(); renderAll();
+}
+
+/* ---------- Bedienung ---------- */
+[['rights', 'rights'], ['act', 'act'], ['sites', 'sites'], ['vis', 'vis'], ['days', 'days']].forEach(function (p) {
+  $(p[0]).addEventListener('input', function () { state[p[1]] = +this.value; renderAll(); });
+});
+$('save-a').addEventListener('click', function () {
+  snapA = { s: JSON.parse(JSON.stringify(state)), r: compute(state) };
+  renderAll();
+});
+$('clear-a').addEventListener('click', function () { snapA = null; renderAll(); });
+
+applyT(); renderSegs(); renderAll();
+</script>
+</body>
+</html>

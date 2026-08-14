@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Nachtschicht &middot; Story- &amp; Redaktionsplan &middot; Arbeitsprobe</title>
+<link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<style>
+  :root {
+    --ink: #101112;
+    --ink-2: #3a4046;
+    --soft: #6d757b;
+    --line: #d9dde1;
+    --line-2: #ebeef1;
+    --paper: #f6f5f4;
+    --paper-2: #ffffff;
+    --accent: #d4402a;
+    --accent-dk: #a52f1e;
+    --tint: #fbeae6;
+    --dark: #101112;
+    --ok: #4f7d63;
+    --warn: #b0553d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.68; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  .col { max-width: 780px; }
+
+  .sample-bar {
+    background: var(--accent); color: #fff; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; text-align: center; padding: 9px 16px; font-weight: 700;
+  }
+  .sample-bar a { color: #fff; text-decoration: underline; }
+
+  .cover { background: var(--dark); color: #f4f2ef; padding: 34px 0 54px; }
+  .cover-top { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 54px; }
+  .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #f08a72; font-weight: 700; }
+  .lang-switch { display: flex; border: 1px solid #33383c; }
+  .lang-switch button {
+    background: none; border: none; color: #8b9298; font: inherit; font-size: 11px;
+    font-weight: 700; letter-spacing: 2px; padding: 7px 14px; cursor: pointer;
+    transition: background 200ms, color 200ms;
+  }
+  .lang-switch button.on { background: var(--accent); color: #fff; }
+  .cover h1 { font-size: clamp(40px, 8vw, 96px); line-height: .96; font-weight: 800; letter-spacing: -.03em; text-transform: uppercase; margin-bottom: 18px; }
+  .cover .claim { font-size: clamp(19px, 2.4vw, 27px); line-height: 1.35; color: #d8d3cc; max-width: 720px; font-weight: 300; }
+  .cover .kind { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #8b9298; font-weight: 700; margin-bottom: 20px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #26292c; border: 1px solid #26292c; margin-top: 46px; }
+  @media (max-width: 860px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+  .facts div { background: var(--dark); padding: 14px 16px; }
+  .facts span { display: block; font-size: 9.5px; letter-spacing: 2.4px; text-transform: uppercase; color: #7f868c; font-weight: 700; margin-bottom: 4px; }
+  .facts b { font-size: 15px; font-weight: 600; color: #f4f2ef; line-height: 1.35; }
+
+  section.doc { padding: 60px 0; border-bottom: 1px solid var(--line); }
+  section.doc:last-of-type { border-bottom: none; }
+  .sec-head { display: flex; gap: 18px; align-items: baseline; margin-bottom: 26px; }
+  .sec-no { font-size: 12px; font-weight: 800; letter-spacing: 2px; color: var(--accent); padding-top: 6px; }
+  .sec-head h2 { font-size: clamp(24px, 3.4vw, 34px); line-height: 1.14; font-weight: 800; letter-spacing: -.02em; }
+  .sec-head p { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-top: 6px; }
+  .doc p { margin-bottom: 16px; }
+  .doc p:last-child { margin-bottom: 0; }
+  .lead { font-size: 18.5px; line-height: 1.6; }
+
+  .callout { background: var(--tint); border-left: 3px solid var(--accent); padding: 22px 26px; margin: 30px 0; }
+  .callout b { display: block; font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--accent-dk); margin-bottom: 8px; }
+  .callout p { font-size: 20px; line-height: 1.45; font-weight: 600; margin: 0; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; margin-top: 30px; }
+  @media (max-width: 820px) { .split { grid-template-columns: 1fr; gap: 24px; } }
+  .split h3 { font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 12px; }
+  ul.ticks { list-style: none; }
+  ul.ticks li { position: relative; padding-left: 22px; margin-bottom: 9px; font-size: 15px; line-height: 1.55; }
+  ul.ticks li:before { content: ''; position: absolute; left: 0; top: 9px; width: 9px; height: 2px; background: var(--accent); }
+  ul.ticks.no li:before { background: var(--soft); }
+
+  /* ---------- Matrix ---------- */
+  .tool { background: var(--paper-2); border: 1px solid var(--line); margin-top: 30px; }
+  .tool-head { background: var(--dark); color: #f4f2ef; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .tool-head b { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
+  .tool-head span { font-size: 12px; color: #99a0a6; }
+  .tool-body { padding: 22px; }
+
+  .voice { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+  .voice .lbl { font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase; color: var(--soft); font-weight: 700; }
+  .segs { display: flex; border: 1px solid var(--line); }
+  .segs button {
+    background: var(--paper-2); border: none; border-right: 1px solid var(--line); font: inherit;
+    font-size: 12.5px; font-weight: 700; letter-spacing: .5px; padding: 9px 16px; cursor: pointer;
+    color: var(--ink-2); transition: background 160ms, color 160ms;
+  }
+  .segs button:last-child { border-right: none; }
+  .segs button.on { background: var(--accent); color: #fff; }
+
+  .matrix-scroll { overflow-x: auto; }
+  .matrix { min-width: 720px; display: grid; grid-template-columns: 148px repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .mx-h { background: var(--paper); padding: 11px 12px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--soft); }
+  .mx-h.phase b { display: block; color: var(--ink); font-size: 12.5px; letter-spacing: 1.4px; }
+  .mx-ch { background: var(--paper); padding: 14px 12px; font-size: 12.5px; font-weight: 700; line-height: 1.3; }
+  .mx-ch small { display: block; font-weight: 400; color: var(--soft); font-size: 11px; margin-top: 3px; }
+  .cell {
+    background: var(--paper-2); padding: 13px 13px 12px; cursor: pointer; text-align: left;
+    border: none; font: inherit; transition: background 160ms; display: block; width: 100%;
+  }
+  .cell:hover { background: var(--tint); }
+  .cell.on { background: var(--accent); }
+  .cell.on * { color: #fff !important; }
+  .cell .when { font-size: 9.5px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .cell .ttl { font-size: 14px; font-weight: 700; line-height: 1.28; margin: 5px 0 5px; }
+  .cell .fmt { font-size: 11px; color: var(--soft); letter-spacing: .3px; }
+  .cell.empty { cursor: default; background: repeating-linear-gradient(135deg, #fafafa, #fafafa 6px, #f2f2f2 6px, #f2f2f2 12px); }
+  .cell.empty:hover { background: repeating-linear-gradient(135deg, #fafafa, #fafafa 6px, #f2f2f2 6px, #f2f2f2 12px); }
+  .cell.empty .ttl { color: var(--soft); font-weight: 600; font-size: 12.5px; }
+
+  /* ---------- Detail ---------- */
+  .detail { display: grid; grid-template-columns: 262px 1fr; gap: 28px; margin-top: 24px; border-top: 1px solid var(--line); padding-top: 24px; }
+  @media (max-width: 820px) { .detail { grid-template-columns: 1fr; } }
+  .phone { border: 1px solid var(--line); background: var(--dark); padding: 10px; }
+  .phone .screen { aspect-ratio: 9 / 16; background: linear-gradient(160deg, #22262b 0%, #3a3f47 48%, #d4402a 190%); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; }
+  .phone .screen:before { content: ''; position: absolute; inset: 0; background: radial-gradient(120% 60% at 50% 108%, rgba(212,64,42,.55), transparent 70%); }
+  .phone .screen .ov { position: relative; }
+  .phone .screen .tag { font-size: 9px; letter-spacing: 2.4px; text-transform: uppercase; color: #ffb9a8; font-weight: 700; }
+  .phone .screen .hd { color: #fff; font-size: 23px; font-weight: 800; line-height: 1.06; letter-spacing: -.02em; margin-top: 7px; text-transform: uppercase; }
+  .phone .screen .sub { color: #d5d8db; font-size: 12px; margin-top: 8px; line-height: 1.4; }
+  .phone .bar2 { display: flex; justify-content: space-between; padding: 9px 2px 2px; font-size: 9.5px; letter-spacing: 1.6px; text-transform: uppercase; color: #8b9298; font-weight: 700; }
+  .phone .safe { position: absolute; left: 8%; right: 8%; top: 12%; bottom: 18%; border: 1px dashed rgba(255,255,255,.28); }
+  .phone-note { font-size: 11.5px; color: var(--soft); margin-top: 10px; line-height: 1.5; }
+
+  .dt h3 { font-size: 21px; font-weight: 800; letter-spacing: -.01em; line-height: 1.2; margin-bottom: 4px; }
+  .dt .dt-meta { font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 16px; }
+  .caption { background: var(--paper); border: 1px solid var(--line); padding: 16px 18px; margin-bottom: 14px; }
+  .caption b { display: block; font-size: 10px; letter-spacing: 2.4px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 8px; }
+  .caption p { font-size: 15.5px; line-height: 1.6; margin: 0; white-space: pre-line; }
+  .caption .cta { display: block; margin-top: 10px; font-size: 13px; color: var(--accent-dk); font-weight: 700; }
+  .specs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 14px; }
+  @media (max-width: 520px) { .specs { grid-template-columns: 1fr; } }
+  .specs div { background: var(--paper-2); padding: 11px 13px; }
+  .specs span { display: block; font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 3px; }
+  .specs b { font-size: 13.5px; font-weight: 600; line-height: 1.35; }
+  .why { margin-top: 14px; font-size: 14.5px; line-height: 1.6; color: var(--ink-2); border-left: 3px solid var(--accent); padding-left: 14px; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 26px; font-size: 14px; }
+  th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; border-bottom: 2px solid var(--ink); padding: 0 10px 8px 0; }
+  td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--line-2); vertical-align: top; }
+  td.num, th.num { text-align: right; padding-right: 0; font-variant-numeric: tabular-nums; }
+  .tbl-wrap { overflow-x: auto; }
+  .tag-out { display: inline-block; font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; color: var(--soft); border: 1px solid var(--line); padding: 2px 7px; }
+  .tag-out.hot { color: var(--accent); border-color: var(--accent); }
+
+  .note { font-size: 13px; color: var(--soft); line-height: 1.6; margin-top: 16px; }
+
+  .colophon { background: var(--dark); color: #cfd3d6; padding: 54px 0 62px; }
+  .colophon h2 { color: #f4f2ef; font-size: 22px; font-weight: 800; margin-bottom: 18px; letter-spacing: -.01em; }
+  .colophon p { font-size: 14.5px; line-height: 1.7; margin-bottom: 14px; max-width: 780px; }
+  .colophon b { color: #f4f2ef; }
+  .backlink { display: inline-block; margin-top: 12px; color: #f08a72; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; text-decoration: none; border-bottom: 1px solid #f08a72; padding-bottom: 3px; }
+
+  @media print {
+    .sample-bar, .lang-switch, .segs { display: none !important; }
+    body { background: #fff; font-size: 11pt; }
+    section.doc { padding: 18px 0; page-break-inside: avoid; }
+    .cover, .colophon { background: #fff; color: #000; }
+    .cover h1, .colophon h2, .facts b, .colophon b { color: #000; }
+    .facts, .facts div { background: #fff; border-color: #999; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Nike-Material</span>
+  &nbsp;&middot;&nbsp; <a href="nike.html" data-t="bar-back">zur&uuml;ck zur Bewerbung</a>
+</div>
+
+<!-- ================= Deckblatt ================= -->
+<header class="cover">
+  <div class="wrap">
+    <div class="cover-top">
+      <div class="eyebrow" data-t="eyebrow">Eventformat &amp; Redaktionsplan</div>
+      <div class="lang-switch">
+        <button id="btn-de" class="on" onclick="setLang('de')">DE</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+    <div class="kind" data-t="kind">Arbeitsprobe f&uuml;r die Bewerbung als Marketing Brand &amp; Event Manager</div>
+    <h1 data-t="title">Nachtschicht</h1>
+    <p class="claim" data-t="claim">Ein Lauf um halb zehn abends f&uuml;r alle, die trainieren, wenn andere schon fertig sind. Und der komplette Redaktionsplan dazu &ndash; jede Kachel mit fertigem Text, Format und Kennzahl.</p>
+    <div class="facts">
+      <div><span data-t="f1-l">Format</span><b data-t="f1">Nachtlauf, monatlich</b></div>
+      <div><span data-t="f2-l">Ort</span><b data-t="f2">Z&uuml;rich, wechselnde Startpunkte</b></div>
+      <div><span data-t="f3-l">Kern</span><b data-t="f3">15 Kacheln, 12 davon getextet</b></div>
+      <div><span data-t="f4-l">Steuergr&ouml;sse</span><b data-t="f4">Wiederkehr, nicht Reichweite</b></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 01 -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">01</div>
+      <div><h2 data-t="s1-h">Ausgangslage</h2><p data-t="s1-sub">Wer um halb zehn noch l&auml;uft</p></div>
+    </div>
+    <div class="col">
+      <p class="lead" data-t="s1-p1">Laufgruppen treffen sich am fr&uuml;hen Abend. Das funktioniert f&uuml;r alle, die um f&uuml;nf Feierabend haben. Es funktioniert nicht f&uuml;r Gastro, Pflege, Detailhandel, Schicht, Baustelle, Eltern nach dem Zubettbringen &ndash; also f&uuml;r einen sehr grossen Teil dieser Stadt.</p>
+      <p data-t="s1-p2">Diese Leute laufen trotzdem. Nur allein, sp&auml;t, mit Kopfh&ouml;rern, und niemand fragt sie danach. Genau dort liegt eine Community, die noch niemand eingeladen hat &ndash; und der man auch nichts erkl&auml;ren muss.</p>
+      <div class="callout">
+        <b data-t="s1-insight-l">Insight</b>
+        <p data-t="s1-insight">Es fehlt nicht die Motivation. Es fehlt eine Gruppe, die zur gleichen unm&ouml;glichen Zeit losl&auml;uft.</p>
+      </div>
+      <p data-t="s1-p3">Ich habe f&uuml;r diese Arbeitsprobe bewusst nicht das Event gestaltet, sondern das, was ein Event erst wirksam macht: die Kommunikation drumherum. Ein Anlass mit 200 L&auml;uferinnen und L&auml;ufern ist ein sch&ouml;ner Abend. Ein Anlass mit 200 Leuten und einem sauberen Redaktionsplan ist ein Format, das beim vierten Mal 600 hat.</p>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">02</div>
+      <div><h2 data-t="s2-h">Das Format</h2><p data-t="s2-sub">Was am Abend selbst passiert</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s2-p1"><strong>Nachtschicht</strong> startet um 21:30 Uhr, einmal im Monat, an einem wechselnden Ort, den man tags&uuml;ber nicht sch&ouml;n findet: Parkhausdach, Hafenareal, Industriestrasse. Zwei Strecken, 5 und 10 Kilometer, drei angeschriebene Tempogruppen, eine davon ausdr&uuml;cklich langsam. Zur&uuml;ck am Start gibt es etwas Warmes zu essen &ndash; nicht als Geste, sondern weil um 22:30 Uhr alles zu ist.</p>
+      <p data-t="s2-p2">Getragen wird der Abend von <strong>Pace-Leads</strong>: sechs bis acht Leute aus der Stadt, die selbst in diesen Berufen arbeiten. Sie f&uuml;hren die Gruppen, sie sprechen in den Storys, sie stehen auf den Bildern. Die Marke stellt Strecke, Licht, Sicherheit und Essen &ndash; und h&auml;lt sonst den Mund.</p>
+    </div>
+    <div class="split col">
+      <div>
+        <h3 data-t="s2-is">Was es ist</h3>
+        <ul class="ticks">
+          <li data-t="s2-is1">Ein fixer Termin, der sich nicht verschiebt &ndash; auch bei Regen nicht</li>
+          <li data-t="s2-is2">Eine langsame Gruppe, die als solche angeschrieben ist</li>
+          <li data-t="s2-is3">Gesichter aus der Stadt, nicht Gesichter aus dem Casting</li>
+          <li data-t="s2-is4">Warmes Essen nach dem Lauf, weil um die Zeit nichts mehr offen ist</li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-t="s2-isnot">Was es ausdr&uuml;cklich nicht ist</h3>
+        <ul class="ticks no">
+          <li data-t="s2-no1">Kein Rennen, keine Zeitmessung, keine Rangliste</li>
+          <li data-t="s2-no2">Kein Produkttest, zu dem man sich anmelden muss</li>
+          <li data-t="s2-no3">Keine Kachel, auf der &laquo;Community&raquo; steht, ohne dass eine da ist</li>
+          <li data-t="s2-no4">Keine Kommunikation, die so tut, als w&auml;re Schichtarbeit ein Lifestyle</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Redaktionsmatrix -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">03</div>
+      <div><h2 data-t="s3-h">Die Redaktionsmatrix</h2><p data-t="s3-sub">Kachel anklicken &ndash; Text, Format und Kennzahl stehen dahinter</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s3-p1">Das hier ist der Kern der Arbeitsprobe. F&uuml;nf Kan&auml;le, drei Phasen, f&uuml;nfzehn Felder. Hinter jedem gef&uuml;llten Feld liegt ein fertiger Text in beiden Sprachen, das Assetformat, der Zeitpunkt, die verantwortliche Rolle und die Zahl, an der ich sehe, ob die Kachel ihre Aufgabe erf&uuml;llt hat.</p>
+      <p data-t="s3-p2">Drei Felder sind absichtlich leer. Das ist keine L&uuml;cke, sondern eine Entscheidung &ndash; und sie steht mit Begr&uuml;ndung drin. Ein Redaktionsplan, in dem jedes Feld gef&uuml;llt ist, ist meistens keiner, sondern eine Ausrede f&uuml;r Fleiss.</p>
+    </div>
+
+    <div class="tool">
+      <div class="tool-head">
+        <b data-t="tool-title">Redaktionsplan Nachtschicht</b>
+        <span data-t="tool-note">Ein Durchgang, vier Wochen vorher bis zwei Wochen danach</span>
+      </div>
+      <div class="tool-body">
+
+        <div class="voice">
+          <span class="lbl" data-t="voice-l">Tonalit&auml;t</span>
+          <div class="segs" id="segs">
+            <button data-v="brand" class="on" data-t="voice-brand">Marke spricht</button>
+            <button data-v="crew" data-t="voice-crew">Community spricht</button>
+          </div>
+          <span class="note" style="margin:0;" data-t="voice-note">Derselbe Beat, zwei Stimmen. Beide Fassungen sind geschrieben, nicht generiert.</span>
+        </div>
+
+        <div class="matrix-scroll"><div class="matrix" id="matrix"></div></div>
+
+        <div class="detail" id="detail"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Zeitachse -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">04</div>
+      <div><h2 data-t="s4-h">Der Ablauf als Liste</h2><p data-t="s4-sub">Dieselben Kacheln, nach Zeitpunkt sortiert</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s4-p1">Die Matrix zeigt die Logik, die Liste zeigt den Arbeitstag. So gebe ich einen Plan weiter: mit Datum, Verantwortung und der Kennzahl daneben, damit niemand fragen muss, wozu eine Kachel gut ist.</p>
+    </div>
+    <div class="tbl-wrap"><table id="schedule"></table></div>
+    <div class="col">
+      <p class="note" data-t="s4-note">T = Tag des Laufs. Negative Werte sind Tage davor, positive danach. Die Rollen sind so besetzt, wie ich es in einem kleinen Team machen w&uuml;rde &ndash; eine Person kann mehrere Rollen halten, aber jede Kachel hat genau einen Namen.</p>
+    </div>
+  </section>
+
+  <!-- 05 Messung -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">05</div>
+      <div><h2 data-t="s5-h">Messung</h2><p data-t="s5-sub">Warum Reichweite hier die falsche Zahl ist</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s5-p1">Ein Nachtlauf mit 200 Leuten erreicht auf Instagram weniger Menschen als ein einziger gut geschnittener Clip. Wer das Format an Reichweite misst, streicht es nach dem zweiten Mal. Deshalb steht bei mir eine andere Zahl vorne: <strong>Wie viele vom letzten Mal sind wieder da?</strong></p>
+    </div>
+    <div class="tbl-wrap"><table id="kpis"></table></div>
+    <div class="col">
+      <p data-t="s5-p2" style="margin-top:22px;">Die Wiederkehrquote z&auml;hle ich von Hand &uuml;ber die Anmeldung, nicht &uuml;ber ein Tool. Das ist unbequem und deshalb ehrlich. Eine gesch&auml;tzte Reichweite kann jede Agentur liefern; eine Wiederkehrquote muss man sich verdienen.</p>
+    </div>
+  </section>
+
+  <!-- 06 Grenzen -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">06</div>
+      <div><h2 data-t="s6-h">Was ich hier nicht behaupte</h2><p data-t="s6-sub">Die Grenzen, bevor sie jemand anders findet</p></div>
+    </div>
+    <div class="col">
+      <ul class="ticks no" style="margin-bottom:18px;">
+        <li data-t="s6-l1">Ich kenne die internen Freigabewege einer globalen Marke nicht. Ein Plan, der sechs Kacheln pro Woche vorsieht, muss durch eine Freigabe passen, die ich noch nicht gesehen habe.</li>
+        <li data-t="s6-l2">Die Texte sind in meiner Stimme geschrieben, nicht in einem geltenden Markenhandbuch. Sie sind ein Vorschlag zur Tonalit&auml;t, kein Beweis, dass ich sie schon getroffen habe.</li>
+        <li data-t="s6-l3">Die Zielwerte sind aus meiner Erfahrung mit Publikumsanl&auml;ssen abgeleitet, nicht aus Daten dieser Marke.</li>
+        <li data-t="s6-l4">Ein Nachtlauf braucht Bewilligung, Beleuchtung und ein Sicherheitskonzept. Das steht in dieser Arbeitsprobe nur als Notiz &ndash; im Projekt w&auml;re es das erste Dokument.</li>
+      </ul>
+      <p data-t="s6-p1">Was ich behaupte: Ich kann ein Format erfinden, es in beiden Sprachen ausformulieren, es in einen Plan &uuml;bersetzen, den ein Team abarbeiten kann, und danach sagen, ob es funktioniert hat. Das steht oben, klickbar.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= Kolophon ================= -->
+<footer class="colophon">
+  <div class="wrap">
+    <h2 data-t="col-h">Zur Arbeitsprobe</h2>
+    <p data-t="col-1"><b>Was daran fiktiv ist:</b> alles Konkrete. Das Format, die Zielwerte, die Pace-Leads und die Orte gibt es nicht. Es ist kein offizielles Material von Nike und keine abgesprochene Zusammenarbeit.</p>
+    <p data-t="col-2"><b>Was daran echt ist:</b> die Texte und die Planlogik. Alle Captions sind von mir geschrieben und redigiert, in beiden Sprachen, in zwei Tonalit&auml;ten. So baue ich Content rund um Anl&auml;sse, seit ich Brand Experiences an Schweizer Festivals verantworte.</p>
+    <p data-t="col-3">Konzept, Text, Gestaltung und Umsetzung: Shayna Jucker. Eine einzige HTML-Datei, keine externen Requests, keine Datenerfassung. Zweisprachig Deutsch und Englisch. Druckbar &uuml;ber die Druckfunktion des Browsers.</p>
+    <p><a class="backlink" href="nike.html" data-t="col-back">&larr; Zur&uuml;ck zur Bewerbung</a></p>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   NACHTSCHICHT - Eventformat & Redaktionsplan
+   Arbeitsprobe Shayna Jucker
+   ========================================================= */
+
+var LANG = 'de';
+var VOICE = 'brand';
+var PICK = 'ig-pre';
+function $(id) { return document.getElementById(id); }
+function L(o) { return o ? o[LANG] : ''; }
+function tr(k) { return T[LANG][k] !== undefined ? T[LANG][k] : k; }
+
+var T = {
+  de: {
+    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Nike-Material',
+    'bar-back': 'zur&uuml;ck zur Bewerbung',
+    'eyebrow': 'Eventformat &amp; Redaktionsplan',
+    'kind': 'Arbeitsprobe f&uuml;r die Bewerbung als Marketing Brand &amp; Event Manager',
+    'title': 'Nachtschicht',
+    'claim': 'Ein Lauf um halb zehn abends f&uuml;r alle, die trainieren, wenn andere schon fertig sind. Und der komplette Redaktionsplan dazu &ndash; jede Kachel mit fertigem Text, Format und Kennzahl.',
+    'f1-l': 'Format', 'f1': 'Nachtlauf, monatlich',
+    'f2-l': 'Ort', 'f2': 'Z&uuml;rich, wechselnde Startpunkte',
+    'f3-l': 'Kern', 'f3': '15 Kacheln, 12 davon getextet',
+    'f4-l': 'Steuergr&ouml;sse', 'f4': 'Wiederkehr, nicht Reichweite',
+    's1-h': 'Ausgangslage', 's1-sub': 'Wer um halb zehn noch l&auml;uft',
+    's1-p1': 'Laufgruppen treffen sich am fr&uuml;hen Abend. Das funktioniert f&uuml;r alle, die um f&uuml;nf Feierabend haben. Es funktioniert nicht f&uuml;r Gastro, Pflege, Detailhandel, Schicht, Baustelle, Eltern nach dem Zubettbringen &ndash; also f&uuml;r einen sehr grossen Teil dieser Stadt.',
+    's1-p2': 'Diese Leute laufen trotzdem. Nur allein, sp&auml;t, mit Kopfh&ouml;rern, und niemand fragt sie danach. Genau dort liegt eine Community, die noch niemand eingeladen hat &ndash; und der man auch nichts erkl&auml;ren muss.',
+    's1-insight-l': 'Insight',
+    's1-insight': 'Es fehlt nicht die Motivation. Es fehlt eine Gruppe, die zur gleichen unm&ouml;glichen Zeit losl&auml;uft.',
+    's1-p3': 'Ich habe f&uuml;r diese Arbeitsprobe bewusst nicht das Event gestaltet, sondern das, was ein Event erst wirksam macht: die Kommunikation drumherum. Ein Anlass mit 200 L&auml;uferinnen und L&auml;ufern ist ein sch&ouml;ner Abend. Ein Anlass mit 200 Leuten und einem sauberen Redaktionsplan ist ein Format, das beim vierten Mal 600 hat.',
+    's2-h': 'Das Format', 's2-sub': 'Was am Abend selbst passiert',
+    's2-p1': '<strong>Nachtschicht</strong> startet um 21:30 Uhr, einmal im Monat, an einem wechselnden Ort, den man tags&uuml;ber nicht sch&ouml;n findet: Parkhausdach, Hafenareal, Industriestrasse. Zwei Strecken, 5 und 10 Kilometer, drei angeschriebene Tempogruppen, eine davon ausdr&uuml;cklich langsam. Zur&uuml;ck am Start gibt es etwas Warmes zu essen &ndash; nicht als Geste, sondern weil um 22:30 Uhr alles zu ist.',
+    's2-p2': 'Getragen wird der Abend von <strong>Pace-Leads</strong>: sechs bis acht Leute aus der Stadt, die selbst in diesen Berufen arbeiten. Sie f&uuml;hren die Gruppen, sie sprechen in den Storys, sie stehen auf den Bildern. Die Marke stellt Strecke, Licht, Sicherheit und Essen &ndash; und h&auml;lt sonst den Mund.',
+    's2-is': 'Was es ist',
+    's2-is1': 'Ein fixer Termin, der sich nicht verschiebt &ndash; auch bei Regen nicht',
+    's2-is2': 'Eine langsame Gruppe, die als solche angeschrieben ist',
+    's2-is3': 'Gesichter aus der Stadt, nicht Gesichter aus dem Casting',
+    's2-is4': 'Warmes Essen nach dem Lauf, weil um die Zeit nichts mehr offen ist',
+    's2-isnot': 'Was es ausdr&uuml;cklich nicht ist',
+    's2-no1': 'Kein Rennen, keine Zeitmessung, keine Rangliste',
+    's2-no2': 'Kein Produkttest, zu dem man sich anmelden muss',
+    's2-no3': 'Keine Kachel, auf der &laquo;Community&raquo; steht, ohne dass eine da ist',
+    's2-no4': 'Keine Kommunikation, die so tut, als w&auml;re Schichtarbeit ein Lifestyle',
+    's3-h': 'Die Redaktionsmatrix', 's3-sub': 'Kachel anklicken &ndash; Text, Format und Kennzahl stehen dahinter',
+    's3-p1': 'Das hier ist der Kern der Arbeitsprobe. F&uuml;nf Kan&auml;le, drei Phasen, f&uuml;nfzehn Felder. Hinter jedem gef&uuml;llten Feld liegt ein fertiger Text in beiden Sprachen, das Assetformat, der Zeitpunkt, die verantwortliche Rolle und die Zahl, an der ich sehe, ob die Kachel ihre Aufgabe erf&uuml;llt hat.',
+    's3-p2': 'Drei Felder sind absichtlich leer. Das ist keine L&uuml;cke, sondern eine Entscheidung &ndash; und sie steht mit Begr&uuml;ndung drin. Ein Redaktionsplan, in dem jedes Feld gef&uuml;llt ist, ist meistens keiner, sondern eine Ausrede f&uuml;r Fleiss.',
+    'tool-title': 'Redaktionsplan Nachtschicht',
+    'tool-note': 'Ein Durchgang, vier Wochen vorher bis zwei Wochen danach',
+    'voice-l': 'Tonalit&auml;t', 'voice-brand': 'Marke spricht', 'voice-crew': 'Community spricht',
+    'voice-note': 'Derselbe Beat, zwei Stimmen. Beide Fassungen sind geschrieben, nicht generiert.',
+    's4-h': 'Der Ablauf als Liste', 's4-sub': 'Dieselben Kacheln, nach Zeitpunkt sortiert',
+    's4-p1': 'Die Matrix zeigt die Logik, die Liste zeigt den Arbeitstag. So gebe ich einen Plan weiter: mit Datum, Verantwortung und der Kennzahl daneben, damit niemand fragen muss, wozu eine Kachel gut ist.',
+    's4-note': 'T = Tag des Laufs. Negative Werte sind Tage davor, positive danach. Die Rollen sind so besetzt, wie ich es in einem kleinen Team machen w&uuml;rde &ndash; eine Person kann mehrere Rollen halten, aber jede Kachel hat genau einen Namen.',
+    's5-h': 'Messung', 's5-sub': 'Warum Reichweite hier die falsche Zahl ist',
+    's5-p1': 'Ein Nachtlauf mit 200 Leuten erreicht auf Instagram weniger Menschen als ein einziger gut geschnittener Clip. Wer das Format an Reichweite misst, streicht es nach dem zweiten Mal. Deshalb steht bei mir eine andere Zahl vorne: <strong>Wie viele vom letzten Mal sind wieder da?</strong>',
+    's5-p2': 'Die Wiederkehrquote z&auml;hle ich von Hand &uuml;ber die Anmeldung, nicht &uuml;ber ein Tool. Das ist unbequem und deshalb ehrlich. Eine gesch&auml;tzte Reichweite kann jede Agentur liefern; eine Wiederkehrquote muss man sich verdienen.',
+    's6-h': 'Was ich hier nicht behaupte', 's6-sub': 'Die Grenzen, bevor sie jemand anders findet',
+    's6-l1': 'Ich kenne die internen Freigabewege einer globalen Marke nicht. Ein Plan, der sechs Kacheln pro Woche vorsieht, muss durch eine Freigabe passen, die ich noch nicht gesehen habe.',
+    's6-l2': 'Die Texte sind in meiner Stimme geschrieben, nicht in einem geltenden Markenhandbuch. Sie sind ein Vorschlag zur Tonalit&auml;t, kein Beweis, dass ich sie schon getroffen habe.',
+    's6-l3': 'Die Zielwerte sind aus meiner Erfahrung mit Publikumsanl&auml;ssen abgeleitet, nicht aus Daten dieser Marke.',
+    's6-l4': 'Ein Nachtlauf braucht Bewilligung, Beleuchtung und ein Sicherheitskonzept. Das steht in dieser Arbeitsprobe nur als Notiz &ndash; im Projekt w&auml;re es das erste Dokument.',
+    's6-p1': 'Was ich behaupte: Ich kann ein Format erfinden, es in beiden Sprachen ausformulieren, es in einen Plan &uuml;bersetzen, den ein Team abarbeiten kann, und danach sagen, ob es funktioniert hat. Das steht oben, klickbar.',
+    'col-h': 'Zur Arbeitsprobe',
+    'col-1': '<b>Was daran fiktiv ist:</b> alles Konkrete. Das Format, die Zielwerte, die Pace-Leads und die Orte gibt es nicht. Es ist kein offizielles Material von Nike und keine abgesprochene Zusammenarbeit.',
+    'col-2': '<b>Was daran echt ist:</b> die Texte und die Planlogik. Alle Captions sind von mir geschrieben und redigiert, in beiden Sprachen, in zwei Tonalit&auml;ten. So baue ich Content rund um Anl&auml;sse, seit ich Brand Experiences an Schweizer Festivals verantworte.',
+    'col-3': 'Konzept, Text, Gestaltung und Umsetzung: Shayna Jucker. Eine einzige HTML-Datei, keine externen Requests, keine Datenerfassung. Zweisprachig Deutsch und Englisch. Druckbar &uuml;ber die Druckfunktion des Browsers.',
+    'col-back': '&larr; Zur&uuml;ck zur Bewerbung',
+    /* Matrix-Beschriftungen */
+    'mx-ch-l': 'Kanal', 'ph1': 'Einladen', 'ph1s': 'T&minus;28 bis T&minus;1',
+    'ph2': 'Dabei sein', 'ph2s': 'Tag des Laufs', 'ph3': 'Weitermachen', 'ph3s': 'T+1 bis T+14',
+    'd-caption': 'Caption', 'd-why': 'Warum diese Kachel', 'd-format': 'Format',
+    'd-when': 'Zeitpunkt', 'd-owner': 'Verantwortung', 'd-kpi': 'Kennzahl',
+    'd-empty-l': 'Bewusst leer',
+    'phone-note': 'Gestrichelt: sicherer Bereich. Alles Wichtige liegt innerhalb, damit die Bedienelemente der App nichts abschneiden.',
+    'th-when': 'Wann', 'th-ch': 'Kanal', 'th-what': 'Kachel', 'th-owner': 'Wer', 'th-kpi': 'Kennzahl',
+    'th-metric': 'Kennzahl', 'th-goal': 'Zielwert', 'th-how': 'Wie gemessen', 'th-why': 'Warum diese Zahl',
+    'k1': 'Wiederkehrquote', 'k1g': '40% ab dem 3. Lauf', 'k1h': 'Abgleich der Anmeldelisten von Hand', 'k1w': 'Die einzige Zahl, die zeigt, ob der Abend gut war.',
+    'k2': 'Teilnehmende', 'k2g': '180 &rarr; 600 in 6 Monaten', 'k2h': 'Z&auml;hlung am Start, st&uuml;ndlich notiert', 'k2w': 'Wachstum, nicht Gr&ouml;sse: 180 beim ersten Mal ist in Ordnung.',
+    'k3': 'Anteil langsame Gruppe', 'k3g': 'mindestens 30%', 'k3h': 'Gruppenz&auml;hlung durch die Pace-Leads', 'k3w': 'Wenn nur Schnelle kommen, haben wir die falschen eingeladen.',
+    'k4': 'Beitr&auml;ge der Teilnehmenden', 'k4g': '60 markierte Beitr&auml;ge pro Lauf', 'k4h': 'Markierungen und geteilte Storys, manuell gez&auml;hlt', 'k4w': 'Zeigt, ob der Abend erz&auml;hlenswert war, ohne dass wir darum bitten.',
+    'k5': 'Kosten pro Teilnehmenden', 'k5g': 'unter CHF 38', 'k5h': 'Gesamtkosten geteilt durch Startende', 'k5w': 'Die Zahl, mit der ich das Format intern verteidige.',
+    'k6': 'Reichweite', 'k6g': 'wird berichtet, nicht gesteuert', 'k6h': 'Kanalstatistik', 'k6w': 'Steht bewusst zuunterst. Sie beschreibt, sie beweist nichts.'
+  },
+  en: {
+    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official Nike material',
+    'bar-back': 'back to the application',
+    'eyebrow': 'Event format &amp; editorial plan',
+    'kind': 'Work sample for the application as Marketing Brand &amp; Event Manager',
+    'title': 'Night Shift',
+    'claim': 'A run at half past nine at night for everyone who trains when others are already done. Plus the complete editorial plan &ndash; every tile with finished copy, format and metric.',
+    'f1-l': 'Format', 'f1': 'Night run, monthly',
+    'f2-l': 'Location', 'f2': 'Zurich, changing start points',
+    'f3-l': 'Core', 'f3': '15 tiles, 12 of them written',
+    'f4-l': 'Steering metric', 'f4': 'Return rate, not reach',
+    's1-h': 'Starting point', 's1-sub': 'Who is still running at half past nine',
+    's1-p1': 'Run clubs meet in the early evening. That works for everyone who finishes at five. It does not work for hospitality, care, retail, shift work, construction, parents after bedtime &ndash; in other words for a very large part of this city.',
+    's1-p2': 'These people run anyway. Alone, late, with headphones, and nobody ever asks them about it. That is where a community sits that nobody has invited yet &ndash; and one you do not have to explain anything to.',
+    's1-insight-l': 'Insight',
+    's1-insight': 'Motivation is not what is missing. What is missing is a group that starts at the same impossible hour.',
+    's1-p3': 'For this work sample I deliberately did not design the event but the thing that makes an event work: the communication around it. An evening with 200 runners is a nice evening. An evening with 200 runners and a clean editorial plan is a format that has 600 by the fourth edition.',
+    's2-h': 'The format', 's2-sub': 'What happens on the night',
+    's2-p1': '<strong>Night Shift</strong> starts at 21:30, once a month, at a changing location nobody finds pretty in daylight: a car park roof, a harbour yard, an industrial street. Two routes, 5 and 10 kilometres, three signed pace groups, one of them explicitly slow. Back at the start there is something warm to eat &ndash; not as a gesture, but because everything is closed at 22:30.',
+    's2-p2': 'The evening is carried by <strong>pace leads</strong>: six to eight people from the city who work in those jobs themselves. They lead the groups, they speak in the stories, they are in the pictures. The brand provides the route, the light, the safety and the food &ndash; and otherwise keeps quiet.',
+    's2-is': 'What it is',
+    's2-is1': 'A fixed date that does not move &ndash; not even in the rain',
+    's2-is2': 'A slow group that is signposted as such',
+    's2-is3': 'Faces from the city, not faces from a casting',
+    's2-is4': 'Warm food after the run, because nothing else is open at that hour',
+    's2-isnot': 'What it explicitly is not',
+    's2-no1': 'Not a race, no timing, no ranking',
+    's2-no2': 'Not a product test you have to register for',
+    's2-no3': 'Not a tile that says &ldquo;community&rdquo; without one being there',
+    's2-no4': 'Not communication that pretends shift work is a lifestyle',
+    's3-h': 'The editorial matrix', 's3-sub': 'Click a tile &ndash; copy, format and metric sit behind it',
+    's3-p1': 'This is the core of the work sample. Five channels, three phases, fifteen fields. Behind every filled field sits finished copy in both languages, the asset format, the timing, the responsible role and the number that tells me whether the tile did its job.',
+    's3-p2': 'Three fields are deliberately empty. That is not a gap but a decision &ndash; and the reason is written into it. An editorial plan in which every field is filled is usually not a plan but an excuse for diligence.',
+    'tool-title': 'Editorial plan Night Shift',
+    'tool-note': 'One cycle, four weeks before to two weeks after',
+    'voice-l': 'Tone of voice', 'voice-brand': 'Brand speaks', 'voice-crew': 'Community speaks',
+    'voice-note': 'Same beat, two voices. Both versions are written, not generated.',
+    's4-h': 'The plan as a list', 's4-sub': 'The same tiles, sorted by timing',
+    's4-p1': 'The matrix shows the logic, the list shows the working day. This is how I hand over a plan: with a date, an owner and the metric next to it, so nobody has to ask what a tile is for.',
+    's4-note': 'T = day of the run. Negative values are days before, positive days after. The roles are staffed the way I would do it in a small team &ndash; one person can hold several roles, but every tile has exactly one name.',
+    's5-h': 'Measurement', 's5-sub': 'Why reach is the wrong number here',
+    's5-p1': 'A night run with 200 people reaches fewer people on Instagram than one well-cut clip. Measure the format by reach and it gets cut after the second edition. So a different number sits at the top for me: <strong>how many from last time came back?</strong>',
+    's5-p2': 'I count the return rate by hand via the sign-up list, not through a tool. That is inconvenient and therefore honest. Any agency can deliver an estimated reach; a return rate has to be earned.',
+    's6-h': 'What I do not claim here', 's6-sub': 'The limits, before someone else finds them',
+    's6-l1': 'I do not know the internal approval routes of a global brand. A plan with six tiles a week has to fit through a sign-off process I have not seen yet.',
+    's6-l2': 'The copy is written in my voice, not in an existing brand book. It is a proposal on tone, not proof that I have already hit it.',
+    's6-l3': 'The targets are derived from my experience with public events, not from this brand&rsquo;s data.',
+    's6-l4': 'A night run needs permits, lighting and a safety concept. In this work sample that is only a note &ndash; in the project it would be the first document.',
+    's6-p1': 'What I do claim: I can invent a format, write it out in both languages, translate it into a plan a team can work through, and afterwards say whether it worked. That is above, clickable.',
+    'col-h': 'About this work sample',
+    'col-1': '<b>What is fictional:</b> everything concrete. The format, the targets, the pace leads and the locations do not exist. This is not official Nike material and not an agreed collaboration.',
+    'col-2': '<b>What is real:</b> the copy and the planning logic. Every caption is written and edited by me, in both languages, in two tones. This is how I build content around events, ever since I took over brand experiences at Swiss festivals.',
+    'col-3': 'Concept, copy, design and build: Shayna Jucker. A single HTML file, no external requests, no data collection. Bilingual German and English. Printable via the browser print function.',
+    'col-back': '&larr; Back to the application',
+    'mx-ch-l': 'Channel', 'ph1': 'Invite', 'ph1s': 'T&minus;28 to T&minus;1',
+    'ph2': 'Be there', 'ph2s': 'Day of the run', 'ph3': 'Keep going', 'ph3s': 'T+1 to T+14',
+    'd-caption': 'Caption', 'd-why': 'Why this tile', 'd-format': 'Format',
+    'd-when': 'Timing', 'd-owner': 'Owner', 'd-kpi': 'Metric',
+    'd-empty-l': 'Deliberately empty',
+    'phone-note': 'Dashed: safe area. Everything important sits inside it so the app controls do not cut anything off.',
+    'th-when': 'When', 'th-ch': 'Channel', 'th-what': 'Tile', 'th-owner': 'Owner', 'th-kpi': 'Metric',
+    'th-metric': 'Metric', 'th-goal': 'Target', 'th-how': 'How measured', 'th-why': 'Why this number',
+    'k1': 'Return rate', 'k1g': '40% from the 3rd run', 'k1h': 'Sign-up lists compared by hand', 'k1w': 'The only number that shows whether the evening was any good.',
+    'k2': 'Participants', 'k2g': '180 &rarr; 600 in 6 months', 'k2h': 'Head count at the start, noted hourly', 'k2w': 'Growth, not size: 180 at the first edition is fine.',
+    'k3': 'Share in the slow group', 'k3g': 'at least 30%', 'k3h': 'Group count by the pace leads', 'k3w': 'If only fast people show up, we invited the wrong ones.',
+    'k4': 'Posts by participants', 'k4g': '60 tagged posts per run', 'k4h': 'Tags and shared stories, counted manually', 'k4w': 'Shows whether the evening was worth telling without us asking.',
+    'k5': 'Cost per participant', 'k5g': 'below CHF 38', 'k5h': 'Total cost divided by starters', 'k5w': 'The number I defend the format with internally.',
+    'k6': 'Reach', 'k6g': 'reported, not steered', 'k6h': 'Channel statistics', 'k6w': 'Deliberately at the bottom. It describes, it proves nothing.'
+  }
+};
+
+/* ---------- Kan&auml;le ---------- */
+var CHANNELS = [
+  { id: 'ig',   de: 'Instagram Feed',   en: 'Instagram feed',   sde: 'Reichweite &amp; Einladung', sen: 'reach &amp; invitation' },
+  { id: 'st',   de: 'Instagram Story',  en: 'Instagram story',  sde: 'N&auml;he &amp; Tempo',            sen: 'closeness &amp; pace' },
+  { id: 'tt',   de: 'TikTok / Reels',   en: 'TikTok / reels',   sde: 'neue Leute',                 sen: 'new people' },
+  { id: 'ml',   de: 'App &amp; Newsletter', en: 'App &amp; newsletter', sde: 'Verbindlichkeit',        sen: 'commitment' },
+  { id: 'os',   de: 'Vor Ort',          en: 'On site',          sde: 'Print &amp; Beschriftung',       sen: 'print &amp; signage' }
+];
+var PHASES = [{ id: 'pre', k: 'ph1', s: 'ph1s' }, { id: 'day', k: 'ph2', s: 'ph2s' }, { id: 'post', k: 'ph3', s: 'ph3s' }];
+
+/* ---------- Kacheln ---------- */
+var TILES = {
+  'ig-pre': {
+    ch: 'ig', ph: 'pre', order: -28,
+    de: { ttl: 'Die Einladung', fmt: 'Carousel 4:5, 4 Bilder', when: 'T&minus;28, Dienstag 19:00', owner: 'Brand & Event Manager', kpi: 'Anmeldungen aus dem Beitrag',
+      why: 'Der erste Beitrag muss nicht sch&ouml;n sein, er muss eindeutig sein: Ort, Zeit, Tempo, wer gemeint ist. Alles andere kommt sp&auml;ter.',
+      brand: 'Um 21:30 ist die Stadt fertig mit dem Tag.\nWir fangen dann erst an.\n\nNachtschicht: 5 oder 10 Kilometer, drei Tempogruppen, eine davon ausdr&uuml;cklich langsam. Danach etwas Warmes, weil um die Zeit alles zu ist.',
+      crew: 'Ich arbeite bis 21:00. Bis vor Kurzem hiess das: allein laufen oder gar nicht.\n\nJetzt treffen wir uns um 21:30. Ihr m&uuml;sst nichts k&ouml;nnen. Ihr m&uuml;sst nur kommen.',
+      cta: 'Anmeldung in der Bio &middot; 200 Pl&auml;tze' },
+    en: { ttl: 'The invitation', fmt: 'Carousel 4:5, 4 images', when: 'T&minus;28, Tuesday 19:00', owner: 'Brand & event manager', kpi: 'Sign-ups from the post',
+      why: 'The first post does not have to be beautiful, it has to be unambiguous: place, time, pace, who is meant. Everything else comes later.',
+      brand: 'At 21:30 the city is done with the day.\nThat is when we start.\n\nNight Shift: 5 or 10 kilometres, three pace groups, one of them explicitly slow. Something warm afterwards, because everything is closed at that hour.',
+      crew: 'I work until 21:00. Until recently that meant: run alone or not at all.\n\nNow we meet at 21:30. You do not have to be good at anything. You just have to show up.',
+      cta: 'Sign-up in the bio &middot; 200 places' }
+  },
+  'ig-day': { ch: 'ig', ph: 'day', empty: true,
+    de: { ttl: 'Bewusst leer', why: 'Am Abend selbst geh&ouml;rt der Feed niemandem. Wer l&auml;uft, postet nicht &ndash; und wer nicht l&auml;uft, braucht um 22 Uhr keinen Beitrag. Die Story ist an diesem Abend der einzige Kanal.' },
+    en: { ttl: 'Deliberately empty', why: 'On the night itself the feed belongs to nobody. People who run do not post &ndash; and people who do not run need no post at 22:00. The story is the only channel that evening.' } },
+  'ig-post': {
+    ch: 'ig', ph: 'post', order: 2,
+    de: { ttl: 'Der R&uuml;ckblick', fmt: 'Carousel 4:5, 6 Bilder, ein Video', when: 'T+2, Donnerstag 18:00', owner: 'Content Creator', kpi: 'Gespeicherte Beitr&auml;ge',
+      why: 'Der R&uuml;ckblick ist die Einladung f&uuml;r das n&auml;chste Mal. Deshalb steht das Datum darin und nicht nur ein Dankesch&ouml;n.',
+      brand: '212 Menschen. 21:30 Uhr. Kein einziger Ranglisten-Eintrag.\n\nDanke an alle, die mitgelaufen sind, und besonders an die langsame Gruppe: Ihr wart die gr&ouml;sste.',
+      crew: 'Ich war das erste Mal dabei und habe die letzten zwei Kilometer geflucht. W&uuml;rde ich wieder machen.\n\nN&auml;chstes Mal bringe ich meine Schwester mit.',
+      cta: 'N&auml;chste Nachtschicht: 14. des Monats, gleiche Zeit' },
+    en: { ttl: 'The recap', fmt: 'Carousel 4:5, 6 images, one video', when: 'T+2, Thursday 18:00', owner: 'Content creator', kpi: 'Saves',
+      why: 'The recap is the invitation for the next edition. That is why the date is in it and not just a thank you.',
+      brand: '212 people. 21:30. Not a single ranking entry.\n\nThank you to everyone who ran, and especially to the slow group: you were the biggest one.',
+      crew: 'It was my first time and I swore through the last two kilometres. Would do it again.\n\nNext time I am bringing my sister.',
+      cta: 'Next Night Shift: the 14th, same time' }
+  },
+  'st-pre': {
+    ch: 'st', ph: 'pre', order: -3,
+    de: { ttl: 'Countdown &amp; Frage', fmt: 'Story 9:16, 3 Karten mit Sticker', when: 'T&minus;3 bis T&minus;1, t&auml;glich 20:00', owner: 'Social Lead', kpi: 'Antworten auf den Sticker',
+      why: 'Die Frage ist keine Interaktions&uuml;bung. Aus den Antworten kommt der Text auf den Tempo-Schildern am Start &ndash; das schliesst den Kreis von der Story zum Anlass.',
+      brand: 'Noch drei N&auml;chte.\n\nFrage an euch: Was ist euer Grund, um 21:30 nochmal rauszugehen? Die besten Antworten stehen am Freitag auf den Schildern am Start.',
+      crew: 'Mein Grund: eine Stunde, in der niemand etwas von mir will.\n\nUnd euer Grund? Schreibt ihn rein, wir h&auml;ngen ihn am Start auf.',
+      cta: 'Antworten direkt in die Story' },
+    en: { ttl: 'Countdown &amp; question', fmt: 'Story 9:16, 3 cards with sticker', when: 'T&minus;3 to T&minus;1, daily 20:00', owner: 'Social lead', kpi: 'Sticker replies',
+      why: 'The question is not an engagement exercise. The answers become the copy on the pace signs at the start &ndash; which closes the loop from story to event.',
+      brand: 'Three nights to go.\n\nA question: what is your reason for heading out again at 21:30? The best answers go on the signs at the start on Friday.',
+      crew: 'My reason: one hour in which nobody wants anything from me.\n\nAnd yours? Write it in, we will put it up at the start.',
+      cta: 'Reply straight into the story' }
+  },
+  'st-day': {
+    ch: 'st', ph: 'day', order: 0,
+    de: { ttl: '&Uuml;bergabe an die Pace-Leads', fmt: 'Story 9:16, live, 8 bis 12 Karten', when: 'T, 20:45 bis 23:15', owner: 'Pace-Lead des Abends', kpi: 'Abschlussrate der Story',
+      why: 'Das Konto geh&ouml;rt an diesem Abend jemandem, der wirklich l&auml;uft. Das erkennt man in drei Sekunden &ndash; und man erkennt genauso schnell, wenn es nicht so ist.',
+      brand: '20:45 &ndash; Licht steht, Suppe kocht, noch niemand da. Das ist immer der unangenehmste Moment.\n\n21:28 &ndash; doch alle da.',
+      crew: 'Ich bin Lena, ich f&uuml;hre heute die langsame Gruppe. Ich arbeite im Sp&auml;tdienst und laufe seit zwei Jahren.\n\nWer sich unsicher ist: kommt zu mir. Wir reden mehr, als wir schnaufen.',
+      cta: 'Live ab 20:45' },
+    en: { ttl: 'Handover to the pace leads', fmt: 'Story 9:16, live, 8 to 12 cards', when: 'T, 20:45 to 23:15', owner: 'Pace lead of the night', kpi: 'Story completion rate',
+      why: 'That evening the account belongs to someone who actually runs. You can tell within three seconds &ndash; and you can tell just as fast when it is not the case.',
+      brand: '20:45 &ndash; lights up, soup on, nobody here yet. Always the most uncomfortable moment.\n\n21:28 &ndash; everybody here after all.',
+      crew: 'I am Lena, I am leading the slow group tonight. I work late shifts and have been running for two years.\n\nIf you are unsure: come to me. We talk more than we breathe.',
+      cta: 'Live from 20:45' }
+  },
+  'st-post': {
+    ch: 'st', ph: 'post', order: 1,
+    de: { ttl: 'Highlight &amp; n&auml;chster Termin', fmt: 'Story 9:16 plus Highlight-Ordner', when: 'T+1, 12:00', owner: 'Social Lead', kpi: 'Klicks auf die Anmeldung',
+      why: 'Am Tag danach ist die Bereitschaft am gr&ouml;ssten, sich f&uuml;r das n&auml;chste Mal einzutragen. Wer diesen Tag verpasst, f&auml;ngt in vier Wochen wieder bei null an.',
+      brand: 'Gestern: 212 Startende, 68 in der langsamen Gruppe, 0 Verletzungen, 41 Liter Suppe.\n\nDie Bilder liegen im Highlight. Der n&auml;chste Termin ist offen.',
+      crew: 'Beine schwer, Kopf leer, alles richtig gemacht.\n\nWer gestern gesagt hat &laquo;n&auml;chstes Mal sicher&raquo;: Die Anmeldung ist oben.',
+      cta: 'Zur Anmeldung &middot; 200 Pl&auml;tze' },
+    en: { ttl: 'Highlight &amp; next date', fmt: 'Story 9:16 plus highlight folder', when: 'T+1, 12:00', owner: 'Social lead', kpi: 'Clicks to sign-up',
+      why: 'The day after is when willingness to sign up for the next edition is highest. Miss that day and you start from zero again in four weeks.',
+      brand: 'Yesterday: 212 starters, 68 in the slow group, 0 injuries, 41 litres of soup.\n\nThe pictures are in the highlight. The next date is open.',
+      crew: 'Legs heavy, head empty, everything done right.\n\nEveryone who said &ldquo;next time for sure&rdquo; yesterday: sign-up is up top.',
+      cta: 'To the sign-up &middot; 200 places' }
+  },
+  'tt-pre': {
+    ch: 'tt', ph: 'pre', order: -14,
+    de: { ttl: 'Der Tempo-Test', fmt: 'Vertikal 9:16, 28 Sekunden', when: 'T&minus;14, Sonntag 17:00', owner: 'Content Creator', kpi: 'Anteil, der bis zum Ende schaut',
+      why: 'Der einzige Beitrag, der neue Leute holen soll. Deshalb ohne Marke in den ersten drei Sekunden und mit einer Frage, die man beantworten kann, ohne zu laufen.',
+      brand: 'Drei Tempi, drei S&auml;tze:\n\n&laquo;Ich rede beim Laufen.&raquo;\n&laquo;Ich rede kurz beim Laufen.&raquo;\n&laquo;Ich rede nicht beim Laufen.&raquo;\n\nSag uns deins &ndash; wir stellen dich in die richtige Gruppe.',
+      crew: 'Ich dachte immer, ich sei zu langsam f&uuml;r eine Laufgruppe.\n\nDann habe ich gemerkt: Die Gruppe, in der alle reden k&ouml;nnen, ist die gr&ouml;sste von allen.',
+      cta: 'Kommentar mit deinem Tempo' },
+    en: { ttl: 'The pace test', fmt: 'Vertical 9:16, 28 seconds', when: 'T&minus;14, Sunday 17:00', owner: 'Content creator', kpi: 'Share watching to the end',
+      why: 'The only post meant to bring in new people. So: no brand in the first three seconds, and a question you can answer without running.',
+      brand: 'Three paces, three sentences:\n\n&ldquo;I talk while running.&rdquo;\n&ldquo;I talk briefly while running.&rdquo;\n&ldquo;I do not talk while running.&rdquo;\n\nTell us yours &ndash; we will put you in the right group.',
+      crew: 'I always thought I was too slow for a run club.\n\nThen I realised: the group where everyone can still talk is the biggest one of all.',
+      cta: 'Comment with your pace' }
+  },
+  'tt-day': { ch: 'tt', ph: 'day', empty: true,
+    de: { ttl: 'Bewusst leer', why: 'Um 23 Uhr schneidet niemand ein gutes Video, und ein schlechtes schadet mehr als es n&uuml;tzt. Das Material vom Abend wird gesichert und am dritten Tag verarbeitet &ndash; bewusst nicht live.' },
+    en: { ttl: 'Deliberately empty', why: 'Nobody cuts a good video at 23:00, and a bad one does more harm than good. The footage is secured and edited on day three &ndash; deliberately not live.' } },
+  'tt-post': {
+    ch: 'tt', ph: 'post', order: 3,
+    de: { ttl: 'Nachtschicht in 40 Sekunden', fmt: 'Vertikal 9:16, 40 Sekunden, Originalton', when: 'T+3, Freitag 17:30', owner: 'Content Creator', kpi: 'Geteilte Beitr&auml;ge',
+      why: 'Geteilt wird, was man jemandem schicken kann mit dem Satz &laquo;das machen wir&raquo;. Deshalb Originalton statt Musik und Gesichter statt Schuhe.',
+      brand: 'Kein Startschuss. Kein Zielband. Keine Zeit.\n\n212 Menschen, die um halb zehn abends losgelaufen sind, weil sie tags&uuml;ber nicht konnten.',
+      crew: 'Schickt das der Person, mit der ihr immer sagt, ihr solltet mal wieder laufen gehen.\n\nDas ist die Einladung. N&auml;chster Termin am 14.',
+      cta: 'Termin im Profil' },
+    en: { ttl: 'Night Shift in 40 seconds', fmt: 'Vertical 9:16, 40 seconds, original sound', when: 'T+3, Friday 17:30', owner: 'Content creator', kpi: 'Shares',
+      why: 'What gets shared is what you can send to someone with the words &ldquo;we are doing this&rdquo;. So: original sound instead of music, faces instead of shoes.',
+      brand: 'No starting gun. No finish tape. No time.\n\n212 people who set off at half past nine at night because they could not during the day.',
+      crew: 'Send this to the person you keep telling you should go running with again.\n\nThat is the invitation. Next date on the 14th.',
+      cta: 'Date in the profile' }
+  },
+  'ml-pre': {
+    ch: 'ml', ph: 'pre', order: -7,
+    de: { ttl: 'Anmeldung &amp; Streckenprofil', fmt: 'E-Mail, eine Bildschirml&auml;nge', when: 'T&minus;7, Montag 08:00', owner: 'Brand & Event Manager', kpi: 'Anteil best&auml;tigter Anmeldungen',
+      why: 'Die einzige Kachel, die keine Stimmung machen muss. Sie beantwortet die f&uuml;nf Fragen, wegen denen Leute sonst nicht kommen: wo genau, wie weit, wie schnell, wohin mit der Tasche, was danach.',
+      brand: 'Freitag, 21:30 Uhr, Parkhaus Sihlquai, oberstes Deck.\n\n5 km flach, 10 km mit einem Anstieg nach 6 km. Taschen bleiben bewacht beim Start. Danach Suppe und Brot bis 23:30. Bei Regen l&auml;uft es trotzdem.',
+      crew: 'Von der letzten Nachtschicht gelernt und ge&auml;ndert: mehr Licht auf den letzten 800 Metern, eine zweite langsame Gruppe, Suppe schon ab 22:15 statt erst 22:45.',
+      cta: 'Platz best&auml;tigen &middot; dauert 20 Sekunden' },
+    en: { ttl: 'Sign-up &amp; route profile', fmt: 'Email, one screen length', when: 'T&minus;7, Monday 08:00', owner: 'Brand & event manager', kpi: 'Share of confirmed sign-ups',
+      why: 'The only tile that does not have to create a mood. It answers the five questions that otherwise keep people away: where exactly, how far, how fast, where do I leave my bag, what happens afterwards.',
+      brand: 'Friday, 21:30, Sihlquai car park, top deck.\n\n5 km flat, 10 km with one climb after 6 km. Bags stay supervised at the start. Soup and bread until 23:30. If it rains, we still run.',
+      crew: 'Learned from the last Night Shift and changed: more light on the final 800 metres, a second slow group, soup from 22:15 instead of 22:45.',
+      cta: 'Confirm your place &middot; takes 20 seconds' }
+  },
+  'ml-day': {
+    ch: 'ml', ph: 'day', order: 0,
+    de: { ttl: 'Push am Abend', fmt: 'Push-Nachricht, 140 Zeichen', when: 'T, 18:00', owner: 'Brand & Event Manager', kpi: 'Erscheinungsquote gegen&uuml;ber Anmeldung',
+      why: 'Zwischen Anmeldung und Erscheinen liegen bei Abendanl&auml;ssen erfahrungsgem&auml;ss zwanzig bis dreissig Prozent. Eine kurze Nachricht mit Wetter und Treffpunkt holt einen Teil davon zur&uuml;ck.',
+      brand: '11 Grad, trocken. Treffpunkt oberstes Deck, ab 21:00 Uhr Licht. Taschen bewacht, Suppe ab 22:15. Bis sp&auml;ter.',
+      crew: 'Lena f&uuml;hrt heute die langsame Gruppe. Wenn du dir unsicher bist: geh zu ihr. Bis um halb zehn.',
+      cta: 'Route in der App' },
+    en: { ttl: 'Evening push', fmt: 'Push message, 140 characters', when: 'T, 18:00', owner: 'Brand & event manager', kpi: 'Show-up rate against sign-ups',
+      why: 'At evening events the gap between sign-up and turning up is typically twenty to thirty per cent. A short message with weather and meeting point wins part of it back.',
+      brand: '11 degrees, dry. Meeting point top deck, lights from 21:00. Bags supervised, soup from 22:15. See you later.',
+      crew: 'Lena is leading the slow group tonight. If you are unsure: go to her. See you at half nine.',
+      cta: 'Route in the app' }
+  },
+  'ml-post': {
+    ch: 'ml', ph: 'post', order: 5,
+    de: { ttl: 'Bilder, Zahlen, n&auml;chstes Datum', fmt: 'E-Mail mit Downloadordner', when: 'T+5, Mittwoch 08:00', owner: 'Content Creator', kpi: 'Anmeldungen f&uuml;r den n&auml;chsten Lauf',
+      why: 'Wer die Bilder holt, kommt wieder. Deshalb steht der n&auml;chste Termin nicht am Schluss, sondern direkt neben dem Ordner.',
+      brand: 'Die Bilder vom Freitag sind da &ndash; ohne Wasserzeichen, ohne Anmeldung, einfach herunterladen.\n\n212 Startende, 68 in der langsamen Gruppe, 41 Liter Suppe, 0 Verletzungen.',
+      crew: 'Sucht euch euer Bild und schickt es der Person, die letztes Mal abgesagt hat.\n\nN&auml;chster Termin: 14., 21:30 Uhr, gleiches Deck.',
+      cta: 'Bilder holen &middot; n&auml;chsten Platz sichern' },
+    en: { ttl: 'Pictures, numbers, next date', fmt: 'Email with download folder', when: 'T+5, Wednesday 08:00', owner: 'Content creator', kpi: 'Sign-ups for the next run',
+      why: 'People who fetch the pictures come back. So the next date does not sit at the bottom but right next to the folder.',
+      brand: 'Friday&rsquo;s pictures are up &ndash; no watermark, no sign-in, just download.\n\n212 starters, 68 in the slow group, 41 litres of soup, 0 injuries.',
+      crew: 'Find your picture and send it to the person who cancelled last time.\n\nNext date: the 14th, 21:30, same deck.',
+      cta: 'Get the pictures &middot; claim your next place' }
+  },
+  'os-pre': {
+    ch: 'os', ph: 'pre', order: -21,
+    de: { ttl: 'Aushang mit Abrisscode', fmt: 'A3 hoch, Risografie, 60 St&uuml;ck', when: 'T&minus;21, Aush&auml;ngen von Hand', owner: 'Brand & Event Manager', kpi: 'Anmeldungen &uuml;ber den Aushangcode',
+      why: 'Der Aushang h&auml;ngt dort, wo die Zielgruppe arbeitet: Personalr&auml;ume in Gastronomie, Spital, Detailhandel. Ein eigener Code zeigt, ob dieser Weg funktioniert &ndash; das ist die einzige Art, Print ehrlich zu messen.',
+      brand: 'ARBEITEST DU, WENN ANDERE TRAINIEREN?\n\n21:30 Uhr. Freitag. Parkhaus Sihlquai.\n5 oder 10 Kilometer. Eine langsame Gruppe. Suppe danach.',
+      crew: 'F&uuml;r alle im Sp&auml;tdienst: Wir laufen, wenn ihr Feierabend habt.\n\n21:30 Uhr, Parkhaus Sihlquai, oberstes Deck. Bringt niemanden mit, der schnell ist.',
+      cta: 'Code NACHT &middot; Abrissstreifen unten' },
+    en: { ttl: 'Poster with tear-off code', fmt: 'A3 portrait, risograph, 60 copies', when: 'T&minus;21, posted by hand', owner: 'Brand & event manager', kpi: 'Sign-ups via the poster code',
+      why: 'The poster hangs where the audience works: staff rooms in hospitality, hospitals, retail. A dedicated code shows whether that route works &ndash; the only honest way to measure print.',
+      brand: 'DO YOU WORK WHILE OTHERS TRAIN?\n\n21:30. Friday. Sihlquai car park.\n5 or 10 kilometres. One slow group. Soup afterwards.',
+      crew: 'For everyone on late shift: we run when you clock off.\n\n21:30, Sihlquai car park, top deck. Do not bring anyone fast.',
+      cta: 'Code NACHT &middot; tear-off strip below' }
+  },
+  'os-day': {
+    ch: 'os', ph: 'day', order: 0,
+    de: { ttl: 'Tempo-Schilder am Start', fmt: 'Schilder A1, drei St&uuml;ck', when: 'T, ab 20:45 gestellt', owner: 'Crew vor Ort', kpi: 'Anteil in der langsamen Gruppe',
+      why: 'Die wichtigste Gestaltung des Abends ist ein Schild. Wer nicht wei&szlig;, wo er hingeh&ouml;rt, stellt sich zu den Schnellen und kommt nie wieder. Der Text stammt aus den Story-Antworten von T&minus;3.',
+      brand: 'GRUPPE 1 &middot; Wir reden die ganze Zeit\nGRUPPE 2 &middot; Wir reden zwischendurch\nGRUPPE 3 &middot; Wir reden nachher',
+      crew: 'GRUPPE 1 &middot; &laquo;Ich will einfach raus&raquo;\nGRUPPE 2 &middot; &laquo;Ich will es schaffen&raquo;\nGRUPPE 3 &middot; &laquo;Ich will es schnell schaffen&raquo;',
+      cta: 'Aufstellung 21:20, Start 21:30' },
+    en: { ttl: 'Pace signs at the start', fmt: 'Signs A1, three of them', when: 'T, set up from 20:45', owner: 'On-site crew', kpi: 'Share in the slow group',
+      why: 'The most important piece of design that evening is a sign. Anyone who does not know where they belong joins the fast group and never comes back. The copy comes from the story replies on T&minus;3.',
+      brand: 'GROUP 1 &middot; We talk the whole way\nGROUP 2 &middot; We talk now and then\nGROUP 3 &middot; We talk afterwards',
+      crew: 'GROUP 1 &middot; &ldquo;I just want to get out&rdquo;\nGROUP 2 &middot; &ldquo;I want to finish&rdquo;\nGROUP 3 &middot; &ldquo;I want to finish fast&rdquo;',
+      cta: 'Line-up 21:20, start 21:30' }
+  },
+  'os-post': { ch: 'os', ph: 'post', empty: true,
+    de: { ttl: 'Bewusst leer', why: 'Nach dem Lauf braucht es vor Ort nichts mehr. Jede weitere Beschriftung w&auml;re Abfall, den jemand wegr&auml;umen muss. Der Ort kommt beim n&auml;chsten Termin wieder dran &ndash; das ist die bessere Verwendung des Budgets.' },
+    en: { ttl: 'Deliberately empty', why: 'After the run nothing more is needed on site. Any further signage would be waste that someone has to clear away. The location gets its turn again at the next edition &ndash; a better use of the budget.' } }
+};
+
+/* ---------- Rendering ---------- */
+function renderMatrix() {
+  var h = '<div class="mx-h">' + tr('mx-ch-l') + '</div>';
+  PHASES.forEach(function (p) {
+    h += '<div class="mx-h phase"><b>' + tr(p.k) + '</b>' + tr(p.s) + '</div>';
+  });
+  CHANNELS.forEach(function (c) {
+    h += '<div class="mx-ch">' + L(c) + '<small>' + (LANG === 'de' ? c.sde : c.sen) + '</small></div>';
+    PHASES.forEach(function (p) {
+      var id = c.id + '-' + p.id, t = TILES[id];
+      if (!t) { h += '<div class="cell empty"></div>'; return; }
+      var d = L(t);
+      if (t.empty) {
+        h += '<div class="cell empty"><div class="ttl">' + d.ttl + '</div></div>';
+      } else {
+        h += '<button class="cell' + (PICK === id ? ' on' : '') + '" data-id="' + id + '">' +
+             '<span class="when">' + d.when.split(',')[0] + '</span>' +
+             '<div class="ttl">' + d.ttl + '</div>' +
+             '<div class="fmt">' + d.fmt + '</div></button>';
+      }
+    });
+  });
+  $('matrix').innerHTML = h;
+  Array.prototype.forEach.call($('matrix').querySelectorAll('button.cell'), function (b) {
+    b.addEventListener('click', function () { PICK = b.getAttribute('data-id'); renderMatrix(); renderDetail(); });
+  });
+}
+
+function renderDetail() {
+  var t = TILES[PICK], d = L(t), c = CHANNELS.filter(function (x) { return x.id === t.ch; })[0];
+  var body = d[VOICE];
+  var head = body.split('\n')[0];
+  var rest = body.split('\n').slice(1).join('\n').trim();
+
+  $('detail').innerHTML =
+    '<div>' +
+      '<div class="phone">' +
+        '<div class="screen"><div class="safe"></div><div class="ov">' +
+          '<div class="tag">' + (VOICE === 'brand' ? tr('voice-brand') : tr('voice-crew')) + '</div>' +
+          '<div class="hd">' + head + '</div>' +
+          '<div class="sub">' + (rest ? rest.replace(/\n/g, '<br>') : d.cta) + '</div>' +
+        '</div></div>' +
+        '<div class="bar2"><span>' + L(c) + '</span><span>' + d.fmt.split(',')[0] + '</span></div>' +
+      '</div>' +
+      '<p class="phone-note">' + tr('phone-note') + '</p>' +
+    '</div>' +
+    '<div class="dt">' +
+      '<div class="dt-meta">' + L(c) + ' &middot; ' + d.when + '</div>' +
+      '<h3>' + d.ttl + '</h3>' +
+      '<div class="caption"><b>' + tr('d-caption') + '</b><p>' + body + '</p>' +
+        '<span class="cta">' + d.cta + '</span></div>' +
+      '<div class="why"><strong>' + tr('d-why') + ':</strong> ' + d.why + '</div>' +
+      '<div class="specs">' +
+        '<div><span>' + tr('d-format') + '</span><b>' + d.fmt + '</b></div>' +
+        '<div><span>' + tr('d-when') + '</span><b>' + d.when + '</b></div>' +
+        '<div><span>' + tr('d-owner') + '</span><b>' + d.owner + '</b></div>' +
+        '<div><span>' + tr('d-kpi') + '</span><b>' + d.kpi + '</b></div>' +
+      '</div>' +
+    '</div>';
+}
+
+function renderSchedule() {
+  var list = [];
+  for (var k in TILES) {
+    if (!TILES[k].empty) list.push(TILES[k]);
+  }
+  list.sort(function (a, b) { return a.order - b.order; });
+  var h = '<thead><tr><th>' + tr('th-when') + '</th><th>' + tr('th-ch') + '</th><th>' + tr('th-what') +
+          '</th><th>' + tr('th-owner') + '</th><th>' + tr('th-kpi') + '</th></tr></thead><tbody>';
+  list.forEach(function (t) {
+    var d = L(t), c = CHANNELS.filter(function (x) { return x.id === t.ch; })[0];
+    var day = t.order === 0 ? 'T' : (t.order > 0 ? 'T+' + t.order : 'T' + t.order);
+    h += '<tr><td><span class="tag-out' + (t.order === 0 ? ' hot' : '') + '">' + day + '</span></td>' +
+         '<td>' + L(c) + '</td><td>' + d.ttl + '</td><td>' + d.owner + '</td><td>' + d.kpi + '</td></tr>';
+  });
+  $('schedule').innerHTML = h + '</tbody>';
+}
+
+function renderKpis() {
+  var rows = [['k1', 'k1g', 'k1h', 'k1w'], ['k2', 'k2g', 'k2h', 'k2w'], ['k3', 'k3g', 'k3h', 'k3w'],
+              ['k4', 'k4g', 'k4h', 'k4w'], ['k5', 'k5g', 'k5h', 'k5w'], ['k6', 'k6g', 'k6h', 'k6w']];
+  var h = '<thead><tr><th>' + tr('th-metric') + '</th><th>' + tr('th-goal') + '</th><th>' + tr('th-how') +
+          '</th><th>' + tr('th-why') + '</th></tr></thead><tbody>';
+  rows.forEach(function (r) {
+    h += '<tr><td><strong>' + tr(r[0]) + '</strong></td><td>' + tr(r[1]) + '</td><td>' + tr(r[2]) + '</td><td>' + tr(r[3]) + '</td></tr>';
+  });
+  $('kpis').innerHTML = h + '</tbody>';
+}
+
+/* ---------- Sprache ---------- */
+function applyT() {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-t]'), function (el) {
+    var k = el.getAttribute('data-t');
+    if (T[LANG][k] !== undefined) el.innerHTML = T[LANG][k];
+  });
+  document.documentElement.lang = LANG;
+}
+function setLang(l) {
+  LANG = l;
+  $('btn-de').className = l === 'de' ? 'on' : '';
+  $('btn-en').className = l === 'en' ? 'on' : '';
+  applyT(); renderAll();
+}
+function renderAll() { renderMatrix(); renderDetail(); renderSchedule(); renderKpis(); }
+
+Array.prototype.forEach.call($('segs').querySelectorAll('button'), function (b) {
+  b.addEventListener('click', function () {
+    VOICE = b.getAttribute('data-v');
+    Array.prototype.forEach.call($('segs').querySelectorAll('button'), function (x) { x.className = ''; });
+    b.className = 'on';
+    renderDetail();
+  });
+});
+
+applyT(); renderAll();
+</script>
+</body>
+</html>

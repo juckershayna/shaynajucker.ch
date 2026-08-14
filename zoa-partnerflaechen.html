@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Die Zeile &middot; Partnerfl&auml;chen-Planer &middot; Arbeitsprobe</title>
+<link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<style>
+  :root {
+    --ink: #14181a;
+    --ink-2: #39423f;
+    --soft: #6d7873;
+    --line: #d8ddda;
+    --line-2: #eaeeec;
+    --paper: #f6f7f5;
+    --paper-2: #ffffff;
+    --accent: #3f7a52;
+    --accent-dk: #2d5a3c;
+    --tint: #e6f0e8;
+    --dark: #14181a;
+    --ok: #3f7a52;
+    --warn: #b0553d;
+    --mid: #b8862f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.68; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  .col { max-width: 780px; }
+
+  .sample-bar {
+    background: var(--accent); color: #fff; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; text-align: center; padding: 9px 16px; font-weight: 700;
+  }
+  .sample-bar a { color: #fff; text-decoration: underline; }
+
+  .cover { background: var(--dark); color: #f2f4f2; padding: 34px 0 54px; }
+  .cover-top { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 54px; }
+  .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #85c295; font-weight: 700; }
+  .lang-switch { display: flex; border: 1px solid #2e3634; }
+  .lang-switch button {
+    background: none; border: none; color: #8b9490; font: inherit; font-size: 11px;
+    font-weight: 700; letter-spacing: 2px; padding: 7px 14px; cursor: pointer;
+    transition: background 200ms, color 200ms;
+  }
+  .lang-switch button.on { background: var(--accent); color: #fff; }
+  .cover h1 { font-size: clamp(40px, 8vw, 92px); line-height: .96; font-weight: 800; letter-spacing: -.03em; text-transform: uppercase; margin-bottom: 18px; }
+  .cover .claim { font-size: clamp(19px, 2.4vw, 27px); line-height: 1.35; color: #d3d8d4; max-width: 720px; font-weight: 300; }
+  .cover .kind { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #8b9490; font-weight: 700; margin-bottom: 20px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #242b28; border: 1px solid #242b28; margin-top: 46px; }
+  @media (max-width: 860px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+  .facts div { background: var(--dark); padding: 14px 16px; }
+  .facts span { display: block; font-size: 9.5px; letter-spacing: 2.4px; text-transform: uppercase; color: #7f8985; font-weight: 700; margin-bottom: 4px; }
+  .facts b { font-size: 15px; font-weight: 600; color: #f2f4f2; line-height: 1.35; }
+
+  section.doc { padding: 60px 0; border-bottom: 1px solid var(--line); }
+  section.doc:last-of-type { border-bottom: none; }
+  .sec-head { display: flex; gap: 18px; align-items: baseline; margin-bottom: 26px; }
+  .sec-no { font-size: 12px; font-weight: 800; letter-spacing: 2px; color: var(--accent); padding-top: 6px; }
+  .sec-head h2 { font-size: clamp(24px, 3.4vw, 34px); line-height: 1.14; font-weight: 800; letter-spacing: -.02em; }
+  .sec-head p { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-top: 6px; }
+  .doc p { margin-bottom: 16px; }
+  .doc p:last-child { margin-bottom: 0; }
+  .lead { font-size: 18.5px; line-height: 1.6; }
+
+  .callout { background: var(--tint); border-left: 3px solid var(--accent); padding: 22px 26px; margin: 30px 0; }
+  .callout b { display: block; font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--accent-dk); margin-bottom: 8px; }
+  .callout p { font-size: 20px; line-height: 1.45; font-weight: 600; margin: 0; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; margin-top: 30px; }
+  @media (max-width: 820px) { .split { grid-template-columns: 1fr; gap: 24px; } }
+  .split h3 { font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 12px; }
+  ul.ticks { list-style: none; }
+  ul.ticks li { position: relative; padding-left: 22px; margin-bottom: 9px; font-size: 15px; line-height: 1.55; }
+  ul.ticks li:before { content: ''; position: absolute; left: 0; top: 9px; width: 9px; height: 2px; background: var(--accent); }
+  ul.ticks.no li:before { background: var(--soft); }
+
+  /* ---------- Planer ---------- */
+  .tool { background: var(--paper-2); border: 1px solid var(--line); margin-top: 30px; }
+  .tool-head { background: var(--dark); color: #f2f4f2; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .tool-head b { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
+  .tool-head span { font-size: 12px; color: #99a29e; }
+  .tool-body { padding: 24px 22px; }
+
+  .plan { border: 1px solid var(--line); background: var(--paper-2); padding: 14px; overflow-x: auto; }
+  .plan svg { display: block; min-width: 660px; width: 100%; height: auto; }
+
+  .zones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 20px; }
+  @media (max-width: 860px) { .zones { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .zones { grid-template-columns: 1fr; } }
+  .zone {
+    display: flex; align-items: center; gap: 10px; border: 1px solid var(--line);
+    padding: 9px 11px; cursor: pointer; user-select: none; background: var(--paper-2);
+    transition: border-color 160ms, background 160ms;
+  }
+  .zone:hover { border-color: var(--accent); }
+  .zone.on { border-color: var(--accent); background: var(--tint); }
+  .zone.fixed { cursor: default; opacity: .95; border-style: dashed; }
+  .zone .sw { width: 13px; height: 13px; flex: none; border: 1px solid rgba(0,0,0,.25); }
+  .zone .nm { font-size: 13.5px; font-weight: 600; line-height: 1.25; }
+  .zone .nm small { display: block; font-weight: 400; color: var(--soft); font-size: 11px; }
+  .zone .meta { margin-left: auto; font-size: 11.5px; color: var(--soft); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .slider-row { margin-top: 22px; }
+  .slider-row label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 11.5px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 7px; }
+  .slider-row label b { color: var(--ink); letter-spacing: 0; text-transform: none; font-size: 15px; }
+  input[type=range] { width: 100%; accent-color: var(--accent); }
+
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 24px; }
+  @media (max-width: 900px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+  .kpis > div { background: var(--paper-2); padding: 15px 15px 13px; position: relative; }
+  .kpis > div > span.lb { display: block; font-size: 9.5px; letter-spacing: 2.2px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 5px; }
+  .kpis b { font-size: 25px; font-weight: 800; letter-spacing: -.02em; display: block; line-height: 1.15; }
+  .kpis em { font-style: normal; font-size: 11.5px; color: var(--soft); display: block; margin-top: 2px; }
+  .kpis .dot { position: absolute; top: 15px; right: 15px; width: 9px; height: 9px; border-radius: 50%; background: var(--soft); }
+  .dot.ok { background: var(--ok); } .dot.mid { background: var(--mid); } .dot.bad { background: var(--warn); }
+
+  .verdict { margin-top: 24px; border: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--paper); padding: 18px 22px; }
+  .verdict b { display: block; font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase; color: var(--accent-dk); margin-bottom: 7px; }
+  .verdict p { font-size: 15.5px; line-height: 1.6; margin: 0; }
+  .verdict.warn { border-left-color: var(--warn); } .verdict.warn b { color: var(--warn); }
+  .verdict.mid { border-left-color: var(--mid); } .verdict.mid b { color: #8a651f; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 14px; }
+  th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; border-bottom: 2px solid var(--ink); padding: 0 10px 8px 0; }
+  td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--line-2); vertical-align: top; }
+  td.num, th.num { text-align: right; padding-right: 18px; font-variant-numeric: tabular-nums; }
+  td.num:last-child, th.num:last-child { padding-right: 0; }
+  tr.total td { border-bottom: none; border-top: 2px solid var(--ink); font-weight: 800; padding-top: 11px; }
+  tr.off td { color: #a8b0ac; }
+  .tbl-wrap { overflow-x: auto; }
+
+  .note { font-size: 13px; color: var(--soft); line-height: 1.6; margin-top: 16px; }
+
+  .colophon { background: var(--dark); color: #ccd2ce; padding: 54px 0 62px; }
+  .colophon h2 { color: #f2f4f2; font-size: 22px; font-weight: 800; margin-bottom: 18px; letter-spacing: -.01em; }
+  .colophon p { font-size: 14.5px; line-height: 1.7; margin-bottom: 14px; max-width: 780px; }
+  .colophon b { color: #f2f4f2; }
+  .backlink { display: inline-block; margin-top: 12px; color: #85c295; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; text-decoration: none; border-bottom: 1px solid #85c295; padding-bottom: 3px; }
+
+  @media print {
+    .sample-bar, .lang-switch, input[type=range] { display: none !important; }
+    body { background: #fff; font-size: 11pt; }
+    section.doc { padding: 18px 0; page-break-inside: avoid; }
+    .cover, .colophon { background: #fff; color: #000; }
+    .cover h1, .colophon h2, .facts b, .colophon b { color: #000; }
+    .facts, .facts div { background: #fff; border-color: #999; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Material des Z&uuml;rich Open Air</span>
+  &nbsp;&middot;&nbsp; <a href="zurich-open-air.html" data-t="bar-back">zur&uuml;ck zur Bewerbung</a>
+</div>
+
+<!-- ================= Deckblatt ================= -->
+<header class="cover">
+  <div class="wrap">
+    <div class="cover-top">
+      <div class="eyebrow" data-t="eyebrow">Partnerfl&auml;chen &middot; Plan und Preis in einem Werkzeug</div>
+      <div class="lang-switch">
+        <button id="btn-de" class="on" onclick="setLang('de')">DE</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+    <div class="kind" data-t="kind">Arbeitsprobe f&uuml;r die Bewerbung als Marketing Brand &amp; Event Manager</div>
+    <h1 data-t="title">Die Zeile</h1>
+    <p class="claim" data-t="claim">Ein massst&auml;blicher Plan f&uuml;r die Partnerfl&auml;chen eines Festivals &ndash; der gleichzeitig ausrechnet, was er einbringt und ab wann er nicht mehr bewilligungsf&auml;hig ist.</p>
+    <div class="facts">
+      <div><span data-t="f1-l">Fl&auml;che</span><b data-t="f1">60 &times; 34 m, Massstab 1:250</b></div>
+      <div><span data-t="f2-l">Partner</span><b data-t="f2">8 Fl&auml;chen, 2 davon unverk&auml;uflich</b></div>
+      <div><span data-t="f3-l">Kern</span><b data-t="f3">Plan, Kapazit&auml;t und Erl&ouml;s gekoppelt</b></div>
+      <div><span data-t="f4-l">Grenze</span><b data-t="f4">Rettungsweg 3.5 m</b></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 01 -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">01</div>
+      <div><h2 data-t="s1-h">Ausgangslage</h2><p data-t="s1-sub">Der Konflikt, den jedes Festival kennt</p></div>
+    </div>
+    <div class="col">
+      <p class="lead" data-t="s1-p1">Partnerfl&auml;chen sind f&uuml;r ein Festival zwei Dinge gleichzeitig: eine wichtige Einnahmequelle und das Erste, was das Gel&auml;nde verstopft. Wer eine Fl&auml;che mehr verkauft, verdient mehr und macht den Weg schmaler. Diese beiden Zahlen liegen im Alltag in zwei verschiedenen Dokumenten &ndash; im Verkaufsblatt und im Sicherheitskonzept. Deshalb merkt man erst am Aufbautag, dass sie sich widersprechen.</p>
+      <p data-t="s1-p2">Ich habe die beiden Dokumente zusammengelegt. Unten steht ein massst&auml;blicher Plan, in dem man Fl&auml;chen zu- und abschalten und den Fl&auml;chenbedarf skalieren kann. Bei jeder &Auml;nderung rechnet er drei Dinge gleichzeitig: Erl&ouml;s, Publikumskapazit&auml;t und die schmalste Stelle im Rettungsweg.</p>
+      <div class="callout">
+        <b data-t="s1-insight-l">Kern</b>
+        <p data-t="s1-insight">Jede verkaufte Fl&auml;che ist ein Weg weniger. Wer das erst am Aufbautag sieht, hat schon unterschrieben.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">02</div>
+      <div><h2 data-t="s2-h">Die Idee</h2><p data-t="s2-sub">Warum die Fl&auml;chen eine Zeile bilden</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s2-p1"><strong>Die Zeile</strong> ordnet alle Partnerauftritte entlang eines einzigen, sechs Meter breiten Hauptwegs an &ndash; nicht als Inseln, die man uml&auml;uft, sondern als zwei Reihen, durch die man geht. Das klingt banal und ver&auml;ndert alles: Wer eine Fl&auml;che passiert, passiert alle. Die Reichweite jedes einzelnen Partners steigt, ohne dass irgendjemand mehr Quadratmeter kauft.</p>
+      <p data-t="s2-p2">Der zweite Gedanke ist eine Regel: <strong>Zwei Fl&auml;chen in der Zeile geh&ouml;ren nicht dem Verkauf.</strong> Die Wasserstelle und die Sanit&auml;tsachse stehen mitten drin, nicht am Rand. Ein Gel&auml;nde, auf dem alles Zentrale verkauft ist und alles N&ouml;tige an den Rand gedr&auml;ngt wurde, f&uuml;hlt sich nach Messe an, nicht nach Festival &ndash; und das Publikum merkt den Unterschied sofort, auch wenn es ihn nicht benennt.</p>
+    </div>
+    <div class="split col">
+      <div>
+        <h3 data-t="s2-is">Was der Plan leistet</h3>
+        <ul class="ticks">
+          <li data-t="s2-is1">Ein Dokument f&uuml;r Verkauf, Sicherheit und Aufbau statt drei</li>
+          <li data-t="s2-is2">Jede Partnerfl&auml;che mit Mass, Preis und Leistung hinterlegt</li>
+          <li data-t="s2-is3">Die schmalste Stelle wird berechnet, nicht gesch&auml;tzt</li>
+          <li data-t="s2-is4">Der Erl&ouml;s steht neben der Konsequenz, nicht auf einem anderen Blatt</li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-t="s2-isnot">Was er ausdr&uuml;cklich nicht ist</h3>
+        <ul class="ticks no">
+          <li data-t="s2-no1">Kein Sicherheitskonzept &ndash; das schreibt die zust&auml;ndige Stelle, nicht das Marketing</li>
+          <li data-t="s2-no2">Keine Bewilligung und kein Ersatz f&uuml;r die Beh&ouml;rdenabnahme</li>
+          <li data-t="s2-no3">Keine Preisliste eines realen Veranstalters</li>
+          <li data-t="s2-no4">Kein Werkzeug, das entscheidet &ndash; es zeigt nur, was der Entscheid kostet</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Planer -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">03</div>
+      <div><h2 data-t="s3-h">Der Planer</h2><p data-t="s3-sub">Fl&auml;chen schalten, Bedarf skalieren, Konsequenz ablesen</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s3-p1">Der Plan ist massst&auml;blich gezeichnet, das Raster liegt bei f&uuml;nf Metern. Die Bemassung stimmt mit den Werten in der Tabelle &uuml;berein &ndash; das ist kein Detail, sondern der Unterschied zwischen einer Zeichnung und einer Skizze. F&uuml;nf Jahre Zeichnerin EFZ Fachrichtung Architektur stecken in dieser Gewohnheit.</p>
+      <p data-t="s3-p2">Der Regler <em>Fl&auml;chenbedarf</em> ist der interessante Teil. Er bildet ab, was in der Realit&auml;t passiert, wenn ein Partner &laquo;nur ein bisschen mehr&raquo; Fl&auml;che m&ouml;chte: Der Erl&ouml;s steigt sofort, die Kapazit&auml;t sinkt langsam, und der Rettungsweg kippt irgendwann auf einen Schlag.</p>
+    </div>
+
+    <div class="tool">
+      <div class="tool-head">
+        <b data-t="tool-title">Partnerfl&auml;chen-Planer</b>
+        <span data-t="tool-note">Massst&auml;blich, Raster 5 m &middot; Betr&auml;ge in CHF pro Festival</span>
+      </div>
+      <div class="tool-body">
+
+        <div class="plan" id="plan"></div>
+
+        <div class="zones" id="zones"></div>
+
+        <div class="slider-row">
+          <label><span data-t="c-scale">Fl&auml;chenbedarf der Partner</span><b id="v-scale">100%</b></label>
+          <input type="range" id="scale" min="70" max="145" step="5" value="100">
+        </div>
+
+        <div class="kpis" id="kpis"></div>
+        <div class="verdict" id="verdict"></div>
+
+        <div class="tbl-wrap"><table id="ztable"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Regeln -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">04</div>
+      <div><h2 data-t="s4-h">Die Regeln dahinter</h2><p data-t="s4-sub">Woher die Zahlen kommen</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s4-p1">Ein Plan, dessen Grundlagen man nicht kennt, ist ein Bild. Deshalb stehen die Regeln hier. Sie sind f&uuml;r diese Arbeitsprobe gesetzt und plausibel gew&auml;hlt &ndash; im echten Projekt kommen sie aus dem Sicherheitskonzept und der Bewilligung und werden von der Verkaufsseite nicht verhandelt.</p>
+    </div>
+    <div class="tbl-wrap"><table id="rules"></table></div>
+    <div class="col">
+      <p class="note" data-t="s4-note">Die Kapazit&auml;t rechne ich mit 0.5 m&sup2; pro Person auf der freien Fl&auml;che. Das ist ein dichter, aber noch begehbarer Wert &ndash; es ist die Zahl f&uuml;r den Moment, in dem alle gleichzeitig zwischen zwei B&uuml;hnen wechseln, nicht f&uuml;r den Nachmittag.</p>
+    </div>
+  </section>
+
+  <!-- 05 Verkauf -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">05</div>
+      <div><h2 data-t="s5-h">Wie ich damit verkaufe</h2><p data-t="s5-sub">Derselbe Plan im Partnergespr&auml;ch</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s5-p1">Dieses Werkzeug ist nicht nur f&uuml;r intern. Ich w&uuml;rde es im Partnergespr&auml;ch aufmachen &ndash; und zwar genau an der Stelle, an der sonst die unangenehme Diskussion beginnt.</p>
+      <p data-t="s5-p2"><strong>Wenn ein Partner mehr Fl&auml;che will,</strong> schiebe ich den Regler und zeige, was passiert: Der Preis steigt, und ab einem bestimmten Punkt geht es nicht mehr um Geld, sondern um eine Bewilligung. Das ist kein Nein aus dem Marketing, das ist eine Zahl. Diskussionen, die man mit einer Zahl f&uuml;hrt, dauern k&uuml;rzer und enden freundlicher.</p>
+      <p data-t="s5-p3"><strong>Wenn ein Partner die beste Lage will,</strong> zeige ich, dass in der Zeile jede Fl&auml;che passiert wird. Der Preisunterschied zwischen vorne und hinten ist deshalb klein &ndash; und diese Begr&uuml;ndung h&auml;lt, weil sie im Plan sichtbar ist und nicht in einer Behauptung steht.</p>
+      <p data-t="s5-p4"><strong>Wenn das Budget knapp ist,</strong> verkaufe ich Zeit statt Fl&auml;che: dieselbe Fl&auml;che an zwei Tagen mit zwei Partnern. Der Plan bleibt gleich, der Erl&ouml;s steigt, und das Gel&auml;nde wird nicht enger. Das ist der Vorschlag, den ich am liebsten mache.</p>
+    </div>
+  </section>
+
+  <!-- 06 Grenzen -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">06</div>
+      <div><h2 data-t="s6-h">Was ich hier nicht kann</h2><p data-t="s6-sub">Die Grenzen, bevor sie jemand anders findet</p></div>
+    </div>
+    <div class="col">
+      <ul class="ticks no" style="margin-bottom:18px;">
+        <li data-t="s6-l1">Ich bin keine Sicherheitsverantwortliche. Rettungswegbreiten, Personendichten und Fluchtwegl&auml;ngen kommen aus dem Bewilligungsverfahren &ndash; ich rechne mit ihnen, ich lege sie nicht fest.</li>
+        <li data-t="s6-l2">Der Plan zeigt eine Fl&auml;che, kein Gel&auml;nde. Anlieferung, Untergrund, Gef&auml;lle, Leitungen und Nachbarschaft ver&auml;ndern jede Anordnung.</li>
+        <li data-t="s6-l3">Die Preise sind erfunden. Was eine Partnerfl&auml;che tats&auml;chlich kostet, h&auml;ngt an Publikumszahl, Exklusivit&auml;t und Vertragsdauer, nicht an Quadratmetern allein.</li>
+        <li data-t="s6-l4">Die Kapazit&auml;tsrechnung ist eine Momentaufnahme. Sie sagt nichts &uuml;ber den Verlauf eines Abends und ersetzt keine Besucherstromanalyse.</li>
+      </ul>
+      <p data-t="s6-p1">Was ich kann: massst&auml;blich zeichnen, sauber bemassen, den Preis daneben rechnen und beides in einem Gespr&auml;ch vertreten. Und ich merke am Plan, ob etwas nicht aufgeht, bevor es auf dem Feld steht.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= Kolophon ================= -->
+<footer class="colophon">
+  <div class="wrap">
+    <h2 data-t="col-h">Zur Arbeitsprobe</h2>
+    <p data-t="col-1"><b>Was daran fiktiv ist:</b> alles Konkrete. Die Fl&auml;che, die Partner, die Preise und die Zielwerte gibt es nicht. Es ist kein offizielles Material des Z&uuml;rich Open Air, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen.</p>
+    <p data-t="col-2"><b>Was daran echt ist:</b> die Zeichnung und die Denkweise. Massstab, Bemassung und die Kopplung von Fl&auml;che, Kapazit&auml;t und Erl&ouml;s entsprechen dem, wie ich Standpl&auml;ne aufbaue &ndash; aus f&uuml;nf Jahren als Zeichnerin EFZ Fachrichtung Architektur und anderthalb Jahren Brand Experience an Schweizer Festivals.</p>
+    <p data-t="col-3">Konzept, Text, Zeichnung und Umsetzung: Shayna Jucker. Eine einzige HTML-Datei, keine externen Requests, keine Datenerfassung. Zweisprachig Deutsch und Englisch. Druckbar &uuml;ber die Druckfunktion des Browsers.</p>
+    <p><a class="backlink" href="zurich-open-air.html" data-t="col-back">&larr; Zur&uuml;ck zur Bewerbung</a></p>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   DIE ZEILE - Partnerfl&auml;chen-Planer
+   Arbeitsprobe Shayna Jucker
+   ========================================================= */
+
+var LANG = 'de';
+function $(id) { return document.getElementById(id); }
+function L(o) { return o[LANG]; }
+function tr(k) { return T[LANG][k] !== undefined ? T[LANG][k] : k; }
+var _dec = document.createElement('textarea');
+function plain(x) { _dec.innerHTML = String(x); return _dec.value; }
+function sesc(x) { return String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function pe(x) { return sesc(plain(x)); }
+
+var T = {
+  de: {
+    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Material des Z&uuml;rich Open Air',
+    'bar-back': 'zur&uuml;ck zur Bewerbung',
+    'eyebrow': 'Partnerfl&auml;chen &middot; Plan und Preis in einem Werkzeug',
+    'kind': 'Arbeitsprobe f&uuml;r die Bewerbung als Marketing Brand &amp; Event Manager',
+    'title': 'Die Zeile',
+    'claim': 'Ein massst&auml;blicher Plan f&uuml;r die Partnerfl&auml;chen eines Festivals &ndash; der gleichzeitig ausrechnet, was er einbringt und ab wann er nicht mehr bewilligungsf&auml;hig ist.',
+    'f1-l': 'Fl&auml;che', 'f1': '60 &times; 34 m, Massstab 1:250',
+    'f2-l': 'Partner', 'f2': '8 Fl&auml;chen, 2 davon unverk&auml;uflich',
+    'f3-l': 'Kern', 'f3': 'Plan, Kapazit&auml;t und Erl&ouml;s gekoppelt',
+    'f4-l': 'Grenze', 'f4': 'Rettungsweg 3.5 m',
+    's1-h': 'Ausgangslage', 's1-sub': 'Der Konflikt, den jedes Festival kennt',
+    's1-p1': 'Partnerfl&auml;chen sind f&uuml;r ein Festival zwei Dinge gleichzeitig: eine wichtige Einnahmequelle und das Erste, was das Gel&auml;nde verstopft. Wer eine Fl&auml;che mehr verkauft, verdient mehr und macht den Weg schmaler. Diese beiden Zahlen liegen im Alltag in zwei verschiedenen Dokumenten &ndash; im Verkaufsblatt und im Sicherheitskonzept. Deshalb merkt man erst am Aufbautag, dass sie sich widersprechen.',
+    's1-p2': 'Ich habe die beiden Dokumente zusammengelegt. Unten steht ein massst&auml;blicher Plan, in dem man Fl&auml;chen zu- und abschalten und den Fl&auml;chenbedarf skalieren kann. Bei jeder &Auml;nderung rechnet er drei Dinge gleichzeitig: Erl&ouml;s, Publikumskapazit&auml;t und die schmalste Stelle im Rettungsweg.',
+    's1-insight-l': 'Kern',
+    's1-insight': 'Jede verkaufte Fl&auml;che ist ein Weg weniger. Wer das erst am Aufbautag sieht, hat schon unterschrieben.',
+    's2-h': 'Die Idee', 's2-sub': 'Warum die Fl&auml;chen eine Zeile bilden',
+    's2-p1': '<strong>Die Zeile</strong> ordnet alle Partnerauftritte entlang eines einzigen, sechs Meter breiten Hauptwegs an &ndash; nicht als Inseln, die man uml&auml;uft, sondern als zwei Reihen, durch die man geht. Das klingt banal und ver&auml;ndert alles: Wer eine Fl&auml;che passiert, passiert alle. Die Reichweite jedes einzelnen Partners steigt, ohne dass irgendjemand mehr Quadratmeter kauft.',
+    's2-p2': 'Der zweite Gedanke ist eine Regel: <strong>Zwei Fl&auml;chen in der Zeile geh&ouml;ren nicht dem Verkauf.</strong> Die Wasserstelle und die Sanit&auml;tsachse stehen mitten drin, nicht am Rand. Ein Gel&auml;nde, auf dem alles Zentrale verkauft ist und alles N&ouml;tige an den Rand gedr&auml;ngt wurde, f&uuml;hlt sich nach Messe an, nicht nach Festival &ndash; und das Publikum merkt den Unterschied sofort, auch wenn es ihn nicht benennt.',
+    's2-is': 'Was der Plan leistet',
+    's2-is1': 'Ein Dokument f&uuml;r Verkauf, Sicherheit und Aufbau statt drei',
+    's2-is2': 'Jede Partnerfl&auml;che mit Mass, Preis und Leistung hinterlegt',
+    's2-is3': 'Die schmalste Stelle wird berechnet, nicht gesch&auml;tzt',
+    's2-is4': 'Der Erl&ouml;s steht neben der Konsequenz, nicht auf einem anderen Blatt',
+    's2-isnot': 'Was er ausdr&uuml;cklich nicht ist',
+    's2-no1': 'Kein Sicherheitskonzept &ndash; das schreibt die zust&auml;ndige Stelle, nicht das Marketing',
+    's2-no2': 'Keine Bewilligung und kein Ersatz f&uuml;r die Beh&ouml;rdenabnahme',
+    's2-no3': 'Keine Preisliste eines realen Veranstalters',
+    's2-no4': 'Kein Werkzeug, das entscheidet &ndash; es zeigt nur, was der Entscheid kostet',
+    's3-h': 'Der Planer', 's3-sub': 'Fl&auml;chen schalten, Bedarf skalieren, Konsequenz ablesen',
+    's3-p1': 'Der Plan ist massst&auml;blich gezeichnet, das Raster liegt bei f&uuml;nf Metern. Die Bemassung stimmt mit den Werten in der Tabelle &uuml;berein &ndash; das ist kein Detail, sondern der Unterschied zwischen einer Zeichnung und einer Skizze. F&uuml;nf Jahre Zeichnerin EFZ Fachrichtung Architektur stecken in dieser Gewohnheit.',
+    's3-p2': 'Der Regler <em>Fl&auml;chenbedarf</em> ist der interessante Teil. Er bildet ab, was in der Realit&auml;t passiert, wenn ein Partner &laquo;nur ein bisschen mehr&raquo; Fl&auml;che m&ouml;chte: Der Erl&ouml;s steigt sofort, die Kapazit&auml;t sinkt langsam, und der Rettungsweg kippt irgendwann auf einen Schlag.',
+    'tool-title': 'Partnerfl&auml;chen-Planer',
+    'tool-note': 'Massst&auml;blich, Raster 5 m &middot; Betr&auml;ge in CHF pro Festival',
+    'c-scale': 'Fl&auml;chenbedarf der Partner',
+    's4-h': 'Die Regeln dahinter', 's4-sub': 'Woher die Zahlen kommen',
+    's4-p1': 'Ein Plan, dessen Grundlagen man nicht kennt, ist ein Bild. Deshalb stehen die Regeln hier. Sie sind f&uuml;r diese Arbeitsprobe gesetzt und plausibel gew&auml;hlt &ndash; im echten Projekt kommen sie aus dem Sicherheitskonzept und der Bewilligung und werden von der Verkaufsseite nicht verhandelt.',
+    's4-note': 'Die Kapazit&auml;t rechne ich mit 0.5 m&sup2; pro Person auf der freien Fl&auml;che. Das ist ein dichter, aber noch begehbarer Wert &ndash; es ist die Zahl f&uuml;r den Moment, in dem alle gleichzeitig zwischen zwei B&uuml;hnen wechseln, nicht f&uuml;r den Nachmittag.',
+    's5-h': 'Wie ich damit verkaufe', 's5-sub': 'Derselbe Plan im Partnergespr&auml;ch',
+    's5-p1': 'Dieses Werkzeug ist nicht nur f&uuml;r intern. Ich w&uuml;rde es im Partnergespr&auml;ch aufmachen &ndash; und zwar genau an der Stelle, an der sonst die unangenehme Diskussion beginnt.',
+    's5-p2': '<strong>Wenn ein Partner mehr Fl&auml;che will,</strong> schiebe ich den Regler und zeige, was passiert: Der Preis steigt, und ab einem bestimmten Punkt geht es nicht mehr um Geld, sondern um eine Bewilligung. Das ist kein Nein aus dem Marketing, das ist eine Zahl. Diskussionen, die man mit einer Zahl f&uuml;hrt, dauern k&uuml;rzer und enden freundlicher.',
+    's5-p3': '<strong>Wenn ein Partner die beste Lage will,</strong> zeige ich, dass in der Zeile jede Fl&auml;che passiert wird. Der Preisunterschied zwischen vorne und hinten ist deshalb klein &ndash; und diese Begr&uuml;ndung h&auml;lt, weil sie im Plan sichtbar ist und nicht in einer Behauptung steht.',
+    's5-p4': '<strong>Wenn das Budget knapp ist,</strong> verkaufe ich Zeit statt Fl&auml;che: dieselbe Fl&auml;che an zwei Tagen mit zwei Partnern. Der Plan bleibt gleich, der Erl&ouml;s steigt, und das Gel&auml;nde wird nicht enger. Das ist der Vorschlag, den ich am liebsten mache.',
+    's6-h': 'Was ich hier nicht kann', 's6-sub': 'Die Grenzen, bevor sie jemand anders findet',
+    's6-l1': 'Ich bin keine Sicherheitsverantwortliche. Rettungswegbreiten, Personendichten und Fluchtwegl&auml;ngen kommen aus dem Bewilligungsverfahren &ndash; ich rechne mit ihnen, ich lege sie nicht fest.',
+    's6-l2': 'Der Plan zeigt eine Fl&auml;che, kein Gel&auml;nde. Anlieferung, Untergrund, Gef&auml;lle, Leitungen und Nachbarschaft ver&auml;ndern jede Anordnung.',
+    's6-l3': 'Die Preise sind erfunden. Was eine Partnerfl&auml;che tats&auml;chlich kostet, h&auml;ngt an Publikumszahl, Exklusivit&auml;t und Vertragsdauer, nicht an Quadratmetern allein.',
+    's6-l4': 'Die Kapazit&auml;tsrechnung ist eine Momentaufnahme. Sie sagt nichts &uuml;ber den Verlauf eines Abends und ersetzt keine Besucherstromanalyse.',
+    's6-p1': 'Was ich kann: massst&auml;blich zeichnen, sauber bemassen, den Preis daneben rechnen und beides in einem Gespr&auml;ch vertreten. Und ich merke am Plan, ob etwas nicht aufgeht, bevor es auf dem Feld steht.',
+    'col-h': 'Zur Arbeitsprobe',
+    'col-1': '<b>Was daran fiktiv ist:</b> alles Konkrete. Die Fl&auml;che, die Partner, die Preise und die Zielwerte gibt es nicht. Es ist kein offizielles Material des Z&uuml;rich Open Air, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen.',
+    'col-2': '<b>Was daran echt ist:</b> die Zeichnung und die Denkweise. Massstab, Bemassung und die Kopplung von Fl&auml;che, Kapazit&auml;t und Erl&ouml;s entsprechen dem, wie ich Standpl&auml;ne aufbaue &ndash; aus f&uuml;nf Jahren als Zeichnerin EFZ Fachrichtung Architektur und anderthalb Jahren Brand Experience an Schweizer Festivals.',
+    'col-3': 'Konzept, Text, Zeichnung und Umsetzung: Shayna Jucker. Eine einzige HTML-Datei, keine externen Requests, keine Datenerfassung. Zweisprachig Deutsch und Englisch. Druckbar &uuml;ber die Druckfunktion des Browsers.',
+    'col-back': '&larr; Zur&uuml;ck zur Bewerbung',
+    /* Planer */
+    'k-rev': 'Partnererl&ouml;s', 'k-rev-e': 'pro Festival, alle aktiven Fl&auml;chen',
+    'k-built': 'Bebaute Fl&auml;che', 'k-built-e': 'von 2040 m&sup2; Gesamtfl&auml;che',
+    'k-cap': 'Publikum gleichzeitig', 'k-cap-e': '0.5 m&sup2; pro Person auf freier Fl&auml;che',
+    'k-gap': 'Schmalste Stelle', 'k-gap-e': 'Minimum 3.5 m',
+    'th-zone': 'Fl&auml;che', 'th-size': 'Mass', 'th-area': 'm&sup2;', 'th-rate': 'CHF/m&sup2;',
+    'th-price': 'Preis', 'th-status': 'Status', 'st-on': 'verkauft', 'st-off': 'frei', 'st-fix': 'nicht verk&auml;uflich',
+    'sum': 'Total aktiv',
+    'th-rule': 'Regel', 'th-val': 'Wert', 'th-src': 'Woher sie kommt',
+    'r1': 'Hauptweg', 'r1v': '6.0 m durchgehend', 'r1s': 'Rettungsachse, wird nie bebaut oder verkauft',
+    'r2': 'Rettungsweg zwischen den Fl&auml;chen', 'r2v': 'mindestens 3.5 m', 'r2s': 'Vorgabe aus dem Bewilligungsverfahren, nicht verhandelbar',
+    'r3': 'Randabstand', 'r3v': '2.0 m rundum', 'r3s': 'Umfahrung f&uuml;r Anlieferung und Einsatzfahrzeuge',
+    'r4': 'Personendichte', 'r4v': '0.5 m&sup2; pro Person', 'r4s': 'Dichter, aber begehbarer Wert f&uuml;r den B&uuml;hnenwechsel',
+    'r5': 'Arbeitsfuge zwischen Modulen', 'r5v': '0.5 m', 'r5s': 'Erfahrungswert aus dem Standbau, sonst kommt man nicht dahinter',
+    'r6': 'Preisstaffelung', 'r6v': 'nach Fl&auml;chentyp, nicht nach Lage', 'r6s': 'Folgt aus der Anordnung: In der Zeile wird jede Fl&auml;che passiert',
+    'v-ok-l': 'Bewilligungsf&auml;hig',
+    'v-ok': 'Die schmalste Stelle misst {g} m, die Fl&auml;che tr&auml;gt {c} Personen gleichzeitig, der Erl&ouml;s liegt bei CHF {r}. In dieser Konstellation w&uuml;rde ich den Plan einreichen &ndash; und h&auml;tte beim Partnergespr&auml;ch immer noch Spielraum nach oben.',
+    'v-mid-l': 'Knapp',
+    'v-mid': 'Die schmalste Stelle misst noch {g} m. Das reicht formal, aber es reicht nicht f&uuml;r einen Regentag mit Kinderwagen und Bierbechern. Ich w&uuml;rde hier nicht weiter verkaufen, sondern die hinterste Fl&auml;che verschieben, bevor jemand anders es verlangt.',
+    'v-bad-l': 'Nicht bewilligungsf&auml;hig',
+    'v-bad': 'Die schmalste Stelle liegt bei {g} m und damit unter den geforderten 3.5 m. Der Erl&ouml;s von CHF {r} ist damit hinf&auml;llig, weil die Fl&auml;che so nicht abgenommen wird. An diesem Punkt ist die Frage nicht mehr, was ein Quadratmeter kostet, sondern welche Fl&auml;che rausf&auml;llt.',
+    'v-none-l': 'Nichts verkauft',
+    'v-none': 'Ohne aktive Partnerfl&auml;chen gibt es keinen Erl&ouml;s &ndash; aber auch keine Zeile. Ein leeres Feld ist sicher und finanziert kein Festival.',
+    'svg-path': 'Hauptweg 6.00 m', 'svg-scale': 'Massstab 1:250 &middot; Raster 5 m',
+    'svg-narrow': 'schmalste Stelle', 'svg-north': 'Anlieferung'
+  },
+  en: {
+    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official Z&uuml;rich Open Air material',
+    'bar-back': 'back to the application',
+    'eyebrow': 'Partner areas &middot; plan and price in one tool',
+    'kind': 'Work sample for the application as Marketing Brand &amp; Event Manager',
+    'title': 'The Row',
+    'claim': 'A scale plan for a festival&rsquo;s partner areas &ndash; one that simultaneously calculates what it earns and at what point it stops being approvable.',
+    'f1-l': 'Area', 'f1': '60 &times; 34 m, scale 1:250',
+    'f2-l': 'Partners', 'f2': '8 areas, 2 of them not for sale',
+    'f3-l': 'Core', 'f3': 'Plan, capacity and revenue coupled',
+    'f4-l': 'Limit', 'f4': 'Escape route 3.5 m',
+    's1-h': 'Starting point', 's1-sub': 'The conflict every festival knows',
+    's1-p1': 'For a festival, partner areas are two things at once: an important source of income and the first thing that clogs the site. Sell one more area and you earn more and narrow the path. In daily practice those two numbers live in two different documents &ndash; the sales sheet and the safety concept. Which is why you only notice on build-up day that they contradict each other.',
+    's1-p2': 'I merged the two documents. Below is a scale plan in which you can switch areas on and off and scale the space demand. With every change it calculates three things at once: revenue, audience capacity and the narrowest point in the escape route.',
+    's1-insight-l': 'Core',
+    's1-insight': 'Every area sold is one path fewer. See that only on build-up day and you have already signed.',
+    's2-h': 'The idea', 's2-sub': 'Why the areas form a row',
+    's2-p1': '<strong>The Row</strong> arranges every partner appearance along a single six-metre main path &ndash; not as islands you walk around but as two rows you walk through. It sounds trivial and it changes everything: pass one area and you pass them all. Every single partner&rsquo;s reach goes up without anybody buying more square metres.',
+    's2-p2': 'The second thought is a rule: <strong>two areas in the row do not belong to sales.</strong> The water point and the medical axis sit in the middle, not at the edge. A site where everything central is sold and everything necessary has been pushed to the edge feels like a trade fair, not a festival &ndash; and the audience notices the difference immediately, even if they cannot name it.',
+    's2-is': 'What the plan delivers',
+    's2-is1': 'One document for sales, safety and build-up instead of three',
+    's2-is2': 'Every partner area with dimensions, price and services attached',
+    's2-is3': 'The narrowest point is calculated, not estimated',
+    's2-is4': 'Revenue sits next to the consequence, not on a different sheet',
+    's2-isnot': 'What it explicitly is not',
+    's2-no1': 'Not a safety concept &ndash; that is written by the responsible office, not by marketing',
+    's2-no2': 'Not a permit and no substitute for official approval',
+    's2-no3': 'Not the price list of a real organiser',
+    's2-no4': 'Not a tool that decides &ndash; it only shows what the decision costs',
+    's3-h': 'The planner', 's3-sub': 'Switch areas, scale demand, read the consequence',
+    's3-p1': 'The plan is drawn to scale, the grid sits at five metres. The dimensions match the values in the table &ndash; not a detail but the difference between a drawing and a sketch. Five years as a qualified architectural draftswoman sit in that habit.',
+    's3-p2': 'The <em>space demand</em> slider is the interesting part. It reproduces what happens in reality when a partner wants &ldquo;just a bit more&rdquo; space: revenue rises immediately, capacity falls slowly, and at some point the escape route tips all at once.',
+    'tool-title': 'Partner area planner',
+    'tool-note': 'To scale, grid 5 m &middot; amounts in CHF per festival',
+    'c-scale': 'Space demand of the partners',
+    's4-h': 'The rules behind it', 's4-sub': 'Where the numbers come from',
+    's4-p1': 'A plan whose basis you do not know is a picture. So the rules are here. They are set and plausibly chosen for this work sample &ndash; in a real project they come from the safety concept and the permit, and the sales side does not negotiate them.',
+    's4-note': 'I calculate capacity at 0.5 m&sup2; per person on the free area. That is a dense but still walkable value &ndash; the number for the moment when everyone moves between two stages at once, not for the afternoon.',
+    's5-h': 'How I sell with it', 's5-sub': 'The same plan in the partner meeting',
+    's5-p1': 'This tool is not only for internal use. I would open it in the partner meeting &ndash; at exactly the point where the uncomfortable discussion usually starts.',
+    's5-p2': '<strong>When a partner wants more space,</strong> I move the slider and show what happens: the price goes up, and beyond a certain point it stops being about money and starts being about a permit. That is not a no from marketing, it is a number. Discussions held with a number are shorter and end more amicably.',
+    's5-p3': '<strong>When a partner wants the best position,</strong> I show that in the row every area gets passed. The price difference between front and back is therefore small &ndash; and that argument holds because it is visible in the plan instead of being a claim.',
+    's5-p4': '<strong>When the budget is tight,</strong> I sell time instead of space: the same area on two days with two partners. The plan stays the same, revenue goes up and the site does not get tighter. That is the proposal I like making most.',
+    's6-h': 'What I cannot do here', 's6-sub': 'The limits, before someone else finds them',
+    's6-l1': 'I am not a safety officer. Escape route widths, crowd densities and escape distances come out of the permit process &ndash; I calculate with them, I do not set them.',
+    's6-l2': 'The plan shows an area, not a site. Delivery access, ground, slope, cabling and neighbours change every arrangement.',
+    's6-l3': 'The prices are invented. What a partner area actually costs depends on attendance, exclusivity and contract duration, not on square metres alone.',
+    's6-l4': 'The capacity calculation is a snapshot. It says nothing about the course of an evening and does not replace a crowd flow analysis.',
+    's6-p1': 'What I can do: draw to scale, dimension cleanly, calculate the price next to it and defend both in a conversation. And I notice on the plan when something does not work out, before it is standing in a field.',
+    'col-h': 'About this work sample',
+    'col-1': '<b>What is fictional:</b> everything concrete. The area, the partners, the prices and the targets do not exist. This is not official Z&uuml;rich Open Air material, not an agreed collaboration and is based on no internal information whatsoever.',
+    'col-2': '<b>What is real:</b> the drawing and the way of thinking. Scale, dimensioning and the coupling of area, capacity and revenue match how I build stand plans &ndash; out of five years as a qualified architectural draftswoman and a year and a half of brand experience at Swiss festivals.',
+    'col-3': 'Concept, copy, drawing and build: Shayna Jucker. A single HTML file, no external requests, no data collection. Bilingual German and English. Printable via the browser print function.',
+    'col-back': '&larr; Back to the application',
+    'k-rev': 'Partner revenue', 'k-rev-e': 'per festival, all active areas',
+    'k-built': 'Built area', 'k-built-e': 'of 2040 m&sup2; total area',
+    'k-cap': 'Audience at once', 'k-cap-e': '0.5 m&sup2; per person on free area',
+    'k-gap': 'Narrowest point', 'k-gap-e': 'minimum 3.5 m',
+    'th-zone': 'Area', 'th-size': 'Dimensions', 'th-area': 'm&sup2;', 'th-rate': 'CHF/m&sup2;',
+    'th-price': 'Price', 'th-status': 'Status', 'st-on': 'sold', 'st-off': 'free', 'st-fix': 'not for sale',
+    'sum': 'Total active',
+    'th-rule': 'Rule', 'th-val': 'Value', 'th-src': 'Where it comes from',
+    'r1': 'Main path', 'r1v': '6.0 m throughout', 'r1s': 'Rescue axis, never built on or sold',
+    'r2': 'Escape route between areas', 'r2v': 'at least 3.5 m', 'r2s': 'Requirement from the permit process, not negotiable',
+    'r3': 'Edge clearance', 'r3v': '2.0 m all round', 'r3s': 'Ring road for deliveries and emergency vehicles',
+    'r4': 'Crowd density', 'r4v': '0.5 m&sup2; per person', 'r4s': 'Dense but walkable value for the stage change',
+    'r5': 'Working joint between modules', 'r5v': '0.5 m', 'r5s': 'Experience value from stand building, otherwise you cannot get behind them',
+    'r6': 'Price tiering', 'r6v': 'by area type, not by position', 'r6s': 'Follows from the layout: in the row every area gets passed',
+    'v-ok-l': 'Approvable',
+    'v-ok': 'The narrowest point measures {g} m, the area carries {c} people at once, revenue stands at CHF {r}. In this constellation I would submit the plan &ndash; and would still have room to move in the partner meeting.',
+    'v-mid-l': 'Tight',
+    'v-mid': 'The narrowest point still measures {g} m. That is formally enough, but it is not enough for a rainy day with prams and beer cups. I would stop selling here and move the rearmost area before somebody else demands it.',
+    'v-bad-l': 'Not approvable',
+    'v-bad': 'The narrowest point is {g} m and therefore below the required 3.5 m. The revenue of CHF {r} is void, because the area will not be signed off like this. At this point the question is no longer what a square metre costs but which area drops out.',
+    'v-none-l': 'Nothing sold',
+    'v-none': 'Without active partner areas there is no revenue &ndash; but also no row. An empty field is safe and finances no festival.',
+    'svg-path': 'Main path 6.00 m', 'svg-scale': 'Scale 1:250 &middot; grid 5 m',
+    'svg-narrow': 'narrowest point', 'svg-north': 'Delivery'
+  }
+};
+
+/* ---------- Geometrie in Metern ---------- */
+var SITE = { w: 60, d: 34 };
+var PATH = { y: 14, h: 6 };          /* Hauptweg, unantastbar */
+
+var ZONES = [
+  { id: 'bar',   row: 'n', y: 2,  w: 12, h: 10, rate: 210, on: 1, col: '#c8dccd',
+    de: 'Partner-Bar',       en: 'Partner bar',      dde: 'Ausschank, 12 Z&auml;hne', den: 'bar, 12 taps' },
+  { id: 'load',  row: 'n', y: 2,  w: 9,  h: 8,  rate: 165, on: 1, col: '#d5e2ef',
+    de: 'Ladepunkt',         en: 'Charging point',   dde: 'Technikpartner',        den: 'technology partner' },
+  { id: 'food',  row: 'n', y: 2,  w: 11, h: 7,  rate: 240, on: 1, col: '#efe0cd',
+    de: 'Foodpartner',       en: 'Food partner',     dde: 'zwei Wagen',            den: 'two trucks' },
+  { id: 'med',   row: 'n', y: 2,  w: 8,  h: 8,  rate: 0,   on: 1, fixed: 1, col: '#dfe4e6',
+    de: 'Sanit&auml;tsposten', en: 'Medical post',   dde: 'nicht verk&auml;uflich', den: 'not for sale' },
+  { id: 'chill', row: 's', y: 22, w: 13, h: 10, rate: 150, on: 1, col: '#cfe0d6',
+    de: 'Chill-Deck',        en: 'Chill deck',       dde: 'Sitzfl&auml;che, Marke',  den: 'seating, branded' },
+  { id: 'photo', row: 's', y: 22, w: 7,  h: 6,  rate: 260, on: 1, col: '#f0d9d3',
+    de: 'Fotopunkt',         en: 'Photo point',      dde: 'kleine Fl&auml;che, hoher Preis', den: 'small area, high price' },
+  { id: 'pav',   row: 's', y: 22, w: 13, h: 10, rate: 185, on: 1, col: '#dfe3ce',
+    de: 'Hauptpartner',      en: 'Lead partner',     dde: 'Pavillon',              den: 'pavilion' },
+  { id: 'water', row: 's', y: 22, w: 7,  h: 6,  rate: 0, on: 1, fixed: 1, col: '#dfe4e6',
+    de: 'Wasserstelle',      en: 'Water point',      dde: 'nicht verk&auml;uflich', den: 'not for sale' }
+];
+
+var RULES = { path: 6, minGap: 3.5, edge: 2, density: 0.5 };
+var state = { scale: 100 };
+
+function chf(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '’'); }
+function dec(n, d) { return n.toFixed(d === undefined ? 1 : d); }
+
+/* Breite einer Fl&auml;che beim aktuellen Bedarf. Feste Fl&auml;chen skalieren nicht mit. */
+function widthOf(z) {
+  return z.fixed ? z.w : Math.round(z.w * (state.scale / 100) * 2) / 2;
+}
+function zoneById(id) { for (var i = 0; i < ZONES.length; i++) { if (ZONES[i].id === id) return ZONES[i]; } return null; }
+
+/* Die Reihe wird neu ausgelegt: Die Fl&auml;chen liegen gleichm&auml;ssig verteilt zwischen
+   den beiden Randabst&auml;nden. W&auml;chst der Fl&auml;chenbedarf, schrumpft der Durchgang. */
+function layout() {
+  var usable = SITE.w - 2 * RULES.edge;
+  var out = [], gaps = [];
+  ['n', 's'].forEach(function (row) {
+    var r = ZONES.filter(function (z) { return z.row === row && z.on; });
+    if (!r.length) return;
+    var sum = 0;
+    r.forEach(function (z) { sum += widthOf(z); });
+    var gap = r.length > 1 ? (usable - sum) / (r.length - 1) : null;
+    var x = RULES.edge;
+    r.forEach(function (z, i) {
+      var w = widthOf(z);
+      out.push({ z: z, x: x, y: z.y, w: w, h: z.h, area: w * z.h });
+      if (gap !== null && i < r.length - 1) {
+        gaps.push({ v: gap, x: x + w, y: z.y + z.h / 2, row: row });
+      }
+      x += w + (gap || 0);
+    });
+  });
+  return { zones: out, gaps: gaps };
+}
+
+function compute() {
+  var lay = layout();
+  var act = lay.zones;
+  var built = 0, revenue = 0;
+  act.forEach(function (a) { built += a.area; revenue += a.area * a.z.rate; });
+  var total = SITE.w * SITE.d;
+  var pathArea = SITE.w * PATH.h;
+  var free = total - built - pathArea;
+  var capacity = Math.max(free, 0) / RULES.density;
+
+  /* Schmalste Stelle: der engste Durchgang zwischen zwei benachbarten Fl&auml;chen.
+     Der Randabstand z&auml;hlt nicht dazu, er ist eine eigene Vorgabe. */
+  var gap = null;
+  lay.gaps.forEach(function (g) { if (!gap || g.v < gap.v) gap = g; });
+  if (!gap) gap = { v: SITE.w - 2 * RULES.edge, x: RULES.edge, y: 7, none: 1 };
+
+  return { act: act, built: built, revenue: revenue, free: free, capacity: capacity, gap: gap, total: total };
+}
+
+/* ---------- Zeichnung ---------- */
+function renderPlan(r) {
+  var S = 10, ox = 44, oy = 26;                 /* 10 Einheiten pro Meter */
+  var W = SITE.w * S, D = SITE.d * S;
+  var svgW = ox + W + 34, svgH = oy + D + 62;
+  var m = function (v) { return v * S; };
+  var s = [];
+
+  s.push('<svg viewBox="0 0 ' + svgW + ' ' + svgH + '" xmlns="http://www.w3.org/2000/svg" font-family="Open Sans, Helvetica, Arial, sans-serif">');
+
+  /* Raster */
+  for (var gx = 0; gx <= SITE.w; gx += 5) {
+    s.push('<line x1="' + (ox + m(gx)) + '" y1="' + oy + '" x2="' + (ox + m(gx)) + '" y2="' + (oy + D) +
+           '" stroke="#eef1ef" stroke-width="1"/>');
+  }
+  for (var gy = 0; gy <= SITE.d; gy += 5) {
+    s.push('<line x1="' + ox + '" y1="' + (oy + m(gy)) + '" x2="' + (ox + W) + '" y2="' + (oy + m(gy)) +
+           '" stroke="#eef1ef" stroke-width="1"/>');
+  }
+
+  /* Perimeter */
+  s.push('<rect x="' + ox + '" y="' + oy + '" width="' + W + '" height="' + D +
+         '" fill="none" stroke="#14181a" stroke-width="1.6"/>');
+
+  /* Randzone */
+  s.push('<rect x="' + (ox + m(RULES.edge)) + '" y="' + (oy + m(RULES.edge)) + '" width="' + m(SITE.w - 2 * RULES.edge) +
+         '" height="' + m(SITE.d - 2 * RULES.edge) + '" fill="none" stroke="#b9c2bd" stroke-width="1" stroke-dasharray="4 3"/>');
+
+  /* Hauptweg */
+  s.push('<rect x="' + ox + '" y="' + (oy + m(PATH.y)) + '" width="' + W + '" height="' + m(PATH.h) +
+         '" fill="#f0f3f1" stroke="#b9c2bd" stroke-width="1"/>');
+  for (var hx = 0; hx < SITE.w; hx += 2) {
+    s.push('<line x1="' + (ox + m(hx)) + '" y1="' + (oy + m(PATH.y + PATH.h)) + '" x2="' + (ox + m(hx + 2)) +
+           '" y2="' + (oy + m(PATH.y)) + '" stroke="#e0e5e2" stroke-width="1"/>');
+  }
+  s.push('<text x="' + (ox + 8) + '" y="' + (oy + m(PATH.y + PATH.h / 2) + 4) + '" font-size="10" font-weight="700" fill="#6d7873" letter-spacing="1.2">' +
+         pe(tr('svg-path')) + '</text>');
+
+  /* Fl&auml;chen */
+  r.act.forEach(function (a) {
+    var x = ox + m(a.x), y = oy + m(a.y), w = m(a.w), h = m(a.h);
+    s.push('<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="' + a.z.col +
+           '" stroke="' + (a.z.fixed ? '#8d9a94' : '#3f7a52') + '" stroke-width="1.4"' +
+           (a.z.fixed ? ' stroke-dasharray="5 3"' : '') + '/>');
+    var wide = w >= 100;
+    if (w >= 62) {
+      s.push('<text x="' + (x + 6) + '" y="' + (y + 16) + '" font-size="' + (wide ? 11 : 9.5) +
+             '" font-weight="700" fill="#14181a">' + pe(L(a.z)) + '</text>');
+      s.push('<text x="' + (x + 6) + '" y="' + (y + (wide ? 30 : 28)) + '" font-size="' + (wide ? 9.5 : 8.5) +
+             '" fill="#5d6a64">' + dec(a.w) + ' × ' + dec(a.h) + ' m' +
+             (wide ? ' &#183; ' + Math.round(a.area) + ' m²' : '') + '</text>');
+    }
+  });
+
+  /* Schmalste Stelle markieren */
+  if (!r.gap.none && r.gap.v > 0.05) {
+    var gx1 = ox + m(r.gap.x), gy1 = oy + m(r.gap.y);
+    var col = r.gap.v < RULES.minGap ? '#b0553d' : (r.gap.v < RULES.minGap + 1 ? '#b8862f' : '#3f7a52');
+    s.push('<line x1="' + gx1 + '" y1="' + gy1 + '" x2="' + (gx1 + m(r.gap.v)) + '" y2="' + gy1 +
+           '" stroke="' + col + '" stroke-width="2"/>');
+    s.push('<line x1="' + gx1 + '" y1="' + (gy1 - 7) + '" x2="' + gx1 + '" y2="' + (gy1 + 7) + '" stroke="' + col + '" stroke-width="2"/>');
+    s.push('<line x1="' + (gx1 + m(r.gap.v)) + '" y1="' + (gy1 - 7) + '" x2="' + (gx1 + m(r.gap.v)) + '" y2="' + (gy1 + 7) +
+           '" stroke="' + col + '" stroke-width="2"/>');
+    s.push('<text x="' + (gx1 + m(r.gap.v) / 2) + '" y="' + (gy1 - 12) + '" font-size="10.5" font-weight="700" fill="' + col +
+           '" text-anchor="middle">' + dec(r.gap.v, 2) + ' m</text>');
+  }
+
+  /* Bemassung unten */
+  var dy = oy + D + 26;
+  s.push('<line x1="' + ox + '" y1="' + dy + '" x2="' + (ox + W) + '" y2="' + dy + '" stroke="#14181a" stroke-width="1"/>');
+  s.push('<line x1="' + ox + '" y1="' + (dy - 5) + '" x2="' + ox + '" y2="' + (dy + 5) + '" stroke="#14181a" stroke-width="1"/>');
+  s.push('<line x1="' + (ox + W) + '" y1="' + (dy - 5) + '" x2="' + (ox + W) + '" y2="' + (dy + 5) + '" stroke="#14181a" stroke-width="1"/>');
+  s.push('<text x="' + (ox + W / 2) + '" y="' + (dy - 8) + '" font-size="10.5" font-weight="700" fill="#14181a" text-anchor="middle">' +
+         dec(SITE.w, 2) + ' m</text>');
+
+  /* Bemassung links */
+  var dx = ox - 22;
+  s.push('<line x1="' + dx + '" y1="' + oy + '" x2="' + dx + '" y2="' + (oy + D) + '" stroke="#14181a" stroke-width="1"/>');
+  s.push('<line x1="' + (dx - 5) + '" y1="' + oy + '" x2="' + (dx + 5) + '" y2="' + oy + '" stroke="#14181a" stroke-width="1"/>');
+  s.push('<line x1="' + (dx - 5) + '" y1="' + (oy + D) + '" x2="' + (dx + 5) + '" y2="' + (oy + D) + '" stroke="#14181a" stroke-width="1"/>');
+  s.push('<text x="' + (dx - 7) + '" y="' + (oy + D / 2) + '" font-size="10.5" font-weight="700" fill="#14181a" text-anchor="middle" transform="rotate(-90 ' +
+         (dx - 7) + ' ' + (oy + D / 2) + ')">' + dec(SITE.d, 2) + ' m</text>');
+
+  /* Nordpfeil / Anlieferung */
+  s.push('<text x="' + (ox + W) + '" y="' + (oy - 10) + '" font-size="9.5" font-weight="700" fill="#6d7873" text-anchor="end" letter-spacing="1.4">&#8593; ' +
+         pe(tr('svg-north')) + '</text>');
+  s.push('<text x="' + ox + '" y="' + (oy + D + 48) + '" font-size="9.5" fill="#6d7873" letter-spacing="1.2">' +
+         pe(tr('svg-scale')) + '</text>');
+
+  s.push('</svg>');
+  $('plan').innerHTML = s.join('');
+}
+
+/* ---------- Bedienelemente ---------- */
+function renderZones() {
+  var h = '';
+  ZONES.forEach(function (z) {
+    h += '<div class="zone' + (z.on ? ' on' : '') + (z.fixed ? ' fixed' : '') + '" data-z="' + z.id + '">' +
+         '<span class="sw" style="background:' + z.col + '"></span>' +
+         '<span class="nm">' + L(z) + '<small>' + (LANG === 'de' ? z.dde : z.den) + '</small></span>' +
+         '<span class="meta">' + (z.fixed ? '&mdash;' : chf(z.rate) + '/m&sup2;') + '</span></div>';
+  });
+  $('zones').innerHTML = h;
+  Array.prototype.forEach.call($('zones').querySelectorAll('.zone'), function (el) {
+    el.addEventListener('click', function () {
+      var z = zoneById(el.getAttribute('data-z'));
+      if (z.fixed) return;
+      z.on = z.on ? 0 : 1;
+      renderZones(); renderAll();
+    });
+  });
+}
+
+function dotFor(v) {
+  if (v < RULES.minGap) return 'bad';
+  if (v < RULES.minGap + 1) return 'mid';
+  return 'ok';
+}
+
+function renderKpis(r) {
+  $('kpis').innerHTML =
+    '<div><span class="lb">' + tr('k-rev') + '</span><b>' + chf(r.revenue) + '</b><em>' + tr('k-rev-e') + '</em></div>' +
+    '<div><span class="lb">' + tr('k-built') + '</span><b>' + chf(r.built) + '</b><em>' + tr('k-built-e') + '</em></div>' +
+    '<div><span class="lb">' + tr('k-cap') + '</span><b>' + chf(r.capacity) + '</b><em>' + tr('k-cap-e') + '</em></div>' +
+    '<div><span class="dot ' + dotFor(r.gap.v) + '"></span><span class="lb">' + tr('k-gap') + '</span><b>' +
+      dec(r.gap.v, 2) + ' m</b><em>' + tr('k-gap-e') + '</em></div>';
+}
+
+function renderVerdict(r) {
+  var el = $('verdict');
+  var sold = r.act.filter(function (a) { return !a.z.fixed; }).length;
+  if (!sold) {
+    el.className = 'verdict mid';
+    el.innerHTML = '<b>' + tr('v-none-l') + '</b><p>' + tr('v-none') + '</p>';
+    return;
+  }
+  var g = dec(r.gap.v, 2), rv = chf(r.revenue), c = chf(r.capacity);
+  if (r.gap.v < RULES.minGap) {
+    el.className = 'verdict warn';
+    el.innerHTML = '<b>' + tr('v-bad-l') + '</b><p>' + tr('v-bad').replace('{g}', g).replace('{r}', rv) + '</p>';
+  } else if (r.gap.v < RULES.minGap + 1) {
+    el.className = 'verdict mid';
+    el.innerHTML = '<b>' + tr('v-mid-l') + '</b><p>' + tr('v-mid').replace('{g}', g) + '</p>';
+  } else {
+    el.className = 'verdict';
+    el.innerHTML = '<b>' + tr('v-ok-l') + '</b><p>' + tr('v-ok').replace('{g}', g).replace('{c}', c).replace('{r}', rv) + '</p>';
+  }
+}
+
+function renderTable(r) {
+  var h = '<thead><tr><th>' + tr('th-zone') + '</th><th>' + tr('th-size') + '</th><th class="num">' + tr('th-area') +
+          '</th><th class="num">' + tr('th-rate') + '</th><th class="num">' + tr('th-price') + '</th><th>' +
+          tr('th-status') + '</th></tr></thead><tbody>';
+  ZONES.forEach(function (z) {
+    var w = widthOf(z);
+    var area = w * z.h, price = area * z.rate;
+    var st = z.fixed ? tr('st-fix') : (z.on ? tr('st-on') : tr('st-off'));
+    h += '<tr' + (z.on ? '' : ' class="off"') + '><td>' + L(z) + '</td><td>' + dec(w) + ' &times; ' + dec(z.h) +
+         ' m</td><td class="num">' + Math.round(area) + '</td><td class="num">' + (z.rate ? chf(z.rate) : '&mdash;') +
+         '</td><td class="num">' + (z.rate && z.on ? chf(price) : '&mdash;') + '</td><td>' + st + '</td></tr>';
+  });
+  h += '<tr class="total"><td>' + tr('sum') + '</td><td></td><td class="num">' + chf(r.built) +
+       '</td><td></td><td class="num">' + chf(r.revenue) + '</td><td></td></tr></tbody>';
+  $('ztable').innerHTML = h;
+}
+
+function renderRules() {
+  var rows = [['r1', 'r1v', 'r1s'], ['r2', 'r2v', 'r2s'], ['r3', 'r3v', 'r3s'],
+              ['r4', 'r4v', 'r4s'], ['r5', 'r5v', 'r5s'], ['r6', 'r6v', 'r6s']];
+  var h = '<thead><tr><th>' + tr('th-rule') + '</th><th>' + tr('th-val') + '</th><th>' + tr('th-src') + '</th></tr></thead><tbody>';
+  rows.forEach(function (r) {
+    h += '<tr><td><strong>' + tr(r[0]) + '</strong></td><td>' + tr(r[1]) + '</td><td>' + tr(r[2]) + '</td></tr>';
+  });
+  $('rules').innerHTML = h + '</tbody>';
+}
+
+function renderAll() {
+  $('v-scale').textContent = state.scale + '%';
+  var r = compute();
+  renderPlan(r); renderKpis(r); renderVerdict(r); renderTable(r); renderRules();
+}
+
+/* ---------- Sprache ---------- */
+function applyT() {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-t]'), function (el) {
+    var k = el.getAttribute('data-t');
+    if (T[LANG][k] !== undefined) el.innerHTML = T[LANG][k];
+  });
+  document.documentElement.lang = LANG;
+}
+function setLang(l) {
+  LANG = l;
+  $('btn-de').className = l === 'de' ? 'on' : '';
+  $('btn-en').className = l === 'en' ? 'on' : '';
+  applyT(); renderZones(); renderAll();
+}
+
+$('scale').addEventListener('input', function () { state.scale = +this.value; renderAll(); });
+
+applyT(); renderZones(); renderAll();
+</script>
+</body>
+</html>

@@ -3,6 +3,8 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/event-organisation", "destination": "/bewerbung", "permanent": true },
-    { "source": "/on", "destination": "/on-brand-event", "permanent": false }
+    { "source": "/on", "destination": "/on-brand-event", "permanent": false },
+    { "source": "/zoa", "destination": "/zurich-open-air", "permanent": false },
+    { "source": "/zuerich-open-air", "destination": "/zurich-open-air", "permanent": false }
   ]
 }
