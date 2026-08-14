@@ -326,15 +326,6 @@ window.SJ_LANG = {
 
     /* --- ON Brand & Event Marketing Manager --- */
     'obe.role':          'Brand &amp; Event Marketing Manager &middot; ON',
-    'obe.hero-kicker':   'Bewerbung &middot; Brand &amp; Event Marketing Manager',
-    'obe.hero-head':     'Ich habe die Schweiz<br>schon einmal <em>bespielt</em>.',
-    'obe.hero-sub':      'Zehn Festivals, f&uuml;nf Kantone, drei Sprachregionen &ndash; als Verantwortliche f&uuml;r die Brand Experiences von Migros. Vom Erstbriefing bis zum Abbau.',
-    'obe.hero-n1':       'Festivals',
-    'obe.hero-n2':       'Kantone',
-    'obe.hero-n3':       'Sprachregionen',
-    'obe.hero-n4':       'auf dem Gel&auml;nde',
-    'obe.hero-scroll':   'Warum ich zu euch will',
-    'obe.hero-cap':      'Auswahl der Anl&auml;sse, die ich verantwortet habe &middot; Reihenfolge nach Saison',
     'obe.heading':       'Letter of motivation',
     'obe.salutation':    'Liebes ON-Team',
     'obe.p1':            'ON ignites the human spirit through movement. Meine Arbeit beginnt dort, wo eine Marke aufh&ouml;rt zu reden und anf&auml;ngt zu wirken.',
@@ -717,15 +708,6 @@ window.SJ_LANG = {
 
     /* --- ON Brand & Event Marketing Manager --- */
     'obe.role':          'Brand &amp; Event Marketing Manager &middot; ON',
-    'obe.hero-kicker':   'Application &middot; Brand &amp; Event Marketing Manager',
-    'obe.hero-head':     'I have already toured<br>all of <em>Switzerland</em>.',
-    'obe.hero-sub':      'Ten festivals, five cantons, three language regions &ndash; running the brand experiences for Migros. From the first briefing to the last day of strike.',
-    'obe.hero-n1':       'festivals',
-    'obe.hero-n2':       'cantons',
-    'obe.hero-n3':       'language regions',
-    'obe.hero-n4':       'on site',
-    'obe.hero-scroll':   'Why I want to join you',
-    'obe.hero-cap':      'A selection of the events I was responsible for &middot; ordered by season',
     'obe.heading':       'Letter of motivation',
     'obe.salutation':    'Dear ON Team',
     'obe.p1':            'ON ignites the human spirit through movement. My work begins where a brand stops talking and starts making an impact.',

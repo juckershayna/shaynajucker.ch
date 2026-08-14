@@ -11,55 +11,6 @@
   <link rel="apple-touch-icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-180x180.png">
   <link rel="stylesheet" href="css/style.css?v=3">
 
-  <style>
-  /* ---------- Tour-Hero ---------- */
-  .tour-hero { background:#1e1e1e; padding:215px 0 70px; position:relative; z-index:1; overflow:hidden; }
-  .tour-hero .container { max-width:1400px; }
-  .tour-grid { display:grid; grid-template-columns:minmax(320px,0.92fr) 1.08fr; grid-template-areas:'lead map' 'nums map'; gap:14px 56px; align-items:center; }
-  .tour-lead{ grid-area:lead; } .tour-numswrap{ grid-area:nums; } .tour-map{ grid-area:map; }
-  @media (max-width:1080px){ .tour-grid{ grid-template-columns:1fr; grid-template-areas:'lead' 'map' 'nums'; gap:28px; } .tour-hero{ padding:140px 0 56px; } }
-
-  .tour-kicker { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:#957b5f; font-weight:700; margin-bottom:22px; }
-  .tour-head { font-size:clamp(38px,5.2vw,76px); line-height:.99; font-weight:800; letter-spacing:-.02em; text-transform:uppercase; color:#f1f1f1; margin:0 0 24px; }
-  .tour-head em { font-style:normal; color:#957b5f; }
-  .tour-sub { font-size:clamp(15px,1.35vw,18px); line-height:1.6; color:#b8b2a9; max-width:520px; margin-bottom:34px; }
-
-  .tour-nums { display:grid; grid-template-columns:repeat(4,auto); gap:34px; }
-  @media (max-width:640px){ .tour-nums{ grid-template-columns:repeat(2,1fr); gap:22px 18px; } }
-  .tour-nums div b { display:block; font-size:clamp(30px,3.4vw,46px); font-weight:800; line-height:1; color:#f1f1f1; letter-spacing:-.02em; }
-  .tour-nums div span { display:block; font-size:10px; letter-spacing:2.4px; text-transform:uppercase; color:#8d857a; font-weight:700; margin-top:9px; }
-
-  .tour-map { position:relative; }
-  .tour-map svg { width:100%; height:auto; display:block; overflow:visible; }
-  .tour-cap { font-size:11.5px; color:#6f6a63; letter-spacing:.4px; margin-top:14px; text-align:right; }
-  @media (max-width:1080px){ .tour-cap{ text-align:left; } }
-
-  .t-route { fill:none; stroke:#957b5f; stroke-width:1.9; stroke-dasharray:8 6; opacity:.7; }
-  .t-dot { fill:#957b5f; }
-  .t-ring { fill:none; stroke:#957b5f; stroke-width:1.3; opacity:.45; }
-  .t-name { fill:#f1f1f1; font-family:'Open Sans',Arial,sans-serif; font-size:23px; font-weight:700; letter-spacing:.2px; }
-  .t-place { fill:#8d857a; font-family:'Open Sans',Arial,sans-serif; font-size:13px; letter-spacing:2.2px; text-transform:uppercase; font-weight:700; }
-
-  .tour-scroll { display:flex; align-items:center; gap:12px; margin-top:54px; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#8d857a; font-weight:700; }
-  .tour-scroll i { display:block; width:54px; height:1px; background:#957b5f; }
-
-  /* Auftritt */
-  .tour-anim .t-dot, .tour-anim .t-ring, .tour-anim .t-name, .tour-anim .t-place { opacity:0; animation:tPop .5s ease forwards; }
-  .tour-anim .t-ring { animation-name:tRing; }
-  .tour-anim .t-route { stroke-dashoffset:var(--len); stroke-dasharray:var(--len); animation:tDraw 2.4s ease-out .25s forwards; opacity:.7; }
-  @keyframes tPop { from{ opacity:0; transform:translateY(6px);} to{ opacity:1; transform:none;} }
-  @keyframes tRing { from{ opacity:0; transform:scale(.4);} to{ opacity:.45; transform:none;} }
-  @keyframes tPulse { 0%{ opacity:.45; transform:scale(1);} 55%{ opacity:0; transform:scale(1.85);} 100%{ opacity:0; transform:scale(1.85);} }
-  .tour-anim .t-pulse { opacity:0; transform-box:fill-box; transform-origin:center; animation:tPulse 3.4s ease-out infinite; }
-  @keyframes tDraw { to{ stroke-dashoffset:0; } }
-  .tour-anim .t-dot, .tour-anim .t-ring { transform-box:fill-box; transform-origin:center; }
-  @media (prefers-reduced-motion:reduce){
-    .tour-anim .t-dot,.tour-anim .t-ring,.tour-anim .t-name,.tour-anim .t-place{ animation:none; opacity:1; }
-    .tour-anim .t-ring{ opacity:.45; }
-    .tour-anim .t-pulse{ animation:none; opacity:0; }
-    .tour-anim .t-route{ animation:none; stroke-dasharray:7 6; stroke-dashoffset:0; }
-  }
-  </style>
 </head>
 <body>
 
@@ -87,102 +38,8 @@
   </header>
 
 
-  <!-- Tour-Hero -->
-  <section class="tour-hero">
-    <div class="container">
-      <div class="tour-grid">
-
-        <div class="tour-lead">
-          <p class="tour-kicker" data-i18n="obe.hero-kicker">Bewerbung &middot; Brand &amp; Event Marketing Manager</p>
-          <h1 class="tour-head" data-i18n="obe.hero-head">Ich habe die Schweiz<br>schon einmal <em>bespielt</em>.</h1>
-          <p class="tour-sub" data-i18n="obe.hero-sub">Zehn Festivals, f&uuml;nf Kantone, drei Sprachregionen &ndash; als Verantwortliche f&uuml;r die Brand Experiences von Migros. Vom Erstbriefing bis zum Abbau.</p>
-        </div>
-
-        <div class="tour-numswrap">
-          <div class="tour-nums">
-            <div><b data-count="10" data-suffix="+">10+</b><span data-i18n="obe.hero-n1">Festivals</span></div>
-            <div><b data-count="5">5</b><span data-i18n="obe.hero-n2">Kantone</span></div>
-            <div><b data-count="3">3</b><span data-i18n="obe.hero-n3">Sprachregionen</span></div>
-            <div><b>06:00</b><span data-i18n="obe.hero-n4">auf dem Gel&auml;nde</span></div>
-          </div>
-
-          <div class="tour-scroll"><i></i><span data-i18n="obe.hero-scroll">Warum ich zu euch will</span></div>
-        </div>
-
-        <div class="tour-map">
-          <div id="tour-svg"></div>
-          <p class="tour-cap" data-i18n="obe.hero-cap">Auswahl der Anl&auml;sse, die ich verantwortet habe &middot; Reihenfolge nach Saison</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <script>
-  (function () {
-    var STOPS = [
-      { n: 'Openair Frauenfeld', p: 'Frauenfeld TG', lat: 47.556, lon: 8.898, a: 'end',   dx: -22, dy: 6 },
-      { n: 'Moon &amp; Stars',   p: 'Locarno TI',    lat: 46.171, lon: 8.799, a: 'end',   dx: -22, dy: 6 },
-      { n: 'Pal&eacute;o',       p: 'Nyon VD',       lat: 46.383, lon: 6.239, a: 'start', dx: 22,  dy: 6 },
-      { n: 'Heitere',            p: 'Zofingen AG',   lat: 47.288, lon: 7.945, a: 'start', dx: 22,  dy: 6 },
-      { n: 'Open Air Gampel',    p: 'Gampel VS',     lat: 46.317, lon: 7.744, a: 'start', dx: 22,  dy: 6 },
-      { n: 'SummerDays',         p: 'Arbon TG',      lat: 47.516, lon: 9.433, a: 'end',   dx: -22, dy: 48 }
-    ];
-
-    var PAD = 92, W = 1000, K = 375.3, KX = K * 0.684;
-    var LON0 = 6.239, LAT0 = 47.556;
-    function X(lon) { return PAD + (lon - LON0) * KX; }
-    function Y(lat) { return PAD + (LAT0 - lat) * K; }
-    var H = Y(46.171) + PAD;
-
-    var pts = STOPS.map(function (s) { return { s: s, x: X(s.lon), y: Y(s.lat) }; });
-    var d = pts.map(function (p, i) { return (i ? 'L ' : 'M ') + p.x.toFixed(1) + ' ' + p.y.toFixed(1); }).join(' ');
-
-    var g = [];
-    g.push('<path class="t-route" d="' + d + '"/>');
-    pts.forEach(function (p, i) {
-      var delay = (0.35 + i * 0.22).toFixed(2) + 's';
-      g.push('<circle class="t-ring" cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="19" style="animation-delay:' + delay + '"/>');
-      g.push('<circle class="t-pulse t-ring" cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="19" style="animation-delay:' + (2.6 + i * 0.45).toFixed(2) + 's"/>');
-      g.push('<circle class="t-dot" cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="7.5" style="animation-delay:' + delay + '"/>');
-      g.push('<text class="t-name" x="' + (p.x + p.s.dx).toFixed(1) + '" y="' + (p.y + p.s.dy - 8).toFixed(1) + '" text-anchor="' + p.s.a + '" style="animation-delay:' + delay + '">' + p.s.n + '</text>');
-      g.push('<text class="t-place" x="' + (p.x + p.s.dx).toFixed(1) + '" y="' + (p.y + p.s.dy + 14).toFixed(1) + '" text-anchor="' + p.s.a + '" style="animation-delay:' + delay + '">' + p.s.p + '</text>');
-    });
-
-    var host = document.getElementById('tour-svg');
-    if (!host) return;
-    host.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H.toFixed(0) + '" role="img" aria-label="Karte der Festivals: Frauenfeld, Locarno, Nyon, Zofingen, Gampel, Arbon">' + g.join('') + '</svg>';
-
-    var route = host.querySelector('.t-route');
-    var len = route.getTotalLength();
-    route.style.setProperty('--len', len.toFixed(0));
-
-    function countUp(el) {
-      var target = parseInt(el.getAttribute('data-count'), 10);
-      var suffix = el.getAttribute('data-suffix') || '';
-      var t0 = null, dur = 900;
-      function step(ts) {
-        if (!t0) t0 = ts;
-        var k = Math.min(1, (ts - t0) / dur);
-        el.textContent = Math.round(target * (1 - Math.pow(1 - k, 3))) + suffix;
-        if (k < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
-
-    function start() {
-      document.querySelector('.tour-hero').classList.add('tour-anim');
-      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelectorAll('.tour-nums b[data-count]').forEach(countUp);
-      }
-    }
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
-    else start();
-  })();
-  </script>
-
   <!-- Intro Video + Letter of Motivation -->
-  <section class="portfolio-subpage" style="padding-top:40px; min-height:0;">
+  <section class="portfolio-subpage">
     <div class="container">
       <div class="video-grid video-grid--portrait" style="margin-bottom:60px;">
         <video class="video-portrait" controls playsinline preload="metadata"
@@ -192,7 +49,8 @@
         </video>
       </div>
 
-      <h2 class="page-title" style="text-align:left; margin-bottom:20px;" data-i18n="obe.heading">Letter of motivation</h2>
+      <p class="section-subheading" style="text-align:left; margin-bottom:8px;" data-i18n="obe.role">Brand &amp; Event Marketing Manager &middot; ON</p>
+      <h1 class="page-title" style="text-align:left; margin-bottom:20px;" data-i18n="obe.heading">Letter of motivation</h1>
       <p class="motivation-lead" data-i18n="obe.salutation">Liebes ON-Team</p>
 
       <div class="motivation-body">
