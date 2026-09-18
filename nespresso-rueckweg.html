@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>R&uuml;ckweg &middot; Boutique-Format &amp; Aussagen-Pr&uuml;fung &middot; Arbeitsprobe</title>
+<link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<style>
+  :root {
+    --ink: #17120d;
+    --ink-2: #3d352c;
+    --soft: #766c60;
+    --line: #ddd6cb;
+    --line-2: #efeae2;
+    --paper: #f8f5f0;
+    --paper-2: #ffffff;
+    --accent: #96703c;
+    --accent-dk: #6d5029;
+    --tint: #f3ebdd;
+    --dark: #17120d;
+    --ok: #3f7d5f;
+    --warn: #a8472f;
+    --mid: #b8862f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.68; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  .col { max-width: 780px; }
+
+  .sample-bar {
+    background: var(--accent); color: #fff; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; text-align: center; padding: 9px 16px; font-weight: 700;
+  }
+  .sample-bar a { color: #fff; text-decoration: underline; }
+
+  .cover { background: var(--dark); color: #f4f1ec; padding: 34px 0 54px; }
+  .cover-top { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 54px; }
+  .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #c9a76c; font-weight: 700; }
+  .lang-switch { display: flex; border: 1px solid #332b22; }
+  .lang-switch button {
+    background: none; border: none; color: #938a7e; font: inherit; font-size: 11px;
+    font-weight: 700; letter-spacing: 2px; padding: 7px 14px; cursor: pointer;
+    transition: background 200ms, color 200ms;
+  }
+  .lang-switch button.on { background: var(--accent); color: #fff; }
+  .cover h1 { font-size: clamp(40px, 8vw, 92px); line-height: .96; font-weight: 800; letter-spacing: -.03em; text-transform: uppercase; margin-bottom: 18px; }
+  .cover .claim { font-size: clamp(19px, 2.4vw, 27px); line-height: 1.35; color: #d5d0c8; max-width: 720px; font-weight: 300; }
+  .cover .kind { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #938a7e; font-weight: 700; margin-bottom: 20px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #29221a; border: 1px solid #29221a; margin-top: 46px; }
+  @media (max-width: 860px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+  .facts div { background: var(--dark); padding: 14px 16px; }
+  .facts span { display: block; font-size: 9.5px; letter-spacing: 2.4px; text-transform: uppercase; color: #8a8175; font-weight: 700; margin-bottom: 4px; }
+  .facts b { font-size: 15px; font-weight: 600; color: #f4f1ec; line-height: 1.35; }
+
+  section.doc { padding: 60px 0; border-bottom: 1px solid var(--line); }
+  section.doc:last-of-type { border-bottom: none; }
+  .sec-head { display: flex; gap: 18px; align-items: baseline; margin-bottom: 26px; }
+  .sec-no { font-size: 12px; font-weight: 800; letter-spacing: 2px; color: var(--accent); padding-top: 6px; }
+  .sec-head h2 { font-size: clamp(24px, 3.4vw, 34px); line-height: 1.14; font-weight: 800; letter-spacing: -.02em; }
+  .sec-head p { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-top: 6px; }
+  .doc p { margin-bottom: 16px; }
+  .doc p:last-child { margin-bottom: 0; }
+  .lead { font-size: 18.5px; line-height: 1.6; }
+
+  .callout { background: var(--tint); border-left: 3px solid var(--accent); padding: 22px 26px; margin: 30px 0; }
+  .callout b { display: block; font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--accent-dk); margin-bottom: 8px; }
+  .callout p { font-size: 20px; line-height: 1.45; font-weight: 600; margin: 0; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; margin-top: 30px; }
+  @media (max-width: 820px) { .split { grid-template-columns: 1fr; gap: 24px; } }
+  .split h3 { font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 12px; }
+  ul.ticks { list-style: none; }
+  ul.ticks li { position: relative; padding-left: 22px; margin-bottom: 9px; font-size: 15px; line-height: 1.55; }
+  ul.ticks li:before { content: ''; position: absolute; left: 0; top: 9px; width: 9px; height: 2px; background: var(--accent); }
+  ul.ticks.no li:before { background: var(--soft); }
+
+  /* ---------- Werkzeuge ---------- */
+  .tool { background: var(--paper-2); border: 1px solid var(--line); margin-top: 30px; }
+  .tool-head { background: var(--dark); color: #f4f1ec; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .tool-head b { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
+  .tool-head span { font-size: 12px; color: #a1988c; }
+  .tool-body { padding: 24px 22px; }
+
+  /* Jahresrhythmus */
+  .months { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  @media (max-width: 900px) { .months { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 620px) { .months { grid-template-columns: repeat(2, 1fr); } }
+  .mon {
+    background: var(--paper-2); border: none; font: inherit; text-align: left; cursor: pointer;
+    padding: 12px 11px 13px; transition: background 160ms, color 160ms;
+  }
+  .mon i { display: block; font-style: normal; font-size: 9px; letter-spacing: 2px; font-weight: 800; color: var(--soft); margin-bottom: 4px; }
+  .mon em { display: block; font-style: normal; font-size: 12.5px; font-weight: 700; line-height: 1.3; color: var(--ink); overflow-wrap: break-word; hyphens: auto; }
+  .mon u { display: block; text-decoration: none; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-top: 6px; }
+  .mon:hover { background: var(--tint); }
+  .mon.on { background: var(--accent); }
+  .mon.on i, .mon.on em, .mon.on u { color: #fff; }
+  .mon.void em { color: var(--soft); font-weight: 600; }
+  .mon.void u { color: var(--soft); }
+  .mon.on.void em, .mon.on.void u { color: rgba(255,255,255,.85); }
+
+  .detail { border: 1px solid var(--line); border-top: 3px solid var(--accent); background: var(--paper); margin-top: 22px; padding: 22px 24px; }
+  .detail .dnum { font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase; color: var(--accent-dk); font-weight: 800; margin-bottom: 6px; }
+  .detail h4 { font-size: 22px; font-weight: 800; letter-spacing: -.01em; line-height: 1.2; margin-bottom: 14px; }
+  .dpair { margin-bottom: 16px; }
+  .dpair span { display: block; font-size: 9.5px; letter-spacing: 2.2px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 5px; }
+  .dpair p { font-size: 15.5px; line-height: 1.6; margin: 0; }
+  .dmeta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  @media (max-width: 760px) { .dmeta { grid-template-columns: 1fr; } }
+  .dmeta div { background: var(--paper-2); padding: 12px 13px; }
+  .dmeta span { display: block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 4px; }
+  .dmeta b { font-size: 13.5px; font-weight: 600; line-height: 1.4; display: block; overflow-wrap: break-word; hyphens: auto; }
+
+  /* Aussagen-Pr&uuml;fung */
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+  .filters button {
+    background: var(--paper-2); border: 1px solid var(--line); font: inherit; font-size: 11.5px;
+    font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; padding: 9px 13px;
+    cursor: pointer; color: var(--ink-2); transition: background 160ms, border-color 160ms, color 160ms;
+  }
+  .filters button:hover { border-color: var(--accent); color: var(--accent-dk); }
+  .filters button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .filters button small { font-weight: 400; opacity: .8; }
+
+  .claims { border: 1px solid var(--line); border-bottom: none; }
+  .claim-row { border-bottom: 1px solid var(--line); }
+  .claim-btn {
+    width: 100%; text-align: left; background: var(--paper-2); border: none; font: inherit;
+    padding: 14px 16px; cursor: pointer; display: flex; gap: 12px; align-items: flex-start;
+    transition: background 160ms;
+  }
+  .claim-btn:hover { background: var(--tint); }
+  .claim-btn .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; margin-top: 7px; background: var(--soft); }
+  .dot.v-ok { background: var(--ok); } .dot.v-ev { background: var(--mid); } .dot.v-no { background: var(--warn); }
+  .claim-btn q { font-size: 15.5px; line-height: 1.5; font-style: italic; flex: 1; min-width: 0; overflow-wrap: break-word; }
+  .claim-btn strong { font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; white-space: nowrap; padding-top: 4px; }
+  .claim-btn strong.v-ok { color: var(--ok); } .claim-btn strong.v-ev { color: #8a651f; } .claim-btn strong.v-no { color: var(--warn); }
+  @media (max-width: 640px) { .claim-btn { flex-wrap: wrap; } .claim-btn strong { width: 100%; } }
+  .claim-open { background: var(--paper); padding: 2px 16px 20px 38px; }
+  .claim-open .dpair { margin-top: 16px; margin-bottom: 0; }
+  .claim-open .mine { border-left: 2px solid var(--accent); padding: 4px 0 4px 14px; }
+  .claim-open .mine p { font-size: 16px; line-height: 1.55; font-weight: 600; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 14px; }
+  th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; border-bottom: 2px solid var(--ink); padding: 0 10px 8px 0; }
+  td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--line-2); vertical-align: top; }
+  .tbl-wrap { overflow-x: auto; }
+
+  .note { font-size: 13px; color: var(--soft); line-height: 1.6; margin-top: 16px; }
+
+  .colophon { background: var(--dark); color: #cec8be; padding: 54px 0 62px; }
+  .colophon h2 { color: #f4f1ec; font-size: 22px; font-weight: 800; margin-bottom: 18px; letter-spacing: -.01em; }
+  .colophon p { font-size: 14.5px; line-height: 1.7; margin-bottom: 14px; max-width: 780px; }
+  .colophon b { color: #f4f1ec; }
+  .backlink { display: inline-block; margin-top: 12px; color: #c9a76c; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; text-decoration: none; border-bottom: 1px solid #c9a76c; padding-bottom: 3px; }
+
+  @media print {
+    .sample-bar, .lang-switch, .months, .filters { display: none !important; }
+    body { background: #fff; font-size: 11pt; }
+    section.doc { padding: 18px 0; page-break-inside: avoid; }
+    .cover, .colophon { background: #fff; color: #000; }
+    .cover h1, .colophon h2, .facts b, .colophon b { color: #000; }
+    .facts, .facts div { background: #fff; border-color: #999; }
+    .detail { display: none !important; }
+    .claim-open { display: block !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Nespresso-Material</span>
+  &nbsp;&middot;&nbsp; <a href="nespresso.html" data-t="bar-back">zur&uuml;ck zur Bewerbung</a>
+</div>
+
+<!-- ================= Deckblatt ================= -->
+<header class="cover">
+  <div class="wrap">
+    <div class="cover-top">
+      <div class="eyebrow" data-t="eyebrow">Boutique-Format &amp; Aussagen-Pr&uuml;fung</div>
+      <div class="lang-switch">
+        <button id="btn-de" class="on" onclick="setLang('de')">DE</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+    <div class="kind" data-t="kind">Arbeitsprobe f&uuml;r die Bewerbung als Marketing Brand &amp; Event Manager</div>
+    <h1 data-t="title">R&uuml;ckweg</h1>
+    <p class="claim" data-t="claim">In fast jeder K&uuml;che mit einer Nespresso-Maschine steht ein Sack mit gebrauchten Kapseln. Er ist gleichzeitig das ehrlichste St&uuml;ck Markenbindung und die gr&ouml;sste unerledigte Aufgabe.</p>
+    <div class="facts">
+      <div><span data-t="f1-l">Format</span><b data-t="f1">Boutique-Ritual um die R&uuml;ckgabe</b></div>
+      <div><span data-t="f2-l">Umfang</span><b data-t="f2">9 Formate, 3 Monate ohne</b></div>
+      <div><span data-t="f3-l">Kern</span><b data-t="f3">Jahresrhythmus &amp; Aussagen-Pr&uuml;fung</b></div>
+      <div><span data-t="f4-l">Steuergr&ouml;sse</span><b data-t="f4">R&uuml;cklaufquote pro Boutique</b></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 01 -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">01</div>
+      <div><h2 data-t="s1-h">Ausgangslage</h2><p data-t="s1-sub">Der Sack im K&uuml;chenschrank</p></div>
+    </div>
+    <div class="col">
+      <p class="lead" data-t="s1-p1">Nespresso verkauft keine Packung Kaffee, sondern f&uuml;nfundzwanzig Sekunden. Das ist die k&uuml;rzeste Markenbegegnung, die ich kenne &ndash; und die einzige, die Millionen Menschen freiwillig jeden Morgen wiederholen.</p>
+      <p data-t="s1-p2">Bemerkenswert ist aber etwas anderes: Die Leute bewahren den Abfall auf. In fast jeder K&uuml;che mit einer solchen Maschine steht ein Sack mit gebrauchten Kapseln und wartet darauf, dass jemand ihn mitnimmt. Keine andere Marke schafft es, dass man ihren M&uuml;ll monatelang im Schrank aufbewahrt, weil man ihn nicht einfach wegwerfen will.</p>
+      <p data-t="s1-p3">Dieser Sack ist eine Doppelbotschaft. Er ist ein Vertrauensbeweis &ndash; jemand glaubt, dass die R&uuml;ckgabe etwas bringt. Und er ist eine Anklage, solange er dort steht. Marketing behandelt ihn bis heute als Logistikthema. Er ist aber ein Erlebnisthema: Der Weg zur&uuml;ck in die Boutique ist der einzige Anlass, bei dem eine Kundin freiwillig etwas mitbringt.</p>
+      <div class="callout">
+        <b data-t="s1-insight-l">Insight</b>
+        <p data-t="s1-insight">Die R&uuml;ckgabe ist keine Pflicht, die man bequemer machen muss. Sie ist der einzige Grund, den diese Marke hat, um jemanden ein zweites Mal in den Laden zu holen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">02</div>
+      <div><h2 data-t="s2-h">Das Format</h2><p data-t="s2-sub">Eine Waage, eine Tafel, ein Gegenstand</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s2-p1"><strong>Die Waage.</strong> In der Boutique steht eine mechanische Waage mit Zeiger, kein Display. Wer seinen Sack mitbringt, legt ihn auf und bekommt das Gewicht in Kaffee zur&uuml;ck &ndash; sofort, in der Tasse, nicht in Punkten, nicht in einer App. Ein Kilogramm sind drei Tassen, maximal drei pro Besuch. Der Zeiger ist wichtiger als die Zahl: Man sieht das Gewicht, und alle anderen im Laden sehen es auch.</p>
+      <p data-t="s2-p2"><strong>Die Tafel.</strong> Am Eingang h&auml;ngt die R&uuml;cklaufquote dieser einen Boutique, monatlich von Hand nachgetragen: Wie viel wurde hier verkauft, wie viel ist hier zur&uuml;ckgekommen. Auch wenn die Zahl schlecht ist. Besonders dann.</p>
+      <p data-t="s2-p3"><strong>Der Gegenstand.</strong> Viermal im Jahr liegt auf dem Tresen ein Ding aus wiederverwertetem Aluminium &ndash; mit einem Zettel daneben, woher das Material kommt und wer es verarbeitet hat. Kein Versprechen, kein Slogan. Ein Gegenstand, den man in die Hand nehmen kann, ist der einzige Nachhaltigkeitsbeweis, der keinen Text braucht.</p>
+      <p data-t="s2-p4">Die Mechanik ist absichtlich klein gehalten. Sie soll nicht skalieren: Wer zehn Kilo bringt, bekommt nicht dreissig Tassen, sondern drei. Sonst wird aus einem Ritual ein Sammelgesch&auml;ft, und dann kommen Leute mit S&auml;cken aus der Nachbarschaft, statt selbst welche zu f&uuml;llen.</p>
+    </div>
+    <div class="split col">
+      <div>
+        <h3 data-t="s2-is">Was es ist</h3>
+        <ul class="ticks">
+          <li data-t="s2-is1">Ein Grund hereinzukommen, der nichts mit einem Kauf zu tun hat</li>
+          <li data-t="s2-is2">Eine Gegenleistung, die sofort in der Hand ist statt in einem Konto</li>
+          <li data-t="s2-is3">Eine Zahl am Eingang, die auch schlecht sein darf</li>
+          <li data-t="s2-is4">Ein Rhythmus &uuml;ber zw&ouml;lf Monate, der mit derselben Crew funktioniert</li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-t="s2-isnot">Was es ausdr&uuml;cklich nicht ist</h3>
+        <ul class="ticks no">
+          <li data-t="s2-no1">Keine App, kein Punktekonto, keine Registrierung f&uuml;r die R&uuml;ckgabe</li>
+          <li data-t="s2-no2">Kein Rabatt &ndash; wer zur&uuml;ckbringt, soll nicht mehr kaufen m&uuml;ssen, um belohnt zu werden</li>
+          <li data-t="s2-no3">Keine Tafel, die nur bei guten Zahlen h&auml;ngt</li>
+          <li data-t="s2-no4">Kein Satz &uuml;ber Nachhaltigkeit, der die Pr&uuml;fung unter Ziffer 04 nicht &uuml;bersteht</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Jahresrhythmus -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">03</div>
+      <div><h2 data-t="s3-h">Der Jahresrhythmus</h2><p data-t="s3-sub">Monat anklicken &ndash; Anlass, Ablauf, Rolle, Kosten, Kennzahl</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s3-p1">Ein Format lebt vom vierten Mal, nicht vom ersten. Deshalb ist die Arbeitsprobe kein Event, sondern ein Jahr: zw&ouml;lf Monate, neun Gr&uuml;nde hereinzukommen &ndash; und drei Monate bewusst ohne Format, mit Begr&uuml;ndung. Ein Kalender ohne L&uuml;cken ist kein Plan, sondern eine Wunschliste.</p>
+      <p data-t="s3-p2">Hinter jedem Monat steht, warum jemand deswegen tats&auml;chlich kommt, was im Laden passiert, wer zust&auml;ndig ist, in welchem Kostenband es liegt und welche einzelne Zahl gemessen wird.</p>
+    </div>
+
+    <div class="tool">
+      <div class="tool-head">
+        <b data-t="tool-title">Jahresrhythmus einer Boutique</b>
+        <span data-t="tool-note">9 Formate &middot; 3 Monate ohne &middot; Kostenb&auml;nder S / M / L</span>
+      </div>
+      <div class="tool-body">
+        <div class="months" id="months"></div>
+        <div class="detail" id="detail"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Aussagen-Pr&uuml;fung -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">04</div>
+      <div><h2 data-t="s4-h">Die Aussagen-Pr&uuml;fung</h2><p data-t="s4-sub">Zehn S&auml;tze, drei Urteile, eine umgeschriebene Fassung</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s4-p1">Bei einer Marke, deren offene Flanke aus Aluminium besteht, ist Textdisziplin kein Nebenthema. Deshalb geh&ouml;rt zu diesem Format eine Pr&uuml;fung: zehn S&auml;tze, wie sie in einem ersten Entwurf oder in einem Briefing vorkommen k&ouml;nnten, jeder mit einem Urteil, mit dem Beleg, den er br&auml;uchte, und mit meiner umgeschriebenen Fassung.</p>
+      <p data-t="s4-p2">Die zehn S&auml;tze stammen nicht von der Marke. Ich habe sie selbst geschrieben, um mich daran zu pr&uuml;fen. Zwei davon halten. Es sind die beiden kleinsten &ndash; und das ist die eigentliche Erkenntnis dieser &Uuml;bung.</p>
+    </div>
+
+    <div class="tool">
+      <div class="tool-head">
+        <b data-t="claims-title">Zehn S&auml;tze, gepr&uuml;ft</b>
+        <span data-t="claims-note">Satz anklicken &ndash; Urteil, Begr&uuml;ndung, n&ouml;tiger Beleg, meine Fassung</span>
+      </div>
+      <div class="tool-body">
+        <div class="filters" id="filters"></div>
+        <div class="claims" id="claims"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Annahmen -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">05</div>
+      <div><h2 data-t="s5-h">Annahmen und Messung</h2><p data-t="s5-sub">Jede Zahl mit ihrem Messweg</p></div>
+    </div>
+    <div class="col">
+      <p data-t="s5-p1">Ein Format ohne offengelegte Annahmen ist eine Absichtserkl&auml;rung. Hier stehen sie, und daneben steht, wie ich die Zahl im Betrieb erheben w&uuml;rde. Alle Werte sind Sch&auml;tzungen von aussen &ndash; die erste Boutique, die das macht, ersetzt sie durch echte.</p>
+    </div>
+    <div class="tbl-wrap"><table id="assumptions"></table></div>
+    <div class="col">
+      <p class="note" data-t="s5-note">Die Kennzahl, die alles andere schl&auml;gt, ist die R&uuml;cklaufquote dieser einen Boutique: Gewicht zur&uuml;ck geteilt durch Kapseln raus, monatlich, von Hand auf der Tafel. Sie ist langsam, sie ist unbequem, und sie ist die einzige, die eine Verbesserung sichtbar macht.</p>
+    </div>
+  </section>
+
+  <!-- 06 Grenzen -->
+  <section class="doc">
+    <div class="sec-head">
+      <div class="sec-no">06</div>
+      <div><h2 data-t="s6-h">Was dieses Format nicht kann</h2><p data-t="s6-sub">Die Grenzen, bevor sie jemand anders findet</p></div>
+    </div>
+    <div class="col">
+      <ul class="ticks no" style="margin-bottom:18px;">
+        <li data-t="s6-l1">Es l&ouml;st das Grundproblem nicht. Eine Kapsel, die zur&uuml;ckkommt, ist besser als eine im Kehricht &ndash; und immer noch mehr Aufwand als Kaffee aus einer Packung. Wer das Gegenteil behauptet, hat den ersten Satz der Pr&uuml;fung nicht gelesen.</li>
+        <li data-t="s6-l2">Es erreicht nur Leute, die eine Boutique in der N&auml;he haben. F&uuml;r alle anderen bleibt der Postweg oder die Sammelstelle, und daf&uuml;r ist dieses Format keine Antwort.</li>
+        <li data-t="s6-l3">Die Umrechnung von Gewicht in Tassen ist erfunden. Wie viel ein gebrauchter Sack wirklich wiegt, muss gewogen werden, bevor irgendeine Zahl in ein Briefing kommt.</li>
+        <li data-t="s6-l4">Die Tafel am Eingang ist ein Risiko. Eine schlechte Zahl in der Auslage wird fotografiert. Genau das ist der Preis daf&uuml;r, dass ihr jemand glaubt &ndash; und die Entscheidung dar&uuml;ber f&auml;llt nicht im Marketing allein.</li>
+        <li data-t="s6-l5">Ich kenne die bestehenden R&uuml;cknahmewege und Vertr&auml;ge nicht von innen. Es kann sein, dass Teile davon schon existieren und nur nicht sichtbar sind. Das w&auml;re die beste Variante: dann w&auml;re die Aufgabe reine Kommunikationsarbeit.</li>
+      </ul>
+      <p data-t="s6-p1">Was es daf&uuml;r kann: aus einer Pflicht ein Ritual machen, aus einer Logistikfrage einen Ladenbesuch, und aus einer Zahl, die niemand kennt, eine Zahl, die am Eingang h&auml;ngt.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= Kolophon ================= -->
+<footer class="colophon">
+  <div class="wrap">
+    <h2 data-t="col-h">Zur Arbeitsprobe</h2>
+    <p data-t="col-1"><b>Was daran fiktiv ist:</b> alles Konkrete. Das Format, die Mechanik, die Monate, die Quoten und die Zielwerte gibt es nicht. Es ist kein offizielles Material von Nespresso, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen. Auch die zehn gepr&uuml;ften S&auml;tze stammen nicht von der Marke, sondern von mir.</p>
+    <p data-t="col-2"><b>Was daran echt ist:</b> die Planlogik und die Textdisziplin. So baue ich ein Format &uuml;ber ein Jahr, so lasse ich Monate bewusst leer, und so pr&uuml;fe ich jeden Satz, bevor er in ein Briefing kommt.</p>
+    <p data-t="col-3">Konzept, Text, Gestaltung und Umsetzung: Shayna Jucker. Eine einzige HTML-Datei, keine externen Requests, keine Datenerfassung. Zweisprachig Deutsch und Englisch. Druckbar &uuml;ber die Druckfunktion des Browsers.</p>
+    <p><a class="backlink" href="nespresso.html" data-t="col-back">&larr; Zur&uuml;ck zur Bewerbung</a></p>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   RUECKWEG - Boutique-Format & Aussagen-Pruefung
+   Arbeitsprobe Shayna Jucker
+   ========================================================= */
+
+var LANG = 'de';
+function $(id) { return document.getElementById(id); }
+function tr(k) { return T[LANG][k] !== undefined ? T[LANG][k] : k; }
+
+var T = {
+  de: {
+    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Nespresso-Material',
+    'bar-back': 'zur&uuml;ck zur Bewerbung',
+    'eyebrow': 'Boutique-Format &amp; Aussagen-Pr&uuml;fung',
+    'kind': 'Arbeitsprobe f&uuml;r die Bewerbung als Marketing Brand &amp; Event Manager',
+    'title': 'R&uuml;ckweg',
+    'claim': 'In fast jeder K&uuml;che mit einer Nespresso-Maschine steht ein Sack mit gebrauchten Kapseln. Er ist gleichzeitig das ehrlichste St&uuml;ck Markenbindung und die gr&ouml;sste unerledigte Aufgabe.',
+    'f1-l': 'Format', 'f1': 'Boutique-Ritual um die R&uuml;ckgabe',
+    'f2-l': 'Umfang', 'f2': '9 Formate, 3 Monate ohne',
+    'f3-l': 'Kern', 'f3': 'Jahresrhythmus &amp; Aussagen-Pr&uuml;fung',
+    'f4-l': 'Steuergr&ouml;sse', 'f4': 'R&uuml;cklaufquote pro Boutique',
+    's1-h': 'Ausgangslage', 's1-sub': 'Der Sack im K&uuml;chenschrank',
+    's1-p1': 'Nespresso verkauft keine Packung Kaffee, sondern f&uuml;nfundzwanzig Sekunden. Das ist die k&uuml;rzeste Markenbegegnung, die ich kenne &ndash; und die einzige, die Millionen Menschen freiwillig jeden Morgen wiederholen.',
+    's1-p2': 'Bemerkenswert ist aber etwas anderes: Die Leute bewahren den Abfall auf. In fast jeder K&uuml;che mit einer solchen Maschine steht ein Sack mit gebrauchten Kapseln und wartet darauf, dass jemand ihn mitnimmt. Keine andere Marke schafft es, dass man ihren M&uuml;ll monatelang im Schrank aufbewahrt, weil man ihn nicht einfach wegwerfen will.',
+    's1-p3': 'Dieser Sack ist eine Doppelbotschaft. Er ist ein Vertrauensbeweis &ndash; jemand glaubt, dass die R&uuml;ckgabe etwas bringt. Und er ist eine Anklage, solange er dort steht. Marketing behandelt ihn bis heute als Logistikthema. Er ist aber ein Erlebnisthema: Der Weg zur&uuml;ck in die Boutique ist der einzige Anlass, bei dem eine Kundin freiwillig etwas mitbringt.',
+    's1-insight-l': 'Insight',
+    's1-insight': 'Die R&uuml;ckgabe ist keine Pflicht, die man bequemer machen muss. Sie ist der einzige Grund, den diese Marke hat, um jemanden ein zweites Mal in den Laden zu holen.',
+    's2-h': 'Das Format', 's2-sub': 'Eine Waage, eine Tafel, ein Gegenstand',
+    's2-p1': '<strong>Die Waage.</strong> In der Boutique steht eine mechanische Waage mit Zeiger, kein Display. Wer seinen Sack mitbringt, legt ihn auf und bekommt das Gewicht in Kaffee zur&uuml;ck &ndash; sofort, in der Tasse, nicht in Punkten, nicht in einer App. Ein Kilogramm sind drei Tassen, maximal drei pro Besuch. Der Zeiger ist wichtiger als die Zahl: Man sieht das Gewicht, und alle anderen im Laden sehen es auch.',
+    's2-p2': '<strong>Die Tafel.</strong> Am Eingang h&auml;ngt die R&uuml;cklaufquote dieser einen Boutique, monatlich von Hand nachgetragen: Wie viel wurde hier verkauft, wie viel ist hier zur&uuml;ckgekommen. Auch wenn die Zahl schlecht ist. Besonders dann.',
+    's2-p3': '<strong>Der Gegenstand.</strong> Viermal im Jahr liegt auf dem Tresen ein Ding aus wiederverwertetem Aluminium &ndash; mit einem Zettel daneben, woher das Material kommt und wer es verarbeitet hat. Kein Versprechen, kein Slogan. Ein Gegenstand, den man in die Hand nehmen kann, ist der einzige Nachhaltigkeitsbeweis, der keinen Text braucht.',
+    's2-p4': 'Die Mechanik ist absichtlich klein gehalten. Sie soll nicht skalieren: Wer zehn Kilo bringt, bekommt nicht dreissig Tassen, sondern drei. Sonst wird aus einem Ritual ein Sammelgesch&auml;ft, und dann kommen Leute mit S&auml;cken aus der Nachbarschaft, statt selbst welche zu f&uuml;llen.',
+    's2-is': 'Was es ist',
+    's2-is1': 'Ein Grund hereinzukommen, der nichts mit einem Kauf zu tun hat',
+    's2-is2': 'Eine Gegenleistung, die sofort in der Hand ist statt in einem Konto',
+    's2-is3': 'Eine Zahl am Eingang, die auch schlecht sein darf',
+    's2-is4': 'Ein Rhythmus &uuml;ber zw&ouml;lf Monate, der mit derselben Crew funktioniert',
+    's2-isnot': 'Was es ausdr&uuml;cklich nicht ist',
+    's2-no1': 'Keine App, kein Punktekonto, keine Registrierung f&uuml;r die R&uuml;ckgabe',
+    's2-no2': 'Kein Rabatt &ndash; wer zur&uuml;ckbringt, soll nicht mehr kaufen m&uuml;ssen, um belohnt zu werden',
+    's2-no3': 'Keine Tafel, die nur bei guten Zahlen h&auml;ngt',
+    's2-no4': 'Kein Satz &uuml;ber Nachhaltigkeit, der die Pr&uuml;fung unter Ziffer 04 nicht &uuml;bersteht',
+    's3-h': 'Der Jahresrhythmus', 's3-sub': 'Monat anklicken &ndash; Anlass, Ablauf, Rolle, Kosten, Kennzahl',
+    's3-p1': 'Ein Format lebt vom vierten Mal, nicht vom ersten. Deshalb ist die Arbeitsprobe kein Event, sondern ein Jahr: zw&ouml;lf Monate, neun Gr&uuml;nde hereinzukommen &ndash; und drei Monate bewusst ohne Format, mit Begr&uuml;ndung. Ein Kalender ohne L&uuml;cken ist kein Plan, sondern eine Wunschliste.',
+    's3-p2': 'Hinter jedem Monat steht, warum jemand deswegen tats&auml;chlich kommt, was im Laden passiert, wer zust&auml;ndig ist, in welchem Kostenband es liegt und welche einzelne Zahl gemessen wird.',
+    'tool-title': 'Jahresrhythmus einer Boutique',
+    'tool-note': '9 Formate &middot; 3 Monate ohne &middot; Kostenb&auml;nder S / M / L',
+    'd-why': 'Warum jemand deswegen kommt', 'd-what': 'Was im Laden passiert',
+    'd-who': 'Zust&auml;ndig', 'd-cost': 'Kostenband', 'd-kpi': 'Kennzahl',
+    'tag-void': 'Bewusst kein Format',
+    'tag-fmt': 'Format',
+    's4-h': 'Die Aussagen-Pr&uuml;fung', 's4-sub': 'Zehn S&auml;tze, drei Urteile, eine umgeschriebene Fassung',
+    's4-p1': 'Bei einer Marke, deren offene Flanke aus Aluminium besteht, ist Textdisziplin kein Nebenthema. Deshalb geh&ouml;rt zu diesem Format eine Pr&uuml;fung: zehn S&auml;tze, wie sie in einem ersten Entwurf oder in einem Briefing vorkommen k&ouml;nnten, jeder mit einem Urteil, mit dem Beleg, den er br&auml;uchte, und mit meiner umgeschriebenen Fassung.',
+    's4-p2': 'Die zehn S&auml;tze stammen nicht von der Marke. Ich habe sie selbst geschrieben, um mich daran zu pr&uuml;fen. Zwei davon halten. Es sind die beiden kleinsten &ndash; und das ist die eigentliche Erkenntnis dieser &Uuml;bung.',
+    'claims-title': 'Zehn S&auml;tze, gepr&uuml;ft',
+    'claims-note': 'Satz anklicken &ndash; Urteil, Begr&uuml;ndung, n&ouml;tiger Beleg, meine Fassung',
+    'f-all': 'Alle', 'v-ok': 'Sagbar', 'v-ev': 'Nur mit Beleg', 'v-no': 'Nicht sagen',
+    'c-why': 'Warum', 'c-ev': 'Welcher Beleg n&ouml;tig w&auml;re', 'c-mine': 'Meine Fassung',
+    's5-h': 'Annahmen und Messung', 's5-sub': 'Jede Zahl mit ihrem Messweg',
+    's5-p1': 'Ein Format ohne offengelegte Annahmen ist eine Absichtserkl&auml;rung. Hier stehen sie, und daneben steht, wie ich die Zahl im Betrieb erheben w&uuml;rde. Alle Werte sind Sch&auml;tzungen von aussen &ndash; die erste Boutique, die das macht, ersetzt sie durch echte.',
+    's5-note': 'Die Kennzahl, die alles andere schl&auml;gt, ist die R&uuml;cklaufquote dieser einen Boutique: Gewicht zur&uuml;ck geteilt durch Kapseln raus, monatlich, von Hand auf der Tafel. Sie ist langsam, sie ist unbequem, und sie ist die einzige, die eine Verbesserung sichtbar macht.',
+    'th-pos': 'Position', 'th-basis': 'Annahme', 'th-how': 'Wie ich das messe',
+    's6-h': 'Was dieses Format nicht kann', 's6-sub': 'Die Grenzen, bevor sie jemand anders findet',
+    's6-l1': 'Es l&ouml;st das Grundproblem nicht. Eine Kapsel, die zur&uuml;ckkommt, ist besser als eine im Kehricht &ndash; und immer noch mehr Aufwand als Kaffee aus einer Packung. Wer das Gegenteil behauptet, hat den ersten Satz der Pr&uuml;fung nicht gelesen.',
+    's6-l2': 'Es erreicht nur Leute, die eine Boutique in der N&auml;he haben. F&uuml;r alle anderen bleibt der Postweg oder die Sammelstelle, und daf&uuml;r ist dieses Format keine Antwort.',
+    's6-l3': 'Die Umrechnung von Gewicht in Tassen ist erfunden. Wie viel ein gebrauchter Sack wirklich wiegt, muss gewogen werden, bevor irgendeine Zahl in ein Briefing kommt.',
+    's6-l4': 'Die Tafel am Eingang ist ein Risiko. Eine schlechte Zahl in der Auslage wird fotografiert. Genau das ist der Preis daf&uuml;r, dass ihr jemand glaubt &ndash; und die Entscheidung dar&uuml;ber f&auml;llt nicht im Marketing allein.',
+    's6-l5': 'Ich kenne die bestehenden R&uuml;cknahmewege und Vertr&auml;ge nicht von innen. Es kann sein, dass Teile davon schon existieren und nur nicht sichtbar sind. Das w&auml;re die beste Variante: dann w&auml;re die Aufgabe reine Kommunikationsarbeit.',
+    's6-p1': 'Was es daf&uuml;r kann: aus einer Pflicht ein Ritual machen, aus einer Logistikfrage einen Ladenbesuch, und aus einer Zahl, die niemand kennt, eine Zahl, die am Eingang h&auml;ngt.',
+    'col-h': 'Zur Arbeitsprobe',
+    'col-1': '<b>Was daran fiktiv ist:</b> alles Konkrete. Das Format, die Mechanik, die Monate, die Quoten und die Zielwerte gibt es nicht. Es ist kein offizielles Material von Nespresso, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen. Auch die zehn gepr&uuml;ften S&auml;tze stammen nicht von der Marke, sondern von mir.',
+    'col-2': '<b>Was daran echt ist:</b> die Planlogik und die Textdisziplin. So baue ich ein Format &uuml;ber ein Jahr, so lasse ich Monate bewusst leer, und so pr&uuml;fe ich jeden Satz, bevor er in ein Briefing kommt.',
+    'col-3': 'Konzept, Text, Gestaltung und Umsetzung: Shayna Jucker. Eine einzige HTML-Datei, keine externen Requests, keine Datenerfassung. Zweisprachig Deutsch und Englisch. Druckbar &uuml;ber die Druckfunktion des Browsers.',
+    'col-back': '&larr; Zur&uuml;ck zur Bewerbung'
+  },
+  en: {
+    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official Nespresso material',
+    'bar-back': 'back to the application',
+    'eyebrow': 'Boutique format &amp; claim check',
+    'kind': 'Work sample for the application as Marketing Brand &amp; Event Manager',
+    'title': 'Return Trip',
+    'claim': 'In almost every kitchen with a Nespresso machine there is a bag of used capsules. It is at once the most honest piece of brand loyalty there is and the biggest piece of unfinished business.',
+    'f1-l': 'Format', 'f1': 'A boutique ritual around the return',
+    'f2-l': 'Scope', 'f2': '9 formats, 3 months without',
+    'f3-l': 'Core', 'f3': 'Yearly rhythm &amp; claim check',
+    'f4-l': 'Steering metric', 'f4': 'Return rate per boutique',
+    's1-h': 'Starting point', 's1-sub': 'The bag in the kitchen cupboard',
+    's1-p1': 'Nespresso does not sell a pack of coffee, it sells twenty-five seconds. That is the shortest brand encounter I know of &ndash; and the only one millions of people voluntarily repeat every morning.',
+    's1-p2': 'Something else is remarkable though: people keep the waste. In almost every kitchen with one of these machines there is a bag of used capsules waiting for somebody to take it along. No other brand manages to have its rubbish kept in a cupboard for months because people do not want to simply throw it away.',
+    's1-p3': 'That bag carries a double message. It is proof of trust &ndash; somebody believes the return achieves something. And it is an accusation as long as it stands there. Marketing still treats it as a logistics topic. But it is an experience topic: the way back into the boutique is the only occasion on which a customer voluntarily brings something along.',
+    's1-insight-l': 'Insight',
+    's1-insight': 'The return is not a chore that needs to be made more convenient. It is the only reason this brand has to get somebody into the shop a second time.',
+    's2-h': 'The format', 's2-sub': 'A scale, a board, an object',
+    's2-p1': '<strong>The scale.</strong> In the boutique there is a mechanical scale with a needle, no display. Anyone who brings their bag puts it on and gets the weight back in coffee &ndash; right away, in the cup, not in points, not in an app. One kilogram is three cups, at most three per visit. The needle matters more than the number: you see the weight, and so does everybody else in the shop.',
+    's2-p2': '<strong>The board.</strong> At the entrance hangs the return rate of this one boutique, written up by hand every month: how much was sold here, how much came back here. Even when the number is bad. Especially then.',
+    's2-p3': '<strong>The object.</strong> Four times a year an object made of recycled aluminium sits on the counter &ndash; with a note beside it saying where the material comes from and who processed it. No promise, no slogan. An object you can pick up is the only proof of sustainability that needs no copy.',
+    's2-p4': 'The mechanic is deliberately kept small. It is not meant to scale: bring ten kilos and you get three cups, not thirty. Otherwise a ritual turns into a collection business, and people start arriving with the neighbourhood&rsquo;s bags instead of filling their own.',
+    's2-is': 'What it is',
+    's2-is1': 'A reason to come in that has nothing to do with buying',
+    's2-is2': 'A return that is in your hand immediately instead of in an account',
+    's2-is3': 'A number at the entrance that is allowed to be bad',
+    's2-is4': 'A rhythm across twelve months that works with the same crew',
+    's2-isnot': 'What it explicitly is not',
+    's2-no1': 'No app, no points account, no registration in order to return anything',
+    's2-no2': 'No discount &ndash; nobody who brings something back should have to buy more to be rewarded',
+    's2-no3': 'Not a board that only hangs there when the numbers are good',
+    's2-no4': 'Not a single sentence about sustainability that fails the check under section 04',
+    's3-h': 'The yearly rhythm', 's3-sub': 'Click a month &ndash; occasion, sequence, owner, cost, metric',
+    's3-p1': 'A format lives on its fourth edition, not its first. That is why this work sample is not an event but a year: twelve months, nine reasons to come in &ndash; and three months deliberately without a format, with reasons given. A calendar without gaps is not a plan, it is a wish list.',
+    's3-p2': 'Behind every month sits why somebody actually comes because of it, what happens in the shop, who is responsible, which cost band it falls into and which single number gets measured.',
+    'tool-title': 'Yearly rhythm of one boutique',
+    'tool-note': '9 formats &middot; 3 months without &middot; cost bands S / M / L',
+    'd-why': 'Why somebody comes because of it', 'd-what': 'What happens in the shop',
+    'd-who': 'Owner', 'd-cost': 'Cost band', 'd-kpi': 'Metric',
+    'tag-void': 'Deliberately no format',
+    'tag-fmt': 'Format',
+    's4-h': 'The claim check', 's4-sub': 'Ten sentences, three verdicts, one rewritten version',
+    's4-p1': 'For a brand whose exposed flank is made of aluminium, editorial discipline is not a side topic. So this format comes with a check: ten sentences of the kind that might appear in a first draft or a briefing, each with a verdict, with the evidence it would need, and with my rewritten version.',
+    's4-p2': 'The ten sentences do not come from the brand. I wrote them myself in order to test myself against them. Two of them hold. They are the two smallest &ndash; and that is the actual finding of this exercise.',
+    'claims-title': 'Ten sentences, checked',
+    'claims-note': 'Click a sentence &ndash; verdict, reasoning, evidence needed, my version',
+    'f-all': 'All', 'v-ok': 'Sayable', 'v-ev': 'Only with evidence', 'v-no': 'Do not say',
+    'c-why': 'Why', 'c-ev': 'What evidence it would need', 'c-mine': 'My version',
+    's5-h': 'Assumptions and measurement', 's5-sub': 'Every number with its measurement path',
+    's5-p1': 'A format without disclosed assumptions is a statement of intent. Here they are, and next to them is how I would collect the number in operation. All values are estimates from the outside &ndash; the first boutique that runs this replaces them with real ones.',
+    's5-note': 'The metric that beats all the others is the return rate of this one boutique: weight returned divided by capsules sold, monthly, by hand on the board. It is slow, it is uncomfortable, and it is the only one that makes an improvement visible.',
+    'th-pos': 'Position', 'th-basis': 'Assumption', 'th-how': 'How I measure it',
+    's6-h': 'What this format cannot do', 's6-sub': 'The limits, before someone else finds them',
+    's6-l1': 'It does not solve the underlying problem. A capsule that comes back is better than one in the bin &ndash; and still more effort than coffee from a pack. Anyone claiming otherwise has not read the first sentence of the check.',
+    's6-l2': 'It only reaches people who have a boutique nearby. For everybody else there is the post or the collection point, and this format is not an answer for that.',
+    's6-l3': 'The conversion of weight into cups is invented. How much a used bag actually weighs has to be weighed before any number goes into a briefing.',
+    's6-l4': 'The board at the entrance is a risk. A bad number in the shop window gets photographed. That is exactly the price of being believed &ndash; and the decision about it is not marketing&rsquo;s alone.',
+    's6-l5': 'I do not know the existing take-back routes and contracts from the inside. Parts of this may already exist and simply not be visible. That would be the best case: then the job would be pure communication work.',
+    's6-p1': 'What it can do: turn a chore into a ritual, a logistics question into a shop visit, and a number nobody knows into a number that hangs at the entrance.',
+    'col-h': 'About this work sample',
+    'col-1': '<b>What is fictional:</b> everything concrete. The format, the mechanic, the months, the rates and the targets do not exist. This is not official Nespresso material, not an agreed collaboration and is based on no internal information whatsoever. The ten checked sentences do not come from the brand either, they come from me.',
+    'col-2': '<b>What is real:</b> the planning logic and the editorial discipline. This is how I build a format across a year, this is how I leave months deliberately empty, and this is how I check every sentence before it goes into a briefing.',
+    'col-3': 'Concept, copy, design and build: Shayna Jucker. A single HTML file, no external requests, no data collection. Bilingual German and English. Printable via the browser print function.',
+    'col-back': '&larr; Back to the application'
+  }
+};
+
+/* ---------- Der Jahresrhythmus ---------- */
+var MONTHS = [
+  { cost: 'M', de: {
+      m: 'Januar', t: 'Nach den Festtagen',
+      why: 'Im Januar ist der Sack im K&uuml;chenschrank so voll wie sonst nie im Jahr. Wer &uuml;ber die Festtage G&auml;ste hatte, hat zwei Wochen lang doppelt so viel Kaffee gemacht &ndash; und ein schlechtes Gewissen dazu.',
+      what: 'Zwei R&uuml;ckgabe-Wochen mit doppelter Gegenleistung: ein Kilogramm sind sechs statt drei Tassen. Die Waage steht vorne im Laden, nicht hinten. Auf der Tafel wird der Dezember nachgetragen.',
+      who: 'Boutique-Leitung, Crew komplett', kpi: 'R&uuml;cklaufgewicht in Kilogramm gegen Januar des Vorjahres' },
+    en: {
+      m: 'January', t: 'After the holidays',
+      why: 'In January the bag in the cupboard is fuller than at any other time of year. Anyone who had guests over the holidays made twice as much coffee for two weeks &ndash; and carries a bad conscience about it.',
+      what: 'Two return weeks with a doubled return: one kilogram is six cups instead of three. The scale stands at the front of the shop, not at the back. December goes up on the board.',
+      who: 'Boutique manager, full crew', kpi: 'Weight returned in kilograms against January last year' } },
+
+  { cost: '&mdash;', void: true, de: {
+      m: 'Februar', t: 'Kein Format',
+      why: 'Im Februar kommt niemand wegen eines Anlasses in eine Boutique. Wer hier trotzdem etwas ansetzt, bindet die Crew f&uuml;r nichts und verbraucht das Budget, das im M&auml;rz gebraucht wird.',
+      what: 'Nichts nach aussen. Nach innen: Schulung der Crew am Ger&auml;t und am Gespr&auml;ch, Auswertung des Januars, und die einzige Woche im Jahr, in der jemand Zeit hat, das Format zu verbessern.',
+      who: 'Boutique-Leitung', kpi: 'Keine &ndash; bewusst kein Zielwert' },
+    en: {
+      m: 'February', t: 'No format',
+      why: 'In February nobody comes into a boutique because of an occasion. Putting something on anyway ties up the crew for nothing and spends the budget that March needs.',
+      what: 'Nothing outward facing. Internally: crew training on the machine and on the conversation, review of January, and the only week in the year when somebody has time to improve the format.',
+      who: 'Boutique manager', kpi: 'None &ndash; deliberately no target' } },
+
+  { cost: 'M', de: {
+      m: 'M&auml;rz', t: 'Die Ernte erkl&auml;rt',
+      why: 'Menschen, die t&auml;glich Kaffee trinken, wissen erstaunlich wenig dar&uuml;ber, was sie trinken. Eine Dreiviertelstunde mit jemandem aus der Qualit&auml;tspr&uuml;fung ist n&auml;her am Produkt als jede Kampagne.',
+      what: 'Zwanzig Pl&auml;tze, 45 Minuten, angemeldet, gratis. Drei Herk&uuml;nfte im Vergleich, mit Wasser dazwischen. Erz&auml;hlt wird von jemandem, der den Kaffee pr&uuml;ft, nicht von jemandem, der ihn verkauft.',
+      who: 'Qualit&auml;tspr&uuml;fung, Boutique-Leitung', kpi: 'Belegte Pl&auml;tze und Anteil Personen, die zum ersten Mal da sind' },
+    en: {
+      m: 'March', t: 'The harvest explained',
+      why: 'People who drink coffee daily know surprisingly little about what they drink. Three quarters of an hour with somebody from quality control is closer to the product than any campaign.',
+      what: 'Twenty places, 45 minutes, booked, free. Three origins compared, with water in between. Told by somebody who assesses the coffee, not by somebody who sells it.',
+      who: 'Quality control, boutique manager', kpi: 'Places taken and share of first-time visitors' } },
+
+  { cost: 'S', de: {
+      m: 'April', t: 'Das zweite Leben',
+      why: 'Wer zur&uuml;ckbringt, will wissen, wohin das geht. Ein Satz dar&uuml;ber glaubt niemand. Ein Gegenstand auf dem Tresen braucht keinen Satz.',
+      what: 'Ein Ding aus wiederverwertetem Aluminium liegt vier Wochen auf dem Tresen, mit einem Zettel: woher das Material kommt, wer es verarbeitet hat, wie lange es unterwegs war. Man darf es anfassen.',
+      who: 'Marketing, Beschaffung', kpi: 'Anzahl Gespr&auml;che dar&uuml;ber, Strichliste der Crew' },
+    en: {
+      m: 'April', t: 'The second life',
+      why: 'Anyone who brings something back wants to know where it goes. Nobody believes a sentence about it. An object on the counter needs no sentence.',
+      what: 'An object made of recycled aluminium sits on the counter for four weeks, with a note: where the material came from, who processed it, how long it travelled. You are allowed to touch it.',
+      who: 'Marketing, procurement', kpi: 'Number of conversations about it, tallied by the crew' } },
+
+  { cost: 'M', de: {
+      m: 'Mai', t: 'Der Reparaturtisch',
+      why: 'Eine Maschine, die nicht mehr richtig l&auml;uft, wird ersetzt oder weggestellt. Beides verliert eine Kundin. Ein Tisch mit einer Technikerin darauf h&auml;lt Ger&auml;te und Leute im Haus.',
+      what: 'Einen Tag lang entkalken, pr&uuml;fen, kleine Reparaturen &ndash; kostenlos, ohne Termin, w&auml;hrend man wartet. Wer wartet, bekommt einen Kaffee und sieht, was gemacht wird.',
+      who: 'Technischer Dienst, Crew', kpi: 'Bearbeitete Ger&auml;te und Anteil, der sonst ersetzt worden w&auml;re' },
+    en: {
+      m: 'May', t: 'The repair table',
+      why: 'A machine that no longer runs properly gets replaced or put away. Both lose a customer. A table with a technician behind it keeps both the machines and the people.',
+      what: 'One day of descaling, checking and small repairs &ndash; free, no appointment, while you wait. Anyone waiting gets a coffee and can watch what is being done.',
+      who: 'Technical service, crew', kpi: 'Machines handled and share that would otherwise have been replaced' } },
+
+  { cost: 'S', de: {
+      m: 'Juni', t: '&Uuml;ber Eis',
+      why: 'Im Sommer sinkt der Kaffeekonsum, und die Maschine steht still. Der einzige Weg dagegen ist nicht eine Kampagne, sondern eine Zubereitung, die man einmal gesehen haben muss, um sie zuhause zu machen.',
+      what: 'Drei Wochen lang wird vor der Boutique auf der Gasse kalt zubereitet &ndash; gezeigt, nicht verkauft. Dazu eine Karte im Postkartenformat mit dem Verh&auml;ltnis von Kaffee, Eis und Wasser. Keine Werbebotschaft darauf.',
+      who: 'Crew, Marketing', kpi: 'Abgegebene Karten und Verkauf der gezeigten Sorten in den vier Wochen danach' },
+    en: {
+      m: 'June', t: 'Over ice',
+      why: 'In summer coffee consumption drops and the machine stands still. The remedy is not a campaign but a preparation you have to see once in order to make it at home.',
+      what: 'For three weeks cold preparation happens on the pavement in front of the boutique &ndash; shown, not sold. Plus a postcard-sized card with the ratio of coffee, ice and water. No advertising message on it.',
+      who: 'Crew, marketing', kpi: 'Cards handed out and sales of the shown varieties in the four weeks after' } },
+
+  { cost: '&mdash;', void: true, de: {
+      m: 'Juli', t: 'Kein Format',
+      why: 'Halbe Crew in den Ferien, Stammkundschaft weg, Laufkundschaft touristisch. Ein Format im Juli w&uuml;rde von Leuten besucht, die nicht wiederkommen &ndash; und von der Crew getragen, die nicht da ist.',
+      what: 'Nichts. Die Waage bleibt selbstverst&auml;ndlich stehen, die Tafel wird nachgetragen. Der Monat ist Betrieb, kein Programm.',
+      who: 'Boutique-Leitung', kpi: 'Keine &ndash; bewusst kein Zielwert' },
+    en: {
+      m: 'July', t: 'No format',
+      why: 'Half the crew on holiday, the regulars away, the walk-in traffic touristic. A format in July would be attended by people who do not come back &ndash; and carried by a crew that is not there.',
+      what: 'Nothing. The scale of course stays where it is and the board keeps being updated. This month is operations, not programme.',
+      who: 'Boutique manager', kpi: 'None &ndash; deliberately no target' } },
+
+  { cost: 'M', de: {
+      m: 'August', t: 'Der erste Montag',
+      why: 'Nach den Ferien hat sich alles angesammelt: die Post, die W&auml;sche und der Sack. Der erste Montag nach den Schulferien ist der zuverl&auml;ssigste Tag im Jahr, an dem Leute Dinge abarbeiten.',
+      what: 'Die zweiten R&uuml;ckgabe-Wochen des Jahres, diesmal ohne doppelte Gegenleistung, aber mit einem zweiten Gef&auml;ss: Wer einen leeren Sack mitnimmt, kommt im Herbst wieder. Ausgabe ohne Bedingung.',
+      who: 'Crew', kpi: 'Ausgegebene leere S&auml;cke und R&uuml;cklauf davon bis Dezember' },
+    en: {
+      m: 'August', t: 'The first Monday',
+      why: 'After the holidays everything has piled up: the post, the laundry and the bag. The first Monday after the school holidays is the most reliable day of the year for people working through their backlog.',
+      what: 'The second return weeks of the year, this time without the doubled return but with a second container: anyone who takes an empty bag comes back in autumn. Handed out with no conditions.',
+      who: 'Crew', kpi: 'Empty bags handed out and how many of those come back by December' } },
+
+  { cost: 'L', de: {
+      m: 'September', t: 'Umzugsmonat',
+      why: 'Ende September wird in der Schweiz umgezogen. Wer Schr&auml;nke ausr&auml;umt, findet den Sack &ndash; und wirft ihn in diesem einen Moment weg, wenn niemand eine bessere Idee anbietet.',
+      what: 'Abholung auf Anmeldung im Quartier an zwei Nachmittagen, zusammen mit einem kurzen Maschinenservice vor Ort. Dazu ein Aushang in den H&auml;usern, nicht auf Social Media.',
+      who: 'Boutique-Leitung, Technischer Dienst, Logistik', kpi: 'Abholungen pro Nachmittag und Kosten pro Kilogramm' },
+    en: {
+      m: 'September', t: 'Moving month',
+      why: 'At the end of September Switzerland moves house. Anyone clearing out cupboards finds the bag &ndash; and throws it away in that one moment, unless somebody offers a better idea.',
+      what: 'Collection by appointment in the neighbourhood on two afternoons, together with a short machine service on the spot. Announced on notice boards in the buildings, not on social media.',
+      who: 'Boutique manager, technical service, logistics', kpi: 'Collections per afternoon and cost per kilogram' } },
+
+  { cost: 'S', de: {
+      m: 'Oktober', t: 'Die Tafel des Jahres',
+      why: 'Eine Quote, die nur intern existiert, ver&auml;ndert nichts. Einmal im Jahr geh&ouml;rt sie in die Auslage, auf Papier, mit Datum und Unterschrift der Boutique-Leitung.',
+      what: 'Der Jahreswert dieser Boutique wird gedruckt und ins Fenster geh&auml;ngt &ndash; mit dem Vorjahreswert daneben und einem Satz dazu, was im n&auml;chsten Jahr anders gemacht wird. Auch wenn die Zahl gesunken ist.',
+      who: 'Boutique-Leitung, Marketing, Kommunikation', kpi: 'Der Wert selbst &ndash; und die Frage, ob er ohne R&uuml;ckfrage ver&ouml;ffentlicht werden durfte' },
+    en: {
+      m: 'October', t: 'The board of the year',
+      why: 'A rate that only exists internally changes nothing. Once a year it belongs in the window, on paper, with a date and the boutique manager&rsquo;s signature.',
+      what: 'This boutique&rsquo;s annual figure is printed and hung in the window &ndash; with last year&rsquo;s figure beside it and one sentence on what will be done differently next year. Even if the number has fallen.',
+      who: 'Boutique manager, marketing, communications', kpi: 'The figure itself &ndash; and whether it could be published without asking permission' } },
+
+  { cost: 'M', de: {
+      m: 'November', t: 'Der Grund, fr&uuml;h zu kommen',
+      why: 'Im Dezember steht die Schlange bis auf die Gasse, und niemand hat eine gute Zeit. Der einzige Weg, das zu verbessern, ist ein Grund, im November zu kommen.',
+      what: 'Terminierte Beratung f&uuml;r Geschenke in halbst&uuml;ndigen Fenstern, abends bis 20 Uhr, mit fertigen Verpackungen. Wer im November kommt, ist im Dezember nicht in der Schlange &ndash; und das wird auch so gesagt.',
+      who: 'Crew komplett, Boutique-Leitung', kpi: 'Anteil des Dezemberumsatzes, der in den November verschoben wird' },
+    en: {
+      m: 'November', t: 'The reason to come early',
+      why: 'In December the queue reaches the pavement and nobody has a good time. The only way to improve that is a reason to come in November.',
+      what: 'Booked gift consultations in half-hour slots, evenings until 20:00, with the wrapping ready. Anyone who comes in November is not in the queue in December &ndash; and that is said out loud.',
+      who: 'Full crew, boutique manager', kpi: 'Share of December revenue shifted into November' } },
+
+  { cost: '&mdash;', void: true, de: {
+      m: 'Dezember', t: 'Kein Format',
+      why: 'Im Dezember ist das Format der Betrieb. Wer in diesem Monat noch einen Anlass dazulegt, hat im Laden noch nie hinter dem Tresen gestanden.',
+      what: 'Nichts Zus&auml;tzliches. Daf&uuml;r eine einzige Massnahme: eine Person, die nur f&uuml;r die Schlange zust&auml;ndig ist &ndash; erkl&auml;rt, sortiert, bringt Kaffee. Kein Verkauf, keine Beratung, nur die Schlange.',
+      who: 'Boutique-Leitung, Aushilfe', kpi: 'Wartezeit an der Kasse, dreimal t&auml;glich gemessen' },
+    en: {
+      m: 'December', t: 'No format',
+      why: 'In December the format is the operation. Anyone adding another occasion in this month has never stood behind the counter in a shop.',
+      what: 'Nothing additional. Instead one single measure: a person responsible only for the queue &ndash; explaining, sorting, bringing coffee. No selling, no advice, just the queue.',
+      who: 'Boutique manager, temporary staff', kpi: 'Waiting time at the till, measured three times a day' } }
+];
+
+/* ---------- Die zehn S&auml;tze ---------- */
+var CLAIMS = [
+  { v: 'ev', de: {
+      c: 'Unsere Kapseln sind vollst&auml;ndig recycelbar.',
+      why: '&laquo;Recycelbar&raquo; beschreibt eine M&ouml;glichkeit, nicht ein Ergebnis. Die Frage, die eine Kundin stellt, ist nicht, ob es geht, sondern wie viel tats&auml;chlich zur&uuml;ckkommt. Der Satz beantwortet die falsche Frage und klingt dabei nach einer Antwort.',
+      ev: 'R&uuml;cklaufquote pro Markt und Jahr, mit Erhebungsmethode, und die Angabe, wie viel Material am Ende tats&auml;chlich wieder Aluminium wird.',
+      mine: 'Aluminium l&auml;sst sich immer wieder einschmelzen. In dieser Boutique sind im letzten Monat 340 Kilogramm zur&uuml;ckgekommen &ndash; das steht auf der Tafel am Eingang, jeden Monat neu.' },
+    en: {
+      c: 'Our capsules are fully recyclable.',
+      why: '&ldquo;Recyclable&rdquo; describes a possibility, not a result. The question a customer asks is not whether it is possible but how much actually comes back. The sentence answers the wrong question while sounding like an answer.',
+      ev: 'Return rate per market and year, with the collection method, plus how much material actually becomes aluminium again at the end.',
+      mine: 'Aluminium can be melted down again and again. In this boutique 340 kilograms came back last month &ndash; that is on the board at the entrance, updated every month.' } },
+
+  { v: 'no', de: {
+      c: 'Wir sind klimaneutral.',
+      why: 'Der Begriff st&uuml;tzt sich fast immer auf Kompensation und wird genau daf&uuml;r seit Jahren zu Recht angegriffen. Er ist inzwischen ein Risiko statt ein Argument: Er l&auml;dt zur Nachfrage ein, und die Antwort ist nie so kurz wie die Behauptung.',
+      ev: 'Kein Beleg macht diesen Satz gut. Selbst mit vollst&auml;ndiger Bilanz w&uuml;rde ich ihn nicht verwenden, weil er mehr verspricht als jede Bilanz hergibt.',
+      mine: 'Wir haben die Emissionen pro Tasse seit 2018 um 24 Prozent gesenkt. Was &uuml;brig bleibt, kompensieren wir &ndash; und wir schreiben dazu, mit welchen Projekten und zu welchem Preis pro Tonne.' },
+    en: {
+      c: 'We are climate neutral.',
+      why: 'The term almost always rests on offsetting and has rightly been attacked for exactly that for years. By now it is a risk rather than an argument: it invites a follow-up question, and the answer is never as short as the claim.',
+      ev: 'No evidence makes this sentence good. Even with a complete carbon account I would not use it, because it promises more than any account delivers.',
+      mine: 'We have cut emissions per cup by 24 per cent since 2018. What remains we offset &ndash; and we state which projects and at what price per tonne.' } },
+
+  { v: 'no', de: {
+      c: 'Nachhaltig genossen.',
+      why: 'Der Satz sagt nichts und kostet trotzdem Vertrauen. Er ist nicht falsch, er ist leer &ndash; und Leere wird bei diesem Thema als Absicht gelesen. Solche Halbs&auml;tze sind der Grund, weshalb niemand mehr hinh&ouml;rt, wenn eine Marke etwas Richtiges sagt.',
+      ev: 'Gar keiner, weil es keine pr&uuml;fbare Aussage ist. Genau das ist das Problem.',
+      mine: 'Ersatzlos streichen. Wenn an dieser Stelle etwas stehen muss, dann eine Handlung: &laquo;Sack mitbringen, Gewicht in Kaffee zur&uuml;ck.&raquo;' },
+    en: {
+      c: 'Sustainably enjoyed.',
+      why: 'The sentence says nothing and still costs trust. It is not wrong, it is empty &ndash; and on this topic emptiness reads as intent. Half-sentences like this are why nobody listens any more when a brand says something true.',
+      ev: 'None, because it is not a checkable statement. That is precisely the problem.',
+      mine: 'Delete it with nothing in its place. If something has to stand here, make it an action: &ldquo;Bring the bag, get the weight back in coffee.&rdquo;' } },
+
+  { v: 'ev', de: {
+      c: 'Jede zur&uuml;ckgebrachte Kapsel wird zu neuem Aluminium.',
+      why: 'Das Wort &laquo;jede&raquo; macht aus einer guten Aussage eine angreifbare. In jedem Prozess gibt es Verluste, Fehlw&uuml;rfe und Chargen, die nicht durchgehen. Ein Absolutwort in einem Nachhaltigkeitssatz ist fast immer die Stelle, an der es sp&auml;ter eine Richtigstellung gibt.',
+      ev: 'Prozessdaten der Verwertung: Anteil des eingesammelten Materials, der tats&auml;chlich in die Aluminiumverwertung geht, und was mit dem Rest passiert.',
+      mine: 'Was hier zur&uuml;ckkommt, wird getrennt: Das Aluminium geht in die Verwertung, der Kaffee in die Kompostierung. Wie gross die Verluste dabei sind, steht im Bericht auf Seite 14.' },
+    en: {
+      c: 'Every capsule returned becomes new aluminium.',
+      why: 'The word &ldquo;every&rdquo; turns a good statement into an attackable one. Every process has losses, wrong disposals and batches that do not pass. An absolute word in a sustainability sentence is almost always the place where a correction follows later.',
+      ev: 'Process data from the recycler: the share of collected material that actually enters aluminium recovery, and what happens to the rest.',
+      mine: 'What comes back here gets separated: the aluminium goes into recovery, the coffee into composting. How large the losses are is on page 14 of the report.' } },
+
+  { v: 'ev', de: {
+      c: 'Kaffee aus verantwortungsvollem Anbau.',
+      why: 'Ein Wort wie &laquo;verantwortungsvoll&raquo; ist nicht falsch, aber es ist unpr&uuml;fbar, solange kein Programm, kein Anteil und keine pr&uuml;fende Stelle daneben steht. Ohne diese drei Angaben ist es eine Selbstauskunft.',
+      ev: 'Name des Programms, Anteil des Einkaufs in Prozent, unabh&auml;ngige Pr&uuml;fstelle und Jahr der letzten Pr&uuml;fung.',
+      mine: '84 Prozent unseres Kaffees stammen aus unserem Anbauprogramm, gepr&uuml;ft durch eine unabh&auml;ngige Stelle. Die restlichen 16 Prozent arbeiten wir ab &ndash; hier steht, bis wann.' },
+    en: {
+      c: 'Coffee from responsible farming.',
+      why: 'A word like &ldquo;responsible&rdquo; is not wrong, but it is uncheckable as long as no programme, no share and no auditing body stands next to it. Without those three it is self-certification.',
+      ev: 'Name of the programme, share of purchasing in per cent, independent auditor and the year of the last audit.',
+      mine: '84 per cent of our coffee comes from our farming programme, audited by an independent body. We are working through the remaining 16 per cent &ndash; here is by when.' } },
+
+  { v: 'ev', de: {
+      c: 'Wir zahlen den Kaffeebetrieben mehr.',
+      why: 'Mehr als was? Ohne Referenzpreis, ohne Land und ohne Jahr ist der Satz nicht &uuml;berpr&uuml;fbar &ndash; und ein Vergleich, den man nicht nachrechnen kann, ist im Zweifel keiner. Gerade weil die Aussage wahrscheinlich stimmt, w&auml;re es fahrl&auml;ssig, sie so stehen zu lassen.',
+      ev: 'Durchschnittlicher Einkaufspreis gegen Referenzpreis, pro Land, pro Jahr, mit Quelle des Referenzpreises.',
+      mine: 'In Kolumbien haben wir 2025 im Schnitt 41 Prozent &uuml;ber dem Referenzpreis der B&ouml;rse bezahlt. Der Referenzpreis ist verlinkt, unser Durchschnitt steht im Bericht.' },
+    en: {
+      c: 'We pay the coffee farms more.',
+      why: 'More than what? Without a reference price, a country and a year the sentence cannot be checked &ndash; and a comparison you cannot recalculate is not really one. Precisely because the statement is probably true, leaving it like this would be careless.',
+      ev: 'Average purchase price against the reference price, per country, per year, with the source of the reference price.',
+      mine: 'In Colombia we paid 41 per cent above the exchange reference price on average in 2025. The reference price is linked, our average is in the report.' } },
+
+  { v: 'no', de: {
+      c: 'Unsere Boutique ist plastikfrei.',
+      why: '&laquo;Frei von&raquo; ist ein absoluter Anspruch, und in einem Laden gilt er praktisch nie: Folien in der Anlieferung, Dichtungen, Etiketten, Klebeband. Ein Satz, den eine einzige Rolle Stretchfolie im Lager widerlegt, geh&ouml;rt nicht an die Wand.',
+      ev: 'Keiner, der in der Praxis h&auml;lt. Selbst mit einer vollst&auml;ndigen Materialliste w&uuml;rde ich die absolute Formulierung nicht verwenden.',
+      mine: 'In dieser Boutique geben wir nichts aus Einwegplastik ab. In der Anlieferung haben wir es noch &ndash; daran arbeiten wir, und wir sagen es, solange es so ist.' },
+    en: {
+      c: 'Our boutique is plastic free.',
+      why: '&ldquo;Free of&rdquo; is an absolute claim, and in a shop it practically never holds: film in deliveries, seals, labels, tape. A sentence that one roll of stretch film in the stockroom disproves does not belong on the wall.',
+      ev: 'None that holds in practice. Even with a complete materials list I would not use the absolute wording.',
+      mine: 'In this boutique we hand out nothing made of single-use plastic. In our deliveries we still have it &ndash; we are working on that, and we say so while it is still the case.' } },
+
+  { v: 'no', de: {
+      c: 'Aluminium ist das am h&auml;ufigsten recycelte Material der Welt.',
+      why: 'Ein Superlativ ohne Quelle, und selbst mit Quelle beantwortet er die Frage nicht, die gestellt wurde. Der Satz lenkt von der eigenen Quote auf eine Weltstatistik ab &ndash; und genau dieses Ausweichen ist es, was Leute misstrauisch macht.',
+      ev: 'Eine belastbare Quelle w&uuml;rde den Satz zul&auml;ssig machen, aber nicht n&uuml;tzlich. Er bleibt eine Ablenkung.',
+      mine: 'Aluminium l&auml;sst sich ohne Qualit&auml;tsverlust wieder einschmelzen. Wie viel davon bei uns zur&uuml;ckkommt, steht auf der Tafel am Eingang &ndash; das ist die Zahl, die wir beeinflussen k&ouml;nnen.' },
+    en: {
+      c: 'Aluminium is the most recycled material in the world.',
+      why: 'A superlative without a source, and even with one it does not answer the question that was asked. The sentence diverts from our own rate to a world statistic &ndash; and that dodge is exactly what makes people suspicious.',
+      ev: 'A solid source would make the sentence permissible but not useful. It stays a diversion.',
+      mine: 'Aluminium can be melted down again without loss of quality. How much of it comes back to us is on the board at the entrance &ndash; that is the number we can influence.' } },
+
+  { v: 'ok', de: {
+      c: 'Bring deine Kapseln zur&uuml;ck &ndash; es dauert zwei Minuten.',
+      why: 'Eine pr&uuml;fbare Aussage &uuml;ber eine Handlung statt ein Versprechen &uuml;ber eine Haltung. Sie nennt den Aufwand, statt ihn zu verschweigen, und sie l&auml;sst sich widerlegen &ndash; wenn es f&uuml;nf Minuten dauert, merkt es die Kundin sofort. Genau deshalb wird sie geglaubt.',
+      ev: 'Nur eine Messung im Laden: Wie lange dauert es wirklich, von der T&uuml;r bis zur&uuml;ck auf die Gasse? Und wenn es l&auml;nger dauert, wird die Zahl im Satz korrigiert, nicht der Ablauf besch&ouml;nigt.',
+      mine: 'Bleibt so. Der einzige Zusatz w&auml;re der Ort: &laquo;Bring deine Kapseln zur&uuml;ck &ndash; zwei Minuten, gleich hier vorne, ohne Anmeldung.&raquo;' },
+    en: {
+      c: 'Bring your capsules back &ndash; it takes two minutes.',
+      why: 'A checkable statement about an action instead of a promise about an attitude. It names the effort rather than hiding it, and it can be disproved &ndash; if it takes five minutes the customer notices immediately. That is exactly why it is believed.',
+      ev: 'Only a measurement in the shop: how long does it really take from the door and back out onto the street? And if it takes longer, the number in the sentence gets corrected, not the process dressed up.',
+      mine: 'Stays as it is. The only addition would be the place: &ldquo;Bring your capsules back &ndash; two minutes, right here at the front, no appointment.&rdquo;' } },
+
+  { v: 'ok', de: {
+      c: 'Wir sind noch nicht dort, wo wir sein wollen.',
+      why: 'Der wirksamste Satz der Liste, und der einzige, der gar keinen Beleg braucht. Er kostet nichts, er ist unbestreitbar wahr, und er erlaubt der Marke, Fortschritt zu zeigen statt Perfektion zu behaupten. Wer so anf&auml;ngt, darf danach Zahlen nennen, ohne dass sie wie eine Verteidigung klingen.',
+      ev: 'Keiner f&uuml;r den Satz selbst. Aber er verpflichtet zu dem, was danach kommt: eine Zahl, ein Datum und eine n&auml;chste Massnahme. Ohne diese drei wird aus Demut eine Masche.',
+      mine: 'Bleibt so &ndash; aber nie allein. &laquo;Wir sind noch nicht dort, wo wir sein wollen: 62 Prozent kommen zur&uuml;ck. Bis 2027 wollen wir bei 75 sein, und das sind die drei Dinge, die wir daf&uuml;r &auml;ndern.&raquo;' },
+    en: {
+      c: 'We are not yet where we want to be.',
+      why: 'The most effective sentence on the list, and the only one that needs no evidence at all. It costs nothing, it is undeniably true, and it lets the brand show progress instead of claiming perfection. Start like that and you can name numbers afterwards without them sounding like a defence.',
+      ev: 'None for the sentence itself. But it commits you to what follows: a number, a date and a next measure. Without those three, humility becomes a tactic.',
+      mine: 'Stays as it is &ndash; but never on its own. &ldquo;We are not yet where we want to be: 62 per cent comes back. By 2027 we want to be at 75, and these are the three things we are changing for that.&rdquo;' } }
+];
+
+var ASSUMPTIONS = [
+  { de: ['Gewicht pro Sack', 'Ein gebrauchter Sack mit rund 100 Kapseln wiegt etwa ein Kilogramm', 'Nachwiegen an der Waage in den ersten vier Wochen, danach Mittelwert ersetzen'],
+    en: ['Weight per bag', 'A used bag with around 100 capsules weighs about one kilogram', 'Weighing at the scale in the first four weeks, then replace the average'] },
+  { de: ['Gegenleistung', 'Ein Kilogramm sind drei Tassen, maximal drei pro Besuch', 'Z&auml;hlung an der Maschine, ein Strich pro ausgegebene Tasse'],
+    en: ['The return', 'One kilogram is three cups, at most three per visit', 'Count at the machine, one mark per cup handed out'] },
+  { de: ['R&uuml;cklaufquote', 'Gewicht zur&uuml;ck geteilt durch verkaufte Kapseln, pro Boutique und Monat', 'Kassendaten gegen Waage, monatlich von Hand auf der Tafel nachgetragen'],
+    en: ['Return rate', 'Weight returned divided by capsules sold, per boutique and month', 'Till data against the scale, written up by hand on the board every month'] },
+  { de: ['Zweitbesuch', 'Ein R&uuml;ckgabebesuch f&uuml;hrt in 40% der F&auml;lle zu einem Kauf im selben Besuch', 'Frage an der Kasse, ein Feld im Kassensystem, keine Personendaten'],
+    en: ['Second visit', 'A return visit leads to a purchase in the same visit in 40% of cases', 'Question at the till, one field in the till system, no personal data'] },
+  { de: ['Aufwand Crew', 'Zwei Minuten pro R&uuml;ckgabe, inklusive Gespr&auml;ch und Tasse', 'Stichprobe an drei Tagen, mit der Uhr gemessen'],
+    en: ['Crew effort', 'Two minutes per return, including the conversation and the cup', 'Sample over three days, measured with a watch'] },
+  { de: ['Kostenband S / M / L', 'S bis CHF 1\'500, M bis CHF 6\'000, L bis CHF 15\'000 pro Monat und Boutique', 'Nachkalkulation pro Monat gegen die Offerte, Abweichung &uuml;ber 10% wird begr&uuml;ndet'],
+    en: ['Cost band S / M / L', 'S up to CHF 1,500, M up to CHF 6,000, L up to CHF 15,000 per month and boutique', 'Post-calculation per month against the quote, deviations over 10% get explained'] },
+  { de: ['Markenwirkung', 'Nicht in diesem Format enthalten &ndash; separat zu budgetieren', 'Kurzbefragung im Laden, 150 Antworten pro Boutique, gegen eine Boutique ohne Format'],
+    en: ['Brand impact', 'Not included in this format &ndash; to be budgeted separately', 'Short survey in the shop, 150 responses per boutique, against a boutique without the format'] }
+];
+
+/* ---------- Jahresrhythmus ---------- */
+var selM = 0;
+
+function renderMonths() {
+  var h = '';
+  MONTHS.forEach(function (m, i) {
+    h += '<button class="mon' + (i === selM ? ' on' : '') + (m.void ? ' void' : '') + '" data-i="' + i + '">' +
+         '<i>' + m[LANG].m + '</i><em>' + m[LANG].t + '</em>' +
+         '<u>' + (m.void ? tr('tag-void') : tr('tag-fmt') + ' ' + m.cost) + '</u></button>';
+  });
+  $('months').innerHTML = h;
+  Array.prototype.forEach.call($('months').querySelectorAll('.mon'), function (b) {
+    b.addEventListener('click', function () { selM = +b.getAttribute('data-i'); renderMonths(); renderMonthDetail(); });
+  });
+}
+
+function renderMonthDetail() {
+  var m = MONTHS[selM], d = m[LANG];
+  $('detail').innerHTML =
+    '<div class="dnum">' + d.m + (m.void ? ' &middot; ' + tr('tag-void') : '') + '</div>' +
+    '<h4>' + d.t + '</h4>' +
+    '<div class="dpair"><span>' + tr('d-why') + '</span><p>' + d.why + '</p></div>' +
+    '<div class="dpair"><span>' + tr('d-what') + '</span><p>' + d.what + '</p></div>' +
+    '<div class="dmeta">' +
+      '<div><span>' + tr('d-who') + '</span><b>' + d.who + '</b></div>' +
+      '<div><span>' + tr('d-cost') + '</span><b>' + m.cost + '</b></div>' +
+      '<div><span>' + tr('d-kpi') + '</span><b>' + d.kpi + '</b></div>' +
+    '</div>';
+}
+
+/* ---------- Aussagen-Pr&uuml;fung ---------- */
+var filter = 'all', openClaim = -1;
+
+function countV(v) { var n = 0; CLAIMS.forEach(function (c) { if (c.v === v) n++; }); return n; }
+
+function renderFilters() {
+  var defs = [['all', tr('f-all'), CLAIMS.length], ['ok', tr('v-ok'), countV('ok')],
+              ['ev', tr('v-ev'), countV('ev')], ['no', tr('v-no'), countV('no')]];
+  $('filters').innerHTML = defs.map(function (d) {
+    return '<button data-f="' + d[0] + '"' + (filter === d[0] ? ' class="on"' : '') + '>' +
+           d[1] + ' <small>' + d[2] + '</small></button>';
+  }).join('');
+  Array.prototype.forEach.call($('filters').querySelectorAll('button'), function (b) {
+    b.addEventListener('click', function () { filter = b.getAttribute('data-f'); renderFilters(); renderClaims(); });
+  });
+}
+
+function vLabel(v) { return v === 'ok' ? tr('v-ok') : (v === 'ev' ? tr('v-ev') : tr('v-no')); }
+
+function renderClaims() {
+  var h = '';
+  CLAIMS.forEach(function (c, i) {
+    if (filter !== 'all' && c.v !== filter) return;
+    var d = c[LANG], cls = 'v-' + c.v;
+    h += '<div class="claim-row">' +
+         '<button class="claim-btn" data-i="' + i + '">' +
+           '<span class="dot ' + cls + '"></span>' +
+           '<q>' + d.c + '</q>' +
+           '<strong class="' + cls + '">' + vLabel(c.v) + '</strong>' +
+         '</button>';
+    if (openClaim === i) {
+      h += '<div class="claim-open">' +
+           '<div class="dpair"><span>' + tr('c-why') + '</span><p>' + d.why + '</p></div>' +
+           '<div class="dpair"><span>' + tr('c-ev') + '</span><p>' + d.ev + '</p></div>' +
+           '<div class="dpair mine"><span>' + tr('c-mine') + '</span><p>' + d.mine + '</p></div>' +
+           '</div>';
+    }
+    h += '</div>';
+  });
+  $('claims').innerHTML = h;
+  Array.prototype.forEach.call($('claims').querySelectorAll('.claim-btn'), function (b) {
+    b.addEventListener('click', function () {
+      var i = +b.getAttribute('data-i');
+      openClaim = (openClaim === i) ? -1 : i;
+      renderClaims();
+    });
+  });
+}
+
+function renderAssumptions() {
+  var h = '<thead><tr><th>' + tr('th-pos') + '</th><th>' + tr('th-basis') + '</th><th>' +
+          tr('th-how') + '</th></tr></thead><tbody>';
+  ASSUMPTIONS.forEach(function (r) {
+    var c = r[LANG];
+    h += '<tr><td><strong>' + c[0] + '</strong></td><td>' + c[1] + '</td><td>' + c[2] + '</td></tr>';
+  });
+  $('assumptions').innerHTML = h + '</tbody>';
+}
+
+/* ---------- Sprache ---------- */
+function applyT() {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-t]'), function (el) {
+    var k = el.getAttribute('data-t');
+    if (T[LANG][k] !== undefined) el.innerHTML = T[LANG][k];
+  });
+  document.documentElement.lang = LANG;
+}
+function setLang(l) {
+  LANG = l;
+  $('btn-de').className = l === 'de' ? 'on' : '';
+  $('btn-en').className = l === 'en' ? 'on' : '';
+  applyT(); renderAll();
+}
+
+function renderAll() {
+  renderMonths(); renderMonthDetail(); renderFilters(); renderClaims(); renderAssumptions();
+}
+
+applyT(); renderAll();
+</script>
+</body>
+</html>
