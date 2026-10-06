@@ -1,13 +1,18 @@
 (function () {
   var PW  = '54321';
+  var EN = false;
+  try { EN = localStorage.getItem('sj_lang') === 'en'; } catch (e) {}
+  var TXT = EN
+    ? { label: 'Password', btn: 'Continue', error: 'Wrong password' }
+    : { label: 'Passwort', btn: 'Weiter', error: 'Falsches Passwort' };
 
   var overlay = document.createElement('div');
   overlay.id = 'pw-overlay';
   overlay.innerHTML = [
     '<div id="pw-box">',
-    '  <p id="pw-label">Passwort</p>',
+    '  <p id="pw-label">' + TXT.label + '</p>',
     '  <input id="pw-input" type="password" autocomplete="current-password" placeholder="••••••" autofocus />',
-    '  <button id="pw-btn">Weiter</button>',
+    '  <button id="pw-btn">' + TXT.btn + '</button>',
     '  <p id="pw-error"></p>',
     '</div>'
   ].join('');
@@ -33,7 +38,7 @@
       overlay.remove();
       style.remove();
     } else {
-      document.getElementById('pw-error').textContent = 'Falsches Passwort';
+      document.getElementById('pw-error').textContent = TXT.error;
       document.getElementById('pw-input').value = '';
     }
   }

@@ -761,6 +761,7 @@ function applyT() {
 }
 function setLang(l) {
   LANG = l;
+  try { localStorage.setItem('sj_lang', l); } catch (e) {}
   $('btn-de').className = l === 'de' ? 'on' : '';
   $('btn-en').className = l === 'en' ? 'on' : '';
   applyT(); renderSegs(); renderAll();
@@ -777,6 +778,8 @@ $('save-a').addEventListener('click', function () {
 $('clear-a').addEventListener('click', function () { snapA = null; renderAll(); });
 
 applyT(); renderSegs(); renderAll();
+/* Sprache der restlichen Website übernehmen */
+try { if (localStorage.getItem('sj_lang') === 'en') setLang('en'); } catch (e) {}
 </script>
 </body>
 </html>

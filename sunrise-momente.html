@@ -877,6 +877,7 @@ function applyT() {
 }
 function setLang(l) {
   LANG = l;
+  try { localStorage.setItem('sj_lang', l); } catch (e) {}
   $('btn-de').className = l === 'de' ? 'on' : '';
   $('btn-en').className = l === 'en' ? 'on' : '';
   applyT(); renderAll();
@@ -897,6 +898,8 @@ function renderAll() { renderPhases(); renderDetail(); renderList(); renderMetri
 });
 
 applyT(); renderAll();
+/* Sprache der restlichen Website übernehmen */
+try { if (localStorage.getItem('sj_lang') === 'en') setLang('en'); } catch (e) {}
 </script>
 </body>
 </html>

@@ -341,6 +341,7 @@
 
   function setLang(next) {
     lang = next;
+    try { localStorage.setItem('sj_lang', next); } catch (e) {}
     nodes.forEach(function (el) { el.innerHTML = el.dataset[lang]; });
     btn.textContent = lang === 'de' ? 'EN' : 'DE';
     document.documentElement.lang = lang;
@@ -414,9 +415,12 @@
 
   render();
   setInterval(render, 1000);
+
+  /* Sprache der restlichen Website übernehmen */
+  try { if (localStorage.getItem('sj_lang') === 'en') setLang('en'); } catch (e) {}
 })();
 </script>
 
-<script src="js/pw-protect.js"></script>
+<script src="js/pw-protect.js?v=2"></script>
 </body>
 </html>

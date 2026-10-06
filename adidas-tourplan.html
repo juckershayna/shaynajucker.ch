@@ -853,6 +853,7 @@ function applyT() {
 }
 function setLang(l) {
   LANG = l;
+  try { localStorage.setItem('sj_lang', l); } catch (e) {}
   $('btn-de').className = l === 'de' ? 'on' : '';
   $('btn-en').className = l === 'en' ? 'on' : '';
   applyT(); renderCities(); renderSegs(); renderAll();
@@ -862,6 +863,8 @@ function setLang(l) {
 $('days').addEventListener('input', function () { state.days = +this.value; renderAll(); });
 $('cap').addEventListener('input', function () { state.cap = +this.value; renderAll(); });
 applyT(); renderCities(); renderSegs(); renderAll();
+/* Sprache der restlichen Website übernehmen */
+try { if (localStorage.getItem('sj_lang') === 'en') setLang('en'); } catch (e) {}
 </script>
 </body>
 </html>

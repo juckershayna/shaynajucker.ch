@@ -566,7 +566,7 @@
   </section>
 </div>
 
-<script src="js/pw-protect.js"></script>
+<script src="js/pw-protect.js?v=2"></script>
 <script>
 /* ============================================================
    WEINBLATT – POS-Baukasten
@@ -979,6 +979,7 @@ function render() {
 /* ---------- Sprache ---------- */
 function setLang(lang) {
   LANG = lang;
+  try { localStorage.setItem('sj_lang', lang); } catch (e) {}
   document.documentElement.lang = lang;
   $('btn-de').classList.toggle('on', lang === 'de');
   $('btn-en').classList.toggle('on', lang === 'en');
@@ -1107,6 +1108,8 @@ document.querySelectorAll('input, select, textarea').forEach(function (el) {
 });
 buildChips();
 loadPreset(0);
+/* Sprache der restlichen Website übernehmen */
+try { if (localStorage.getItem('sj_lang') === 'en') setLang('en'); } catch (e) {}
 </script>
 </body>
 </html>

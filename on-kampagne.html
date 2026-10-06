@@ -474,12 +474,15 @@ function dl(id) {
 }
 function setLang(lang) {
   LANG = lang;
+  try { localStorage.setItem('sj_lang', lang); } catch (e) {}
   $('btn-de').classList.toggle('on', lang === 'de');
   $('btn-en').classList.toggle('on', lang === 'en');
   renderAll();
 }
 function renderAll() { renderStatic(); renderBoards(); renderRules(); renderFormats(); }
 renderAll();
+/* Sprache der restlichen Website übernehmen */
+try { if (localStorage.getItem('sj_lang') === 'en') setLang('en'); } catch (e) {}
 </script>
 
 </body>
