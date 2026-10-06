@@ -41,8 +41,8 @@
   .brands { display: flex; align-items: center; gap: 14px; min-width: 0; }
   .brands .sj { height: 40px; width: auto; }
   .brands .x { color: var(--soft); font-size: 14px; }
-  .sc-logo { display: flex; align-items: center; height: 30px; }
-  .sc-logo img { height: 30px; width: auto; display: block; }
+  .sc-logo { display: flex; align-items: center; gap: 8px; height: 34px; }
+  .sc-logo img { height: 34px; width: auto; display: block; }
   .sc-wordmark { font-size: 24px; font-weight: 700; letter-spacing: -.02em; color: #fff; line-height: 1; }
   .top-right { display: flex; align-items: center; gap: 18px; }
   .back { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--gold); text-decoration: none; white-space: nowrap; }
@@ -168,7 +168,7 @@
     .top .wrap { height: 60px; }
     .brands .sj { height: 32px; }
     .sc-wordmark { font-size: 19px; }
-    .sc-logo img { height: 24px; }
+    .sc-logo img { height: 28px; }
     .back.top-back { display: none; }
     section.block { padding: 60px 0; }
     .quote { padding: 26px 22px; }
@@ -188,9 +188,8 @@
     <div class="brands">
       <a href="swisscom.html"><img class="sj" src="assets/images/Logo-SJ-Homepage-fett.png" alt="SJ Logo"></a>
       <span class="x">&times;</span>
-      <!-- Logo: liegt die Datei assets/images/swisscom-logo.svg vor, wird sie angezeigt, sonst die Wortmarke -->
       <span class="sc-logo">
-        <img src="assets/images/swisscom-logo.svg" alt="Swisscom" onload="this.nextElementSibling.remove()" onerror="this.remove()">
+        <img src="assets/images/swisscom-logo.png" alt="">
         <span class="sc-wordmark">swisscom</span>
       </span>
     </div>
