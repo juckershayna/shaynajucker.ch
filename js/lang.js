@@ -76,7 +76,7 @@ window.SJ_LANG = {
     'index.quote': 'Der einzige Weg, grossartige Arbeit zu leisten, ist zu lieben, was man tut. &#8211; Steve Jobs',
 
     /* --- Portfolio nav --- */
-    'portfolio.design-group': 'Design & Studium',
+    'portfolio.design-group': 'Architektur, Design & Studium',
 
     /* --- Marketing Cases --- */
     'mkt.tag1':           'Fallstudie 01',
@@ -878,7 +878,7 @@ window.SJ_LANG = {
     'index.quote': 'The only way to do great work is to love what you do. &#8211; Steve Jobs',
 
     /* --- Portfolio nav --- */
-    'portfolio.design-group': 'Design & Studies',
+    'portfolio.design-group': 'Architecture, Design & Studies',
 
     /* --- Marketing Cases --- */
     'mkt.tag1':           'Case Study 01',
@@ -1657,7 +1657,6 @@ window.SJ_PAIRS = [
   ["Architektonische Entwürfe und Modelle aus meiner kreativen Auseinandersetzung mit Raum, Form und Struktur.", "Architectural designs and models from my creative exploration of space, form and structure."],
   ["Abschlussarbeiten und Projekte aus meinem Bachelorstudium in Multimedia Production an der FHGR – mit Fokus auf Strategie, Design und Kommunikation.", "Final theses and projects from my bachelor’s degree in Multimedia Production at FHGR – with a focus on strategy, design and communication."],
   ["Technische Zeichnungen und Pläne – präzise Darstellungen, die das Fundament jedes Entwurfs bilden.", "Technical drawings and plans – precise representations that form the foundation of every design."],
-  ["Live-Erlebnisse, die in Erinnerung bleiben – von der Showkonzeption über die Regie bis zur technischen Umsetzung vor Ort.", "Live experiences that stay with people – from show concept and direction to technical execution on site."],
   ["Grafische Arbeiten, Konzepte und Texte aus meinem Studium und darüber hinaus – ein Einblick in meine kreative Entwicklung.", "Graphic work, concepts and texts from my studies and beyond – an insight into my creative development."],
   ["Porträtfotografie, die unter die Oberfläche geht – Gesichter, Blicke und Persönlichkeiten, festgehalten in ehrlichen Momenten. Ein Blick in mein eigenständiges Fotoprojekt auf humanfaces.ch.", "Portrait photography that goes beneath the surface – faces, glances and personalities captured in honest moments. A look at my independent photo project on humanfaces.ch."],
   ["Weiterleitung zu humanfaces.ch...", "Redirecting to humanfaces.ch..."],
