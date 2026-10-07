@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Regenplan &middot; Arbeitsprobe f&uuml;r Allianz Suisse</title>
+<link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/arbeitsprobe.css?v=1">
+<style>
+  /* Allianz-Farbwelt: tiefes Blau, klare Geometrie */
+  :root {
+    --accent: #003781; --accent-lt: #4f9de8; --on-accent: #ffffff;
+    --glow: rgba(0,55,129,.75); --tint: rgba(79,157,232,.12);
+    --font-head: 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+    --radius: 8px;
+  }
+  .cover h1 { font-weight: 800; letter-spacing: -.04em; }
+  .opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 760px) { .opts { grid-template-columns: 1fr; } }
+  .opt { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; position: relative; transition: border-color 200ms, box-shadow 200ms; }
+  .opt.rec { border-color: var(--accent-lt); box-shadow: 0 0 0 1px var(--accent-lt), 0 10px 30px rgba(0,55,129,.45); }
+  .opt .tag { position: absolute; top: -10px; right: 12px; background: var(--accent-lt); color: #001a3d; font-size: 10px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; display: none; }
+  .opt.rec .tag { display: block; }
+  .opt.blocked { opacity: .45; }
+  .opt h4 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+  .opt p { font-size: 13.5px; color: var(--ink-2); line-height: 1.5; margin-bottom: 12px; }
+  .opt dl { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; font-size: 13px; }
+  .opt dt { color: var(--soft); } .opt dd { font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+  .timeline { list-style: none; margin-top: 18px; border-left: 2px solid var(--accent-lt); padding-left: 18px; }
+  .timeline li { position: relative; margin-bottom: 14px; font-size: 14.5px; }
+  .timeline li::before { content: ''; position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-lt); }
+  .timeline b { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-lt); }
+  .timeline q { quotes: none; color: #fff; font-style: italic; }
+  .wx { display: flex; gap: 14px; align-items: center; margin-bottom: 14px; }
+  .wx svg { width: 64px; height: 64px; flex: none; }
+  .wx span { font-size: 13px; color: var(--soft); }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Material von Allianz Suisse, Marke und Logo geh&ouml;ren Allianz</span>
+  &nbsp;&middot;&nbsp; <a href="allianz.html" data-t="bar-back">zur&uuml;ck zur Bewerbung</a>
+</div>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="brandline">
+      <a href="allianz.html"><img class="sj" src="assets/images/Logo-SJ-Homepage-fett.png" alt="SJ Logo"></a>
+      <span class="x">&times;</span>
+      <span class="co-logo" style="--logo-h:30px"><img src="assets/images/logos/allianz.svg" alt="Allianz" onerror="this.parentNode.classList.add('nologo')"><span class="co-word">Allianz</span></span>
+    </div>
+    <div class="cover-top">
+      <div class="eyebrow" data-t="eyebrow">Open-Air-Kino &amp; Entscheidungswerkzeug</div>
+      <div class="lang-switch"><button id="btn-de" class="on" onclick="setLang('de')">DE</button><button id="btn-en" onclick="setLang('en')">EN</button></div>
+    </div>
+    <div class="kind" data-t="kind">Arbeitsprobe f&uuml;r die Bewerbung als Sponsoring &amp; Event Manager</div>
+    <h1 data-t="title">Regenplan.</h1>
+    <p class="claim" data-t="claim">Ein Open-Air-Kino wird nicht an sch&ouml;nen Abenden beurteilt. Sondern an dem einen, an dem es um halb f&uuml;nf zu regnen beginnt &ndash; und eine Versicherung zeigen kann, was <strong>Absicherung</strong> heisst.</p>
+    <div class="facts">
+      <div><span data-t="f1-l">Anlass</span><b data-t="f1">Open-Air-Kino, 1&rsquo;500 Pl&auml;tze</b></div>
+      <div><span data-t="f2-l">Entscheid</span><b data-t="f2">Um 16 Uhr, verbindlich</b></div>
+      <div><span data-t="f3-l">Kern</span><b data-t="f3">Drei Varianten, eine Empfehlung</b></div>
+      <div><span data-t="f4-l">Steuergr&ouml;sse</span><b data-t="f4">Vertrauen nach dem Regenabend</b></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="doc">
+    <div class="sec-head"><div class="sec-no">01</div><div><h2 data-t="s1-h">Ausgangslage</h2><p data-t="s1-sub">Der Abend, an dem die Marke gepr&uuml;ft wird</p></div></div>
+    <div class="col">
+      <p class="lead" data-t="s1-p1">An einem warmen Sommerabend ist ein Open-Air-Kino ein Selbstl&auml;ufer. Die Marke im Namen profitiert von etwas, das sie nicht beeinflusst: dem Wetter.</p>
+      <p data-t="s1-p2">Interessant wird es am anderen Abend. Es ist 16 Uhr, die Prognose sagt sechzig Prozent Regen, tausend Tickets sind verkauft, und niemand weiss, ob gespielt wird. Wer jetzt zu sp&auml;t, zu vage oder zu oft kommuniziert, verliert das Publikum &ndash; nicht nur f&uuml;r diesen Abend. F&uuml;r eine Versicherung als Namensgeberin ist das kein Betriebsproblem. Es ist der Moment, in dem die Marke zeigt, ob sie h&auml;lt, was sie verspricht.</p>
+      <div class="callout"><b data-t="ins-l">Insight</b><p data-t="ins">Ein guter Regenabend bringt mehr Vertrauen als zehn sch&ouml;ne &ndash; wenn er sich anf&uuml;hlt, als h&auml;tte jemand vorgesorgt.</p></div>
+    </div>
+  </section>
+
+  <section class="doc">
+    <div class="sec-head"><div class="sec-no">02</div><div><h2 data-t="s2-h">Das Prinzip</h2><p data-t="s2-sub">Ein Zeitpunkt, drei Varianten, eine Nachricht</p></div></div>
+    <div class="col"><p data-t="s2-p1">Entschieden wird jeden Tag um 16 Uhr, nie sp&auml;ter, und nur zwischen drei vorbereiteten Varianten. Jede Variante hat ihren eigenen Ablauf, ihre eigene Nachricht an das Publikum und ihr eigenes Budget &ndash; geplant im Fr&uuml;hling, nicht am Nachmittag.</p></div>
+    <div class="steps3">
+      <div class="step"><i>A</i><h3 data-t="a-h">Spielen</h3><p data-t="a-p">Trockene Prognose. Normaler Ablauf, keine Zusatznachricht.</p></div>
+      <div class="step"><i>B</i><h3 data-t="b-h">Spielen mit Regenset</h3><p data-t="b-p">Unsicher. Ponchos und Sitzhauben am Eingang, Film l&auml;uft bei Regen weiter, Bar unter Dach.</p></div>
+      <div class="step"><i>C</i><h3 data-t="c-h">Verschieben</h3><p data-t="c-p">Zu nass oder zu windig. Ticket gilt automatisch f&uuml;r ein Ersatzdatum, ohne R&uuml;ckfrage.</p></div>
+    </div>
+  </section>
+
+  <section class="doc">
+    <div class="sec-head"><div class="sec-no">03</div><div><h2 data-t="s3-h">Das Werkzeug f&uuml;r 16 Uhr</h2><p data-t="s3-sub">Prognose eingeben, Empfehlung lesen</p></div></div>
+    <div class="col"><p data-t="s3-p1">Prognose und Vorverkauf eingeben &ndash; das Werkzeug rechnet f&uuml;r jede Variante, wie viele G&auml;ste kommen, was der Abend kostet und was ein Gast kostet. Es empfiehlt eine Variante und schreibt die Nachrichten, die danach rausgehen. Windgrenzen sind fix: Ab 50 km/h wird nicht gespielt, egal wie die Zahlen aussehen.</p></div>
+    <div class="tool">
+      <div class="tool-head"><b data-t="tool-t">Entscheid um 16 Uhr</b><span data-t="tool-n">Alle Werte fiktiv, Betr&auml;ge in CHF</span></div>
+      <div class="tool-body">
+        <div class="tool-grid">
+          <div>
+            <div class="wx"><svg id="wx" viewBox="0 0 64 64" aria-hidden="true"></svg><span data-t="wx-note">Prognose f&uuml;r 20 bis 23 Uhr</span></div>
+            <div class="slider-row"><label><span data-t="c-rain">Regenwahrscheinlichkeit</span><b id="v-rain"></b></label><input type="range" id="rain" min="0" max="100" step="5" value="60"></div>
+            <div class="slider-row"><label><span data-t="c-wind">Windb&ouml;en</span><b id="v-wind"></b></label><input type="range" id="wind" min="0" max="80" step="5" value="25"></div>
+            <div class="slider-row"><label><span data-t="c-sold">Verkaufte Tickets</span><b id="v-sold"></b></label><input type="range" id="sold" min="100" max="1500" step="50" value="1000"></div>
+          </div>
+          <div>
+            <p class="panel-h" data-t="h-msg">Nachrichten nach dem Entscheid</p>
+            <ul class="timeline" id="timeline"></ul>
+          </div>
+        </div>
+        <div class="opts" id="opts" style="margin-top:22px"></div>
+        <div class="verdict" id="verdict"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc">
+    <div class="sec-head"><div class="sec-no">04</div><div><h2 data-t="s4-h">Messplan</h2><p data-t="s4-sub">Gemessen wird der Abend danach</p></div></div>
+    <div class="col"><p data-t="s4-p1">Ein Regenplan ist gut, wenn das Publikum trotzdem wiederkommt. Deshalb wird nicht der Abend selbst gemessen, sondern was danach passiert.</p></div>
+    <div class="tbl-wrap"><table id="metrics"></table></div>
+  </section>
+
+  <section class="doc">
+    <div class="sec-head"><div class="sec-no">05</div><div><h2 data-t="s5-h">Was der Regenplan nicht kann</h2><p data-t="s5-sub">Die Grenzen, bevor sie jemand anders findet</p></div></div>
+    <div class="col">
+      <ul class="ticks no">
+        <li data-t="l1">Er macht Prognosen nicht genauer. Er sorgt nur daf&uuml;r, dass mit unsicheren Prognosen immer gleich umgegangen wird.</li>
+        <li data-t="l2">Er ersetzt nicht die Sicherheitsverantwortung vor Ort. Wenn es um 21 Uhr st&uuml;rmt, wird abgebrochen, egal was um 16 Uhr entschieden wurde.</li>
+        <li data-t="l3">Die Kosten pro Variante sind Annahmen. Mit den echten Vertr&auml;gen f&uuml;r Filmrechte, Technik und Personal &auml;ndert sich die Rechnung.</li>
+        <li data-t="l4">Er funktioniert nur, wenn sich alle an 16 Uhr halten &ndash; auch wenn um 15:55 jemand vorschl&auml;gt, noch eine Stunde zu warten.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <div class="wrap">
+    <h2 data-t="col-h">Zur Arbeitsprobe</h2>
+    <p data-t="col-1"><b>Was daran fiktiv ist:</b> alles Konkrete. Die Varianten, die Kosten, die Quoten und die Nachrichten gibt es nicht. Es ist kein offizielles Material von Allianz Suisse oder eines Open-Air-Kinos, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen.</p>
+    <p data-t="col-2"><b>Was daran echt ist:</b> das Vorgehen. So plane ich Anl&auml;sse unter freiem Himmel: Entscheidungen vorbereiten, solange es ruhig ist, damit sie im Stress nur noch ausgef&uuml;hrt werden m&uuml;ssen.</p>
+    <p data-t="col-3">Konzept, Text, Gestaltung und Umsetzung: Shayna Jucker. Zweisprachig Deutsch und Englisch, keine Datenerfassung.</p>
+    <p><a class="backlink" href="allianz.html" data-t="col-back">&larr; Zur&uuml;ck zur Bewerbung</a></p>
+  </div>
+</footer>
+
+<script src="js/arbeitsprobe.js?v=1"></script>
+<script>
+var T = {
+  de: {
+    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Material von Allianz Suisse, Marke und Logo geh&ouml;ren Allianz',
+    'bar-back': 'zur&uuml;ck zur Bewerbung',
+    'eyebrow': 'Open-Air-Kino &amp; Entscheidungswerkzeug',
+    'kind': 'Arbeitsprobe f&uuml;r die Bewerbung als Sponsoring &amp; Event Manager',
+    'title': 'Regenplan.',
+    'claim': 'Ein Open-Air-Kino wird nicht an sch&ouml;nen Abenden beurteilt. Sondern an dem einen, an dem es um halb f&uuml;nf zu regnen beginnt &ndash; und eine Versicherung zeigen kann, was <strong>Absicherung</strong> heisst.',
+    'f1-l': 'Anlass', 'f1': 'Open-Air-Kino, 1&rsquo;500 Pl&auml;tze', 'f2-l': 'Entscheid', 'f2': 'Um 16 Uhr, verbindlich',
+    'f3-l': 'Kern', 'f3': 'Drei Varianten, eine Empfehlung', 'f4-l': 'Steuergr&ouml;sse', 'f4': 'Vertrauen nach dem Regenabend',
+    's1-h': 'Ausgangslage', 's1-sub': 'Der Abend, an dem die Marke gepr&uuml;ft wird',
+    's1-p1': 'An einem warmen Sommerabend ist ein Open-Air-Kino ein Selbstl&auml;ufer. Die Marke im Namen profitiert von etwas, das sie nicht beeinflusst: dem Wetter.',
+    's1-p2': 'Interessant wird es am anderen Abend. Es ist 16 Uhr, die Prognose sagt sechzig Prozent Regen, tausend Tickets sind verkauft, und niemand weiss, ob gespielt wird. Wer jetzt zu sp&auml;t, zu vage oder zu oft kommuniziert, verliert das Publikum &ndash; nicht nur f&uuml;r diesen Abend. F&uuml;r eine Versicherung als Namensgeberin ist das kein Betriebsproblem. Es ist der Moment, in dem die Marke zeigt, ob sie h&auml;lt, was sie verspricht.',
+    'ins-l': 'Insight', 'ins': 'Ein guter Regenabend bringt mehr Vertrauen als zehn sch&ouml;ne &ndash; wenn er sich anf&uuml;hlt, als h&auml;tte jemand vorgesorgt.',
+    's2-h': 'Das Prinzip', 's2-sub': 'Ein Zeitpunkt, drei Varianten, eine Nachricht',
+    's2-p1': 'Entschieden wird jeden Tag um 16 Uhr, nie sp&auml;ter, und nur zwischen drei vorbereiteten Varianten. Jede Variante hat ihren eigenen Ablauf, ihre eigene Nachricht an das Publikum und ihr eigenes Budget &ndash; geplant im Fr&uuml;hling, nicht am Nachmittag.',
+    'a-h': 'Spielen', 'a-p': 'Trockene Prognose. Normaler Ablauf, keine Zusatznachricht.',
+    'b-h': 'Spielen mit Regenset', 'b-p': 'Unsicher. Ponchos und Sitzhauben am Eingang, Film l&auml;uft bei Regen weiter, Bar unter Dach.',
+    'c-h': 'Verschieben', 'c-p': 'Zu nass oder zu windig. Ticket gilt automatisch f&uuml;r ein Ersatzdatum, ohne R&uuml;ckfrage.',
+    's3-h': 'Das Werkzeug f&uuml;r 16 Uhr', 's3-sub': 'Prognose eingeben, Empfehlung lesen',
+    's3-p1': 'Prognose und Vorverkauf eingeben &ndash; das Werkzeug rechnet f&uuml;r jede Variante, wie viele G&auml;ste kommen, was der Abend kostet und was ein Gast kostet. Es empfiehlt eine Variante und schreibt die Nachrichten, die danach rausgehen. Windgrenzen sind fix: Ab 50 km/h wird nicht gespielt, egal wie die Zahlen aussehen.',
+    'tool-t': 'Entscheid um 16 Uhr', 'tool-n': 'Alle Werte fiktiv, Betr&auml;ge in CHF',
+    'wx-note': 'Prognose f&uuml;r 20 bis 23 Uhr', 'c-rain': 'Regenwahrscheinlichkeit', 'c-wind': 'Windb&ouml;en', 'c-sold': 'Verkaufte Tickets',
+    'h-msg': 'Nachrichten nach dem Entscheid',
+    'o-guests': 'Erwartete G&auml;ste', 'o-cost': 'Kosten des Abends', 'o-cpg': 'CHF pro Gast', 'o-rec': 'Empfehlung', 'o-blocked': 'Gesperrt: Wind &uuml;ber 50 km/h',
+    'v-A-l': 'Spielen', 'v-A': 'Bei {r}% Regen lohnt sich kein Zusatzaufwand. Normaler Ablauf, keine Nachricht &ndash; jede Warnung w&uuml;rde mehr verunsichern als n&uuml;tzen.',
+    'v-B-l': 'Spielen mit Regenset', 'v-B': 'Bei {r}% Regen kommen mit Regenset rund {g} G&auml;ste statt {g0}. Die Ponchos kosten CHF {p} &ndash; billiger als jeder leere Platz. Um 16:15 geht die Nachricht raus.',
+    'v-C-l': 'Verschieben', 'v-C': 'Bei {r}% Regen bleibt der Grossteil zu Hause, und ein halb leerer, nasser Abend schadet mehr als eine klare Verschiebung. Die Tickets gelten automatisch f&uuml;r das Ersatzdatum.',
+    'v-W-l': 'Verschieben aus Sicherheitsgr&uuml;nden', 'v-W': 'Windb&ouml;en von {w} km/h: Die Leinwand darf nicht aufgestellt werden. Hier wird nicht gerechnet, hier wird verschoben.',
+    'tl-A': [['16:00', 'Entscheid intern, keine Nachricht nach aussen'], ['19:00', 'T&uuml;r&ouml;ffnung wie geplant']],
+    'tl-B': [['16:15', 'SMS an alle Ticketinhaber: <q>Wir spielen. Am Eingang liegen Ponchos f&uuml;r Sie bereit &ndash; Sie m&uuml;ssen nichts mitbringen.</q>'], ['18:30', 'Regenset am Eingang, Bar unter Dach'], ['23:00', 'Danke-Nachricht mit Hinweis auf den n&auml;chsten Abend']],
+    'tl-C': [['16:15', 'SMS an alle Ticketinhaber: <q>Heute verschieben wir. Ihr Ticket gilt automatisch f&uuml;r den Ersatztermin &ndash; Sie m&uuml;ssen nichts tun.</q>'], ['16:30', 'Website, Social Media und Kasse gleichlautend'], ['18:30', 'Eine Person am Eingang f&uuml;r alle, die es nicht gelesen haben']],
+    's4-h': 'Messplan', 's4-sub': 'Gemessen wird der Abend danach',
+    's4-p1': 'Ein Regenplan ist gut, wenn das Publikum trotzdem wiederkommt. Deshalb wird nicht der Abend selbst gemessen, sondern was danach passiert.',
+    'th-m': 'Kennzahl', 'th-h': 'Wie ich das erhebe', 'th-t': 'Zielwert', 'th-o': 'Wer',
+    's5-h': 'Was der Regenplan nicht kann', 's5-sub': 'Die Grenzen, bevor sie jemand anders findet',
+    'l1': 'Er macht Prognosen nicht genauer. Er sorgt nur daf&uuml;r, dass mit unsicheren Prognosen immer gleich umgegangen wird.',
+    'l2': 'Er ersetzt nicht die Sicherheitsverantwortung vor Ort. Wenn es um 21 Uhr st&uuml;rmt, wird abgebrochen, egal was um 16 Uhr entschieden wurde.',
+    'l3': 'Die Kosten pro Variante sind Annahmen. Mit den echten Vertr&auml;gen f&uuml;r Filmrechte, Technik und Personal &auml;ndert sich die Rechnung.',
+    'l4': 'Er funktioniert nur, wenn sich alle an 16 Uhr halten &ndash; auch wenn um 15:55 jemand vorschl&auml;gt, noch eine Stunde zu warten.',
+    'col-h': 'Zur Arbeitsprobe',
+    'col-1': '<b>Was daran fiktiv ist:</b> alles Konkrete. Die Varianten, die Kosten, die Quoten und die Nachrichten gibt es nicht. Es ist kein offizielles Material von Allianz Suisse oder eines Open-Air-Kinos, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen.',
+    'col-2': '<b>Was daran echt ist:</b> das Vorgehen. So plane ich Anl&auml;sse unter freiem Himmel: Entscheidungen vorbereiten, solange es ruhig ist, damit sie im Stress nur noch ausgef&uuml;hrt werden m&uuml;ssen.',
+    'col-3': 'Konzept, Text, Gestaltung und Umsetzung: Shayna Jucker. Zweisprachig Deutsch und Englisch, keine Datenerfassung.',
+    'col-back': '&larr; Zur&uuml;ck zur Bewerbung'
+  },
+  en: {
+    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official Allianz Suisse material; brand and logo belong to Allianz',
+    'bar-back': 'back to the application',
+    'eyebrow': 'Open-air cinema &amp; decision tool',
+    'kind': 'Work sample for the application as Sponsoring &amp; Event Manager',
+    'title': 'Rain plan.',
+    'claim': 'An open-air cinema is not judged on beautiful evenings. It is judged on the one when it starts raining at half past four &ndash; and an insurer can show what <strong>being covered</strong> means.',
+    'f1-l': 'Event', 'f1': 'Open-air cinema, 1,500 seats', 'f2-l': 'Decision', 'f2': 'At 4 pm, binding',
+    'f3-l': 'Core', 'f3': 'Three variants, one recommendation', 'f4-l': 'Steering metric', 'f4': 'Trust after the rainy evening',
+    's1-h': 'Starting point', 's1-sub': 'The evening the brand is tested',
+    's1-p1': 'On a warm summer evening an open-air cinema runs itself. The brand in the name benefits from something it does not control: the weather.',
+    's1-p2': 'It gets interesting on the other evening. It is 4 pm, the forecast says sixty per cent rain, a thousand tickets are sold, and nobody knows whether the film will run. Whoever communicates too late, too vaguely or too often now loses the audience &ndash; not just for this evening. For an insurer as title sponsor this is not an operational problem. It is the moment the brand shows whether it keeps its promise.',
+    'ins-l': 'Insight', 'ins': 'One good rainy evening builds more trust than ten beautiful ones &ndash; if it feels as though someone planned ahead.',
+    's2-h': 'The principle', 's2-sub': 'One moment, three variants, one message',
+    's2-p1': 'The decision is made every day at 4 pm, never later, and only between three prepared variants. Each variant has its own process, its own message to the audience and its own budget &ndash; planned in spring, not in the afternoon.',
+    'a-h': 'Play', 'a-p': 'Dry forecast. Normal process, no extra message.',
+    'b-h': 'Play with rain kit', 'b-p': 'Uncertain. Ponchos and seat covers at the entrance, the film keeps running in the rain, bar under cover.',
+    'c-h': 'Postpone', 'c-p': 'Too wet or too windy. The ticket is automatically valid for a replacement date, no questions asked.',
+    's3-h': 'The 4 pm tool', 's3-sub': 'Enter the forecast, read the recommendation',
+    's3-p1': 'Enter the forecast and presales &ndash; the tool calculates for each variant how many guests will come, what the evening costs and what a guest costs. It recommends one variant and writes the messages that go out afterwards. Wind limits are fixed: from 50 km/h there is no screening, whatever the numbers say.',
+    'tool-t': 'Decision at 4 pm', 'tool-n': 'All values fictional, amounts in CHF',
+    'wx-note': 'Forecast for 8 to 11 pm', 'c-rain': 'Probability of rain', 'c-wind': 'Wind gusts', 'c-sold': 'Tickets sold',
+    'h-msg': 'Messages after the decision',
+    'o-guests': 'Expected guests', 'o-cost': 'Cost of the evening', 'o-cpg': 'CHF per guest', 'o-rec': 'Recommended', 'o-blocked': 'Blocked: wind above 50 km/h',
+    'v-A-l': 'Play', 'v-A': 'At {r}% rain no extra effort is worth it. Normal process, no message &ndash; any warning would unsettle more than it helps.',
+    'v-B-l': 'Play with rain kit', 'v-B': 'At {r}% rain about {g} guests come with the rain kit instead of {g0}. The ponchos cost CHF {p} &ndash; cheaper than any empty seat. The message goes out at 4:15 pm.',
+    'v-C-l': 'Postpone', 'v-C': 'At {r}% rain most people stay at home, and a half-empty, wet evening does more damage than a clear postponement. Tickets are automatically valid for the replacement date.',
+    'v-W-l': 'Postpone for safety reasons', 'v-W': 'Wind gusts of {w} km/h: the screen must not be put up. No calculation here &ndash; it is postponed.',
+    'tl-A': [['4:00 pm', 'Decision internally, no message to the outside'], ['7:00 pm', 'Doors open as planned']],
+    'tl-B': [['4:15 pm', 'Text to all ticket holders: <q>We are playing. Ponchos are waiting for you at the entrance &ndash; you do not need to bring anything.</q>'], ['6:30 pm', 'Rain kit at the entrance, bar under cover'], ['11:00 pm', 'Thank-you message with a pointer to the next evening']],
+    'tl-C': [['4:15 pm', 'Text to all ticket holders: <q>We are postponing tonight. Your ticket is automatically valid for the replacement date &ndash; you do not need to do anything.</q>'], ['4:30 pm', 'Website, social media and box office say the same'], ['6:30 pm', 'One person at the entrance for everyone who did not read it']],
+    's4-h': 'Measurement plan', 's4-sub': 'What gets measured is the evening after',
+    's4-p1': 'A rain plan is good if the audience comes back anyway. That is why it is not the evening itself that gets measured, but what happens afterwards.',
+    'th-m': 'Metric', 'th-h': 'How I collect it', 'th-t': 'Target', 'th-o': 'Who',
+    's5-h': 'What the rain plan cannot do', 's5-sub': 'The limits, before someone else finds them',
+    'l1': 'It does not make forecasts more accurate. It only makes sure uncertain forecasts are always handled the same way.',
+    'l2': 'It does not replace on-site safety responsibility. If a storm hits at 9 pm, the screening stops, whatever was decided at 4 pm.',
+    'l3': 'The costs per variant are assumptions. With the real contracts for film rights, technology and staff the calculation changes.',
+    'l4': 'It only works if everyone sticks to 4 pm &ndash; even when someone suggests at 3:55 pm waiting another hour.',
+    'col-h': 'About this work sample',
+    'col-1': '<b>What is fictional:</b> everything concrete. The variants, the costs, the rates and the messages do not exist. This is not official material of Allianz Suisse or of any open-air cinema, not an agreed collaboration and is based on no internal information whatsoever.',
+    'col-2': '<b>What is real:</b> the approach. That is how I plan outdoor events: prepare decisions while things are calm, so that under stress they only need to be carried out.',
+    'col-3': 'Concept, copy, design and build: Shayna Jucker. Bilingual German and English, no data collection.',
+    'col-back': '&larr; Back to the application'
+  }
+};
+
+/* ---------- Modell ---------- */
+var FIX = 21000, PONCHO = 1.8, SHIFT = 8500;
+var st = { rain: 60, wind: 25, sold: 1000 };
+
+function compute() {
+  var r = st.rain / 100, walk = 140 * (1 - r);
+  var gA = Math.min(1500, st.sold * (0.96 - 0.55 * r) + walk);
+  var gB = Math.min(1500, st.sold * (0.96 - 0.28 * r) + walk * 0.8);
+  var pB = st.sold * PONCHO;
+  var opts = {
+    A: { g: gA, cost: FIX },
+    B: { g: gB, cost: FIX + pB + 1200 },
+    C: { g: 0, cost: SHIFT }
+  };
+  var rec;
+  if (st.wind >= 50) rec = 'W';
+  else if (st.rain < 30) rec = 'A';
+  else if (st.rain < 75) rec = 'B';
+  else rec = 'C';
+  return { opts: opts, rec: rec, pB: pB };
+}
+
+function renderWx() {
+  var s = '<circle cx="24" cy="24" r="10" fill="#f0b429" opacity="' + (1 - st.rain / 130) + '"/>' +
+    '<ellipse cx="36" cy="30" rx="18" ry="11" fill="#9fb3c8" opacity="' + (0.2 + st.rain / 125) + '"/>';
+  var drops = Math.round(st.rain / 20);
+  for (var i = 0; i < drops; i++) s += '<line x1="' + (24 + i * 6) + '" y1="44" x2="' + (21 + i * 6) + '" y2="54" stroke="#4f9de8" stroke-width="2.5" stroke-linecap="round"/>';
+  if (st.wind >= 30) s += '<path d="M4 50 Q16 44 28 50 T52 50" fill="none" stroke="#cfcfcf" stroke-width="2"/>';
+  AP.$('wx').innerHTML = s;
+}
+
+function render() {
+  AP.$('v-rain').textContent = st.rain + '%';
+  AP.$('v-wind').textContent = st.wind + ' km/h';
+  AP.$('v-sold').textContent = AP.num(st.sold);
+  renderWx();
+  var r = compute(), recKey = r.rec === 'W' ? 'C' : r.rec, names = { A: 'a-h', B: 'b-h', C: 'c-h' };
+  AP.$('opts').innerHTML = ['A', 'B', 'C'].map(function (k) {
+    var o = r.opts[k], blocked = r.rec === 'W' && k !== 'C';
+    return '<div class="opt' + (k === recKey ? ' rec' : '') + (blocked ? ' blocked' : '') + '"><span class="tag">' + AP.t('o-rec') + '</span>' +
+      '<h4>' + k + ' &middot; ' + AP.t(names[k]) + '</h4>' +
+      (blocked ? '<p>' + AP.t('o-blocked') + '</p>' : '') +
+      '<dl><dt>' + AP.t('o-guests') + '</dt><dd>' + AP.num(o.g) + '</dd>' +
+      '<dt>' + AP.t('o-cost') + '</dt><dd>' + AP.num(o.cost) + '</dd>' +
+      '<dt>' + AP.t('o-cpg') + '</dt><dd>' + (o.g ? AP.dec(o.cost / o.g) : '&ndash;') + '</dd></dl></div>';
+  }).join('');
+  AP.$('timeline').innerHTML = AP.t('tl-' + recKey).map(function (x) { return '<li><b>' + x[0] + '</b>' + x[1] + '</li>'; }).join('');
+  var v = AP.$('verdict'), cls = r.rec === 'A' ? '' : (r.rec === 'B' ? 'mid' : 'bad');
+  v.className = 'verdict ' + cls;
+  v.innerHTML = '<b>' + AP.t('v-' + r.rec + '-l') + '</b><p>' + AP.fill(AP.t('v-' + r.rec), { r: st.rain, w: st.wind, g: AP.num(r.opts.B.g), g0: AP.num(r.opts.A.g), p: AP.num(r.pB) }) + '</p>';
+}
+
+var METRICS = [
+  { de: ['Zeitpunkt der Nachricht', 'Versandprotokoll', 'jeden Tag bis 16:15', 'Eventleitung'], en: ['Time of the message', 'Send log', 'every day by 4:15 pm', 'Event lead'] },
+  { de: ['Anfragen an der Kasse', 'Z&auml;hlung von Telefon und Mail zwischen 16 und 20 Uhr', 'unter 30 pro Regenabend', 'Ticketing'], en: ['Enquiries at the box office', 'Count of calls and emails between 4 and 8 pm', 'under 30 per rainy evening', 'Ticketing'] },
+  { de: ['Einl&ouml;sung Ersatzdatum', 'Abgleich der Tickets am Ersatzabend', 'mindestens 80%', 'Ticketing'], en: ['Replacement date redemption', 'Ticket matching on the replacement evening', 'at least 80%', 'Ticketing'] },
+  { de: ['Wiederkauf', 'Anteil Regenabend-G&auml;ste, die in derselben Saison erneut kaufen', 'gleich hoch wie bei sch&ouml;nem Wetter', 'Marketing'], en: ['Repeat purchase', 'Share of rainy-evening guests who buy again in the same season', 'as high as with good weather', 'Marketing'] },
+  { de: ['Markenwahrnehmung', 'Kurzbefragung nach dem Regenabend: &laquo;Hat man sich um Sie gek&uuml;mmert?&raquo;', '75% stimmen zu', 'Marktforschung'], en: ['Brand perception', 'Short survey after the rainy evening: &ldquo;Did you feel looked after?&rdquo;', '75% agree', 'Market research'] }
+];
+function renderMetrics() {
+  var h = '<thead><tr><th>' + AP.t('th-m') + '</th><th>' + AP.t('th-h') + '</th><th>' + AP.t('th-t') + '</th><th>' + AP.t('th-o') + '</th></tr></thead><tbody>';
+  METRICS.forEach(function (m) { var c = m[AP.lang]; h += '<tr><td><strong>' + c[0] + '</strong></td><td>' + c[1] + '</td><td>' + c[2] + '</td><td>' + c[3] + '</td></tr>'; });
+  AP.$('metrics').innerHTML = h + '</tbody>';
+}
+
+['rain', 'wind', 'sold'].forEach(function (id) {
+  AP.$(id).addEventListener('input', function () { st[id] = +this.value; render(); });
+});
+AP.init(T, [render, renderMetrics], { de: 'Regenplan · Arbeitsprobe für Allianz Suisse', en: 'Rain plan · Work sample for Allianz Suisse' });
+</script>
+</body>
+</html>
