@@ -873,7 +873,7 @@ window.SJ_LANG = {
     'ubs.facts-label':     'Eckdaten &ndash; auch die unbequemen',
     'ubs.skills-heading':  'F&auml;higkeiten',
     'ubs.skills-sub':      'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architektur',
-    /* --- ubs.html:end --- */,
+    /* --- ubs.html:end --- */
     /* --- migros.html:start --- */
     'mg.role':             'Sponsoring Manager / Brand Activation Manager &middot; Migros',
     'mg.salutation':       'Liebes Sponsoring-Team der Migros',
@@ -924,7 +924,7 @@ window.SJ_LANG = {
     'mg.facts-label':      'Eckdaten &ndash; auch die unbequemen',
     'mg.skills-heading':   'F&auml;higkeiten',
     'mg.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architektur',
-    /* --- migros.html:end --- */,
+    /* --- migros.html:end --- */
     /* --- zurich.html:start --- */
     'zu.role':             'Sponsorship &amp; Brand Experience Manager &middot; Zurich Versicherung',
     'zu.salutation':       'Liebes Sponsoring-Team der Zurich',
@@ -975,7 +975,7 @@ window.SJ_LANG = {
     'zu.facts-label':      'Eckdaten &ndash; auch die unbequemen',
     'zu.skills-heading':   'F&auml;higkeiten',
     'zu.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architektur',
-    /* --- zurich.html:end --- */,
+    /* --- zurich.html:end --- */
     /* --- allianz.html:start --- */
     'az.role':             'Sponsoring &amp; Event Manager &middot; Allianz Suisse',
     'az.salutation':       'Liebes Sponsoring- und Event-Team der Allianz Suisse',
@@ -1026,7 +1026,7 @@ window.SJ_LANG = {
     'az.facts-label':      'Eckdaten &ndash; auch die unbequemen',
     'az.skills-heading':   'F&auml;higkeiten',
     'az.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architektur',
-    /* --- allianz.html:end --- */,
+    /* --- allianz.html:end --- */
     /* --- spruengli.html:start --- */
     'sp.role':             'Projektleiterin Events &amp; Sponsoring &middot; Confiserie Spr&uuml;ngli',
     'sp.salutation':       'Liebes Marketing-Team der Confiserie Spr&uuml;ngli',
@@ -1077,7 +1077,7 @@ window.SJ_LANG = {
     'sp.facts-label':      'Eckdaten &ndash; auch die unbequemen',
     'sp.skills-heading':   'F&auml;higkeiten',
     'sp.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architektur',
-    /* --- spruengli.html:end --- */,
+    /* --- spruengli.html:end --- */
     /* --- ringier.html:start --- */
     'rg.role':             'Brand Partnerships Manager &middot; Ringier',
     'rg.salutation':       'Liebes Brand-Partnerships-Team von Ringier',
@@ -1128,7 +1128,7 @@ window.SJ_LANG = {
     'rg.facts-label':      'Eckdaten &ndash; auch die unbequemen',
     'rg.skills-heading':   'F&auml;higkeiten',
     'rg.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architektur',
-    /* --- ringier.html:end --- */,
+    /* --- ringier.html:end --- */
     /* --- ticketcorner.html:start --- */
     'tc.role':             'Partnership Manager &middot; Ticketcorner',
     'tc.salutation':       'Liebes Partnership-Team von Ticketcorner',
@@ -1179,7 +1179,7 @@ window.SJ_LANG = {
     'tc.facts-label':      'Eckdaten &ndash; auch die unbequemen',
     'tc.skills-heading':   'F&auml;higkeiten',
     'tc.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architektur',
-    /* --- ticketcorner.html:end --- */,
+    /* --- ticketcorner.html:end --- */
     /* --- michaelpage.html:start --- */
     'mp.role':             'Sponsorship &amp; Business Development Manager &middot; via Michael Page &middot; Ref. JN-092026-7096210',
     'mp.salutation':       'Sehr geehrte Damen und Herren',
@@ -2102,7 +2102,7 @@ window.SJ_LANG = {
     'ubs.facts-label':     'Key facts &ndash; including the awkward ones',
     'ubs.skills-heading':  'Skills',
     'ubs.skills-sub':      'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architecture',
-    /* --- ubs.html:end --- */,
+    /* --- ubs.html:end --- */
     /* --- migros.html:start --- */
     'mg.role':             'Sponsoring Manager / Brand Activation Manager &middot; Migros',
     'mg.salutation':       'Dear Migros sponsoring team',
@@ -2153,7 +2153,7 @@ window.SJ_LANG = {
     'mg.facts-label':      'Key facts &ndash; including the awkward ones',
     'mg.skills-heading':   'Skills',
     'mg.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architecture',
-    /* --- migros.html:end --- */,
+    /* --- migros.html:end --- */
     /* --- zurich.html:start --- */
     'zu.role':             'Sponsorship &amp; Brand Experience Manager &middot; Zurich Insurance',
     'zu.salutation':       'Dear Zurich sponsorship team',
@@ -2204,7 +2204,7 @@ window.SJ_LANG = {
     'zu.facts-label':      'Key facts &ndash; including the awkward ones',
     'zu.skills-heading':   'Skills',
     'zu.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architecture',
-    /* --- zurich.html:end --- */,
+    /* --- zurich.html:end --- */
     /* --- allianz.html:start --- */
     'az.role':             'Sponsoring &amp; Event Manager &middot; Allianz Suisse',
     'az.salutation':       'Dear Allianz Suisse sponsoring and events team',
@@ -2255,7 +2255,7 @@ window.SJ_LANG = {
     'az.facts-label':      'Key facts &ndash; including the awkward ones',
     'az.skills-heading':   'Skills',
     'az.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architecture',
-    /* --- allianz.html:end --- */,
+    /* --- allianz.html:end --- */
     /* --- spruengli.html:start --- */
     'sp.role':             'Project Manager Events &amp; Sponsoring &middot; Confiserie Spr&uuml;ngli',
     'sp.salutation':       'Dear Confiserie Spr&uuml;ngli marketing team',
@@ -2306,7 +2306,7 @@ window.SJ_LANG = {
     'sp.facts-label':      'Key facts &ndash; including the awkward ones',
     'sp.skills-heading':   'Skills',
     'sp.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architecture',
-    /* --- spruengli.html:end --- */,
+    /* --- spruengli.html:end --- */
     /* --- ringier.html:start --- */
     'rg.role':             'Brand Partnerships Manager &middot; Ringier',
     'rg.salutation':       'Dear Ringier brand partnerships team',
@@ -2357,7 +2357,7 @@ window.SJ_LANG = {
     'rg.facts-label':      'Key facts &ndash; including the awkward ones',
     'rg.skills-heading':   'Skills',
     'rg.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architecture',
-    /* --- ringier.html:end --- */,
+    /* --- ringier.html:end --- */
     /* --- ticketcorner.html:start --- */
     'tc.role':             'Partnership Manager &middot; Ticketcorner',
     'tc.salutation':       'Dear Ticketcorner partnership team',
@@ -2408,7 +2408,7 @@ window.SJ_LANG = {
     'tc.facts-label':      'Key facts &ndash; including the awkward ones',
     'tc.skills-heading':   'Skills',
     'tc.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architecture',
-    /* --- ticketcorner.html:end --- */,
+    /* --- ticketcorner.html:end --- */
     /* --- michaelpage.html:start --- */
     'mp.role':             'Sponsorship &amp; Business Development Manager &middot; via Michael Page &middot; Ref. JN-092026-7096210',
     'mp.salutation':       'Dear Sir or Madam',
