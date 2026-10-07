@@ -1238,6 +1238,11 @@ ul, ol {
     padding: 50px 0;
   }
 
+  /* Unterseiten: Galerie direkt nach dem Untertitel ohne Zusatzabstand */
+  .portfolio-subpage > :first-child + .gallery-section {
+    padding-top: 0;
+  }
+
   .gallery-slide,
   .gallery-slide img {
     height: 260px;
@@ -1353,7 +1358,8 @@ ul, ol {
   min-height: 100vh;
 }
 
-.portfolio-subpage .page-title {
+.portfolio-subpage .page-title,
+.radio-page .page-title {
   font-size: 85px;
   font-weight: 800;
   color: #957b5f;
@@ -1369,7 +1375,8 @@ ul, ol {
   margin-bottom: 80px;
 }
 
-.portfolio-subpage .page-intro {
+.portfolio-subpage .page-intro,
+.radio-page .page-intro {
   max-width: 720px;
   margin: 0 auto 60px;
   text-align: center;
@@ -1377,6 +1384,11 @@ ul, ol {
   line-height: 1.75;
   color: #f1f1f1;
 }
+
+/* Einheitlicher Abstand: Untertitel -> erstes Projekt immer 60px (Abstand kommt vom Untertitel) */
+.portfolio-subpage .page-intro + .content-block { padding-top: 0; }
+.portfolio-subpage .page-intro + .photo-group-title { margin-top: 0; padding-top: 0; }
+
 
 /* === BLURB CARDS (used in Bachelor, Architectures, Graphics, Events) === */
 .blurb-grid {
@@ -2148,7 +2160,8 @@ ul, ol {
 
 /* === RESPONSIVE PORTFOLIO SUBPAGES === */
 @media (max-width: 980px) {
-  .portfolio-subpage .page-title {
+  .portfolio-subpage .page-title,
+  .radio-page .page-title {
     font-size: 60px;
   }
 
@@ -2182,7 +2195,8 @@ ul, ol {
     padding: 140px 0 60px;
   }
 
-  .portfolio-subpage .page-title {
+  .portfolio-subpage .page-title,
+  .radio-page .page-title {
     font-size: 25px;
     letter-spacing: 2px;
   }
