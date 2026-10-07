@@ -1892,6 +1892,7 @@ window.SJ_PAIRS = [
   ["E-Mail-Kommunikation", "E-mail Communication"],
   ["Im Rahmen des Bachelorprojekts wurde eine umfassende Corporate Identity und ein Corporate Design (CICD) für ein Bauberatungsunternehmen entwickelt.", "As part of the bachelor project, a comprehensive corporate identity and corporate design (CICD) was developed for a building consultancy."],
   ["Prototyp", "Prototype"],
+  ["Prototyp & Website", "Prototype & Website"],
   ["Five Point Prototyp", "Five Point Prototype"],
   ["Visitenkarten | Brief- & Rechnungsvorlagen", "Business Cards | Letter- & Invoice Templates"],
   ["Rechnungs- & Briefpapier", "Invoice & Letterhead"],
