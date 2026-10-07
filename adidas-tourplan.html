@@ -174,18 +174,25 @@
     .cover h1, .colophon h2, .facts b, .colophon b { color: #000; }
     .facts, .facts div { background: #fff; border-color: #999; }
   }
+  .brandline { display: flex; align-items: center; gap: 14px; margin-bottom: 30px; }
+  .brandline .sj { height: 40px; width: auto; display: block; }
+  .brandline .x { font-size: 14px; opacity: .55; }
+  .brandline .co-logo { display: flex; align-items: center; color: #fff; }
+  .brandline .co-logo svg, .brandline .co-logo img { height: var(--logo-h, 36px); width: auto; display: block; }
+  @media (max-width: 600px) { .brandline .sj { height: 32px; } .brandline .co-logo svg, .brandline .co-logo img { height: calc(var(--logo-h, 36px) * .8); } }
 </style>
 </head>
 <body>
 
 <div class="sample-bar">
-  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles adidas-Material</span>
+  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles adidas-Material, Marke und Logo geh&ouml;ren adidas</span>
   &nbsp;&middot;&nbsp; <a href="adidas.html" data-t="bar-back">zur&uuml;ck zur Bewerbung</a>
 </div>
 
 <!-- ================= Deckblatt ================= -->
 <header class="cover">
   <div class="wrap">
+    <div class="brandline"><a href="adidas.html"><img class="sj" src="assets/images/Logo-SJ-Homepage-fett.png" alt="SJ Logo"></a><span class="x">&times;</span><span class="co-logo" style="--logo-h:38px" role="img" aria-label="adidas"><svg aria-hidden="true" focusable="false" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m24 19.535-8.697-15.07-4.659 2.687 7.145 12.383Zm-8.287 0L9.969 9.59 5.31 12.277l4.192 7.258ZM4.658 14.723l2.776 4.812H1.223L0 17.41Z"/></svg></span></div>
     <div class="cover-top">
       <div class="eyebrow" data-t="eyebrow">Tourkonzept &amp; Kalkulationswerkzeug</div>
       <div class="lang-switch">
@@ -422,7 +429,7 @@ function L(o) { return o[LANG]; }
 
 var T = {
   de: {
-    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles adidas-Material',
+    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles adidas-Material, Marke und Logo geh&ouml;ren adidas',
     'bar-back': 'zur&uuml;ck zur Bewerbung',
     'eyebrow': 'Tourkonzept &amp; Kalkulationswerkzeug',
     'kind': 'Arbeitsprobe f&uuml;r die Bewerbung als Brand Activation Manager',
@@ -517,7 +524,7 @@ var T = {
     'tl-w': 'Woche', 'tl-start': 'Start', 'tl-show': 'Erster Stopp', 'tl-end': 'Ende'
   },
   en: {
-    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official adidas material',
+    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official adidas material; brand and logo belong to adidas',
     'bar-back': 'back to the application',
     'eyebrow': 'Tour concept &amp; costing tool',
     'kind': 'Work sample for the application as Brand Activation Manager',

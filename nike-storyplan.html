@@ -167,18 +167,25 @@
     .cover h1, .colophon h2, .facts b, .colophon b { color: #000; }
     .facts, .facts div { background: #fff; border-color: #999; }
   }
+  .brandline { display: flex; align-items: center; gap: 14px; margin-bottom: 30px; }
+  .brandline .sj { height: 40px; width: auto; display: block; }
+  .brandline .x { font-size: 14px; opacity: .55; }
+  .brandline .co-logo { display: flex; align-items: center; color: #fff; }
+  .brandline .co-logo svg, .brandline .co-logo img { height: var(--logo-h, 36px); width: auto; display: block; }
+  @media (max-width: 600px) { .brandline .sj { height: 32px; } .brandline .co-logo svg, .brandline .co-logo img { height: calc(var(--logo-h, 36px) * .8); } }
 </style>
 </head>
 <body>
 
 <div class="sample-bar">
-  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Nike-Material</span>
+  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Nike-Material, Marke und Logo geh&ouml;ren Nike</span>
   &nbsp;&middot;&nbsp; <a href="nike.html" data-t="bar-back">zur&uuml;ck zur Bewerbung</a>
 </div>
 
 <!-- ================= Deckblatt ================= -->
 <header class="cover">
   <div class="wrap">
+    <div class="brandline"><a href="nike.html"><img class="sj" src="assets/images/Logo-SJ-Homepage-fett.png" alt="SJ Logo"></a><span class="x">&times;</span><span class="co-logo" style="--logo-h:34px" role="img" aria-label="Nike"><svg aria-hidden="true" focusable="false" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 7.8L6.442 15.276c-1.456.616-2.679.925-3.668.925-1.12 0-1.933-.392-2.437-1.177-.317-.504-.41-1.143-.28-1.918.13-.775.476-1.6 1.036-2.478.467-.71 1.232-1.643 2.297-2.8a6.122 6.122 0 00-.784 1.848c-.28 1.195-.028 2.072.756 2.632.373.261.886.392 1.54.392.522 0 1.11-.084 1.764-.252L24 7.8z"/></svg></span></div>
     <div class="cover-top">
       <div class="eyebrow" data-t="eyebrow">Eventformat &amp; Redaktionsplan</div>
       <div class="lang-switch">
@@ -358,7 +365,7 @@ function tr(k) { return T[LANG][k] !== undefined ? T[LANG][k] : k; }
 
 var T = {
   de: {
-    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Nike-Material',
+    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Nike-Material, Marke und Logo geh&ouml;ren Nike',
     'bar-back': 'zur&uuml;ck zur Bewerbung',
     'eyebrow': 'Eventformat &amp; Redaktionsplan',
     'kind': 'Arbeitsprobe f&uuml;r die Bewerbung als Brand Experience Manager',
@@ -428,7 +435,7 @@ var T = {
     'k6': 'Reichweite', 'k6g': 'wird berichtet, nicht gesteuert', 'k6h': 'Kanalstatistik', 'k6w': 'Steht bewusst zuunterst. Sie beschreibt, sie beweist nichts.'
   },
   en: {
-    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official Nike material',
+    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official Nike material; brand and logo belong to Nike',
     'bar-back': 'back to the application',
     'eyebrow': 'Event format &amp; editorial plan',
     'kind': 'Work sample for the application as Brand Experience Manager',

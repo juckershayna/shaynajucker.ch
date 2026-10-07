@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Erste Runde &middot; Arbeitsprobe f&uuml;r On</title>
+<link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap">
+<style>
+  :root {
+    /* Grundton der Website shaynajucker.ch */
+    --bg: #1e1e1e;
+    --bg-2: #242424;
+    --card: #2b2b2b;
+    --line: #3a3a3a;
+    --text: #f1f1f1;
+    --soft: #a3a3a3;
+    --gold: #957b5f;
+    /* Farbwelt Laufbahn (Tartan) */
+    --sc-navy: #2a1a14;
+    --sc-blue: #d9542c;
+    --sc-blue-lt: #f08a5d;
+    --sc-red: #c9402a;
+    --ok: #3cbf7a;
+    --mid: #f0b429;
+    --bad: #ff5a5f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Open Sans', Arial, sans-serif; font-size: 16px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Kopfzeile ---------- */
+  .top { position: sticky; top: 0; z-index: 10; background: rgba(30,30,30,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+  .brands { display: flex; align-items: center; gap: 14px; min-width: 0; }
+  .brands .sj { height: 40px; width: auto; }
+  .brands .x { color: var(--soft); font-size: 14px; }
+  .sc-logo { display: flex; align-items: center; gap: 10px; height: 44px; }
+  .sc-logo img, .sc-logo svg { height: 40px; width: auto; display: block; }
+  .sc-wordmark { font-size: 24px; font-weight: 700; letter-spacing: -.02em; color: #fff; line-height: 1; }
+  .top-right { display: flex; align-items: center; gap: 18px; }
+  .back { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--gold); text-decoration: none; white-space: nowrap; }
+  .back:hover { color: var(--text); }
+  .lang-switch { display: flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .lang-switch button { background: none; border: none; color: var(--soft); font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; padding: 6px 11px; cursor: pointer; }
+  .lang-switch button.on { background: var(--sc-blue); color: #fff; }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; overflow: hidden; padding: 90px 0 100px; }
+  .hero::before {
+    content: ''; position: absolute; inset: -30% -10% auto auto; width: 720px; height: 720px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 40%, rgba(217,84,44,.45), transparent 60%),
+                radial-gradient(circle at 70% 65%, rgba(149,123,95,.30), transparent 55%),
+                radial-gradient(circle at 50% 50%, rgba(42,26,20,.9), transparent 70%);
+    filter: blur(30px); opacity: .9; pointer-events: none;
+  }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
+  .kicker { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: var(--sc-blue-lt); margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(48px, 8.5vw, 104px); line-height: .95; font-weight: 800; letter-spacing: -.035em; margin-bottom: 24px; }
+  .hero .claim { font-size: clamp(18px, 2.2vw, 23px); line-height: 1.45; font-weight: 300; color: #dcdcdc; max-width: 560px; }
+  .hero .claim strong { font-weight: 700; color: #fff; }
+  .by { margin-top: 28px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  .bars-hero { justify-self: center; width: min(300px, 70vw); }
+  .bars-hero rect { fill: var(--sc-blue); transform-origin: bottom; transform-box: fill-box; animation: grow 1.4s cubic-bezier(.2,.8,.2,1) both; }
+  .bars-hero rect:nth-child(2) { animation-delay: .15s; } .bars-hero rect:nth-child(3) { animation-delay: .3s; } .bars-hero rect:nth-child(4) { animation-delay: .45s; }
+  @keyframes grow { from { transform: scaleY(0); opacity: 0; } to { transform: scaleY(1); opacity: 1; } }
+
+  /* ---------- Abschnitte ---------- */
+  section.block { padding: 80px 0; border-top: 1px solid var(--line); }
+  .sec-kicker { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: var(--sc-blue-lt); margin-bottom: 10px; }
+  .block h2 { font-size: clamp(30px, 4.4vw, 48px); line-height: 1.08; font-weight: 800; letter-spacing: -.025em; margin-bottom: 14px; }
+  .block .intro { font-size: 18px; color: #d6d6d6; max-width: 680px; margin-bottom: 40px; }
+
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 28px 26px; }
+  .card .no { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--sc-navy); color: var(--sc-blue-lt); font-weight: 800; font-size: 14px; margin-bottom: 18px; border: 1px solid rgba(240,138,93,.35); }
+  .card.problem .no { background: rgba(221,17,34,.15); color: #ff6b74; border-color: rgba(221,17,34,.4); }
+  .card h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; letter-spacing: -.01em; }
+  .card p { font-size: 15px; color: #cfcfcf; }
+
+  .quote { margin-top: 34px; border-radius: 16px; padding: 34px 34px; background: linear-gradient(120deg, var(--sc-navy), #4a2215 55%, #8a3a1f); }
+  .quote p { font-size: clamp(21px, 2.8vw, 30px); line-height: 1.3; font-weight: 700; letter-spacing: -.01em; }
+  .quote span { display: block; margin-top: 10px; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: #f6c2a6; font-weight: 700; }
+
+  /* ---------- Cockpit ---------- */
+  .tool { display: grid; grid-template-columns: 1fr 1.15fr; gap: 18px; }
+  .panel { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px; }
+  .panel h3 { font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; color: var(--soft); margin-bottom: 18px; }
+  .panel h3 + .ctrl { margin-top: 0; }
+  .group + .group { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .ctrl { margin-top: 18px; }
+  .ctrl label { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 14px; color: #d6d6d6; margin-bottom: 8px; }
+  .ctrl label b { font-size: 17px; color: #fff; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  input[type=range] { width: 100%; accent-color: var(--sc-blue); height: 22px; }
+  .segs { display: flex; gap: 8px; }
+  .segs button { flex: 1; background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; color: var(--text); font: inherit; font-size: 14px; font-weight: 700; padding: 10px 6px; cursor: pointer; transition: all 160ms; }
+  .segs button small { display: block; font-weight: 400; font-size: 11.5px; color: var(--soft); }
+  .segs button.on { background: var(--sc-blue); border-color: var(--sc-blue); }
+  .segs button.on small { color: #e3f0fd; }
+
+  .result-main { text-align: left; }
+  .big-num { font-size: clamp(44px, 6vw, 64px); font-weight: 800; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .big-lbl { font-size: 14px; color: var(--soft); margin-top: 6px; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+  .tile { background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .tile span { display: block; font-size: 12px; color: var(--soft); margin-bottom: 4px; }
+  .tile b { font-size: 26px; font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .tile .sig { display: inline-flex; align-items: flex-end; gap: 3px; height: 20px; margin-left: 8px; vertical-align: baseline; }
+  .sig i { display: block; width: 5px; border-radius: 2px; background: #4a4a4a; }
+  .sig i:nth-child(1) { height: 30%; } .sig i:nth-child(2) { height: 55%; } .sig i:nth-child(3) { height: 80%; } .sig i:nth-child(4) { height: 100%; }
+  .sig.ok i.on { background: var(--ok); } .sig.mid i.on { background: var(--mid); } .sig.bad i.on { background: var(--bad); }
+
+  .ratio { margin-top: 18px; }
+  .ratio-head { display: flex; justify-content: space-between; font-size: 13px; color: var(--soft); margin-bottom: 7px; }
+  .ratio-head { gap: 12px; }
+  .ratio-head b { color: #fff; white-space: nowrap; }
+  .ratio-bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: var(--bg-2); }
+  .ratio-bar i { display: block; height: 100%; transition: width 200ms; }
+
+  .verdict { margin-top: 20px; border-radius: 12px; padding: 16px 18px; background: rgba(60,191,122,.1); border: 1px solid rgba(60,191,122,.35); }
+  .verdict b { display: block; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; color: var(--ok); }
+  .verdict p { font-size: 15px; color: #e6e6e6; }
+  .verdict.mid { background: rgba(240,180,41,.1); border-color: rgba(240,180,41,.4); } .verdict.mid b { color: var(--mid); }
+  .verdict.bad { background: rgba(255,90,95,.1); border-color: rgba(255,90,95,.4); } .verdict.bad b { color: var(--bad); }
+
+  .memo { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; font-size: 14px; color: var(--soft); }
+  .btn { background: var(--sc-blue); color: #fff; border: none; border-radius: 999px; font: inherit; font-size: 13px; font-weight: 700; padding: 10px 18px; cursor: pointer; transition: background 200ms; }
+  .btn:hover { background: #0f6cc2; }
+  .btn.ghost { background: none; border: 1px solid var(--line); color: var(--soft); }
+  .btn.ghost:hover { color: var(--text); border-color: var(--soft); }
+  .up { color: var(--ok); font-weight: 700; } .down { color: var(--bad); font-weight: 700; }
+
+  /* ---------- Details ---------- */
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; margin-top: 12px; }
+  summary { list-style: none; cursor: pointer; padding: 18px 22px; font-weight: 700; font-size: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; font-size: 22px; color: var(--sc-blue-lt); font-weight: 400; }
+  details[open] summary::after { content: '\2013'; }
+  .det-body { padding: 0 22px 22px; font-size: 15px; color: #d6d6d6; }
+  .det-body p + p { margin-top: 10px; }
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+  th { text-align: left; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--soft); font-weight: 700; border-bottom: 1px solid var(--line); padding: 0 12px 8px 0; }
+  td { padding: 10px 12px 10px 0; border-bottom: 1px solid #333; vertical-align: top; }
+  ul.dash { list-style: none; }
+  ul.dash li { position: relative; padding-left: 20px; margin-bottom: 8px; }
+  ul.dash li::before { content: ''; position: absolute; left: 0; top: 11px; width: 9px; height: 2px; background: var(--sc-blue-lt); }
+
+  /* ---------- Fuss ---------- */
+  .foot { border-top: 1px solid var(--line); padding: 50px 0 60px; font-size: 13.5px; color: var(--soft); }
+  .foot p { max-width: 760px; margin-bottom: 10px; }
+  .foot b { color: var(--text); }
+  .foot .back { display: inline-block; margin-top: 14px; }
+
+  @media (max-width: 900px) {
+    .hero { padding: 60px 0 70px; }
+    .hero .wrap { grid-template-columns: 1fr; }
+    .bars-hero { justify-self: start; width: 160px; order: -1; }
+    .cards, .tool { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .top .wrap { height: 60px; }
+    .brands .sj { height: 32px; }
+    .sc-wordmark { font-size: 19px; }
+    .sc-logo img, .sc-logo svg { height: 32px; }
+    .back.top-back { display: none; }
+    section.block { padding: 60px 0; }
+    .quote { padding: 26px 22px; }
+    .panel { padding: 22px 18px; }
+  }
+  @media print {
+    .top, .memo, .lang-switch { display: none !important; }
+    details { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= Kopfzeile ================= -->
+<header class="top">
+  <div class="wrap">
+    <div class="brands">
+      <a href="on-partnerships.html"><img class="sj" src="assets/images/Logo-SJ-Homepage-fett.png" alt="SJ Logo"></a>
+      <span class="x">&times;</span>
+      <span class="sc-logo" role="img" aria-label="On" style="color:#fff"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="9 9 36 36" fill="currentColor" role="img" aria-label="On"><path d="M36.281 11.384c-.056.058-.114.13-.17.188l-2.364 2.41-.057.058c-.057.072-.057.145.014.247a8.331 8.331 0 0 1 1.096 3.309c.257 2.409-.342 4.571-1.822 6.473-1.268 1.625-2.92 2.64-4.899 3.09-.911.204-1.837.218-2.762.117-1.524-.16-2.891-.726-4.116-1.655-1.766-1.335-2.862-3.105-3.318-5.311-.17-.813-.199-1.64-.128-2.453.171-1.901.883-3.585 2.15-5.022 1.21-1.379 2.692-2.278 4.443-2.685a8.03 8.03 0 0 1 2.635-.189 8.5 8.5 0 0 1 3.588 1.147c.142.087.2.029.285-.058l2.35-2.395c.056-.058.113-.13.185-.217l2.889 2.945.001.001Zm-5.342 7.4c.071-2.8-2.093-4.832-4.529-4.905-2.748-.073-4.798 2.25-4.798 4.76 0 2.57 2.122 4.79 4.67 4.746 2.507.03 4.6-2.076 4.656-4.6Zm3.605 19.391c.014 2.351 0 4.717 0 7.068v.32h-4.13v-.29c0-2.468.015-4.935 0-7.403 0-1.291-.44-2.423-1.366-3.323a3.827 3.827 0 0 0-2.208-1.06c-1.11-.16-2.121.117-3.018.799-.898.696-1.424 1.64-1.595 2.757-.086.537-.1 1.089-.1 1.64-.014 2.192 0 4.369 0 6.56v.305h-4.101v-.276c0-2.656-.029-5.326.014-7.982.029-1.408.47-2.743 1.196-3.962 1.21-2.032 2.934-3.338 5.198-3.875a8.414 8.414 0 0 1 2.178-.203c2.265.101 4.201 1.015 5.74 2.742 1.096 1.248 1.794 2.7 2.036 4.369.098.608.155 1.217.155 1.812"/></svg></span>
+    </div>
+    <div class="top-right">
+      <a class="back top-back" href="on-partnerships.html" data-t="back-short">&larr; Bewerbung</a>
+      <div class="lang-switch">
+        <button id="btn-de" class="on" onclick="setLang('de')">DE</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= Hero ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker" data-t="kicker">Arbeitsprobe &middot; Brand Partnerships Lead Switzerland</p>
+      <h1 data-t="title">Erste Runde.</h1>
+      <p class="claim" data-t="claim">Eine Zone am UBS Kids Cup, in der Kinder zum ersten Mal in einem richtigen Laufschuh rennen &ndash; und in der On <strong>zeigt</strong>, was eine Partnerschaft bringt, statt nur ein Logo zu tragen.</p>
+      <p class="by" data-t="by">Ein Konzept von Shayna Jucker</p>
+    </div>
+    <svg class="bars-hero" viewBox="0 0 220 200" aria-hidden="true">
+        <rect x="0" y="0"   width="40" height="200" rx="8"/>
+        <rect x="60" y="30"  width="40" height="170" rx="8"/>
+        <rect x="120" y="60" width="40" height="140" rx="8"/>
+        <rect x="180" y="90" width="40" height="110" rx="8"/>
+      </svg>
+  </div>
+</section>
+
+<!-- ================= Die Idee ================= -->
+<section class="block">
+  <div class="wrap">
+    <p class="sec-kicker" data-t="s1-k">Die Idee in 30 Sekunden</p>
+    <h2 data-t="s1-h">Dort sein, wo der Sport anf&auml;ngt.</h2>
+    <p class="intro" data-t="s1-intro">An einem Kids-Cup-Final erinnert sich kein Kind an das Logo auf der Startnummer. Es erinnert sich an den Lauf, bei dem es zum ersten Mal schneller war als gedacht.</p>
+
+    <div class="cards">
+      <div class="card problem">
+        <div class="no">!</div>
+        <h3 data-t="c1-h">Das Problem</h3>
+        <p data-t="c1-p">Viele Kinder laufen in Turnschuhen, die zu gross gekauft wurden. Eltern wissen nicht, worauf sie achten sollen. Und eine Marke, die nur am Zielbogen h&auml;ngt, ist nach dem Wettkampf vergessen.</p>
+      </div>
+      <div class="card">
+        <div class="no">1</div>
+        <h3 data-t="c2-h">Der Startblock</h3>
+        <p data-t="c2-p">Eine Zone neben der Bahn: Fuss messen, Laufschuh anprobieren, auf einer 30-Meter-Teststrecke rennen. Ohne Verkauf vor Ort und ohne Datenerfassung. Im Schnitt 12 Minuten freiwillige Begegnung pro Familie.</p>
+      </div>
+      <div class="card">
+        <div class="no">2</div>
+        <h3 data-t="c3-h">Die Schuhb&ouml;rse</h3>
+        <p data-t="c3-p">Wer aus Laufschuhen herausgewachsen ist, bringt sie mit. Die Paare gehen an Leichtathletikvereine in der Region. Damit bleibt die Partnerschaft auch nach dem Final im Verein sichtbar.</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p data-t="insight">&laquo;Die st&auml;rkste Markenbotschaft an einem Kinderwettkampf ist ein Kind, das nach dem Ziel sofort nochmals laufen will.&raquo;</p>
+      <span data-t="insight-l">Der Insight dahinter</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Cockpit ================= -->
+<section class="block">
+  <div class="wrap">
+    <p class="sec-kicker" data-t="s2-k">Das Cockpit</p>
+    <h2 data-t="s2-h">Lohnt sich das? Probier es aus.</h2>
+    <p class="intro" data-t="s2-intro">Schieb die Regler &ndash; das Cockpit rechnet live und sagt dir in einem Satz, ob die Variante tr&auml;gt. Genau so gehe ich in Partnergespr&auml;che: mit Zahlen statt Bauchgef&uuml;hl.</p>
+
+    <div class="tool">
+      <div class="panel">
+        <div class="group">
+          <h3 data-t="g-event">Die Anl&auml;sse</h3>
+          <div class="ctrl">
+            <label><span data-t="c-sites">Finals pro Saison</span><b id="v-sites">8</b></label>
+            <input type="range" id="sites" min="1" max="16" step="1" value="8">
+          </div>
+          <div class="ctrl">
+            <label><span data-t="c-vis">Teilnehmende Kinder pro Final</span><b id="v-vis">700</b></label>
+            <input type="range" id="vis" min="200" max="2500" step="50" value="700">
+          </div>
+          <div class="ctrl">
+            <label><span data-t="c-size">Gr&ouml;sse der Startblock-Zone</span></label>
+            <div class="segs" id="segs"></div>
+          </div>
+        </div>
+        <div class="group">
+          <h3 data-t="g-budget">Das Budget</h3>
+          <div class="ctrl">
+            <label><span data-t="c-rights">Partnerschaftsbeitrag (CHF)</span><b id="v-rights">120'000</b></label>
+            <input type="range" id="rights" min="40000" max="600000" step="10000" value="120000">
+          </div>
+          <div class="ctrl">
+            <label><span data-t="c-act">Aktivierungsbudget (CHF)</span><b id="v-act">140'000</b></label>
+            <input type="range" id="act" min="20000" max="600000" step="5000" value="140000">
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 data-t="g-result">Das Ergebnis</h3>
+        <div class="result-main">
+          <div class="big-num" id="r-qc">0</div>
+          <div class="big-lbl" data-t="r-qc-l">echte Begegnungen pro Saison (gemessen, probiert, gelaufen)</div>
+        </div>
+        <div class="tiles">
+          <div class="tile"><span data-t="r-cpq-l">CHF pro Begegnung</span><b id="r-cpq">0</b><span class="sig" id="sig-cpq"><i></i><i></i><i></i><i></i></span></div>
+          <div class="tile"><span data-t="r-util-l">Auslastung Teststrecke</span><b id="r-util">0%</b><span class="sig" id="sig-util"><i></i><i></i><i></i><i></i></span></div>
+        </div>
+        <div class="ratio">
+          <div class="ratio-head"><span data-t="r-ratio-l">Rechte : Aktivierung (Faustregel mind. 1 : 1)</span><b id="r-ratio">1 : 1.00</b></div>
+          <div class="ratio-bar"><i id="rb-r" style="background:#6b5a52"></i><i id="rb-a" style="background:var(--sc-blue)"></i></div>
+        </div>
+        <div class="verdict" id="verdict"></div>
+        <div class="memo">
+          <button class="btn" id="save-a" data-t="memo-save">Variante merken</button>
+          <button class="btn ghost" id="clear-a" data-t="memo-clear" hidden>Vergessen</button>
+          <span id="memo-txt"></span>
+        </div>
+      </div>
+    </div>
+
+    <details>
+      <summary data-t="d1-h">Wie rechnet das Cockpit? Annahmen &amp; Messung</summary>
+      <div class="det-body">
+        <p data-t="d1-p" style="margin-bottom:16px;">Jede Zahl hat einen Messweg &ndash; eine Kennzahl, die man nur sch&auml;tzen kann, geh&ouml;rt nicht in eine Partnervereinbarung.</p>
+        <div class="tbl-wrap"><table id="assumptions"></table></div>
+      </div>
+    </details>
+    <details>
+      <summary data-t="d2-h">Was das Cockpit bewusst nicht kann</summary>
+      <div class="det-body">
+        <ul class="dash">
+          <li data-t="d2-l1">Es rechnet Begegnungen und Kosten, keine Markenwirkung. Die misst eine kurze Befragung der Eltern &ndash; separat budgetiert.</li>
+          <li data-t="d2-l2">Die Teilnahmequote von 40% ist ein Erfahrungswert von Publikumsanl&auml;ssen. Nach dem ersten echten Final wird sie ersetzt.</li>
+          <li data-t="d2-l3">Es kennt die tats&auml;chlichen Rechtepakete nicht &ndash; die ver&auml;ndern die Rechnung mehr als jeder Regler.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ================= Fuss ================= -->
+<footer class="foot">
+  <div class="wrap">
+    <p data-t="foot-1"><b>Fiktiv:</b> Aktivierung, Betr&auml;ge, Quoten und Abl&auml;ufe sind erfunden. Kein offizielles Material von On oder vom UBS Kids Cup, keine Zusammenarbeit, keine internen Informationen. Marken und Logos geh&ouml;ren den jeweiligen Inhabern.</p>
+    <p data-t="foot-2"><b>Echt:</b> die Rechenlogik und die Haltung zur Messung. Konzept, Text, Gestaltung und Umsetzung: Shayna Jucker.</p>
+    <a class="back" href="on-partnerships.html" data-t="back">&larr; Zur&uuml;ck zur Bewerbung</a>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   ERSTE RUNDE - Partnerschafts-Aktivierung & Cockpit
+   Arbeitsprobe Shayna Jucker
+   ========================================================= */
+
+var LANG = 'de';
+function $(id) { return document.getElementById(id); }
+function tr(k) { return T[LANG][k] !== undefined ? T[LANG][k] : k; }
+
+var T = {
+  de: {
+    'back-short': '&larr; Bewerbung',
+    'kicker': 'Arbeitsprobe &middot; Brand Partnerships Lead Switzerland',
+    'title': 'Erste Runde.',
+    'claim': 'Eine Zone am UBS Kids Cup, in der Kinder zum ersten Mal in einem richtigen Laufschuh rennen &ndash; und in der On <strong>zeigt</strong>, was eine Partnerschaft bringt, statt nur ein Logo zu tragen.',
+    'by': 'Ein Konzept von Shayna Jucker',
+    's1-k': 'Die Idee in 30 Sekunden',
+    's1-h': 'Dort sein, wo der Sport anf&auml;ngt.',
+    's1-intro': 'An einem Kids-Cup-Final erinnert sich kein Kind an das Logo auf der Startnummer. Es erinnert sich an den Lauf, bei dem es zum ersten Mal schneller war als gedacht.',
+    'c1-h': 'Das Problem',
+    'c1-p': 'Viele Kinder laufen in Turnschuhen, die zu gross gekauft wurden. Eltern wissen nicht, worauf sie achten sollen. Und eine Marke, die nur am Zielbogen h&auml;ngt, ist nach dem Wettkampf vergessen.',
+    'c2-h': 'Der Startblock',
+    'c2-p': 'Eine Zone neben der Bahn: Fuss messen, Laufschuh anprobieren, auf einer 30-Meter-Teststrecke rennen. Ohne Verkauf vor Ort und ohne Datenerfassung. Im Schnitt 12 Minuten freiwillige Begegnung pro Familie.',
+    'c3-h': 'Die Schuhb&ouml;rse',
+    'c3-p': 'Wer aus Laufschuhen herausgewachsen ist, bringt sie mit. Die Paare gehen an Leichtathletikvereine in der Region. Damit bleibt die Partnerschaft auch nach dem Final im Verein sichtbar.',
+    'insight': '&laquo;Die st&auml;rkste Markenbotschaft an einem Kinderwettkampf ist ein Kind, das nach dem Ziel sofort nochmals laufen will.&raquo;',
+    'insight-l': 'Der Insight dahinter',
+    's2-k': 'Das Cockpit',
+    's2-h': 'Lohnt sich das? Probier es aus.',
+    's2-intro': 'Schieb die Regler &ndash; das Cockpit rechnet live und sagt dir in einem Satz, ob die Variante tr&auml;gt. Genau so gehe ich in Partnergespr&auml;che: mit Zahlen statt Bauchgef&uuml;hl.',
+    'g-event': 'Die Anl&auml;sse',
+    'g-budget': 'Das Budget',
+    'g-result': 'Das Ergebnis',
+    'c-sites': 'Finals pro Saison',
+    'c-vis': 'Teilnehmende Kinder pro Final',
+    'c-size': 'Gr&ouml;sse der Startblock-Zone',
+    'c-rights': 'Partnerschaftsbeitrag (CHF)',
+    'c-act': 'Aktivierungsbudget (CHF)',
+    'r-qc-l': 'echte Begegnungen pro Saison (gemessen, probiert, gelaufen)',
+    'r-cpq-l': 'CHF pro Begegnung',
+    'r-util-l': 'Auslastung Teststrecke',
+    'r-ratio-l': 'Rechte : Aktivierung (Faustregel mind. 1 : 1)',
+    'memo-save': 'Variante merken',
+    'memo-clear': 'Vergessen',
+    'memo-txt': 'Gemerkt: {qc} Begegnungen &middot; CHF {c} pro Begegnung. Jetzt &auml;ndern &ndash; Differenz: {d}',
+    'seg-s': 'S',
+    'seg-s-sub': '2 Bahnen',
+    'seg-m': 'M',
+    'seg-m-sub': '4 Bahnen',
+    'seg-l': 'L',
+    'seg-l-sub': '6 Bahnen',
+    'v-ok-l': 'Tr&auml;gt',
+    'v-ok': 'Gute Auslastung, gesundes Verh&auml;ltnis, CHF {c} pro Begegnung. Mit dieser Variante w&uuml;rde ich ins Partnergespr&auml;ch gehen.',
+    'v-cap-l': 'Zu klein',
+    'v-cap': 'Die Teststrecke ist &uuml;berlastet &ndash; Familien stehen an und gehen zur&uuml;ck auf die Trib&uuml;ne. Erst mehr Bahnen, dann mehr Finals.',
+    'v-idle-l': 'Zu gross',
+    'v-idle': 'Nur {u}% Auslastung. Die Zone ist f&uuml;r dieses Teilnehmerfeld &uuml;berbaut &ndash; eine Stufe kleiner, und das Geld in ein weiteres Final stecken.',
+    'v-ratio-l': 'Verh&auml;ltnis kippt',
+    'v-ratio': 'Auf einen Franken Partnerschaftsbeitrag kommen nur {r} Rappen Aktivierung. Damit ist ein Logo gekauft, aber kein Erlebnis bezahlt. Lieber ein kleineres Rechtepaket verhandeln.',
+    'd1-h': 'Wie rechnet das Cockpit? Annahmen &amp; Messung',
+    'd1-p': 'Jede Zahl hat einen Messweg &ndash; eine Kennzahl, die man nur sch&auml;tzen kann, geh&ouml;rt nicht in eine Partnervereinbarung.',
+    'd2-h': 'Was das Cockpit bewusst nicht kann',
+    'd2-l1': 'Es rechnet Begegnungen und Kosten, keine Markenwirkung. Die misst eine kurze Befragung der Eltern &ndash; separat budgetiert.',
+    'd2-l2': 'Die Teilnahmequote von 40% ist ein Erfahrungswert von Publikumsanl&auml;ssen. Nach dem ersten echten Final wird sie ersetzt.',
+    'd2-l3': 'Es kennt die tats&auml;chlichen Rechtepakete nicht &ndash; die ver&auml;ndern die Rechnung mehr als jeder Regler.',
+    'th-pos': 'Annahme',
+    'th-basis': 'Wert',
+    'th-how': 'Wie ich das messe',
+    'a-use': 'Teilnahmequote',
+    'a-use-b': '40% der Kinder laufen mindestens einmal auf der Teststrecke',
+    'a-use-h': 'Z&auml;hlung der L&auml;ufe pro Stunde, Abgleich mit der Startliste',
+    'a-turn': 'L&auml;ufe pro Bahn',
+    'a-turn-b': '90 L&auml;ufe pro Bahn und Tag, ein Wettkampftag',
+    'a-turn-h': 'Laufprotokoll an der Teststrecke, stichprobenweise gepr&uuml;ft',
+    'a-crew': 'Crew',
+    'a-crew-b': 'CHF 520 pro Person und Tag, plus ein Aufbautag',
+    'a-crew-h': 'Einsatzplan gegen Stundenrapport',
+    'a-fix': 'Aufbau pro Final',
+    'a-fix-b': 'Pauschale je nach Gr&ouml;sse f&uuml;r Bahn, Zelt, Schuhpool und Transport',
+    'a-fix-h': 'Lieferantenrechnungen, Nachkalkulation nach jedem Final',
+    'a-lift': 'Markenwirkung',
+    'a-lift-b': 'Nicht im Cockpit &ndash; separat budgetiert',
+    'a-lift-h': 'Kurzbefragung der Eltern, 150 Antworten pro Final, mit Kontrollgruppe',
+    'foot-1': '<b>Fiktiv:</b> Aktivierung, Betr&auml;ge, Quoten und Abl&auml;ufe sind erfunden. Kein offizielles Material von On oder vom UBS Kids Cup, keine Zusammenarbeit, keine internen Informationen. Marken und Logos geh&ouml;ren den jeweiligen Inhabern.',
+    'foot-2': '<b>Echt:</b> die Rechenlogik und die Haltung zur Messung. Konzept, Text, Gestaltung und Umsetzung: Shayna Jucker.',
+    'back': '&larr; Zur&uuml;ck zur Bewerbung'
+  },
+  en: {
+    'back-short': '&larr; Application',
+    'kicker': 'Work sample &middot; Brand Partnerships Lead Switzerland',
+    'title': 'First Lap.',
+    'claim': 'A zone at the UBS Kids Cup where children run in a proper running shoe for the first time &ndash; and where On <strong>shows</strong> what a partnership delivers instead of just wearing a logo.',
+    'by': 'A concept by Shayna Jucker',
+    's1-k': 'The idea in 30 seconds',
+    's1-h': 'Being there where sport begins.',
+    's1-intro': 'At a Kids Cup final no child remembers the logo on the bib. They remember the race where they were faster than they thought for the first time.',
+    'c1-h': 'The problem',
+    'c1-p': 'Many children run in trainers bought a size too big. Parents do not know what to look for. And a brand that only hangs on the finish arch is forgotten once the race is over.',
+    'c2-h': 'The starting block',
+    'c2-p': 'A zone next to the track: measure the foot, try on a running shoe, sprint on a 30-metre test lane. No sales on site and no data collection. On average 12 minutes of voluntary time with the brand per family.',
+    'c3-h': 'The shoe exchange',
+    'c3-p': 'Children who have outgrown their running shoes bring them along. The pairs go to athletics clubs in the region, so the partnership stays visible in the club after the final.',
+    'insight': '&ldquo;The strongest brand message at a children&rsquo;s race is a child who wants to run again right after the finish line.&rdquo;',
+    'insight-l': 'The insight behind it',
+    's2-k': 'The cockpit',
+    's2-h': 'Is it worth it? Try it.',
+    's2-intro': 'Move the sliders &ndash; the cockpit calculates live and tells you in one sentence whether the variant holds. That is how I go into partner meetings: with numbers instead of gut feeling.',
+    'g-event': 'The events',
+    'g-budget': 'The budget',
+    'g-result': 'The result',
+    'c-sites': 'Finals per season',
+    'c-vis': 'Children taking part per final',
+    'c-size': 'Size of the starting-block zone',
+    'c-rights': 'Partnership fee (CHF)',
+    'c-act': 'Activation budget (CHF)',
+    'r-qc-l': 'real encounters per season (measured, tried on, ran)',
+    'r-cpq-l': 'CHF per encounter',
+    'r-util-l': 'Test lane utilisation',
+    'r-ratio-l': 'Rights : activation (rule of thumb at least 1 : 1)',
+    'memo-save': 'Remember variant',
+    'memo-clear': 'Forget',
+    'memo-txt': 'Remembered: {qc} encounters &middot; CHF {c} per encounter. Now change something &ndash; difference: {d}',
+    'seg-s': 'S',
+    'seg-s-sub': '2 lanes',
+    'seg-m': 'M',
+    'seg-m-sub': '4 lanes',
+    'seg-l': 'L',
+    'seg-l-sub': '6 lanes',
+    'v-ok-l': 'Holds',
+    'v-ok': 'Good utilisation, healthy ratio, CHF {c} per encounter. This is the variant I would take into the partner meeting.',
+    'v-cap-l': 'Too small',
+    'v-cap': 'The test lane is overloaded &ndash; families queue and go back to the stands. Add lanes first, then add finals.',
+    'v-idle-l': 'Too big',
+    'v-idle': 'Only {u}% utilisation. The zone is overbuilt for this field &ndash; go one size smaller and put the money into another final.',
+    'v-ratio-l': 'Ratio is tipping',
+    'v-ratio': 'Every franc of partnership fee is matched by only {r} centimes of activation. That buys a logo but pays for no experience. Better to negotiate a smaller rights package.',
+    'd1-h': 'How does the cockpit calculate? Assumptions &amp; measurement',
+    'd1-p': 'Every number has a measurement path &ndash; a metric you can only estimate does not belong in a partner agreement.',
+    'd2-h': 'What the cockpit deliberately cannot do',
+    'd2-l1': 'It calculates encounters and costs, not brand impact. That is measured by a short survey of parents &ndash; budgeted separately.',
+    'd2-l2': 'The 40% participation rate is an experience value from public events. It gets replaced after the first real final.',
+    'd2-l3': 'It does not know the actual rights packages &ndash; they change the calculation more than any slider.',
+    'th-pos': 'Assumption',
+    'th-basis': 'Value',
+    'th-how': 'How I measure it',
+    'a-use': 'Participation rate',
+    'a-use-b': '40% of children run the test lane at least once',
+    'a-use-h': 'Hourly count of runs, matched against the start list',
+    'a-turn': 'Runs per lane',
+    'a-turn-b': '90 runs per lane and day, one competition day',
+    'a-turn-h': 'Run log at the test lane, verified by sampling',
+    'a-crew': 'Crew',
+    'a-crew-b': 'CHF 520 per person and day, plus one build-up day',
+    'a-crew-h': 'Deployment plan against timesheets',
+    'a-fix': 'Build per final',
+    'a-fix-b': 'Size-dependent flat rate for lane, tent, shoe pool and transport',
+    'a-fix-h': 'Supplier invoices, post-calculation after every final',
+    'a-lift': 'Brand impact',
+    'a-lift-b': 'Not in the cockpit &ndash; budgeted separately',
+    'a-lift-h': 'Short survey of parents, 150 responses per final, with control group',
+    'foot-1': '<b>Fictional:</b> activation, amounts, rates and processes are invented. Not official material of On or the UBS Kids Cup, no collaboration, no internal information. Brands and logos belong to their respective owners.',
+    'foot-2': '<b>Real:</b> the calculation logic and the attitude to measurement. Concept, copy, design and build: Shayna Jucker.',
+    'back': '&larr; Back to the application'
+  }
+};
+
+/* ---------- Modell ---------- */
+var DAYS = 1;
+var LEVELS = {
+  S: { slots: 2, crew: 3, fix: 9000 },
+  M: { slots: 4, crew: 5, fix: 16000 },
+  L: { slots: 6, crew: 7, fix: 24000 }
+};
+var A = { useRate: 0.40, turnover: 90 };
+var state = { rights: 120000, act: 140000, sites: 8, vis: 700, lvl: 'M' };
+var snapA = null;
+
+function chf(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '’'); }
+function dec(n, d) { return n.toFixed(d === undefined ? 1 : d); }
+
+function compute(s) {
+  var lv = LEVELS[s.lvl];
+  var demand   = s.vis * A.useRate;
+  var capacity = lv.slots * A.turnover * DAYS;
+  var uses     = Math.min(demand, capacity);
+  var qc       = uses * s.sites;
+  var total    = s.rights + s.act;
+  return {
+    util: capacity ? demand / capacity : 0, qc: qc, total: total,
+    cpq: qc ? total / qc : 0, ratio: s.rights ? s.act / s.rights : 0
+  };
+}
+
+/* ---------- Darstellung ---------- */
+function renderSegs() {
+  var h = '';
+  ['S', 'M', 'L'].forEach(function (k) {
+    h += '<button data-lvl="' + k + '"' + (state.lvl === k ? ' class="on"' : '') + '>' +
+         tr('seg-' + k.toLowerCase()) + '<small>' + tr('seg-' + k.toLowerCase() + '-sub') + '</small></button>';
+  });
+  $('segs').innerHTML = h;
+  Array.prototype.forEach.call($('segs').querySelectorAll('button'), function (b) {
+    b.addEventListener('click', function () { state.lvl = b.getAttribute('data-lvl'); renderSegs(); renderAll(); });
+  });
+}
+
+function setSig(id, bars, cls) {
+  var el = $(id);
+  el.className = 'sig ' + cls;
+  Array.prototype.forEach.call(el.children, function (i, n) { i.className = n < bars ? 'on' : ''; });
+}
+
+function renderVerdict(r) {
+  var el = $('verdict'), u = dec(Math.min(r.util, 9.99) * 100, 0), key, cls;
+  if (r.ratio < 0.7)      { key = 'v-ratio'; cls = 'bad'; }
+  else if (r.util > 1)    { key = 'v-cap';   cls = 'bad'; }
+  else if (r.util < 0.45) { key = 'v-idle';  cls = 'mid'; }
+  else                    { key = 'v-ok';    cls = ''; }
+  el.className = 'verdict ' + cls;
+  el.innerHTML = '<b>' + tr(key + '-l') + '</b><p>' + tr(key)
+    .replace('{u}', u).replace('{r}', dec(r.ratio * 100, 0)).replace('{c}', dec(r.cpq)) + '</p>';
+}
+
+function renderAssumptions() {
+  var rows = [['a-use'], ['a-turn'], ['a-crew'], ['a-fix'], ['a-lift']];
+  var h = '<thead><tr><th>' + tr('th-pos') + '</th><th>' + tr('th-basis') + '</th><th>' + tr('th-how') + '</th></tr></thead><tbody>';
+  rows.forEach(function (r) {
+    h += '<tr><td><strong>' + tr(r[0]) + '</strong></td><td>' + tr(r[0] + '-b') + '</td><td>' + tr(r[0] + '-h') + '</td></tr>';
+  });
+  $('assumptions').innerHTML = h + '</tbody>';
+}
+
+function renderMemo(r) {
+  $('clear-a').hidden = !snapA;
+  if (!snapA) { $('memo-txt').innerHTML = ''; return; }
+  var d = r.cpq - snapA.cpq, dTxt;
+  if (Math.abs(d) < 0.05) dTxt = '&plusmn;0';
+  else dTxt = '<span class="' + (d < 0 ? 'up' : 'down') + '">' + (d > 0 ? '+' : '&minus;') + 'CHF ' + dec(Math.abs(d)) + '</span>';
+  $('memo-txt').innerHTML = tr('memo-txt').replace('{qc}', chf(snapA.qc)).replace('{c}', dec(snapA.cpq)).replace('{d}', dTxt);
+}
+
+function renderAll() {
+  $('v-rights').textContent = chf(state.rights);
+  $('v-act').textContent = chf(state.act);
+  $('v-sites').textContent = state.sites;
+  $('v-vis').textContent = chf(state.vis);
+  var r = compute(state);
+  $('r-qc').textContent = chf(r.qc);
+  $('r-cpq').textContent = dec(r.cpq);
+  $('r-util').textContent = dec(Math.min(r.util * 100, 100), 0) + '%';
+  /* Kosten pro Begegnung: tief ist gut */
+  if (r.cpq <= 120) setSig('sig-cpq', 4, 'ok');
+  else if (r.cpq <= 200) setSig('sig-cpq', 2, 'mid');
+  else setSig('sig-cpq', 1, 'bad');
+  /* Auslastung: Zielkorridor 45 bis 100% */
+  if (r.util > 1) setSig('sig-util', 4, 'bad');
+  else if (r.util >= 0.45) setSig('sig-util', r.util >= 0.85 ? 4 : 3, 'ok');
+  else setSig('sig-util', r.util >= 0.25 ? 2 : 1, 'mid');
+  var tot = r.total || 1;
+  $('rb-r').style.width = (state.rights / tot * 100) + '%';
+  $('rb-a').style.width = (state.act / tot * 100) + '%';
+  $('r-ratio').textContent = '1 : ' + dec(r.ratio, 2);
+  renderVerdict(r); renderAssumptions(); renderMemo(r);
+}
+
+/* ---------- Sprache ---------- */
+function applyT() {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-t]'), function (el) {
+    var k = el.getAttribute('data-t');
+    if (T[LANG][k] !== undefined) el.innerHTML = T[LANG][k];
+  });
+  document.documentElement.lang = LANG;
+  document.title = LANG === 'en' ? 'First Lap · Work sample for On' : 'Erste Runde · Arbeitsprobe für On';
+}
+function setLang(l) {
+  LANG = l;
+  try { localStorage.setItem('sj_lang', l); } catch (e) {}
+  $('btn-de').className = l === 'de' ? 'on' : '';
+  $('btn-en').className = l === 'en' ? 'on' : '';
+  applyT(); renderSegs(); renderAll();
+}
+
+/* ---------- Bedienung ---------- */
+['rights', 'act', 'sites', 'vis'].forEach(function (k) {
+  $(k).addEventListener('input', function () { state[k] = +this.value; renderAll(); });
+});
+$('save-a').addEventListener('click', function () { snapA = compute(state); renderAll(); });
+$('clear-a').addEventListener('click', function () { snapA = null; renderAll(); });
+
+applyT(); renderSegs(); renderAll();
+/* Sprache der restlichen Website übernehmen */
+try { if (localStorage.getItem('sj_lang') === 'en') setLang('en'); } catch (e) {}
+</script>
+</body>
+</html>

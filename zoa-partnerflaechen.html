@@ -150,18 +150,25 @@
     .cover h1, .colophon h2, .facts b, .colophon b { color: #000; }
     .facts, .facts div { background: #fff; border-color: #999; }
   }
+  .brandline { display: flex; align-items: center; gap: 14px; margin-bottom: 30px; }
+  .brandline .sj { height: 40px; width: auto; display: block; }
+  .brandline .x { font-size: 14px; opacity: .55; }
+  .brandline .co-logo { display: flex; align-items: center; color: #fff; }
+  .brandline .co-logo svg, .brandline .co-logo img { height: var(--logo-h, 36px); width: auto; display: block; }
+  @media (max-width: 600px) { .brandline .sj { height: 32px; } .brandline .co-logo svg, .brandline .co-logo img { height: calc(var(--logo-h, 36px) * .8); } }
 </style>
 </head>
 <body>
 
 <div class="sample-bar">
-  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Material des Z&uuml;rich Open Air</span>
+  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Material des Z&uuml;rich Openair, Marke und Logo geh&ouml;ren Z&uuml;rich Openair</span>
   &nbsp;&middot;&nbsp; <a href="zurich-open-air.html" data-t="bar-back">zur&uuml;ck zur Bewerbung</a>
 </div>
 
 <!-- ================= Deckblatt ================= -->
 <header class="cover">
   <div class="wrap">
+    <div class="brandline"><a href="zurich-open-air.html"><img class="sj" src="assets/images/Logo-SJ-Homepage-fett.png" alt="SJ Logo"></a><span class="x">&times;</span><span class="co-logo" style="--logo-h:48px" role="img" aria-label="Zürich Openair"><img src="assets/images/logos/zurich-openair.png" alt=""></span></div>
     <div class="cover-top">
       <div class="eyebrow" data-t="eyebrow">Partnerfl&auml;chen &middot; Plan und Preis in einem Werkzeug</div>
       <div class="lang-switch">
@@ -318,7 +325,7 @@
 <footer class="colophon">
   <div class="wrap">
     <h2 data-t="col-h">Zur Arbeitsprobe</h2>
-    <p data-t="col-1"><b>Was daran fiktiv ist:</b> alles Konkrete. Die Fl&auml;che, die Partner, die Preise und die Zielwerte gibt es nicht. Es ist kein offizielles Material des Z&uuml;rich Open Air, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen.</p>
+    <p data-t="col-1"><b>Was daran fiktiv ist:</b> alles Konkrete. Die Fl&auml;che, die Partner, die Preise und die Zielwerte gibt es nicht. Es ist kein offizielles Material des Z&uuml;rich Openair, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen.</p>
     <p data-t="col-2"><b>Was daran echt ist:</b> die Zeichnung und die Denkweise. Massstab, Bemassung und die Kopplung von Fl&auml;che, Kapazit&auml;t und Erl&ouml;s entsprechen dem, wie ich Standpl&auml;ne aufbaue &ndash; aus f&uuml;nf Jahren als Zeichnerin EFZ Fachrichtung Architektur und anderthalb Jahren Brand Experience an Schweizer Festivals.</p>
     <p data-t="col-3">Konzept, Text, Zeichnung und Umsetzung: Shayna Jucker. Eine einzige HTML-Datei, keine externen Requests, keine Datenerfassung. Zweisprachig Deutsch und Englisch. Druckbar &uuml;ber die Druckfunktion des Browsers.</p>
     <p><a class="backlink" href="zurich-open-air.html" data-t="col-back">&larr; Zur&uuml;ck zur Bewerbung</a></p>
@@ -342,7 +349,7 @@ function pe(x) { return sesc(plain(x)); }
 
 var T = {
   de: {
-    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Material des Z&uuml;rich Open Air',
+    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Material des Z&uuml;rich Openair, Marke und Logo geh&ouml;ren Z&uuml;rich Openair',
     'bar-back': 'zur&uuml;ck zur Bewerbung',
     'eyebrow': 'Partnerfl&auml;chen &middot; Plan und Preis in einem Werkzeug',
     'kind': 'Arbeitsprobe f&uuml;r die Bewerbung als Partnership Manager',
@@ -391,7 +398,7 @@ var T = {
     's6-l4': 'Die Kapazit&auml;tsrechnung ist eine Momentaufnahme. Sie sagt nichts &uuml;ber den Verlauf eines Abends und ersetzt keine Besucherstromanalyse.',
     's6-p1': 'Was ich kann: massst&auml;blich zeichnen, sauber bemassen, den Preis daneben rechnen und beides in einem Gespr&auml;ch vertreten. Und ich merke am Plan, ob etwas nicht aufgeht, bevor es auf dem Feld steht.',
     'col-h': 'Zur Arbeitsprobe',
-    'col-1': '<b>Was daran fiktiv ist:</b> alles Konkrete. Die Fl&auml;che, die Partner, die Preise und die Zielwerte gibt es nicht. Es ist kein offizielles Material des Z&uuml;rich Open Air, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen.',
+    'col-1': '<b>Was daran fiktiv ist:</b> alles Konkrete. Die Fl&auml;che, die Partner, die Preise und die Zielwerte gibt es nicht. Es ist kein offizielles Material des Z&uuml;rich Openair, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen.',
     'col-2': '<b>Was daran echt ist:</b> die Zeichnung und die Denkweise. Massstab, Bemassung und die Kopplung von Fl&auml;che, Kapazit&auml;t und Erl&ouml;s entsprechen dem, wie ich Standpl&auml;ne aufbaue &ndash; aus f&uuml;nf Jahren als Zeichnerin EFZ Fachrichtung Architektur und anderthalb Jahren Brand Experience an Schweizer Festivals.',
     'col-3': 'Konzept, Text, Zeichnung und Umsetzung: Shayna Jucker. Eine einzige HTML-Datei, keine externen Requests, keine Datenerfassung. Zweisprachig Deutsch und Englisch. Druckbar &uuml;ber die Druckfunktion des Browsers.',
     'col-back': '&larr; Zur&uuml;ck zur Bewerbung',
@@ -422,7 +429,7 @@ var T = {
     'svg-narrow': 'schmalste Stelle', 'svg-north': 'Anlieferung'
   },
   en: {
-    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official Z&uuml;rich Open Air material',
+    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official Z&uuml;rich Openair material; brand and logo belong to Z&uuml;rich Openair',
     'bar-back': 'back to the application',
     'eyebrow': 'Partner areas &middot; plan and price in one tool',
     'kind': 'Work sample for the application as Partnership Manager',
@@ -471,7 +478,7 @@ var T = {
     's6-l4': 'The capacity calculation is a snapshot. It says nothing about the course of an evening and does not replace a crowd flow analysis.',
     's6-p1': 'What I can do: draw to scale, dimension cleanly, calculate the price next to it and defend both in a conversation. And I notice on the plan when something does not work out, before it is standing in a field.',
     'col-h': 'About this work sample',
-    'col-1': '<b>What is fictional:</b> everything concrete. The area, the partners, the prices and the targets do not exist. This is not official Z&uuml;rich Open Air material, not an agreed collaboration and is based on no internal information whatsoever.',
+    'col-1': '<b>What is fictional:</b> everything concrete. The area, the partners, the prices and the targets do not exist. This is not official Z&uuml;rich Openair material, not an agreed collaboration and is based on no internal information whatsoever.',
     'col-2': '<b>What is real:</b> the drawing and the way of thinking. Scale, dimensioning and the coupling of area, capacity and revenue match how I build stand plans &ndash; out of five years as a qualified architectural draftswoman and a year and a half of brand experience at Swiss festivals.',
     'col-3': 'Concept, copy, drawing and build: Shayna Jucker. A single HTML file, no external requests, no data collection. Bilingual German and English. Printable via the browser print function.',
     'col-back': '&larr; Back to the application',
