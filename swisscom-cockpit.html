@@ -27,6 +27,8 @@
     --bad: #ff5a5f;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  .sample-bar { background: #1781e3; color: #ffffff; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-align: center; padding: 9px 16px; font-weight: 700; line-height: 1.6; }
+  .sample-bar a { color: #ffffff; text-decoration: underline; }
   body {
     background: var(--bg); color: var(--text);
     font-family: 'Open Sans', Arial, sans-serif; font-size: 16px; line-height: 1.65;
@@ -175,12 +177,17 @@
     .panel { padding: 22px 18px; }
   }
   @media print {
-    .top, .memo, .lang-switch { display: none !important; }
+    .sample-bar, .top, .memo, .lang-switch { display: none !important; }
     details { break-inside: avoid; }
   }
 </style>
 </head>
 <body>
+
+<div class="sample-bar">
+  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Swisscom-Material, Marke und Logo geh&ouml;ren Swisscom</span>
+  &nbsp;&middot;&nbsp; <a href="swisscom.html" data-t="bar-back">zur&uuml;ck zur Bewerbung</a>
+</div>
 
 <!-- ================= Kopfzeile ================= -->
 <header class="top">
@@ -354,6 +361,8 @@ function tr(k) { return T[LANG][k] !== undefined ? T[LANG][k] : k; }
 
 var T = {
   de: {
+    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Swisscom-Material, Marke und Logo geh&ouml;ren Swisscom',
+    'bar-back': 'zur&uuml;ck zur Bewerbung',
     'back-short': '&larr; Bewerbung',
     'kicker': 'Arbeitsprobe &middot; Sponsoring &amp; Live Marketing Lead',
     'title': 'Volle Balken.',
@@ -414,6 +423,8 @@ var T = {
     'back': '&larr; Zur&uuml;ck zur Bewerbung'
   },
   en: {
+    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official Swisscom material; brand and logo belong to Swisscom',
+    'bar-back': 'back to the application',
     'back-short': '&larr; Application',
     'kicker': 'Work sample &middot; Sponsoring &amp; Live Marketing Lead',
     'title': 'Full Bars.',

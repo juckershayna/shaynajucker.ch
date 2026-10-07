@@ -53,6 +53,7 @@
     text-align: center;
     padding: 9px 16px;
     font-weight: 700;
+    line-height: 1.6;
   }
   .sample-bar a { color: #fff; text-decoration: underline; }
 
@@ -264,9 +265,9 @@
 </head>
 <body>
 
-<div class="sample-bar" id="bar">
-  Arbeitsprobe von Shayna Jucker &middot; kein offizielles Material der Zweifel Weine &amp; Getr&auml;nke Gruppe &middot;
-  <a href="zweifel.html">zur&uuml;ck zur Bewerbung</a>
+<div class="sample-bar">
+  <span id="tx-bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Material der Zweifel Weine &amp; Getr&auml;nke Gruppe, Marken und Logos geh&ouml;ren Zweifel</span>
+  &nbsp;&middot;&nbsp; <a href="zweifel.html" id="tx-bar-back">zur&uuml;ck zur Bewerbung</a>
 </div>
 
 <div class="wrap">
@@ -648,6 +649,8 @@ var PRESETS = [
 /* ---------- Wörterbuch DE / EN ---------- */
 var T = {
   de: {
+    'tx-bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Material der Zweifel Weine &amp; Getr&auml;nke Gruppe, Marken und Logos geh&ouml;ren Zweifel',
+    'tx-bar-back': 'zur&uuml;ck zur Bewerbung',
     'tx-eyebrow': 'Arbeitsprobe f&uuml;r Zweifel Weine &amp; Getr&auml;nke',
     'tx-lede1': '<b>Ein Wein, vier Materialien, ein Layoutsystem.</b> Links die Daten eintippen, rechts entstehen Regal-Talker, Degustationskarte, Gastro-Verkaufsblatt und Social-Kachel gleichzeitig &ndash; druckfertig im richtigen Format.',
     'tx-lede2': 'Ein neuer Wein im Sortiment braucht sonst vier Dateien, vier Mal dieselben Angaben und vier Gelegenheiten, sich zu vertippen. Hier gibt es eine Datenquelle. Das Corporate Design steckt im System, nicht in der Disziplin der Person, die gerade Zeit hat.',
@@ -698,6 +701,8 @@ var T = {
     'tx-bl1': 'Zur&uuml;ck zur Bewerbung', 'tx-bl2': 'Schreib mir'
   },
   en: {
+    'tx-bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official material of the Zweifel Weine &amp; Getr&auml;nke group; brands and logos belong to Zweifel',
+    'tx-bar-back': 'back to the application',
     'tx-eyebrow': 'Work sample for Zweifel Weine &amp; Getr&auml;nke',
     'tx-lede1': '<b>One wine, four materials, one layout system.</b> Type the data on the left and the shelf talker, tasting card, gastronomy sales sheet and social tile are built on the right at the same time &ndash; print-ready, at the correct size.',
     'tx-lede2': 'A new wine in the range normally needs four files, the same details typed four times and four chances to make a typo. Here there is one source of data. The corporate design sits in the system, not in the discipline of whoever happens to have time.',
