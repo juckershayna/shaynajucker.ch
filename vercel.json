@@ -31,6 +31,11 @@
       "source": "/on-partnerships",
       "destination": "/on",
       "permanent": true
+    },
+    {
+      "source": "/on-brand-event",
+      "destination": "/on",
+      "permanent": true
     }
   ]
 }
