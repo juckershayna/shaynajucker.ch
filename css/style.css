@@ -1364,6 +1364,11 @@ ul, ol {
   text-align: center;
 }
 
+/* Titel direkt ueber dem ersten Projekt: gleicher Abstand wie zwischen den Projekten */
+.portfolio-subpage .page-title--spaced {
+  margin-bottom: 80px;
+}
+
 .portfolio-subpage .page-intro {
   max-width: 720px;
   margin: 0 auto 60px;
