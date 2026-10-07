@@ -2,10 +2,35 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/portfolio/events", "destination": "/portfolio/marketing", "permanent": true },
-    { "source": "/event-organisation", "destination": "/bewerbung", "permanent": true },
-    { "source": "/on", "destination": "/on-brand-event", "permanent": false },
-    { "source": "/zoa", "destination": "/zurich-open-air", "permanent": false },
-    { "source": "/zuerich-open-air", "destination": "/zurich-open-air", "permanent": false }
+    {
+      "source": "/portfolio/events",
+      "destination": "/portfolio/marketing",
+      "permanent": true
+    },
+    {
+      "source": "/event-organisation",
+      "destination": "/bewerbung",
+      "permanent": true
+    },
+    {
+      "source": "/on",
+      "destination": "/on-brand-event",
+      "permanent": false
+    },
+    {
+      "source": "/zoa",
+      "destination": "/zurich-open-air",
+      "permanent": false
+    },
+    {
+      "source": "/zuerich-open-air",
+      "destination": "/zurich-open-air",
+      "permanent": false
+    },
+    {
+      "source": "/plan",
+      "destination": "https://claude.ai/artifact/1WzTSmdLH5GXn8BjjMYxpP",
+      "permanent": false
+    }
   ]
 }
