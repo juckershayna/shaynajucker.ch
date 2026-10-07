@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Vorverkaufsfenster &middot; Arbeitsprobe f&uuml;r Ticketcorner</title>
+<link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="css/arbeitsprobe.css?v=1">
+<style>
+  /* Ticketcorner-Farbwelt: Blau, dazu Ticket-Gelb als Signal */
+  :root {
+    --accent: #0a4ea2; --accent-lt: #ffc93c; --on-accent: #ffffff;
+    --glow: rgba(10,78,162,.6); --tint: rgba(255,201,60,.1);
+    --font-head: 'Barlow Condensed', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+    --radius: 10px;
+  }
+  .cover h1 { font-weight: 800; text-transform: uppercase; letter-spacing: -.01em; font-size: clamp(46px, 9vw, 110px); }
+  .sec-head h2 { font-weight: 700; text-transform: uppercase; letter-spacing: .01em; }
+  .co-logo .co-word { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -.01em; }
+  .ticket { display: flex; margin-top: 30px; border-radius: 12px; overflow: hidden; background: var(--card); border: 1px solid var(--line); }
+  .ticket > div { padding: 20px 22px; flex: 1; }
+  .ticket > div + div { border-left: 2px dashed var(--line); }
+  .ticket b { display: block; font-family: var(--font-head); font-size: 22px; text-transform: uppercase; margin-bottom: 4px; color: var(--accent-lt); }
+  .ticket span { font-size: 14px; color: var(--ink-2); line-height: 1.55; display: block; }
+  @media (max-width: 760px) { .ticket { flex-direction: column; } .ticket > div + div { border-left: none; border-top: 2px dashed var(--line); } }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">
+  <span data-t="bar">Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Ticketcorner-Material, Marke und Logo geh&ouml;ren Ticketcorner</span>
+  &nbsp;&middot;&nbsp; <a href="ticketcorner.html" data-t="bar-back">zur&uuml;ck zur Bewerbung</a>
+</div>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="brandline">
+      <a href="ticketcorner.html"><img class="sj" src="assets/images/Logo-SJ-Homepage-fett.png" alt="SJ Logo"></a>
+      <span class="x">&times;</span>
+      <span class="co-logo" style="--logo-h:30px"><img src="assets/images/logos/ticketcorner.svg" alt="Ticketcorner" onerror="this.parentNode.classList.add('nologo')"><span class="co-word">ticketcorner</span></span>
+    </div>
+    <div class="cover-top">
+      <div class="eyebrow" data-t="eyebrow">Partner-Vorverkauf &amp; Simulation</div>
+      <div class="lang-switch"><button id="btn-de" class="on" onclick="setLang('de')">DE</button><button id="btn-en" onclick="setLang('en')">EN</button></div>
+    </div>
+    <div class="kind" data-t="kind">Arbeitsprobe f&uuml;r die Bewerbung als Partnership Manager</div>
+    <h1 data-t="title">Vorverkaufs&shy;fenster.</h1>
+    <p class="claim" data-t="claim">Ein Partner-Vorverkauf ist ein Versprechen an zwei Seiten: an den Partner, dass sich seine Kundschaft lohnt &ndash; und an alle anderen, dass sie trotzdem eine faire Chance haben.</p>
+    <div class="facts">
+      <div><span data-t="f1-l">Anlass</span><b data-t="f1">Konzert, 20&rsquo;000 Pl&auml;tze</b></div>
+      <div><span data-t="f2-l">Partner</span><b data-t="f2">Kundenprogramm einer Marke</b></div>
+      <div><span data-t="f3-l">Kern</span><b data-t="f3">Simulation &uuml;ber zehn Tage</b></div>
+      <div><span data-t="f4-l">Steuergr&ouml;sse</span><b data-t="f4">Anteil im freien Verkauf</b></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="doc">
+    <div class="sec-head"><div class="sec-no">01</div><div><h2 data-t="s1-h">Ausgangslage</h2><p data-t="s1-sub">Zwei Kunden, ein Kontingent</p></div></div>
+    <div class="col">
+      <p class="lead" data-t="s1-p1">F&uuml;r Marken ist ein exklusiver Vorverkauf eines der st&auml;rksten Argumente: Ihre Kundschaft bekommt Tickets, bevor alle anderen d&uuml;rfen. F&uuml;r eine Ticketplattform ist er ein Balanceakt.</p>
+      <p data-t="s1-p2">Ist das Kontingent zu klein, verpufft das Versprechen an den Partner. Ist es zu gross und die Nachfrage hoch, ist ein Konzert ausverkauft, bevor der freie Verkauf beginnt &ndash; und der &Auml;rger landet nicht beim Partner, sondern bei der Plattform. Ist die Nachfrage tief, bleibt das Kontingent liegen und der Partner fragt, wof&uuml;r er bezahlt hat.</p>
+      <div class="callout"><b data-t="ins-l">Insight</b><p data-t="ins">Die richtige Gr&ouml;sse eines Partnerkontingents h&auml;ngt nicht vom Partner ab, sondern von der Nachfrage.</p></div>
+    </div>
+  </section>
+
+  <section class="doc">
+    <div class="sec-head"><div class="sec-no">02</div><div><h2 data-t="s2-h">Das Prinzip</h2><p data-t="s2-sub">Zwei Phasen, eine Regel</p></div></div>
+    <div class="col"><p data-t="s2-p1">Jeder Partner-Vorverkauf hat zwei Phasen und eine Regel, die vor dem Vertrag steht: Der Anteil des Partners richtet sich nach der erwarteten Nachfrage. Bei sehr hoher Nachfrage wird das Kontingent kleiner, nicht gr&ouml;sser &ndash; daf&uuml;r bekommt der Partner etwas, das nicht knapp ist.</p></div>
+    <div class="ticket">
+      <div><b data-t="ph1-h">Phase 1 &middot; Partner</b><span data-t="ph1-p">Kundschaft des Partners kauft mit Code, f&uuml;r ein festes Kontingent und ein festes Zeitfenster.</span></div>
+      <div><b data-t="ph2-h">Phase 2 &middot; Frei</b><span data-t="ph2-p">Was &uuml;brig bleibt, plus alle nicht verkauften Partnertickets, geht in den freien Verkauf.</span></div>
+      <div><b data-t="ph3-h">Die Regel</b><span data-t="ph3-p">Mindestens 70% der Pl&auml;tze im freien Verkauf, sobald die Nachfrage das Doppelte der Kapazit&auml;t &uuml;bersteigt.</span></div>
+    </div>
+  </section>
+
+  <section class="doc">
+    <div class="sec-head"><div class="sec-no">03</div><div><h2 data-t="s3-h">Die Simulation</h2><p data-t="s3-sub">Kontingent, Nachfrage und Fenster einstellen</p></div></div>
+    <div class="col"><p data-t="s3-p1">Ein erfundenes Konzert mit 20&rsquo;000 Pl&auml;tzen. Stellen Sie ein, wie gross das Partnerkontingent ist, wie lange das Fenster offen bleibt und wie hoch die Nachfrage ausf&auml;llt. Die Kurve zeigt die verkauften Tickets &uuml;ber zehn Tage &ndash; und wer am Ende leer ausgeht.</p></div>
+    <div class="tool">
+      <div class="tool-head"><b data-t="tool-t">Vorverkaufsfenster</b><span data-t="tool-n">Alle Werte fiktiv</span></div>
+      <div class="tool-body">
+        <div class="tool-grid">
+          <div>
+            <div class="slider-row"><label><span data-t="c-alloc">Partnerkontingent</span><b id="v-alloc"></b></label><input type="range" id="alloc" min="0" max="50" step="5" value="20"></div>
+            <div class="slider-row"><label><span data-t="c-dem">Nachfrage im Verh&auml;ltnis zur Kapazit&auml;t</span><b id="v-dem"></b></label><input type="range" id="dem" min="5" max="40" step="1" value="15"></div>
+            <div class="slider-row"><label><span data-t="c-mem">Kundschaft des Partners mit Code</span><b id="v-mem"></b></label><input type="range" id="mem" min="20000" max="600000" step="10000" value="200000"></div>
+            <p class="panel-h" data-t="h-win">Fenster f&uuml;r den Partner</p>
+            <div class="segs" id="segs"></div>
+          </div>
+          <div>
+            <div class="kpis k2" id="kpis"></div>
+          </div>
+        </div>
+        <div class="chart"><svg id="curve" viewBox="0 0 900 280" role="img" aria-label="Verkaufskurve"></svg>
+          <div class="legend"><span><i style="background:#ffc93c"></i><span data-t="lg-p">Partner-Vorverkauf</span></span><span><i style="background:#4d8fe0"></i><span data-t="lg-f">freier Verkauf</span></span><span><i style="background:#ffffff"></i><span data-t="lg-c">Kapazit&auml;t</span></span></div>
+        </div>
+        <div class="verdict" id="verdict"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc">
+    <div class="sec-head"><div class="sec-no">04</div><div><h2 data-t="s4-h">Messplan</h2><p data-t="s4-sub">F&uuml;r den Partner und f&uuml;r alle anderen</p></div></div>
+    <div class="col"><p data-t="s4-p1">Ein Partner-Vorverkauf ist erfolgreich, wenn beide Seiten zufrieden sind. Deshalb wird er an Zahlen f&uuml;r den Partner und an Zahlen f&uuml;r das Publikum gemessen.</p></div>
+    <div class="tbl-wrap"><table id="metrics"></table></div>
+  </section>
+
+  <section class="doc">
+    <div class="sec-head"><div class="sec-no">05</div><div><h2 data-t="s5-h">Was die Simulation nicht kann</h2><p data-t="s5-sub">Die Grenzen, bevor sie jemand anders findet</p></div></div>
+    <div class="col">
+      <ul class="ticks no">
+        <li data-t="l1">Sie kennt die echte Nachfrage nicht. Die wichtigste Eingabe ist eine Sch&auml;tzung &ndash; deshalb steht sie als Regler da, nicht als Zahl.</li>
+        <li data-t="l2">Sie rechnet keinen Zweitmarkt. Ein zu grosses Kontingent in einer sehr hohen Nachfrage landet teilweise im Wiederverkauf &ndash; das macht das Problem gr&ouml;sser, nicht kleiner.</li>
+        <li data-t="l3">Sie ersetzt keine Abstimmung mit Veranstalter und K&uuml;nstler. Wer wie viele Tickets wo verkauft, entscheidet nicht die Plattform allein.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <div class="wrap">
+    <h2 data-t="col-h">Zur Arbeitsprobe</h2>
+    <p data-t="col-1"><b>Was daran fiktiv ist:</b> alles Konkrete. Das Konzert, der Partner, die Kontingente, die Nachfrage und die Kurven gibt es nicht. Es ist kein offizielles Material von Ticketcorner, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen.</p>
+    <p data-t="col-2"><b>Was daran echt ist:</b> die Haltung. So w&uuml;rde ich Partnerschaften auf einer Ticketplattform f&uuml;hren: dem Partner etwas Wertvolles geben, ohne es dem Publikum wegzunehmen.</p>
+    <p data-t="col-3">Konzept, Text, Gestaltung und Umsetzung: Shayna Jucker. Zweisprachig Deutsch und Englisch, keine Datenerfassung.</p>
+    <p><a class="backlink" href="ticketcorner.html" data-t="col-back">&larr; Zur&uuml;ck zur Bewerbung</a></p>
+  </div>
+</footer>
+
+<script src="js/arbeitsprobe.js?v=1"></script>
+<script>
+var T = {
+  de: {
+    'bar': 'Arbeitsprobe von Shayna Jucker &middot; fiktives Konzept, kein offizielles Ticketcorner-Material, Marke und Logo geh&ouml;ren Ticketcorner',
+    'bar-back': 'zur&uuml;ck zur Bewerbung',
+    'eyebrow': 'Partner-Vorverkauf &amp; Simulation',
+    'kind': 'Arbeitsprobe f&uuml;r die Bewerbung als Partnership Manager',
+    'title': 'Vorverkaufs&shy;fenster.',
+    'claim': 'Ein Partner-Vorverkauf ist ein Versprechen an zwei Seiten: an den Partner, dass sich seine Kundschaft lohnt &ndash; und an alle anderen, dass sie trotzdem eine faire Chance haben.',
+    'f1-l': 'Anlass', 'f1': 'Konzert, 20&rsquo;000 Pl&auml;tze', 'f2-l': 'Partner', 'f2': 'Kundenprogramm einer Marke',
+    'f3-l': 'Kern', 'f3': 'Simulation &uuml;ber zehn Tage', 'f4-l': 'Steuergr&ouml;sse', 'f4': 'Anteil im freien Verkauf',
+    's1-h': 'Ausgangslage', 's1-sub': 'Zwei Kunden, ein Kontingent',
+    's1-p1': 'F&uuml;r Marken ist ein exklusiver Vorverkauf eines der st&auml;rksten Argumente: Ihre Kundschaft bekommt Tickets, bevor alle anderen d&uuml;rfen. F&uuml;r eine Ticketplattform ist er ein Balanceakt.',
+    's1-p2': 'Ist das Kontingent zu klein, verpufft das Versprechen an den Partner. Ist es zu gross und die Nachfrage hoch, ist ein Konzert ausverkauft, bevor der freie Verkauf beginnt &ndash; und der &Auml;rger landet nicht beim Partner, sondern bei der Plattform. Ist die Nachfrage tief, bleibt das Kontingent liegen und der Partner fragt, wof&uuml;r er bezahlt hat.',
+    'ins-l': 'Insight', 'ins': 'Die richtige Gr&ouml;sse eines Partnerkontingents h&auml;ngt nicht vom Partner ab, sondern von der Nachfrage.',
+    's2-h': 'Das Prinzip', 's2-sub': 'Zwei Phasen, eine Regel',
+    's2-p1': 'Jeder Partner-Vorverkauf hat zwei Phasen und eine Regel, die vor dem Vertrag steht: Der Anteil des Partners richtet sich nach der erwarteten Nachfrage. Bei sehr hoher Nachfrage wird das Kontingent kleiner, nicht gr&ouml;sser &ndash; daf&uuml;r bekommt der Partner etwas, das nicht knapp ist.',
+    'ph1-h': 'Phase 1 &middot; Partner', 'ph1-p': 'Kundschaft des Partners kauft mit Code, f&uuml;r ein festes Kontingent und ein festes Zeitfenster.',
+    'ph2-h': 'Phase 2 &middot; Frei', 'ph2-p': 'Was &uuml;brig bleibt, plus alle nicht verkauften Partnertickets, geht in den freien Verkauf.',
+    'ph3-h': 'Die Regel', 'ph3-p': 'Mindestens 70% der Pl&auml;tze im freien Verkauf, sobald die Nachfrage das Doppelte der Kapazit&auml;t &uuml;bersteigt.',
+    's3-h': 'Die Simulation', 's3-sub': 'Kontingent, Nachfrage und Fenster einstellen',
+    's3-p1': 'Ein erfundenes Konzert mit 20&rsquo;000 Pl&auml;tzen. Stellen Sie ein, wie gross das Partnerkontingent ist, wie lange das Fenster offen bleibt und wie hoch die Nachfrage ausf&auml;llt. Die Kurve zeigt die verkauften Tickets &uuml;ber zehn Tage &ndash; und wer am Ende leer ausgeht.',
+    'tool-t': 'Vorverkaufsfenster', 'tool-n': 'Alle Werte fiktiv',
+    'c-alloc': 'Partnerkontingent', 'c-dem': 'Nachfrage im Verh&auml;ltnis zur Kapazit&auml;t', 'c-mem': 'Kundschaft des Partners mit Code', 'h-win': 'Fenster f&uuml;r den Partner',
+    'w24': '24 Std.', 'w48': '48 Std.', 'w72': '72 Std.',
+    'lg-p': 'Partner-Vorverkauf', 'lg-f': 'freier Verkauf', 'lg-c': 'Kapazit&auml;t', 'day': 'Tag',
+    'k-ps': 'Partnertickets verkauft', 'k-ps-e': 'von {c} im Kontingent', 'k-free': 'Im freien Verkauf', 'k-free-e': 'Anteil der Pl&auml;tze',
+    'k-out': 'Ausverkauft nach', 'k-out-e': 'ab Start Vorverkauf', 'k-left': 'Leer ausgegangen', 'k-left-e': 'Interessierte ohne Ticket', 'never': 'nicht ausverkauft', 'days': 'Tagen',
+    'v-ok-l': 'Fair f&uuml;r beide', 'v-ok': 'Der Partner verkauft {p} Tickets in seinem Fenster, {f}% der Pl&auml;tze gehen in den freien Verkauf. Mit diesem Kontingent w&uuml;rde ich in den Vertrag gehen.',
+    'v-unfair-l': 'Unfair f&uuml;r das Publikum', 'v-unfair': 'Bei {d}-facher Nachfrage gehen nur {f}% der Pl&auml;tze in den freien Verkauf. Das Konzert ist praktisch weg, bevor alle anderen d&uuml;rfen &ndash; das Kontingent auf h&ouml;chstens 30% senken und dem Partner stattdessen ein Erlebnis vor Ort geben.',
+    'v-hollow-l': 'Leeres Versprechen', 'v-hollow': 'Im Partnerfenster gehen nur {p} von {c} Tickets weg. Die Exklusivit&auml;t f&uuml;hlt sich f&uuml;r niemanden exklusiv an &ndash; kleineres Kontingent oder k&uuml;rzeres Fenster.',
+    'v-low-l': 'Nachfrage unter Kapazit&auml;t', 'v-low': 'Bei dieser Nachfrage wird das Konzert nicht ausverkauft. Ein Partner-Vorverkauf hilft hier vor allem beim fr&uuml;hen Verkauf &ndash; das sollte im Vertrag auch so stehen.',
+    's4-h': 'Messplan', 's4-sub': 'F&uuml;r den Partner und f&uuml;r alle anderen',
+    's4-p1': 'Ein Partner-Vorverkauf ist erfolgreich, wenn beide Seiten zufrieden sind. Deshalb wird er an Zahlen f&uuml;r den Partner und an Zahlen f&uuml;r das Publikum gemessen.',
+    'th-m': 'Kennzahl', 'th-h': 'Wie ich das erhebe', 'th-t': 'Zielwert', 'th-o': 'Wer',
+    's5-h': 'Was die Simulation nicht kann', 's5-sub': 'Die Grenzen, bevor sie jemand anders findet',
+    'l1': 'Sie kennt die echte Nachfrage nicht. Die wichtigste Eingabe ist eine Sch&auml;tzung &ndash; deshalb steht sie als Regler da, nicht als Zahl.',
+    'l2': 'Sie rechnet keinen Zweitmarkt. Ein zu grosses Kontingent in einer sehr hohen Nachfrage landet teilweise im Wiederverkauf &ndash; das macht das Problem gr&ouml;sser, nicht kleiner.',
+    'l3': 'Sie ersetzt keine Abstimmung mit Veranstalter und K&uuml;nstler. Wer wie viele Tickets wo verkauft, entscheidet nicht die Plattform allein.',
+    'col-h': 'Zur Arbeitsprobe',
+    'col-1': '<b>Was daran fiktiv ist:</b> alles Konkrete. Das Konzert, der Partner, die Kontingente, die Nachfrage und die Kurven gibt es nicht. Es ist kein offizielles Material von Ticketcorner, keine abgesprochene Zusammenarbeit und beruht auf keinerlei internen Informationen.',
+    'col-2': '<b>Was daran echt ist:</b> die Haltung. So w&uuml;rde ich Partnerschaften auf einer Ticketplattform f&uuml;hren: dem Partner etwas Wertvolles geben, ohne es dem Publikum wegzunehmen.',
+    'col-3': 'Konzept, Text, Gestaltung und Umsetzung: Shayna Jucker. Zweisprachig Deutsch und Englisch, keine Datenerfassung.',
+    'col-back': '&larr; Zur&uuml;ck zur Bewerbung'
+  },
+  en: {
+    'bar': 'Work sample by Shayna Jucker &middot; fictional concept, not official Ticketcorner material; brand and logo belong to Ticketcorner',
+    'bar-back': 'back to the application',
+    'eyebrow': 'Partner presale &amp; simulation',
+    'kind': 'Work sample for the application as Partnership Manager',
+    'title': 'Presale window.',
+    'claim': 'A partner presale is a promise to two sides: to the partner, that its customers are worth it &ndash; and to everyone else, that they still have a fair chance.',
+    'f1-l': 'Event', 'f1': 'Concert, 20,000 seats', 'f2-l': 'Partner', 'f2': 'A brand&rsquo;s customer programme',
+    'f3-l': 'Core', 'f3': 'Simulation over ten days', 'f4-l': 'Steering metric', 'f4': 'Share in general sale',
+    's1-h': 'Starting point', 's1-sub': 'Two customers, one allocation',
+    's1-p1': 'For brands an exclusive presale is one of the strongest arguments: their customers get tickets before everyone else. For a ticketing platform it is a balancing act.',
+    's1-p2': 'If the allocation is too small, the promise to the partner fizzles out. If it is too big and demand is high, a concert sells out before general sale starts &ndash; and the anger lands not with the partner but with the platform. If demand is low, the allocation sits there and the partner asks what it paid for.',
+    'ins-l': 'Insight', 'ins': 'The right size of a partner allocation does not depend on the partner, but on demand.',
+    's2-h': 'The principle', 's2-sub': 'Two phases, one rule',
+    's2-p1': 'Every partner presale has two phases and one rule that comes before the contract: the partner&rsquo;s share follows expected demand. With very high demand the allocation gets smaller, not bigger &ndash; in return the partner gets something that is not scarce.',
+    'ph1-h': 'Phase 1 &middot; Partner', 'ph1-p': 'The partner&rsquo;s customers buy with a code, for a fixed allocation and a fixed time window.',
+    'ph2-h': 'Phase 2 &middot; General', 'ph2-p': 'Whatever is left, plus all unsold partner tickets, goes into general sale.',
+    'ph3-h': 'The rule', 'ph3-p': 'At least 70% of seats in general sale as soon as demand exceeds twice the capacity.',
+    's3-h': 'The simulation', 's3-sub': 'Set allocation, demand and window',
+    's3-p1': 'An invented concert with 20,000 seats. Set how big the partner allocation is, how long the window stays open and how high demand turns out. The curve shows tickets sold over ten days &ndash; and who ends up empty-handed.',
+    'tool-t': 'Presale window', 'tool-n': 'All values fictional',
+    'c-alloc': 'Partner allocation', 'c-dem': 'Demand relative to capacity', 'c-mem': 'Partner customers with a code', 'h-win': 'Window for the partner',
+    'w24': '24 h', 'w48': '48 h', 'w72': '72 h',
+    'lg-p': 'Partner presale', 'lg-f': 'General sale', 'lg-c': 'Capacity', 'day': 'Day',
+    'k-ps': 'Partner tickets sold', 'k-ps-e': 'of {c} in the allocation', 'k-free': 'In general sale', 'k-free-e': 'share of seats',
+    'k-out': 'Sold out after', 'k-out-e': 'from start of presale', 'k-left': 'Left empty-handed', 'k-left-e': 'interested people without a ticket', 'never': 'not sold out', 'days': 'days',
+    'v-ok-l': 'Fair for both', 'v-ok': 'The partner sells {p} tickets in its window, {f}% of seats go into general sale. This is the allocation I would take into the contract.',
+    'v-unfair-l': 'Unfair to the audience', 'v-unfair': 'With {d}x demand only {f}% of seats go into general sale. The concert is practically gone before everyone else may buy &ndash; cut the allocation to 30% at most and give the partner an on-site experience instead.',
+    'v-hollow-l': 'An empty promise', 'v-hollow': 'Only {p} of {c} tickets go in the partner window. The exclusivity feels exclusive to nobody &ndash; a smaller allocation or a shorter window.',
+    'v-low-l': 'Demand below capacity', 'v-low': 'At this demand the concert will not sell out. A partner presale mainly helps early sales here &ndash; and the contract should say so.',
+    's4-h': 'Measurement plan', 's4-sub': 'For the partner and for everyone else',
+    's4-p1': 'A partner presale succeeds when both sides are satisfied. That is why it is measured by numbers for the partner and numbers for the audience.',
+    'th-m': 'Metric', 'th-h': 'How I collect it', 'th-t': 'Target', 'th-o': 'Who',
+    's5-h': 'What the simulation cannot do', 's5-sub': 'The limits, before someone else finds them',
+    'l1': 'It does not know real demand. The most important input is an estimate &ndash; that is why it is a slider, not a number.',
+    'l2': 'It does not model the secondary market. Too large an allocation under very high demand partly ends up in resale &ndash; which makes the problem bigger, not smaller.',
+    'l3': 'It does not replace coordination with promoter and artist. Who sells how many tickets where is not decided by the platform alone.',
+    'col-h': 'About this work sample',
+    'col-1': '<b>What is fictional:</b> everything concrete. The concert, the partner, the allocations, the demand and the curves do not exist. This is not official Ticketcorner material, not an agreed collaboration and is based on no internal information whatsoever.',
+    'col-2': '<b>What is real:</b> the attitude. That is how I would manage partnerships on a ticketing platform: give the partner something valuable without taking it away from the audience.',
+    'col-3': 'Concept, copy, design and build: Shayna Jucker. Bilingual German and English, no data collection.',
+    'col-back': '&larr; Back to the application'
+  }
+};
+
+/* ---------- Modell ---------- */
+var CAP = 20000, INTEREST = 0.05, DAYS = 10;
+var st = { alloc: 20, dem: 15, mem: 200000, win: 48 };
+
+function compute() {
+  var demand = CAP * st.dem / 10;
+  var contingent = CAP * st.alloc / 100;
+  var pDemand = Math.min(st.mem * INTEREST, demand);
+  var winDays = st.win / 24;
+  var pSold = Math.min(contingent, pDemand * (0.55 + 0.15 * winDays));
+  var remaining = CAP - pSold;
+  var gDemand = Math.max(0, demand - pSold);
+  var gSold = Math.min(remaining, gDemand);
+  /* Kurve: Partnerphase linear-abflachend, danach freier Verkauf mit nachfrageabh&auml;ngigem Tempo */
+  var pts = [], outDay = null, k = 0.35 + st.dem / 10 * 0.9;
+  for (var i = 0; i <= DAYS * 12; i++) {
+    var t = i / 12, p, g = 0;
+    p = t < winDays ? pSold * (1 - Math.exp(-3.2 * t / winDays)) / (1 - Math.exp(-3.2)) : pSold;
+    if (t >= winDays) g = gSold * (1 - Math.exp(-k * (t - winDays)));
+    if (outDay === null && gSold >= remaining - 1 && p + g >= CAP - 50) outDay = t;
+    pts.push({ t: t, p: p, g: g });
+  }
+  return { demand: demand, contingent: contingent, pSold: pSold, freeShare: (CAP - pSold) / CAP, outDay: outDay, left: Math.max(0, demand - CAP), pts: pts, winDays: winDays };
+}
+
+function renderSegs() {
+  AP.$('segs').innerHTML = [24, 48, 72].map(function (w) {
+    return '<button data-w="' + w + '"' + (st.win === w ? ' class="on"' : '') + '>' + AP.t('w' + w) + '</button>';
+  }).join('');
+  Array.prototype.forEach.call(AP.$('segs').querySelectorAll('button'), function (b) {
+    b.addEventListener('click', function () { st.win = +b.getAttribute('data-w'); renderSegs(); render(); });
+  });
+}
+
+function render() {
+  AP.$('v-alloc').textContent = st.alloc + '%';
+  AP.$('v-dem').textContent = AP.dec(st.dem / 10, 1) + '×';
+  AP.$('v-mem').textContent = AP.num(st.mem);
+  var r = compute();
+  AP.$('kpis').innerHTML =
+    '<div><span>' + AP.t('k-ps') + '</span><b>' + AP.num(r.pSold) + '</b><em>' + AP.fill(AP.t('k-ps-e'), { c: AP.num(r.contingent) }) + '</em></div>' +
+    '<div><span>' + AP.t('k-free') + '</span><b>' + AP.dec(r.freeShare * 100, 0) + '%</b><em>' + AP.t('k-free-e') + '</em></div>' +
+    '<div><span>' + AP.t('k-out') + '</span><b>' + (r.outDay === null ? '&ndash;' : AP.dec(r.outDay, 1)) + '</b><em>' + (r.outDay === null ? AP.t('never') : AP.t('days') + ', ' + AP.t('k-out-e')) + '</em></div>' +
+    '<div><span>' + AP.t('k-left') + '</span><b>' + AP.num(r.left) + '</b><em>' + AP.t('k-left-e') + '</em></div>';
+  var W = 900, H = 280, L = 56, R = 16, Tp = 14, B = 32;
+  function X(t) { return L + t / DAYS * (W - L - R); }
+  function Y(v) { return Tp + (1 - v / (CAP * 1.08)) * (H - Tp - B); }
+  var s = '<rect x="' + X(0) + '" y="' + Tp + '" width="' + (X(r.winDays) - X(0)) + '" height="' + (H - Tp - B) + '" fill="rgba(255,201,60,.08)"/>';
+  [0, 5000, 10000, 15000, 20000].forEach(function (v) {
+    s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(v) + '" y2="' + Y(v) + '" stroke="#333"/>';
+    s += '<text x="' + (L - 8) + '" y="' + (Y(v) + 4) + '" font-size="12" fill="#8a8a8a" text-anchor="end">' + AP.num(v) + '</text>';
+  });
+  for (var d = 0; d <= DAYS; d += 1) s += '<text x="' + X(d) + '" y="' + (H - 10) + '" font-size="12" fill="#9a9a9a" text-anchor="middle">' + (d ? AP.t('day') + ' ' + d : '0') + '</text>';
+  var areaP = 'M ' + X(0) + ' ' + Y(0), areaG = '';
+  r.pts.forEach(function (p) { areaP += ' L ' + X(p.t) + ' ' + Y(p.p); });
+  areaP += ' L ' + X(DAYS) + ' ' + Y(0) + ' Z';
+  var top = r.pts.map(function (p) { return X(p.t) + ' ' + Y(p.p + p.g); });
+  var bot = r.pts.slice().reverse().map(function (p) { return X(p.t) + ' ' + Y(p.p); });
+  areaG = 'M ' + top.join(' L ') + ' L ' + bot.join(' L ') + ' Z';
+  s += '<path d="' + areaG + '" fill="#4d8fe0" fill-opacity=".75"/>';
+  s += '<path d="' + areaP + '" fill="#ffc93c" fill-opacity=".9"/>';
+  s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(CAP) + '" y2="' + Y(CAP) + '" stroke="#fff" stroke-width="2" stroke-dasharray="7 5"/>';
+  if (r.outDay !== null) s += '<line x1="' + X(r.outDay) + '" x2="' + X(r.outDay) + '" y1="' + Tp + '" y2="' + (H - B) + '" stroke="#ff6b5e" stroke-width="2"/>';
+  AP.$('curve').innerHTML = s;
+  var k, cls = '', dmult = st.dem / 10;
+  if (dmult < 1) { k = 'v-low'; cls = 'mid'; }
+  else if (dmult >= 2 && r.freeShare < 0.7) { k = 'v-unfair'; cls = 'bad'; }
+  else if (r.contingent > 0 && r.pSold < r.contingent * 0.6) { k = 'v-hollow'; cls = 'mid'; }
+  else k = 'v-ok';
+  var v = AP.$('verdict'); v.className = 'verdict ' + cls;
+  v.innerHTML = '<b>' + AP.t(k + '-l') + '</b><p>' + AP.fill(AP.t(k), { p: AP.num(r.pSold), c: AP.num(r.contingent), f: AP.dec(r.freeShare * 100, 0), d: AP.dec(dmult, 1) }) + '</p>';
+}
+
+var METRICS = [
+  { de: ['Einl&ouml;sequote Partnercode', 'Verkaufte Partnertickets geteilt durch Kontingent', '80 bis 100%', 'Partnership Management'], en: ['Partner code redemption', 'Partner tickets sold divided by allocation', '80 to 100%', 'Partnership management'] },
+  { de: ['Neue Kundschaft &uuml;ber den Partner', 'K&auml;ufe mit Code ohne fr&uuml;heres Konto', '25% der Partnerk&auml;ufe', 'CRM'], en: ['New customers via the partner', 'Purchases with a code without an earlier account', '25% of partner purchases', 'CRM'] },
+  { de: ['Anteil im freien Verkauf', 'Pl&auml;tze, die in Phase 2 verf&uuml;gbar waren', 'mindestens 70% bei hoher Nachfrage', 'Ticketing'], en: ['Share in general sale', 'Seats available in phase 2', 'at least 70% under high demand', 'Ticketing'] },
+  { de: ['Beschwerden &uuml;ber den Vorverkauf', 'Kundendienst-Tickets mit Stichwort Vorverkauf', 'unter 0.5% der K&auml;ufe', 'Kundendienst'], en: ['Complaints about the presale', 'Customer service tickets tagged presale', 'under 0.5% of purchases', 'Customer service'] },
+  { de: ['Wiederbuchung des Partners', 'Folgevertrag f&uuml;r die n&auml;chste Saison', 'ja', 'Partnership Management'], en: ['Partner renewal', 'Follow-up contract for the next season', 'yes', 'Partnership management'] }
+];
+function renderMetrics() {
+  var h = '<thead><tr><th>' + AP.t('th-m') + '</th><th>' + AP.t('th-h') + '</th><th>' + AP.t('th-t') + '</th><th>' + AP.t('th-o') + '</th></tr></thead><tbody>';
+  METRICS.forEach(function (m) { var c = m[AP.lang]; h += '<tr><td><strong>' + c[0] + '</strong></td><td>' + c[1] + '</td><td>' + c[2] + '</td><td>' + c[3] + '</td></tr>'; });
+  AP.$('metrics').innerHTML = h + '</tbody>';
+}
+
+['alloc', 'dem', 'mem'].forEach(function (id) {
+  AP.$(id).addEventListener('input', function () { st[id] = +this.value; render(); });
+});
+AP.init(T, [renderSegs, render, renderMetrics], { de: 'Vorverkaufsfenster · Arbeitsprobe für Ticketcorner', en: 'Presale window · Work sample for Ticketcorner' });
+</script>
+</body>
+</html>
