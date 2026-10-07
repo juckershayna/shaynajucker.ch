@@ -432,7 +432,7 @@ window.SJ_LANG = {
     'obe.skills-sub':    'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architektur',
 
     /* --- Bewerbung adidas --- */
-    'ad.role':             'Marketing Brand &amp; Event Manager &middot; adidas',
+    'ad.role':             'Brand Activation Manager &middot; adidas',
     'ad.heading':          'Motivationsschreiben',
     'ad.salutation':       'Liebes adidas-Team',
     'ad.p1':               'Ich habe ein halbes Jahr meines Studiums damit verbracht, eure Marke auseinanderzunehmen. In meiner Bachelorarbeit an der FHGR habe ich die Brand-Activism-Strategien von adidas, Nike und ON verglichen &ndash; mit Quellenverzeichnis, von aussen, ohne Auftrag. Was mir dabei an adidas aufgefallen ist: Von den drei Marken argumentiert ihr am konsequentesten &uuml;ber die Menge, die mitmacht, und nicht &uuml;ber die einzelne Person an der Spitze. Das ist die Sorte Marke, an der ich arbeiten m&ouml;chte.',
@@ -494,7 +494,7 @@ window.SJ_LANG = {
     'ad.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architektur',
 
     /* --- Bewerbung Nike --- */
-    'nk.role':             'Marketing Brand &amp; Event Manager &middot; Nike',
+    'nk.role':             'Brand Experience Manager &middot; Nike',
     'nk.heading':          'Motivationsschreiben',
     'nk.salutation':       'Liebes Nike-Team',
     'nk.p1':               '&laquo;Wenn du einen K&ouml;rper hast, bist du ein Athlet.&raquo; Der Satz ist &auml;lter als ich und immer noch der beste Auftrag, den eine Sportmarke sich geben kann. Er hat allerdings eine Konsequenz, die in der Praxis gerne untergeht: Dann sind auch die gemeint, die um halb zehn abends aus der Schicht kommen und trotzdem laufen gehen. F&uuml;r die gibt es keine Laufgruppe, weil sich alle um sechs treffen.',
@@ -641,7 +641,7 @@ window.SJ_LANG = {
     'sc.skills-sub':       'Marketing &middot; Management &middot; Events &middot; Design &middot; Tools &middot; Architektur',
 
     /* --- Bewerbung Sunrise --- */
-    'sr.role':             'Marketing Brand &amp; Event Manager &middot; Sunrise',
+    'sr.role':             'Sponsoring &amp; Partnership Manager &middot; Sunrise',
     'sr.heading':          'Motivationsschreiben',
     'sr.salutation':       'Liebes Sunrise-Team',
     'sr.p1':               'Von einem Abo bleibt nichts in der Hand. Was von einer Telekommunikationsmarke im Kopf bleibt, sind vier Dinge: die Rechnung, der Router, die Hotline &ndash; und, mit Gl&uuml;ck, ein Abend, f&uuml;r den man ein Ticket bekommen hat. Nur eines dieser vier Dinge erz&auml;hlt jemand freiwillig weiter. Genau an diesem einen m&ouml;chte ich arbeiten.',
@@ -704,7 +704,7 @@ window.SJ_LANG = {
     'sr.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architektur',
 
     /* --- Bewerbung Nespresso --- */
-    'np.role':             'Marketing Brand &amp; Event Manager &middot; Nespresso',
+    'np.role':             'Brand Experience Manager &middot; Nespresso',
     'np.heading':          'Motivationsschreiben',
     'np.salutation':       'Liebes Nespresso-Team',
     'np.p1':               'Nespresso verkauft keine Packung Kaffee, sondern f&uuml;nfundzwanzig Sekunden. Das ist die k&uuml;rzeste Markenbegegnung, die ich kenne &ndash; und die einzige, die Millionen Menschen freiwillig jeden Morgen wiederholen. Ein Format, das t&auml;glich funktioniert, muss man im Marketing nicht erfinden. Man muss es nur nicht kaputt machen.',
@@ -768,7 +768,7 @@ window.SJ_LANG = {
     'np.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architektur',
 
     /* --- Bewerbung Zuerich Open Air --- */
-    'zoa.role':            'Marketing Brand &amp; Event Manager &middot; Z&uuml;rich Open Air',
+    'zoa.role':            'Partnership Manager &middot; Z&uuml;rich Open Air',
     'zoa.heading':         'Motivationsschreiben',
     'zoa.salutation':      'Liebes Team des Z&uuml;rich Open Air',
     'zoa.p1':              'Ich stehe seit anderthalb Jahren auf der anderen Seite eures Z&auml;uns. Bei TIT-PIT verantworte ich die Brand Experiences von Migros an &uuml;ber zehn Schweizer Festivals &ndash; <strong>Frauenfeld</strong>, <strong>Pal&eacute;o</strong>, <strong>Gampel</strong>, <strong>Heitere</strong>, <strong>Moon &amp; Stars</strong>, <strong>Summerdays</strong>. Ich bin also genau die Person, die bei euch eine Fl&auml;che anfragt, zu sp&auml;t einen Stromanschluss braucht und am Aufbautag um sechs schon auf dem Gel&auml;nde steht. Ich wei&szlig; ziemlich genau, was Partner wollen &ndash; weil ich selbst einer war.',
@@ -1257,7 +1257,7 @@ window.SJ_LANG = {
     'obe.skills-sub':    'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architecture',
 
     /* --- Application adidas --- */
-    'ad.role':             'Marketing Brand &amp; Event Manager &middot; adidas',
+    'ad.role':             'Brand Activation Manager &middot; adidas',
     'ad.heading':          'Letter of motivation',
     'ad.salutation':       'Dear adidas team',
     'ad.p1':               'I spent half a year of my degree taking your brand apart. In my bachelor\'s thesis at FHGR I compared the brand activism strategies of adidas, Nike and ON &ndash; with a bibliography, from the outside, unsolicited. What struck me about adidas: of the three brands, you argue most consistently through the crowd that joins in rather than the single person at the top. That is the kind of brand I want to work on.',
@@ -1319,7 +1319,7 @@ window.SJ_LANG = {
     'ad.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architecture',
 
     /* --- Application Nike --- */
-    'nk.role':             'Marketing Brand &amp; Event Manager &middot; Nike',
+    'nk.role':             'Brand Experience Manager &middot; Nike',
     'nk.heading':          'Letter of motivation',
     'nk.salutation':       'Dear Nike team',
     'nk.p1':               '&ldquo;If you have a body, you are an athlete.&rdquo; The line is older than I am and still the best brief a sports brand can give itself. It does have a consequence that tends to get lost in practice though: it also means the people who come off a shift at half past nine at night and still go running. There is no run club for them, because everybody meets at six.',
@@ -1466,7 +1466,7 @@ window.SJ_LANG = {
     'sc.skills-sub':       'Marketing &middot; Management &middot; Events &middot; Design &middot; Tools &middot; Architecture',
 
     /* --- Application Sunrise --- */
-    'sr.role':             'Marketing Brand &amp; Event Manager &middot; Sunrise',
+    'sr.role':             'Sponsoring &amp; Partnership Manager &middot; Sunrise',
     'sr.heading':          'Letter of motivation',
     'sr.salutation':       'Dear Sunrise team',
     'sr.p1':               'A mobile plan leaves nothing in your hand. What stays in people\'s minds about a telecoms brand is four things: the invoice, the router, the hotline &ndash; and, with luck, one evening they were given a ticket for. Only one of those four ever gets told to somebody else. That one is what I want to work on.',
@@ -1529,7 +1529,7 @@ window.SJ_LANG = {
     'sr.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architecture',
 
     /* --- Application Nespresso --- */
-    'np.role':             'Marketing Brand &amp; Event Manager &middot; Nespresso',
+    'np.role':             'Brand Experience Manager &middot; Nespresso',
     'np.heading':          'Letter of motivation',
     'np.salutation':       'Dear Nespresso team',
     'np.p1':               'Nespresso does not sell a pack of coffee, it sells twenty-five seconds. That is the shortest brand encounter I know of &ndash; and the only one millions of people voluntarily repeat every morning. A format that works daily does not need to be invented by marketing. It only needs not to be broken.',
@@ -1593,7 +1593,7 @@ window.SJ_LANG = {
     'np.skills-sub':       'Management &middot; Events &middot; Marketing &middot; Design &middot; Tools &middot; Architecture',
 
     /* --- Application Zurich Open Air --- */
-    'zoa.role':            'Marketing Brand &amp; Event Manager &middot; Z&uuml;rich Open Air',
+    'zoa.role':            'Partnership Manager &middot; Z&uuml;rich Open Air',
     'zoa.heading':         'Letter of motivation',
     'zoa.salutation':      'Dear Z&uuml;rich Open Air team',
     'zoa.p1':              'For a year and a half I have been standing on the other side of your fence. At TIT-PIT I own the brand experiences of Migros at more than ten Swiss festivals &ndash; <strong>Frauenfeld</strong>, <strong>Pal&eacute;o</strong>, <strong>Gampel</strong>, <strong>Heitere</strong>, <strong>Moon &amp; Stars</strong>, <strong>Summerdays</strong>. So I am exactly the person who requests a site from you, needs a power connection too late and is already there at six on build-up day. I know fairly precisely what partners want &ndash; because I was one.',
@@ -1817,12 +1817,12 @@ window.SJ_PAIRS = [
   ["Bewerbung Tiny Miracles | S J", "Application Tiny Miracles | S J"],
   ["Bewerbung Zweifel Weine & Getränke | S J", "Application Zweifel Weine & Getränke | S J"],
   ["Bewerbung Brand & Event Marketing Manager · ON | S J", "Application Brand & Event Marketing Manager · ON | S J"],
-  ["Bewerbung Marketing Brand & Event Manager · Nespresso | S J", "Application Marketing Brand & Event Manager · Nespresso | S J"],
-  ["Bewerbung Marketing Brand & Event Manager · Nike | S J", "Application Marketing Brand & Event Manager · Nike | S J"],
-  ["Bewerbung Marketing Brand & Event Manager · Sunrise | S J", "Application Marketing Brand & Event Manager · Sunrise | S J"],
+  ["Bewerbung Brand Experience Manager · Nespresso | S J", "Application Brand Experience Manager · Nespresso | S J"],
+  ["Bewerbung Brand Experience Manager · Nike | S J", "Application Brand Experience Manager · Nike | S J"],
+  ["Bewerbung Sponsoring & Partnership Manager · Sunrise | S J", "Application Sponsoring & Partnership Manager · Sunrise | S J"],
   ["Bewerbung Sponsoring & Live Marketing Lead · Swisscom | S J", "Application Sponsoring & Live Marketing Lead · Swisscom | S J"],
-  ["Bewerbung Marketing Brand & Event Manager · Zürich Open Air | S J", "Application Marketing Brand & Event Manager · Zürich Open Air | S J"],
-  ["Bewerbung Marketing Brand & Event Manager · adidas | S J", "Application Marketing Brand & Event Manager · adidas | S J"],
+  ["Bewerbung Partnership Manager · Zürich Open Air | S J", "Application Partnership Manager · Zürich Open Air | S J"],
+  ["Bewerbung Brand Activation Manager · adidas | S J", "Application Brand Activation Manager · adidas | S J"],
 ];
 
 (function () {
