@@ -13,11 +13,6 @@
       "permanent": true
     },
     {
-      "source": "/on",
-      "destination": "/on-brand-event",
-      "permanent": false
-    },
-    {
       "source": "/zoa",
       "destination": "/zurich-open-air",
       "permanent": false
@@ -31,6 +26,11 @@
       "source": "/plan",
       "destination": "https://claude.ai/artifact/1WzTSmdLH5GXn8BjjMYxpP",
       "permanent": false
+    },
+    {
+      "source": "/on-partnerships",
+      "destination": "/on",
+      "permanent": true
     }
   ]
 }

@@ -2158,6 +2158,12 @@ ul, ol {
   padding-bottom: 56.25% !important;
 }
 
+/* Bewerbungsseiten: langes Wort «Motivationsschreiben» passt sonst nicht in die Spalte */
+.portfolio-subpage h1.page-title[data-i18n$=".heading"] {
+  font-size: clamp(25px, 5.2vw, 66px);
+  overflow-wrap: anywhere;
+}
+
 /* === RESPONSIVE PORTFOLIO SUBPAGES === */
 @media (max-width: 980px) {
   .portfolio-subpage .page-title,
