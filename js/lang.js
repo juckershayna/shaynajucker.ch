@@ -26,7 +26,7 @@ window.SJ_LANG = {
     'about.edu-sub':         'Schulische Ausbildung',
     'about.int-heading':     'Interessen',
     'about.int-sub':         'Hobbys & Aktivitäten',
-    'about.int-text':        'Eiskunstlauf | Surfen | Snowboard | Ski | Fussball | Sport allgemein | Reisen | Musik | Gitarre spielen | Fotografie | Bildbearbeitung | Grafik | Design | Genauigkeit | Zeit mit Familie & Freunden',
+    'about.int-text':        'Eiskunstlauf | Surfen | Snowboard | Ski | Fussball | Sport allgemein | Reisen | Musik | Gitarre spielen | Fotografie | Zeit mit Familie & Freunden',
 
     /* --- About: Lebenslauf & Ausbildung / Index-Karten --- */
     'about.location': 'Schweiz &amp; USA<br>24.10.1997',
@@ -935,7 +935,7 @@ window.SJ_LANG = {
     'about.edu-sub':         'School education',
     'about.int-heading':     'Interests',
     'about.int-sub':         'Hobbies & Activities',
-    'about.int-text':        'Figure Skating | Surf | Snowboard | Ski | Soccer | Sports in General | Travel | Music | Playing Guitar | Photography | Image Editing | Graphics | Design | Attention to Detail | Keeping in touch with Family & Friends',
+    'about.int-text':        'Figure Skating | Surf | Snowboard | Ski | Soccer | Sports in General | Travel | Music | Playing Guitar | Photography | Keeping in touch with Family & Friends',
 
     /* --- About: Lebenslauf & Ausbildung / Index-Karten --- */
     'about.location': 'Switzerland &amp; U.S.A<br>24.10.1997',
