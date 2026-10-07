@@ -6,29 +6,33 @@
 <meta name="robots" content="noindex, nofollow">
 <title>H&ouml;henmeter &middot; Kampagnenkonzept &middot; Arbeitsprobe</title>
 <link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
 <style>
   :root {
-    --bg: #121212;
-    --surface: #1b1b1b;
-    --line: #2e2e2e;
+    /* Grundton der Website shaynajucker.ch */
+    --bg: #1e1e1e;
+    --surface: #2b2b2b;
+    --line: #3a3a3a;
     --ink: #f1f1f1;
-    --muted: #8d857a;
-    --accent: #957b5f;
-    --accent-lt: #c6a47e;
+    --muted: #a3a3a3;
+    /* On-Farbwelt: Schwarz/Weiss, reduziert */
+    --accent: #ffffff;
+    --accent-lt: #ffffff;
+    --on-accent: #000000;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: var(--bg); color: var(--ink);
-    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 1360px; margin: 0 auto; padding: 0 26px; }
 
   .sample-bar {
-    background: var(--accent); color: #fff; font-size: 11px; letter-spacing: 2px;
+    background: var(--accent); color: var(--on-accent); font-size: 11px; letter-spacing: 2px;
     text-transform: uppercase; text-align: center; padding: 9px 16px; font-weight: 700;
   }
-  .sample-bar a { color: #fff; text-decoration: underline; }
+  .sample-bar a { color: var(--on-accent); text-decoration: underline; }
 
   .top { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; padding-top: 24px; flex-wrap: wrap; }
   .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-lt); font-weight: 700; }
@@ -38,12 +42,12 @@
     font-weight: 700; letter-spacing: 2px; padding: 7px 14px; cursor: pointer;
     transition: background 200ms, color 200ms;
   }
-  .lang-switch button.on { background: var(--accent); color: #fff; }
+  .lang-switch button.on { background: var(--accent); color: var(--on-accent); }
 
   .hero { padding: 20px 0 46px; border-bottom: 1px solid var(--line); }
-  h1 { font-size: clamp(38px, 7vw, 82px); line-height: .98; font-weight: 800; letter-spacing: -.03em; text-transform: uppercase; margin: 16px 0 20px; }
-  h1 em { font-style: normal; color: var(--accent-lt); }
-  .lede { max-width: 700px; color: #cfc9c0; font-size: 17px; }
+  h1 { font-size: clamp(38px, 7vw, 82px); line-height: .98; font-weight: 700; letter-spacing: -.05em; margin: 16px 0 20px; }
+  h1 em { font-style: normal; color: var(--muted); }
+  .lede { max-width: 700px; color: #cfcfcf; font-size: 17px; }
 
   /* --- Plakate --- */
   .boards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; padding: 46px 0 10px; }
@@ -60,7 +64,7 @@
     font: inherit; font-size: 9.5px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase;
     padding: 5px 9px; cursor: pointer; transition: background 180ms, color 180ms, border-color 180ms;
   }
-  .board figcaption button:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .board figcaption button:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 
   /* --- System --- */
   .system { padding: 56px 0 10px; border-top: 1px solid var(--line); margin-top: 46px; }
@@ -69,7 +73,7 @@
   @media (max-width: 860px) { .rules { grid-template-columns: 1fr; gap: 22px; } }
   .rule { border-top: 2px solid var(--accent); padding-top: 14px; }
   .rule b { display: block; font-size: 17px; font-weight: 700; margin-bottom: 7px; }
-  .rule span { color: #a9a299; font-size: 14px; line-height: 1.6; }
+  .rule span { color: #b5b5b5; font-size: 14px; line-height: 1.6; }
 
   /* --- Formate --- */
   .formats { padding: 56px 0 20px; }
@@ -84,7 +88,7 @@
 
   .colophon { border-top: 1px solid var(--line); margin-top: 40px; padding: 34px 0 64px; }
   .colophon h2 { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-lt); font-weight: 700; margin-bottom: 16px; }
-  .colophon p { max-width: 790px; color: #a9a299; font-size: 13.5px; margin-bottom: 12px; }
+  .colophon p { max-width: 790px; color: #b5b5b5; font-size: 13.5px; margin-bottom: 12px; }
   .colophon b { color: var(--ink); }
   .colophon a { color: var(--accent-lt); }
   .brandline { display: flex; align-items: center; gap: 14px; margin-bottom: 30px; }
@@ -353,12 +357,12 @@ function catmull(pts, closed) {
 function poster(m, W, H, opt) {
   opt = opt || {};
   var dark = m.dark;
-  var paper = dark ? '#101317' : '#f3f1ec';
-  var ink = dark ? '#f3f1ec' : '#14161a';
-  var soft = dark ? '#6f7a83' : '#8b8781';
-  var lineC = dark ? '#26303a' : '#cfcabf';
-  var lineB = dark ? '#33414e' : '#b3ac9e';
-  var acc = dark ? '#c6a47e' : '#957b5f';
+  var paper = dark ? '#000000' : '#f2f2f2';
+  var ink = dark ? '#ffffff' : '#000000';
+  var soft = dark ? '#7a7a7a' : '#8a8a8a';
+  var lineC = dark ? '#262626' : '#d6d6d6';
+  var lineB = dark ? '#3d3d3d' : '#b0b0b0';
+  var acc = dark ? '#ffffff' : '#000000';
 
   var scale = W / 700;                      /* alles ist auf 700 Breite entworfen */
   var pad = 46 * scale;
@@ -396,8 +400,8 @@ function poster(m, W, H, opt) {
   g.push('</g>');
 
   /* Kopfzeile auf der Karte */
-  g.push('<text x="' + pad + '" y="' + (pad + 4 * scale) + '" font-family="Helvetica, Arial, sans-serif" font-size="' + (15 * scale).toFixed(1) + '" font-weight="700" letter-spacing="' + (4 * scale).toFixed(1) + '" fill="' + ink + '">H&#214;HENMETER</text>');
-  g.push('<text x="' + (W - pad) + '" y="' + (pad + 4 * scale) + '" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="' + (12 * scale).toFixed(1) + '" letter-spacing="' + (2.4 * scale).toFixed(1) + '" fill="' + soft + '">' + esc(plain(m.place[LANG])).toUpperCase() + '</text>');
+  g.push('<text x="' + pad + '" y="' + (pad + 4 * scale) + '" font-family="Inter, Helvetica, Arial, sans-serif" font-size="' + (15 * scale).toFixed(1) + '" font-weight="700" letter-spacing="' + (4 * scale).toFixed(1) + '" fill="' + ink + '">H&#214;HENMETER</text>');
+  g.push('<text x="' + (W - pad) + '" y="' + (pad + 4 * scale) + '" text-anchor="end" font-family="Inter, Helvetica, Arial, sans-serif" font-size="' + (12 * scale).toFixed(1) + '" letter-spacing="' + (2.4 * scale).toFixed(1) + '" fill="' + soft + '">' + esc(plain(m.place[LANG])).toUpperCase() + '</text>');
 
   /* Hoehenprofil als Trennlinie */
   var profH = 54 * scale, profY = mapH + profH;
@@ -425,16 +429,16 @@ function poster(m, W, H, opt) {
   var hSize = (opt.headSize || 58) * scale;
   var hy = profY + hSize + 26 * scale;
   hl.forEach(function (ln, i) {
-    g.push('<text x="' + pad + '" y="' + (hy + i * hSize * 1.02).toFixed(1) + '" font-family="Helvetica, Arial, sans-serif" font-size="' + hSize.toFixed(1) + '" font-weight="800" letter-spacing="' + (-1.6 * scale).toFixed(2) + '" fill="' + ink + '">' + esc(ln) + '</text>');
+    g.push('<text x="' + pad + '" y="' + (hy + i * hSize * 1.02).toFixed(1) + '" font-family="Inter, Helvetica, Arial, sans-serif" font-size="' + hSize.toFixed(1) + '" font-weight="800" letter-spacing="' + (-1.6 * scale).toFixed(2) + '" fill="' + ink + '">' + esc(ln) + '</text>');
   });
 
   /* Fusszeile */
   var fy = H - pad;
   g.push('<line x1="' + pad + '" y1="' + (fy - 30 * scale) + '" x2="' + (W - pad) + '" y2="' + (fy - 30 * scale) + '" stroke="' + lineB + '" stroke-width="' + (0.9 * scale).toFixed(2) + '"/>');
-  g.push('<text x="' + pad + '" y="' + fy + '" font-family="Helvetica, Arial, sans-serif" font-size="' + (15 * scale).toFixed(1) + '" font-weight="700" letter-spacing="' + (1.4 * scale).toFixed(1) + '" fill="' + ink + '">' + esc(plain(m.stats[LANG])) + '</text>');
+  g.push('<text x="' + pad + '" y="' + fy + '" font-family="Inter, Helvetica, Arial, sans-serif" font-size="' + (15 * scale).toFixed(1) + '" font-weight="700" letter-spacing="' + (1.4 * scale).toFixed(1) + '" fill="' + ink + '">' + esc(plain(m.stats[LANG])) + '</text>');
   var wmW = 92 * scale, wmH = 26 * scale;
   g.push('<rect x="' + (W - pad - wmW) + '" y="' + (fy - wmH + 4 * scale) + '" width="' + wmW + '" height="' + wmH + '" fill="none" stroke="' + soft + '" stroke-width="' + (1 * scale).toFixed(2) + '" stroke-dasharray="' + (3 * scale).toFixed(1) + ' ' + (3 * scale).toFixed(1) + '"/>');
-  g.push('<text x="' + (W - pad - wmW / 2) + '" y="' + (fy - wmH / 2 + 8 * scale) + '" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="' + (8.5 * scale).toFixed(1) + '" letter-spacing="' + (1.8 * scale).toFixed(1) + '" fill="' + soft + '">' + esc(plain(t('wordmark'))).toUpperCase() + '</text>');
+  g.push('<text x="' + (W - pad - wmW / 2) + '" y="' + (fy - wmH / 2 + 8 * scale) + '" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="' + (8.5 * scale).toFixed(1) + '" letter-spacing="' + (1.8 * scale).toFixed(1) + '" fill="' + soft + '">' + esc(plain(t('wordmark'))).toUpperCase() + '</text>');
 
   var defs = '<defs><clipPath id="clip' + m.id + (opt.tag || '') + '"><rect x="0" y="0" width="' + W + '" height="' + mapH + '"/></clipPath></defs>';
   return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '">' + defs + g.join('') + '</svg>';

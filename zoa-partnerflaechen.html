@@ -6,52 +6,60 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Die Zeile &middot; Partnerfl&auml;chen-Planer &middot; Arbeitsprobe</title>
 <link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&display=swap">
 <style>
   :root {
-    --ink: #14181a;
-    --ink-2: #39423f;
-    --soft: #6d7873;
-    --line: #d8ddda;
-    --line-2: #eaeeec;
-    --paper: #f6f7f5;
-    --paper-2: #ffffff;
-    --accent: #3f7a52;
-    --accent-dk: #2d5a3c;
-    --tint: #e6f0e8;
-    --dark: #14181a;
-    --ok: #3f7a52;
-    --warn: #b0553d;
-    --mid: #b8862f;
+    /* Grundton der Website shaynajucker.ch */
+    --paper: #1e1e1e;
+    --paper-2: #2b2b2b;
+    --dark: #1e1e1e;
+    --ink: #f1f1f1;
+    --ink-2: #cfcfcf;
+    --soft: #a3a3a3;
+    --line: #3a3a3a;
+    --line-2: #333333;
+    --ok: #3cbf7a;
+    --warn: #ff6b5e;
+    --mid: #f0b429;
+    /* Zürich-Openair-Farbwelt: Magenta, Petrol, Violett (aus dem Festival-Logo) */
+    --accent: #e6378f;
+    --accent-lt: #ff7bbd;
+    --accent-dk: #ff8fc6;
+    --accent-2: #1fb5a6;
+    --on-accent: #ffffff;
+    --tint: rgba(230,55,143,.14);
+    --head: #1a1030;
+    --font-head: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: var(--paper); color: var(--ink);
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
     font-size: 16px; line-height: 1.68; -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
   .col { max-width: 780px; }
 
   .sample-bar {
-    background: var(--accent); color: #fff; font-size: 11px; letter-spacing: 2px;
+    background: var(--accent); color: var(--on-accent); font-size: 11px; letter-spacing: 2px;
     text-transform: uppercase; text-align: center; padding: 9px 16px; font-weight: 700;
   }
-  .sample-bar a { color: #fff; text-decoration: underline; }
+  .sample-bar a { color: var(--on-accent); text-decoration: underline; }
 
   .cover { background: var(--dark); color: #f2f4f2; padding: 34px 0 54px; }
   .cover-top { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 54px; }
-  .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #85c295; font-weight: 700; }
-  .lang-switch { display: flex; border: 1px solid #2e3634; }
+  .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-lt); font-weight: 700; }
+  .lang-switch { display: flex; border: 1px solid var(--line); }
   .lang-switch button {
     background: none; border: none; color: #8b9490; font: inherit; font-size: 11px;
     font-weight: 700; letter-spacing: 2px; padding: 7px 14px; cursor: pointer;
     transition: background 200ms, color 200ms;
   }
-  .lang-switch button.on { background: var(--accent); color: #fff; }
+  .lang-switch button.on { background: var(--accent); color: var(--on-accent); }
   .cover h1 { font-size: clamp(40px, 8vw, 92px); line-height: .96; font-weight: 800; letter-spacing: -.03em; text-transform: uppercase; margin-bottom: 18px; }
   .cover .claim { font-size: clamp(19px, 2.4vw, 27px); line-height: 1.35; color: #d3d8d4; max-width: 720px; font-weight: 300; }
   .cover .kind { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #8b9490; font-weight: 700; margin-bottom: 20px; }
-  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #242b28; border: 1px solid #242b28; margin-top: 46px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 46px; }
   @media (max-width: 860px) { .facts { grid-template-columns: repeat(2, 1fr); } }
   .facts div { background: var(--dark); padding: 14px 16px; }
   .facts span { display: block; font-size: 9.5px; letter-spacing: 2.4px; text-transform: uppercase; color: #7f8985; font-weight: 700; margin-bottom: 4px; }
@@ -81,7 +89,7 @@
 
   /* ---------- Planer ---------- */
   .tool { background: var(--paper-2); border: 1px solid var(--line); margin-top: 30px; }
-  .tool-head { background: var(--dark); color: #f2f4f2; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .tool-head { background: var(--head); color: #f2f4f2; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
   .tool-head b { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
   .tool-head span { font-size: 12px; color: #99a29e; }
   .tool-body { padding: 24px 22px; }
@@ -100,7 +108,7 @@
   .zone:hover { border-color: var(--accent); }
   .zone.on { border-color: var(--accent); background: var(--tint); }
   .zone.fixed { cursor: default; opacity: .95; border-style: dashed; }
-  .zone .sw { width: 13px; height: 13px; flex: none; border: 1px solid rgba(0,0,0,.25); }
+  .zone .sw { width: 13px; height: 13px; flex: none; border: 1px solid rgba(255,255,255,.25); }
   .zone .nm { font-size: 13.5px; font-weight: 600; line-height: 1.25; }
   .zone .nm small { display: block; font-weight: 400; color: var(--soft); font-size: 11px; }
   .zone .meta { margin-left: auto; font-size: 11.5px; color: var(--soft); font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -123,15 +131,15 @@
   .verdict b { display: block; font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase; color: var(--accent-dk); margin-bottom: 7px; }
   .verdict p { font-size: 15.5px; line-height: 1.6; margin: 0; }
   .verdict.warn { border-left-color: var(--warn); } .verdict.warn b { color: var(--warn); }
-  .verdict.mid { border-left-color: var(--mid); } .verdict.mid b { color: #8a651f; }
+  .verdict.mid { border-left-color: var(--mid); } .verdict.mid b { color: var(--mid); }
 
   table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 14px; }
-  th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; border-bottom: 2px solid var(--ink); padding: 0 10px 8px 0; }
+  th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; border-bottom: 2px solid var(--soft); padding: 0 10px 8px 0; }
   td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--line-2); vertical-align: top; }
   td.num, th.num { text-align: right; padding-right: 18px; font-variant-numeric: tabular-nums; }
   td.num:last-child, th.num:last-child { padding-right: 0; }
-  tr.total td { border-bottom: none; border-top: 2px solid var(--ink); font-weight: 800; padding-top: 11px; }
-  tr.off td { color: #a8b0ac; }
+  tr.total td { border-bottom: none; border-top: 2px solid var(--soft); font-weight: 800; padding-top: 11px; }
+  tr.off td { color: #6f6f6f; }
   .tbl-wrap { overflow-x: auto; }
 
   .note { font-size: 13px; color: var(--soft); line-height: 1.6; margin-top: 16px; }
@@ -140,7 +148,7 @@
   .colophon h2 { color: #f2f4f2; font-size: 22px; font-weight: 800; margin-bottom: 18px; letter-spacing: -.01em; }
   .colophon p { font-size: 14.5px; line-height: 1.7; margin-bottom: 14px; max-width: 780px; }
   .colophon b { color: #f2f4f2; }
-  .backlink { display: inline-block; margin-top: 12px; color: #85c295; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; text-decoration: none; border-bottom: 1px solid #85c295; padding-bottom: 3px; }
+  .backlink { display: inline-block; margin-top: 12px; color: var(--accent-lt); font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--accent-lt); padding-bottom: 3px; }
 
   @media print {
     .sample-bar, .lang-switch, input[type=range] { display: none !important; }
@@ -156,6 +164,24 @@
   .brandline .co-logo { display: flex; align-items: center; color: #fff; }
   .brandline .co-logo svg, .brandline .co-logo img { height: var(--logo-h, 36px); width: auto; display: block; }
   @media (max-width: 600px) { .brandline .sj { height: 32px; } .brandline .co-logo svg, .brandline .co-logo img { height: calc(var(--logo-h, 36px) * .8); } }
+
+  /* ---------- Firmenlook auf dunklem Grund ---------- */
+  .cover { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .cover::before { content: ''; position: absolute; inset: 0; background: radial-gradient(45% 80% at 90% 10%, rgba(230,55,143,.38), transparent 70%), radial-gradient(40% 70% at 70% 100%, rgba(31,181,166,.25), transparent 70%), radial-gradient(35% 60% at 100% 70%, rgba(110,60,200,.3), transparent 70%); pointer-events: none; }
+  .cover > .wrap { position: relative; }
+  .colophon { border-top: 1px solid var(--line); }
+  button { color: var(--ink); }
+  .cover h1, .sec-head h2, .colophon h2, .detail h4 { font-family: var(--font-head); }
+  .tool { border-color: var(--line); }
+  .callout { border-left-color: var(--accent); }
+  .cover h1 { font-weight: 900; letter-spacing: -.02em; }
+  .sec-head h2, .colophon h2 { font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; }
+  .sec-no { color: var(--accent-2); }
+  .tool-head { border-bottom: 2px solid var(--accent); }
+  @media print {
+    body, .cover, .colophon, .tool, .tool-head { background: #fff !important; color: #000 !important; }
+    .cover::before { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -514,21 +540,21 @@ var SITE = { w: 60, d: 34 };
 var PATH = { y: 14, h: 6 };          /* Hauptweg, unantastbar */
 
 var ZONES = [
-  { id: 'bar',   row: 'n', y: 2,  w: 12, h: 10, rate: 210, on: 1, col: '#c8dccd',
+  { id: 'bar',   row: 'n', y: 2,  w: 12, h: 10, rate: 210, on: 1, col: '#2c5f4c',
     de: 'Partner-Bar',       en: 'Partner bar',      dde: 'Ausschank, 12 Z&auml;hne', den: 'bar, 12 taps' },
-  { id: 'load',  row: 'n', y: 2,  w: 9,  h: 8,  rate: 165, on: 1, col: '#d5e2ef',
+  { id: 'load',  row: 'n', y: 2,  w: 9,  h: 8,  rate: 165, on: 1, col: '#2c4a6e',
     de: 'Ladepunkt',         en: 'Charging point',   dde: 'Technikpartner',        den: 'technology partner' },
-  { id: 'food',  row: 'n', y: 2,  w: 11, h: 7,  rate: 240, on: 1, col: '#efe0cd',
+  { id: 'food',  row: 'n', y: 2,  w: 11, h: 7,  rate: 240, on: 1, col: '#6e4f2c',
     de: 'Foodpartner',       en: 'Food partner',     dde: 'zwei Wagen',            den: 'two trucks' },
-  { id: 'med',   row: 'n', y: 2,  w: 8,  h: 8,  rate: 0,   on: 1, fixed: 1, col: '#dfe4e6',
+  { id: 'med',   row: 'n', y: 2,  w: 8,  h: 8,  rate: 0,   on: 1, fixed: 1, col: '#404a4f',
     de: 'Sanit&auml;tsposten', en: 'Medical post',   dde: 'nicht verk&auml;uflich', den: 'not for sale' },
-  { id: 'chill', row: 's', y: 22, w: 13, h: 10, rate: 150, on: 1, col: '#cfe0d6',
+  { id: 'chill', row: 's', y: 22, w: 13, h: 10, rate: 150, on: 1, col: '#1f5e57',
     de: 'Chill-Deck',        en: 'Chill deck',       dde: 'Sitzfl&auml;che, Marke',  den: 'seating, branded' },
-  { id: 'photo', row: 's', y: 22, w: 7,  h: 6,  rate: 260, on: 1, col: '#f0d9d3',
+  { id: 'photo', row: 's', y: 22, w: 7,  h: 6,  rate: 260, on: 1, col: '#6e2c4f',
     de: 'Fotopunkt',         en: 'Photo point',      dde: 'kleine Fl&auml;che, hoher Preis', den: 'small area, high price' },
-  { id: 'pav',   row: 's', y: 22, w: 13, h: 10, rate: 185, on: 1, col: '#dfe3ce',
+  { id: 'pav',   row: 's', y: 22, w: 13, h: 10, rate: 185, on: 1, col: '#4f2c6e',
     de: 'Hauptpartner',      en: 'Lead partner',     dde: 'Pavillon',              den: 'pavilion' },
-  { id: 'water', row: 's', y: 22, w: 7,  h: 6,  rate: 0, on: 1, fixed: 1, col: '#dfe4e6',
+  { id: 'water', row: 's', y: 22, w: 7,  h: 6,  rate: 0, on: 1, fixed: 1, col: '#404a4f',
     de: 'Wasserstelle',      en: 'Water point',      dde: 'nicht verk&auml;uflich', den: 'not for sale' }
 ];
 
@@ -600,43 +626,43 @@ function renderPlan(r) {
   /* Raster */
   for (var gx = 0; gx <= SITE.w; gx += 5) {
     s.push('<line x1="' + (ox + m(gx)) + '" y1="' + oy + '" x2="' + (ox + m(gx)) + '" y2="' + (oy + D) +
-           '" stroke="#eef1ef" stroke-width="1"/>');
+           '" stroke="#2e2e2e" stroke-width="1"/>');
   }
   for (var gy = 0; gy <= SITE.d; gy += 5) {
     s.push('<line x1="' + ox + '" y1="' + (oy + m(gy)) + '" x2="' + (ox + W) + '" y2="' + (oy + m(gy)) +
-           '" stroke="#eef1ef" stroke-width="1"/>');
+           '" stroke="#2e2e2e" stroke-width="1"/>');
   }
 
   /* Perimeter */
   s.push('<rect x="' + ox + '" y="' + oy + '" width="' + W + '" height="' + D +
-         '" fill="none" stroke="#14181a" stroke-width="1.6"/>');
+         '" fill="none" stroke="#f1f1f1" stroke-width="1.6"/>');
 
   /* Randzone */
   s.push('<rect x="' + (ox + m(RULES.edge)) + '" y="' + (oy + m(RULES.edge)) + '" width="' + m(SITE.w - 2 * RULES.edge) +
-         '" height="' + m(SITE.d - 2 * RULES.edge) + '" fill="none" stroke="#b9c2bd" stroke-width="1" stroke-dasharray="4 3"/>');
+         '" height="' + m(SITE.d - 2 * RULES.edge) + '" fill="none" stroke="#5a5a5a" stroke-width="1" stroke-dasharray="4 3"/>');
 
   /* Hauptweg */
   s.push('<rect x="' + ox + '" y="' + (oy + m(PATH.y)) + '" width="' + W + '" height="' + m(PATH.h) +
-         '" fill="#f0f3f1" stroke="#b9c2bd" stroke-width="1"/>');
+         '" fill="#262626" stroke="#5a5a5a" stroke-width="1"/>');
   for (var hx = 0; hx < SITE.w; hx += 2) {
     s.push('<line x1="' + (ox + m(hx)) + '" y1="' + (oy + m(PATH.y + PATH.h)) + '" x2="' + (ox + m(hx + 2)) +
-           '" y2="' + (oy + m(PATH.y)) + '" stroke="#e0e5e2" stroke-width="1"/>');
+           '" y2="' + (oy + m(PATH.y)) + '" stroke="#3a3a3a" stroke-width="1"/>');
   }
-  s.push('<text x="' + (ox + 8) + '" y="' + (oy + m(PATH.y + PATH.h / 2) + 4) + '" font-size="10" font-weight="700" fill="#6d7873" letter-spacing="1.2">' +
+  s.push('<text x="' + (ox + 8) + '" y="' + (oy + m(PATH.y + PATH.h / 2) + 4) + '" font-size="10" font-weight="700" fill="#a3a3a3" letter-spacing="1.2">' +
          pe(tr('svg-path')) + '</text>');
 
   /* Fl&auml;chen */
   r.act.forEach(function (a) {
     var x = ox + m(a.x), y = oy + m(a.y), w = m(a.w), h = m(a.h);
     s.push('<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="' + a.z.col +
-           '" stroke="' + (a.z.fixed ? '#8d9a94' : '#3f7a52') + '" stroke-width="1.4"' +
+           '" stroke="' + (a.z.fixed ? '#8a8a8a' : '#ff7bbd') + '" stroke-width="1.4"' +
            (a.z.fixed ? ' stroke-dasharray="5 3"' : '') + '/>');
     var wide = w >= 100;
     if (w >= 62) {
       s.push('<text x="' + (x + 6) + '" y="' + (y + 16) + '" font-size="' + (wide ? 11 : 9.5) +
-             '" font-weight="700" fill="#14181a">' + pe(L(a.z)) + '</text>');
+             '" font-weight="700" fill="#f1f1f1">' + pe(L(a.z)) + '</text>');
       s.push('<text x="' + (x + 6) + '" y="' + (y + (wide ? 30 : 28)) + '" font-size="' + (wide ? 9.5 : 8.5) +
-             '" fill="#5d6a64">' + dec(a.w) + ' × ' + dec(a.h) + ' m' +
+             '" fill="#c4c4c4">' + dec(a.w) + ' × ' + dec(a.h) + ' m' +
              (wide ? ' &#183; ' + Math.round(a.area) + ' m²' : '') + '</text>');
     }
   });
@@ -644,7 +670,7 @@ function renderPlan(r) {
   /* Schmalste Stelle markieren */
   if (!r.gap.none && r.gap.v > 0.05) {
     var gx1 = ox + m(r.gap.x), gy1 = oy + m(r.gap.y);
-    var col = r.gap.v < RULES.minGap ? '#b0553d' : (r.gap.v < RULES.minGap + 1 ? '#b8862f' : '#3f7a52');
+    var col = r.gap.v < RULES.minGap ? '#ff6b5e' : (r.gap.v < RULES.minGap + 1 ? '#f0b429' : '#3cbf7a');
     s.push('<line x1="' + gx1 + '" y1="' + gy1 + '" x2="' + (gx1 + m(r.gap.v)) + '" y2="' + gy1 +
            '" stroke="' + col + '" stroke-width="2"/>');
     s.push('<line x1="' + gx1 + '" y1="' + (gy1 - 7) + '" x2="' + gx1 + '" y2="' + (gy1 + 7) + '" stroke="' + col + '" stroke-width="2"/>');
@@ -656,24 +682,24 @@ function renderPlan(r) {
 
   /* Bemassung unten */
   var dy = oy + D + 26;
-  s.push('<line x1="' + ox + '" y1="' + dy + '" x2="' + (ox + W) + '" y2="' + dy + '" stroke="#14181a" stroke-width="1"/>');
-  s.push('<line x1="' + ox + '" y1="' + (dy - 5) + '" x2="' + ox + '" y2="' + (dy + 5) + '" stroke="#14181a" stroke-width="1"/>');
-  s.push('<line x1="' + (ox + W) + '" y1="' + (dy - 5) + '" x2="' + (ox + W) + '" y2="' + (dy + 5) + '" stroke="#14181a" stroke-width="1"/>');
-  s.push('<text x="' + (ox + W / 2) + '" y="' + (dy - 8) + '" font-size="10.5" font-weight="700" fill="#14181a" text-anchor="middle">' +
+  s.push('<line x1="' + ox + '" y1="' + dy + '" x2="' + (ox + W) + '" y2="' + dy + '" stroke="#f1f1f1" stroke-width="1"/>');
+  s.push('<line x1="' + ox + '" y1="' + (dy - 5) + '" x2="' + ox + '" y2="' + (dy + 5) + '" stroke="#f1f1f1" stroke-width="1"/>');
+  s.push('<line x1="' + (ox + W) + '" y1="' + (dy - 5) + '" x2="' + (ox + W) + '" y2="' + (dy + 5) + '" stroke="#f1f1f1" stroke-width="1"/>');
+  s.push('<text x="' + (ox + W / 2) + '" y="' + (dy - 8) + '" font-size="10.5" font-weight="700" fill="#f1f1f1" text-anchor="middle">' +
          dec(SITE.w, 2) + ' m</text>');
 
   /* Bemassung links */
   var dx = ox - 22;
-  s.push('<line x1="' + dx + '" y1="' + oy + '" x2="' + dx + '" y2="' + (oy + D) + '" stroke="#14181a" stroke-width="1"/>');
-  s.push('<line x1="' + (dx - 5) + '" y1="' + oy + '" x2="' + (dx + 5) + '" y2="' + oy + '" stroke="#14181a" stroke-width="1"/>');
-  s.push('<line x1="' + (dx - 5) + '" y1="' + (oy + D) + '" x2="' + (dx + 5) + '" y2="' + (oy + D) + '" stroke="#14181a" stroke-width="1"/>');
-  s.push('<text x="' + (dx - 7) + '" y="' + (oy + D / 2) + '" font-size="10.5" font-weight="700" fill="#14181a" text-anchor="middle" transform="rotate(-90 ' +
+  s.push('<line x1="' + dx + '" y1="' + oy + '" x2="' + dx + '" y2="' + (oy + D) + '" stroke="#f1f1f1" stroke-width="1"/>');
+  s.push('<line x1="' + (dx - 5) + '" y1="' + oy + '" x2="' + (dx + 5) + '" y2="' + oy + '" stroke="#f1f1f1" stroke-width="1"/>');
+  s.push('<line x1="' + (dx - 5) + '" y1="' + (oy + D) + '" x2="' + (dx + 5) + '" y2="' + (oy + D) + '" stroke="#f1f1f1" stroke-width="1"/>');
+  s.push('<text x="' + (dx - 7) + '" y="' + (oy + D / 2) + '" font-size="10.5" font-weight="700" fill="#f1f1f1" text-anchor="middle" transform="rotate(-90 ' +
          (dx - 7) + ' ' + (oy + D / 2) + ')">' + dec(SITE.d, 2) + ' m</text>');
 
   /* Nordpfeil / Anlieferung */
-  s.push('<text x="' + (ox + W) + '" y="' + (oy - 10) + '" font-size="9.5" font-weight="700" fill="#6d7873" text-anchor="end" letter-spacing="1.4">&#8593; ' +
+  s.push('<text x="' + (ox + W) + '" y="' + (oy - 10) + '" font-size="9.5" font-weight="700" fill="#a3a3a3" text-anchor="end" letter-spacing="1.4">&#8593; ' +
          pe(tr('svg-north')) + '</text>');
-  s.push('<text x="' + ox + '" y="' + (oy + D + 48) + '" font-size="9.5" fill="#6d7873" letter-spacing="1.2">' +
+  s.push('<text x="' + ox + '" y="' + (oy + D + 48) + '" font-size="9.5" fill="#a3a3a3" letter-spacing="1.2">' +
          pe(tr('svg-scale')) + '</text>');
 
   s.push('</svg>');

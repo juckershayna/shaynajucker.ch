@@ -6,51 +6,59 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Home Ground &middot; Tour-Rechner &middot; Arbeitsprobe</title>
 <link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@300;400;500;600;700;800&display=swap">
 <style>
   :root {
-    --ink: #0f1113;
-    --ink-2: #3a4046;
-    --soft: #6d757b;
-    --line: #d9dde1;
-    --line-2: #ebeef1;
-    --paper: #f7f7f5;
-    --paper-2: #ffffff;
-    --accent: #1f4fd8;
-    --accent-dk: #163a9f;
-    --tint: #e8edfb;
-    --dark: #0f1113;
-    --ok: #4f7d63;
-    --warn: #b0553d;
+    /* Grundton der Website shaynajucker.ch */
+    --paper: #1e1e1e;
+    --paper-2: #2b2b2b;
+    --dark: #1e1e1e;
+    --ink: #f1f1f1;
+    --ink-2: #cfcfcf;
+    --soft: #a3a3a3;
+    --line: #3a3a3a;
+    --line-2: #333333;
+    --ok: #3cbf7a;
+    --warn: #ff6b5e;
+    --mid: #f0b429;
+    /* adidas-Farbwelt: Schwarz/Weiss, kontrastreich */
+    --accent: #ffffff;
+    --accent-lt: #ffffff;
+    --accent-dk: #e6e6e6;
+    --on-accent: #000000;
+    --tint: rgba(255,255,255,.08);
+    --head: #000000;
+    --font-head: 'Barlow Condensed', 'Arial Narrow', sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: var(--paper); color: var(--ink);
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
     font-size: 16px; line-height: 1.68; -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
   .col { max-width: 780px; }
 
   .sample-bar {
-    background: var(--accent); color: #fff; font-size: 11px; letter-spacing: 2px;
+    background: var(--accent); color: var(--on-accent); font-size: 11px; letter-spacing: 2px;
     text-transform: uppercase; text-align: center; padding: 9px 16px; font-weight: 700;
   }
-  .sample-bar a { color: #fff; text-decoration: underline; }
+  .sample-bar a { color: var(--on-accent); text-decoration: underline; }
 
   .cover { background: var(--dark); color: #f4f2ef; padding: 34px 0 54px; }
   .cover-top { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 54px; }
-  .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #8fb0ff; font-weight: 700; }
-  .lang-switch { display: flex; border: 1px solid #33383c; }
+  .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-lt); font-weight: 700; }
+  .lang-switch { display: flex; border: 1px solid var(--line); }
   .lang-switch button {
     background: none; border: none; color: #8b9298; font: inherit; font-size: 11px;
     font-weight: 700; letter-spacing: 2px; padding: 7px 14px; cursor: pointer;
     transition: background 200ms, color 200ms;
   }
-  .lang-switch button.on { background: var(--accent); color: #fff; }
+  .lang-switch button.on { background: var(--accent); color: var(--on-accent); }
   .cover h1 { font-size: clamp(40px, 8vw, 96px); line-height: .96; font-weight: 800; letter-spacing: -.03em; text-transform: uppercase; margin-bottom: 18px; }
   .cover .claim { font-size: clamp(19px, 2.4vw, 27px); line-height: 1.35; color: #d8d3cc; max-width: 720px; font-weight: 300; }
   .cover .kind { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #8b9298; font-weight: 700; margin-bottom: 20px; }
-  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #26292c; border: 1px solid #26292c; margin-top: 46px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 46px; }
   @media (max-width: 860px) { .facts { grid-template-columns: repeat(2, 1fr); } }
   .facts div { background: var(--dark); padding: 14px 16px; }
   .facts span { display: block; font-size: 9.5px; letter-spacing: 2.4px; text-transform: uppercase; color: #7f868c; font-weight: 700; margin-bottom: 4px; }
@@ -80,7 +88,7 @@
 
   /* ---------- Rechner ---------- */
   .tool { background: var(--paper-2); border: 1px solid var(--line); margin-top: 30px; }
-  .tool-head { background: var(--dark); color: #f4f2ef; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .tool-head { background: var(--head); color: #f4f2ef; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
   .tool-head b { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
   .tool-head span { font-size: 12px; color: #99a0a6; }
   .tool-body { padding: 24px 22px; }
@@ -100,7 +108,7 @@
   .city.on { border-color: var(--accent); background: var(--tint); }
   .city .box { width: 14px; height: 14px; border: 1.5px solid var(--soft); flex: none; position: relative; }
   .city.on .box { border-color: var(--accent); background: var(--accent); }
-  .city.on .box:after { content: ''; position: absolute; left: 3px; top: 1px; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(43deg); }
+  .city.on .box:after { content: ''; position: absolute; left: 3px; top: 1px; width: 4px; height: 8px; border: solid var(--on-accent); border-width: 0 2px 2px 0; transform: rotate(43deg); }
   .city .nm { font-size: 14.5px; font-weight: 600; }
   .city .meta { margin-left: auto; font-size: 11px; color: var(--soft); letter-spacing: .3px; }
 
@@ -111,7 +119,7 @@
     cursor: pointer; color: var(--ink-2); transition: background 160ms, color 160ms;
   }
   .segs button:last-child { border-right: none; }
-  .segs button.on { background: var(--accent); color: #fff; }
+  .segs button.on { background: var(--accent); color: var(--on-accent); }
   .segs button small { display: block; font-weight: 400; font-size: 10.5px; opacity: .75; letter-spacing: .2px; }
 
   .slider-row { margin-bottom: 18px; }
@@ -136,10 +144,10 @@
   .bar-legend i { width: 11px; height: 11px; flex: none; display: block; }
 
   table { width: 100%; border-collapse: collapse; margin-top: 26px; font-size: 14px; }
-  th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; border-bottom: 2px solid var(--ink); padding: 0 10px 8px 0; }
+  th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; border-bottom: 2px solid var(--soft); padding: 0 10px 8px 0; }
   td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--line-2); vertical-align: top; }
   td.num, th.num { text-align: right; padding-right: 0; font-variant-numeric: tabular-nums; }
-  tr.total td { border-bottom: none; border-top: 2px solid var(--ink); font-weight: 800; padding-top: 11px; }
+  tr.total td { border-bottom: none; border-top: 2px solid var(--soft); font-weight: 800; padding-top: 11px; }
   .tbl-wrap { overflow-x: auto; }
 
   .verdict { margin-top: 26px; border: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--paper); padding: 18px 22px; }
@@ -153,7 +161,7 @@
   .tl-row .lbl { font-size: 12.5px; color: var(--ink-2); line-height: 1.3; }
   .tl-track { position: relative; height: 17px; background: var(--line-2); }
   .tl-track i { position: absolute; top: 0; height: 100%; background: var(--accent); display: block; }
-  .tl-track i.soft { background: #b9c6ef; }
+  .tl-track i.soft { background: #6e6e6e; }
   .tl-track i.crit { background: var(--warn); }
   .tl-scale { display: grid; grid-template-columns: 210px 1fr; gap: 14px; margin-top: 10px; min-width: 620px; }
   .tl-scale div { display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--soft); font-weight: 700; }
@@ -164,7 +172,7 @@
   .colophon h2 { color: #f4f2ef; font-size: 22px; font-weight: 800; margin-bottom: 18px; letter-spacing: -.01em; }
   .colophon p { font-size: 14.5px; line-height: 1.7; margin-bottom: 14px; max-width: 780px; }
   .colophon b { color: #f4f2ef; }
-  .backlink { display: inline-block; margin-top: 12px; color: #8fb0ff; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; text-decoration: none; border-bottom: 1px solid #8fb0ff; padding-bottom: 3px; }
+  .backlink { display: inline-block; margin-top: 12px; color: var(--accent-lt); font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--accent-lt); padding-bottom: 3px; }
 
   @media print {
     .sample-bar, .lang-switch, .segs, input[type=range] { display: none !important; }
@@ -180,6 +188,25 @@
   .brandline .co-logo { display: flex; align-items: center; color: #fff; }
   .brandline .co-logo svg, .brandline .co-logo img { height: var(--logo-h, 36px); width: auto; display: block; }
   @media (max-width: 600px) { .brandline .sj { height: 32px; } .brandline .co-logo svg, .brandline .co-logo img { height: calc(var(--logo-h, 36px) * .8); } }
+
+  /* ---------- Firmenlook auf dunklem Grund ---------- */
+  .cover { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .cover::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-60deg, transparent 0 34px, rgba(255,255,255,.05) 34px 58px); pointer-events: none; }
+  .cover > .wrap { position: relative; }
+  .colophon { border-top: 1px solid var(--line); }
+  button { color: var(--ink); }
+  .cover h1, .sec-head h2, .colophon h2, .detail h4 { font-family: var(--font-head); }
+  .tool { border-color: var(--line); }
+  .callout { border-left-color: var(--accent); }
+  .cover h1 { font-weight: 800; letter-spacing: -.005em; line-height: .9; }
+  .sec-head h2, .colophon h2 { font-weight: 700; text-transform: uppercase; letter-spacing: .005em; }
+  .kpis b, .callout p { font-family: var(--font-head); font-weight: 700; letter-spacing: .01em; }
+  .tool-head b { font-family: var(--font-head); font-size: 15px; letter-spacing: 2px; }
+  .segs button, .city, .tool, .verdict, .callout { border-radius: 0; }
+  @media print {
+    body, .cover, .colophon, .tool, .tool-head { background: #fff !important; color: #000 !important; }
+    .cover::before { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -351,7 +378,7 @@
     </div>
     <div class="timeline" id="timeline"></div>
     <div class="col">
-      <p class="note" data-t="s5-note">Rot = kritischer Pfad, Verz&ouml;gerung verschiebt den ganzen Anlass. Hellblau = mit Puffer.</p>
+      <p class="note" data-t="s5-note">Rot = kritischer Pfad, Verz&ouml;gerung verschiebt den ganzen Anlass. Grau = mit Puffer.</p>
     </div>
   </section>
 
@@ -474,7 +501,7 @@ var T = {
     's5-h': 'Zeitachse', 's5-sub': 'Was wann laufen muss, damit der erste Stopp steht',
     's5-p1': 'Der kritische Pfad einer Stadttour ist nicht der Modulbau, sondern die <strong>Platzbewilligung</strong>. St&auml;dtische Fl&auml;chen werden &uuml;ber Gremien vergeben, die alle paar Wochen tagen. Wer dort im April anklopft, spielt im Juli nicht. Deshalb beginnt die Zeitachse mit den Bewilligungen und nicht mit dem Design.',
     's5-p2': 'Die Zeitachse unten passt sich an: Je mehr St&auml;dte gew&auml;hlt sind, desto l&auml;nger dauert die Bespielung und desto fr&uuml;her muss die Vorbereitung starten.',
-    's5-note': 'Rot = kritischer Pfad, Verz&ouml;gerung verschiebt den ganzen Anlass. Hellblau = mit Puffer.',
+    's5-note': 'Rot = kritischer Pfad, Verz&ouml;gerung verschiebt den ganzen Anlass. Grau = mit Puffer.',
     's6-h': 'Was der Rechner nicht kann', 's6-sub': 'Die Grenzen, bevor sie jemand anders findet',
     's6-p1': 'Ein Werkzeug, das man ohne Warnhinweis herumreicht, wird irgendwann als Wahrheit zitiert. Deshalb hier die Grenzen, ausdr&uuml;cklich:',
     's6-l1': 'Er rechnet <strong>Kontakte</strong>, nicht Wirkung. Ob jemand die Marke danach anders sieht, misst man mit einer Befragung, nicht mit einem Schieberegler.',
@@ -569,7 +596,7 @@ var T = {
     's5-h': 'Timeline', 's5-sub': 'What has to run when so the first stop stands',
     's5-p1': 'The critical path of a city tour is not the build, it is the <strong>site permit</strong>. Municipal spaces are allocated by committees that meet every few weeks. Knock in April and you are not playing in July. So the timeline starts with permits, not with design.',
     's5-p2': 'The timeline below adapts: the more cities selected, the longer the run and the earlier preparation has to start.',
-    's5-note': 'Red = critical path, a delay moves the whole project. Light blue = has float.',
+    's5-note': 'Red = critical path, a delay moves the whole project. Grey = has float.',
     's6-h': 'What the calculator cannot do', 's6-sub': 'The limits, before someone else finds them',
     's6-p1': 'A tool passed around without a warning label ends up being quoted as truth. So here are the limits, explicitly:',
     's6-l1': 'It calculates <strong>contacts</strong>, not effect. Whether someone sees the brand differently afterwards is measured with a survey, not with a slider.',
@@ -741,20 +768,20 @@ function renderKpis(r) {
 
 function renderBar(r) {
   var parts = [
-    { k: 'leg-fix',   v: r.fix,          c: '#0f1113' },
-    { k: 'leg-crew',  v: r.sum.crew,     c: '#1f4fd8' },
-    { k: 'leg-place', v: r.sum.place,    c: '#5578e4' },
-    { k: 'leg-local', v: r.sum.local,    c: '#8fa8ef' },
-    { k: 'leg-trans', v: r.sum.transport, c: '#b9c6ef' },
-    { k: 'leg-mat',   v: r.sum.material, c: '#d6def7' },
-    { k: 'leg-res',   v: r.reserve,      c: '#e8edfb' }
+    { k: 'leg-fix',   v: r.fix,          c: '#ffffff' },
+    { k: 'leg-crew',  v: r.sum.crew,     c: '#cfcfcf' },
+    { k: 'leg-place', v: r.sum.place,    c: '#a3a3a3' },
+    { k: 'leg-local', v: r.sum.local,    c: '#7d7d7d' },
+    { k: 'leg-trans', v: r.sum.transport, c: '#5c5c5c' },
+    { k: 'leg-mat',   v: r.sum.material, c: '#454545' },
+    { k: 'leg-res',   v: r.reserve,      c: '#383838' }
   ];
   var tot = r.total || 1, bar = '', leg = '';
   parts.forEach(function (p) {
     var pct = p.v / tot * 100;
     bar += '<i style="width:' + pct + '%;background:' + p.c + '"></i>';
     leg += '<div><i style="background:' + p.c + '"></i>' + tr(p.k) + ' &middot; ' + chf(p.v) +
-           ' <span style="color:#9aa1a7">(' + dec(pct, 0) + '%)</span></div>';
+           ' <span style="color:#a3a3a3">(' + dec(pct, 0) + '%)</span></div>';
   });
   $('bar').innerHTML = bar;
   $('bar-legend').innerHTML = leg;

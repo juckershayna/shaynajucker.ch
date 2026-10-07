@@ -6,52 +6,59 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Vier Uhr &middot; Kundenerlebnis &amp; Choreografie &middot; Arbeitsprobe</title>
 <link rel="icon" href="assets/images/cropped-Bildschirmfoto-2023-03-02-um-16.43.00-32x32.png" sizes="32x32">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700;9..40,800&display=swap">
 <style>
   :root {
-    --ink: #14100e;
-    --ink-2: #3f3733;
-    --soft: #756b66;
-    --line: #ded7d2;
-    --line-2: #eeeae7;
-    --paper: #f7f5f3;
-    --paper-2: #ffffff;
-    --accent: #e0561c;
-    --accent-dk: #ab3d10;
-    --tint: #fceadf;
-    --dark: #14100e;
-    --ok: #3f7d5f;
-    --warn: #b0553d;
-    --mid: #b8862f;
+    /* Grundton der Website shaynajucker.ch */
+    --paper: #1e1e1e;
+    --paper-2: #2b2b2b;
+    --dark: #1e1e1e;
+    --ink: #f1f1f1;
+    --ink-2: #cfcfcf;
+    --soft: #a3a3a3;
+    --line: #3a3a3a;
+    --line-2: #333333;
+    --ok: #3cbf7a;
+    --warn: #ff6b5e;
+    --mid: #f0b429;
+    /* Sunrise-Farbwelt: Sunrise-Rot */
+    --accent: #da291c;
+    --accent-lt: #ff6a5c;
+    --accent-dk: #ff7a6e;
+    --on-accent: #ffffff;
+    --tint: rgba(218,41,28,.14);
+    --head: #da291c;
+    --font-head: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: var(--paper); color: var(--ink);
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size: 16px; line-height: 1.68; -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
   .col { max-width: 780px; }
 
   .sample-bar {
-    background: var(--accent); color: #fff; font-size: 11px; letter-spacing: 2px;
+    background: var(--accent); color: var(--on-accent); font-size: 11px; letter-spacing: 2px;
     text-transform: uppercase; text-align: center; padding: 9px 16px; font-weight: 700;
   }
-  .sample-bar a { color: #fff; text-decoration: underline; }
+  .sample-bar a { color: var(--on-accent); text-decoration: underline; }
 
   .cover { background: var(--dark); color: #f4f1ef; padding: 34px 0 54px; }
   .cover-top { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 54px; }
-  .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #f0855a; font-weight: 700; }
-  .lang-switch { display: flex; border: 1px solid #362e2a; }
+  .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-lt); font-weight: 700; }
+  .lang-switch { display: flex; border: 1px solid var(--line); }
   .lang-switch button {
     background: none; border: none; color: #938882; font: inherit; font-size: 11px;
     font-weight: 700; letter-spacing: 2px; padding: 7px 14px; cursor: pointer;
     transition: background 200ms, color 200ms;
   }
-  .lang-switch button.on { background: var(--accent); color: #fff; }
+  .lang-switch button.on { background: var(--accent); color: var(--on-accent); }
   .cover h1 { font-size: clamp(40px, 8vw, 92px); line-height: .96; font-weight: 800; letter-spacing: -.03em; text-transform: uppercase; margin-bottom: 18px; }
   .cover .claim { font-size: clamp(19px, 2.4vw, 27px); line-height: 1.35; color: #d6d1ce; max-width: 720px; font-weight: 300; }
   .cover .kind { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #938882; font-weight: 700; margin-bottom: 20px; }
-  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #2a2320; border: 1px solid #2a2320; margin-top: 46px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 46px; }
   @media (max-width: 860px) { .facts { grid-template-columns: repeat(2, 1fr); } }
   .facts div { background: var(--dark); padding: 14px 16px; }
   .facts span { display: block; font-size: 9.5px; letter-spacing: 2.4px; text-transform: uppercase; color: #8a807a; font-weight: 700; margin-bottom: 4px; }
@@ -81,7 +88,7 @@
 
   /* ---------- Werkzeug ---------- */
   .tool { background: var(--paper-2); border: 1px solid var(--line); margin-top: 30px; }
-  .tool-head { background: var(--dark); color: #f4f1ef; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .tool-head { background: var(--head); color: #f4f1ef; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
   .tool-head b { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
   .tool-head span { font-size: 12px; color: #a29892; }
   .tool-body { padding: 24px 22px; }
@@ -102,8 +109,8 @@
   .chip:last-child { margin-bottom: 0; }
   .chip i { display: block; font-style: normal; font-size: 9px; letter-spacing: 1.6px; font-weight: 800; color: var(--soft); margin-bottom: 2px; }
   .chip:hover { border-color: var(--accent); color: var(--ink); }
-  .chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .chip.on i { color: rgba(255,255,255,.75); }
+  .chip.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .chip.on i { color: var(--on-accent); opacity: .75; }
   .chip.void { border-style: dashed; }
 
   .detail { border: 1px solid var(--line); border-top: 3px solid var(--accent); background: var(--paper); margin-top: 22px; padding: 22px 24px; }
@@ -148,10 +155,10 @@
   .verdict b { display: block; font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase; color: var(--accent-dk); margin-bottom: 7px; }
   .verdict p { font-size: 15.5px; line-height: 1.6; margin: 0; }
   .verdict.warn { border-left-color: var(--warn); } .verdict.warn b { color: var(--warn); }
-  .verdict.mid { border-left-color: var(--mid); } .verdict.mid b { color: #8a651f; }
+  .verdict.mid { border-left-color: var(--mid); } .verdict.mid b { color: var(--mid); }
 
   table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 14px; }
-  th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; border-bottom: 2px solid var(--ink); padding: 0 10px 8px 0; }
+  th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); font-weight: 700; border-bottom: 2px solid var(--soft); padding: 0 10px 8px 0; }
   td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--line-2); vertical-align: top; }
   td.num, th.num { text-align: right; padding-right: 0; font-variant-numeric: tabular-nums; }
   .tbl-wrap { overflow-x: auto; }
@@ -162,7 +169,7 @@
   .colophon h2 { color: #f4f1ef; font-size: 22px; font-weight: 800; margin-bottom: 18px; letter-spacing: -.01em; }
   .colophon p { font-size: 14.5px; line-height: 1.7; margin-bottom: 14px; max-width: 780px; }
   .colophon b { color: #f4f1ef; }
-  .backlink { display: inline-block; margin-top: 12px; color: #f0855a; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; text-decoration: none; border-bottom: 1px solid #f0855a; padding-bottom: 3px; }
+  .backlink { display: inline-block; margin-top: 12px; color: var(--accent-lt); font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--accent-lt); padding-bottom: 3px; }
 
   @media print {
     .sample-bar, .lang-switch, input[type=range], .phases { display: none !important; }
@@ -179,6 +186,25 @@
   .brandline .co-logo { display: flex; align-items: center; color: #fff; }
   .brandline .co-logo svg, .brandline .co-logo img { height: var(--logo-h, 36px); width: auto; display: block; }
   @media (max-width: 600px) { .brandline .sj { height: 32px; } .brandline .co-logo svg, .brandline .co-logo img { height: calc(var(--logo-h, 36px) * .8); } }
+
+  /* ---------- Firmenlook auf dunklem Grund ---------- */
+  .cover { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .cover::before { content: ''; position: absolute; inset: 0; background: radial-gradient(70% 120% at 85% 130%, rgba(218,41,28,.45), transparent 62%); pointer-events: none; }
+  .cover > .wrap { position: relative; }
+  .colophon { border-top: 1px solid var(--line); }
+  button { color: var(--ink); }
+  .cover h1, .sec-head h2, .colophon h2, .detail h4 { font-family: var(--font-head); }
+  .tool { border-color: var(--line); }
+  .callout { border-left-color: var(--accent); }
+  .cover h1 { font-weight: 800; text-transform: none; letter-spacing: -.04em; }
+  .sec-head h2, .colophon h2 { font-weight: 800; letter-spacing: -.03em; }
+  .tool-head span { color: #ffd9d5; }
+  .chip, .tool, .verdict, .detail, .callout, .segs { border-radius: 8px; }
+  .chip.on, .chip:hover { border-radius: 8px; }
+  @media print {
+    body, .cover, .colophon, .tool, .tool-head { background: #fff !important; color: #000 !important; }
+    .cover::before { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -846,13 +872,13 @@ function renderKey() {
   var r = computeKey();
 
   $('bar').innerHTML =
-    '<i style="width:' + r.loyal + '%;background:#14100e"></i>' +
-    '<i style="width:' + r.draw + '%;background:#e0561c"></i>' +
-    '<i style="width:' + r.biz + '%;background:#c9bfb8"></i>';
+    '<i style="width:' + r.loyal + '%;background:#f1f1f1"></i>' +
+    '<i style="width:' + r.draw + '%;background:#da291c"></i>' +
+    '<i style="width:' + r.biz + '%;background:#6b6b6b"></i>';
   $('bar-legend').innerHTML =
-    '<div><i style="background:#14100e"></i>' + tr('leg-loyal') + ' &middot; ' + r.loyal + '%</div>' +
-    '<div><i style="background:#e0561c"></i>' + tr('leg-draw') + ' &middot; ' + r.draw + '%</div>' +
-    '<div><i style="background:#c9bfb8"></i>' + tr('leg-biz') + ' &middot; ' + r.biz + '%</div>';
+    '<div><i style="background:#f1f1f1"></i>' + tr('leg-loyal') + ' &middot; ' + r.loyal + '%</div>' +
+    '<div><i style="background:#da291c"></i>' + tr('leg-draw') + ' &middot; ' + r.draw + '%</div>' +
+    '<div><i style="background:#6b6b6b"></i>' + tr('leg-biz') + ' &middot; ' + r.biz + '%</div>';
 
   $('kpis').innerHTML =
     '<div><span>' + tr('k-guests') + '</span><b>' + chf(r.guests) + '</b><em>' + tr('k-guests-e') + '</em></div>' +
