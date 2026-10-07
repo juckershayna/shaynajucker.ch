@@ -1963,7 +1963,7 @@ ul, ol {
   flex-wrap: wrap;
   gap: 12px 14px;
   justify-content: center;
-  padding: 30px 0 10px;
+  padding: 30px 0 0;
   max-width: 960px;
   margin: 0 auto;
 }
@@ -2370,6 +2370,12 @@ ul, ol {
 /* === CASE STUDY PAGE === */
 .case-study {
   margin-bottom: 240px;
+}
+
+/* Letztes Element einer Sektion ohne Zusatzabstand: der Abstand zur naechsten
+   Sektion kommt ueberall nur aus dem Sektions-Padding und ist damit gleich. */
+.experience-section > .container > :last-child {
+  margin-bottom: 0;
 }
 
 .case-study--has-media {
