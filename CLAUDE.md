@@ -23,7 +23,7 @@
 
 ## Zielprofil (Stand Oktober 2026)
 
-- Keine Agentur (auch keine Event-, Werbe-, PR- oder Sponsoring-Agentur). Nur Stellen direkt beim Unternehmen, Festival, Kulturhaus, Label oder Medienhaus.
+- Keine Agentur (auch keine Event-, Werbe-, PR- oder Sponsoring-Agentur). Nur Stellen direkt beim Unternehmen, Festival, Kulturhaus, Label oder Medienhaus. Ausnahme: Just Live bleibt im Plan (Shaynas Wunsch).
 - Kein Content erstellen. Gesucht: Partner- bzw. Kundenberatung mit Verantwortung, gerne Senior- oder Teamleitungs-Rolle; Marke vertreten, präsentieren, verhandeln.
 - Am liebsten Musik, Film, Kultur oder Medien (z. B. Zurich Film Festival), sonst Sponsoring/Partnerships auf Unternehmensseite.
 - Höchstens 2–4 Wochenenden pro Jahr, verteilt.
