@@ -19,3 +19,11 @@
 - Der Plan hat im Hauptmenü direkt «Jobs bereit» (Bewerbungsseite fertig, noch nicht beworben) und «In Bearbeitung» (Seite fehlt noch), ohne Unterteilung nach Wochen.
 - Screenshots: Der Plan hat keinen Upload-Bereich mehr. Shayna schickt Screenshots im Chat an Claude; Claude legt daraus Einträge in `funde` an (`decision: 'ja'`, bei verschickter Bewerbung `status: 'beworben'`, `sent: true`, `sentAt`). Ältere offene Einträge in der Sammlung `uploads` (`state: 'offen'`, Asset unter `/_blob/<id>`) genauso abarbeiten und `state` auf `'erledigt'` setzen.
 - Seite gelöscht: das Dokument in `seiten` löschen. Firma soll ganz aus dem Plan: auch den Eintrag im Artifact entfernen (Artifact lesen, ändern, neu veröffentlichen).
+
+## Zielprofil (Stand Oktober 2026)
+
+- Keine Agentur (auch keine Event-, Werbe-, PR- oder Sponsoring-Agentur). Nur Stellen direkt beim Unternehmen, Festival, Kulturhaus, Label oder Medienhaus.
+- Kein Content erstellen. Gesucht: Partner- bzw. Kundenberatung mit Verantwortung, gerne Senior- oder Teamleitungs-Rolle; Marke vertreten, präsentieren, verhandeln.
+- Am liebsten Musik, Film, Kultur oder Medien (z. B. Zurich Film Festival), sonst Sponsoring/Partnerships auf Unternehmensseite.
+- Höchstens 2–4 Wochenenden pro Jahr, verteilt.
+- Passender Titel: (Senior) Partnership Manager, Brand Partnerships Manager, Sponsoring Manager.
